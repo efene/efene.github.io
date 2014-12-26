@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Language Reference &mdash; Efene Programming Language 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Quick Start" href="quickstart.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Efene Programming Language</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Language Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#boolean">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numbers">Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maps">Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atoms">Atoms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#process-id-pid">Process Id (Pid)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tagged-data">Tagged Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#records">Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binary">Binary</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Efene Programming Language</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Language Reference</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/language-reference.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="language-reference">
+<h1>Language Reference<a class="headerlink" href="#language-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="boolean">
+<h2>Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_data_type">Boolean Data Type in Wikipedia</a></p>
+<p>This is the simplest data type, it can take two values:</p>
+<ul class="simple">
+<li>true</li>
+<li>false</li>
+</ul>
+<p>Efene has another data type that allows far more flexibility to signal &#8220;states&#8221;
+in your program called atoms, they are covered bellow.</p>
+</div>
+<div class="section" id="numbers">
+<h2>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="integers">
+<h3>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">Integer Data Type in Wikipedia</a></p>
+<p>This data type represents an integer number, it has only one syntax, the one
+you are used to, the following are examples of integers:</p>
+<ul class="simple">
+<li>0</li>
+<li>1</li>
+<li>42</li>
+<li>9002</li>
+</ul>
+<p>Efene doesn&#8217;t have notation for hexadecimal, binary or other bases, they can
+be added using tagged data which is covered below.</p>
+</div>
+<div class="section" id="floats">
+<h3>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Floating_point">Float Data Type in Wikipedia</a></p>
+<p>This data type represents a decimal number, it has only one syntax, the one
+you are used to, the following are examples of floats:</p>
+<ul class="simple">
+<li>0.0</li>
+<li>1.2</li>
+<li>42.3</li>
+<li>9002.2009</li>
+</ul>
+<p>Efene doesn&#8217;t have notation for scientific notation, they may be added in the
+future, for now it can be added using tagged data which is covered below.</p>
+</div>
+</div>
+<div class="section" id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/String_%28computer_science%29">String Data Type in Wikipedia</a></p>
+<p>There are two ways of representing text (strings) in erlang they have different
+pros and cons, we won&#8217;t cover them here.</p>
+<div class="section" id="list-strings">
+<h3>List Strings<a class="headerlink" href="#list-strings" title="Permalink to this headline">¶</a></h3>
+<p>A List String is simply a list of characters represented as numbers, it&#8217;s
+actually not a data type on itself &#8220;hello&#8221; is shorthand for the list [104,101,108,108,111].</p>
+<p>List Strings are enclosed in double quotes (&#8221;), examples of List Strings:</p>
+<ul class="simple">
+<li>&#8220;&#8221;</li>
+<li>&#8220;a&#8221;</li>
+<li>&#8220;hi there&#8221;</li>
+<li>&#8220;this &#8220;is&#8221; also a string&#8221;</li>
+</ul>
+</div>
+<div class="section" id="binary-strings">
+<h3>Binary Strings<a class="headerlink" href="#binary-strings" title="Permalink to this headline">¶</a></h3>
+<p>A Binary String is a binary representation of text, Binary Strings are enclosed
+in single quotes (&#8216;), examples of Binary Strings:</p>
+<ul class="simple">
+<li>&#8216;&#8217;</li>
+<li>&#8216;a&#8217;</li>
+<li>&#8216;hi there&#8217;</li>
+<li>&#8216;this &#8216;is&#8217; also a string&#8217;</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Erlang atom syntax with single quotes is supported in efene with tagged
+data, see below.</p>
+</div>
+</div>
+</div>
+<div class="section" id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/List_%28abstract_data_type%29">List Data Type in Wikipedia</a></p>
+<p>A List is a variable sequence of elements, it&#8217;s represented by a comma separated sequence
+of other data types (including nested lists) enclosed in opening and closing
+square brackets ([ and  ]), examples of lists:</p>
+<ul class="simple">
+<li>[]</li>
+<li>[1]</li>
+<li>[1, 2]</li>
+<li>[[[]]]</li>
+</ul>
+<p>the last element of a list can have a trailing comma:</p>
+<ul class="simple">
+<li>[1,]</li>
+<li>[1, 2,]</li>
+</ul>
+</div>
+<div class="section" id="maps">
+<h2>Maps<a class="headerlink" href="#maps" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Associative_array">Map Data Type in Wikipedia</a></p>
+<p>A Map is a sequence of elements associating keys to values, it&#8217;s represented by a comma separated sequence of association pairs enclosed in opening and closing
+curly brackets ({ and }), examples ofmaps</p>
+<ul class="simple">
+<li>{}</li>
+<li>{one: 1}</li>
+<li>{one: 1, 1: one}</li>
+</ul>
+<p>the last element of a map can have a trailing comma:</p>
+<ul class="simple">
+<li>{one: 1,}</li>
+<li>{one: 1, 1: one,}</li>
+</ul>
+</div>
+<div class="section" id="tuples">
+<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
+<p>A Tuple is a fixed sequence of elements, it&#8217;s represented by a comma separated sequence
+of other data types (including nested tuples) enclosed in opening and closing
+square brackets ([ and  ]), examples of tuples:</p>
+<ul class="simple">
+<li>{}</li>
+<li>{1}</li>
+<li>{1, 2}</li>
+<li>{{{}}}</li>
+</ul>
+<p>the last element of a list can have a trailing comma:</p>
+<ul class="simple">
+<li>{1,}</li>
+<li>{1, 2,}</li>
+</ul>
+</div>
+<div class="section" id="atoms">
+<h2>Atoms<a class="headerlink" href="#atoms" title="Permalink to this headline">¶</a></h2>
+<p>An atom is a literal, a constant with name, examples of atoms:</p>
+<ul class="simple">
+<li>ok</li>
+<li>error</li>
+<li>hi_there</li>
+</ul>
+</div>
+<div class="section" id="process-id-pid">
+<h2>Process Id (Pid)<a class="headerlink" href="#process-id-pid" title="Permalink to this headline">¶</a></h2>
+<p>A process identifier, pid, identifies a process.</p>
+<p>spawn/1,2,3,4, spawn_link/1,2,3,4 and spawn_opt/4,
+which are used to create processes, return values of this type.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>A reference is a term which is unique in an Erlang runtime system, created by
+calling make_ref/0.</p>
+</div>
+<div class="section" id="function">
+<h2>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tagged-data">
+<h2>Tagged Data<a class="headerlink" href="#tagged-data" title="Permalink to this headline">¶</a></h2>
+<p>Ta</p>
+</div>
+<div class="section" id="records">
+<h2>Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="binary">
+<h2>Binary<a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral" title="Quick Start"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Mariano Guerra.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+Quick Start
+===========
+
+We will use `rebar3 <http://www.rebar3.org/>`_ to make our lifes easier.
+
+first we need to install the efene app template to use it later, this only
+needs to be done once::
+
+    mkdir -p ~/.rebar3/templates
+    git clone https://github.com/efene/rebar3_efene_app_template.git ~/.rebar3/templates/fn_app
+
+now let's create a project called myfnapp by creating the directory::
+
+    mkdir myfnapp
+
+then we download the latest version of rebar3 inside our app folder and make it
+executable::
+
+    cd myfnapp
+    wget https://s3.amazonaws.com/rebar3/rebar3
+    chmod u+x rebar3
+
+and we create a new app called myfnapp using the fn_app template::
+
+    ./rebar3 new fn_app name=myfnapp
+
+now we can compile our app::
+
+    ./rebar3 efene compile
+
+and try it in the erlang shell (sorry, no stable efene shell yet)::
+
+    ./rebar3 shell
+
+and try it::
+
+    1> myfnapp:hello("mariano").
+    Hello mariano!ok
+
+that's it, now you can make changes, run *./rebar3 efene compile* again and
+keep going.

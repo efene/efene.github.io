@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Efene Programming Language’s documentation! &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Quick Start &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -28,8 +28,9 @@
   
 
   
-    <link rel="top" title="Efene Programming Language 1.0 documentation" href="#"/>
-        <link rel="next" title="Quick Start" href="quickstart.html"/> 
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Language Reference" href="language-reference.html"/>
+        <link rel="prev" title="Welcome to Efene Programming Language’s documentation!" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -43,7 +44,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> Efene Programming Language</a>
+        <a href="index.html" class="fa fa-home"> Efene Programming Language</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,8 +57,8 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#boolean">Boolean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#numbers">Numbers</a></li>
@@ -86,7 +87,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Efene Programming Language</a>
+        <a href="index.html">Efene Programming Language</a>
       </nav>
 
 
@@ -95,12 +96,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Welcome to Efene Programming Language&#8217;s documentation!</li>
+    <li>Quick Start</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/quickstart.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -108,38 +109,45 @@
 </div>
           <div role="main">
             
-  <div class="section" id="welcome-to-efene-programming-language-s-documentation">
-<h1>Welcome to Efene Programming Language&#8217;s documentation!<a class="headerlink" href="#welcome-to-efene-programming-language-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#boolean">Boolean</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#numbers">Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#strings">Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#lists">Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#maps">Maps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#tuples">Tuples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#atoms">Atoms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#process-id-pid">Process Id (Pid)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#reference">Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#function">Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#tagged-data">Tagged Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#records">Records</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#binary">Binary</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>We will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a> to make our lifes easier.</p>
+<p>first we need to install the efene app template to use it later, this only
+needs to be done once:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.rebar3/templates
+git clone https://github.com/efene/rebar3_efene_app_template.git ~/.rebar3/templates/fn_app
+</pre></div>
 </div>
+<p>now let&#8217;s create a project called myfnapp by creating the directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir myfnapp
+</pre></div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
+<p>then we download the latest version of rebar3 inside our app folder and make it
+executable:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd myfnapp
+wget https://s3.amazonaws.com/rebar3/rebar3
+chmod u+x rebar3
+</pre></div>
+</div>
+<p>and we create a new app called myfnapp using the fn_app template:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 new fn_app name=myfnapp
+</pre></div>
+</div>
+<p>now we can compile our app:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene compile
+</pre></div>
+</div>
+<p>and try it in the erlang shell (sorry, no stable efene shell yet):</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
+</pre></div>
+</div>
+<p>and try it:</p>
+<div class="highlight-python"><div class="highlight"><pre>1&gt; myfnapp:hello(&quot;mariano&quot;).
+Hello mariano!ok
+</pre></div>
+</div>
+<p>that&#8217;s it, now you can make changes, run <em>./rebar3 efene compile</em> again and
+keep going.</p>
 </div>
 
 
@@ -148,8 +156,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="language-reference.html" class="btn btn-neutral float-right" title="Language Reference"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Efene Programming Language’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
