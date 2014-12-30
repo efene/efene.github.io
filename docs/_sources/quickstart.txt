@@ -37,5 +37,12 @@ and try it::
     1> myfnapp:hello("mariano").
     Hello mariano!ok
 
+but given that we are good software citizens we test our code with unit tests,
+that's why we want to run some unit tests to be sure that this works::
+
+    ./rebar3 efene ct
+
+this will compile the tests and run the tests for you.
+
 that's it, now you can make changes, run *./rebar3 efene compile* again and
 keep going.
