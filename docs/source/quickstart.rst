@@ -6,8 +6,8 @@ We will use `rebar3 <http://www.rebar3.org/>`_ to make our lifes easier.
 first we need to install the efene app template to use it later, this only
 needs to be done once::
 
-    mkdir -p ~/.rebar3/templates
-    git clone https://github.com/efene/rebar3_efene_app_template.git ~/.rebar3/templates/fn_app
+    mkdir -p ~/.config/rebar3/templates
+    git clone https://github.com/efene/rebar3_efene_app_template.git ~/.config/rebar3/templates/fn_app
 
 now let's create a project called myfnapp by creating the directory::
 
