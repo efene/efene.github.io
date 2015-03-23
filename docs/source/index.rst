@@ -13,8 +13,7 @@ Contents:
 
    quickstart
    language-reference
-
-
+   tradeoffs
 
 Indices and tables
 ==================
