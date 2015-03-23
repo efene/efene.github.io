@@ -324,3 +324,392 @@ On a field you can specify the variable to match to, the size, type, sign, endia
 
 For a detailes explanation of what each of those values do please refer to
 `erlang's bit syntax docs <http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax>`_.
+
+Hardcode Language Reference
+---------------------------
+
+Global Attributes
+.................
+
+Export
+::::::
+
+::
+
+    @export(hello/0, plus/2)
+
+Export Type
+:::::::::::
+
+::
+
+    @export_type(tint/0, c2/1)
+
+Literal Type
+::::::::::::
+
+::
+
+    @type(tint) -> 42
+    @type(tatom) -> asd
+    @type(tbool) -> false
+    @type(lempty) -> []
+
+List Type
+:::::::::
+
+::
+
+    @type(lone) -> [42]
+    @type(l3) -> [tatom()]
+
+Range Type
+::::::::::
+
+::
+
+    @type(trange) -> range(1, 10)
+
+Union Type
+::::::::::
+
+::
+
+    @type(tres) -> (ok, integer()) or (error, term()) or (stop, normal)
+
+Binary Type
+:::::::::::
+
+::
+
+    @type(bsempty) -> binary(0, 0)
+    @type(bsone) -> binary(4, 0)
+    @type(bsonemul) -> binary(0, 5)
+    @type(bstwo) -> binary(4, 5)
+
+
+Parameterized Type
+::::::::::::::::::
+
+::
+
+    @type(p1(X)) -> (ok, X, X)
+    @type(p2(X, Y)) -> (ok, X, Y)
+
+Function Type
+:::::::::::::
+
+::
+
+    @type(f1) -> fun()
+    @type(f2) -> fun(any, integer())
+    @type(f3) -> fun([boolean(), term()], integer())
+    @type(f4) -> fun([], integer())
+
+Opaque Type and Record Type
+:::::::::::::::::::::::::::
+
+::
+
+    @opaque(tperson) -> #r person
+
+Record Definition
+:::::::::::::::::
+
+::
+
+    @record(foo) -> (a, b = 12, c = true, d = 12)
+
+Record Definition with Types
+::::::::::::::::::::::::::::
+
+::
+
+    @record(person) -> (first = "" is string(), last is list(char()), age is integer())
+
+Function with else case
+:::::::::::::::::::::::
+
+::
+
+    fn plus
+        case A, B:
+            A + B
+        else:
+            42
+    end
+
+String Likes
+::::::::::::
+
+::
+
+    A = 'I\'m a binary string'
+    B = "I'm a regular string"
+    C = #atom "I'm an atom"
+    C1 = `I am an atom too`
+    D = #c "C"
+
+Function Calls
+::::::::::::::
+
+::
+
+    C1 = a()
+    C2 = A()
+    C3 = a.b()
+    C4 = a.B()
+    C5 = A.b()
+    C6 = A.B()
+
+Function References
+:::::::::::::::::::
+
+::
+
+    CR1 = fn a:0
+    CR3 = fn a.b:2
+    CR4 = fn a.B:3
+    CR5 = fn A.b:4
+    CR6 = fn A.B:5
+
+Anonymous Functions
+:::::::::::::::::::
+
+::
+
+    F = fn case 1: one end
+
+    F1 = fn
+        case 1: one
+        case _: other
+    end
+
+    F2 = fn
+        case 1: one
+        else: other
+    end
+
+    Plus = fn
+        case A, B: A + B
+        else: 42
+    end
+
+
+Named Anonymous Functions
+:::::::::::::::::::::::::
+
+::
+
+    F3 = fn Fact
+        case 0: 1
+        case N: N * Fact(N - 1)
+    end
+
+Record Syntax
+:::::::::::::
+
+::
+
+    #r.sponge.name Bob
+    #r.sponge name
+
+Compile Time Information
+::::::::::::::::::::::::
+
+::
+
+    Line = #i line
+    Module = #i module
+
+Tuples
+::::::
+
+::
+
+    Empty = ()
+    One = (1,)
+    One1 = (4 - 1,)
+    OneExpr = (1)
+    OneExpr1 = (4 - 1)
+    Two = (1, 2)
+
+Function Calls
+::::::::::::::
+
+::
+
+    CallEmpty = hello()
+    CallOne = hello(1)
+    CallTwo = hello(1, 2)
+
+Tagged Expressions
+::::::::::::::::::
+
+::
+
+    ^_ "this is kind of a comment?"
+    ^_ match A:
+        case 1: one
+        case 2: two
+        else: dontknow
+    end
+
+    A = ^b [{}, {val: A}, {size: 8}, {type: float}, {sign: unsigned}, {endianness: big},
+        {unit: 8},
+        {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+
+    for A in range(10); A < 10; A <- foo(10): A + 1 end
+    ^b for A in range(10); A < 10; A <- foo(10): A + 1 end
+
+When
+::::
+
+::
+
+    when 7, 6; 5; 4, 3; 2, 1:
+        hi
+    end
+
+    when 8, 7, 6; 4, 3; 2; 1:
+        hi1
+    else 8, 7, 6; 4, 3; 2:
+        hi2
+    else 8, 7, 6; 4, 3:
+        hi3
+    else 8, 7, 6:
+        hi4
+    else 8, 7:
+        hi5
+    else 8:
+        hi6
+    else:
+        hi7
+    end
+
+    when 8, 7, 6,; 4, 3,; 2,; 1,:
+        hi1
+    else 8, 7, 6,; 4, 3,; 2,:
+        hi2
+    else 8, 7, 6,; 4, 3,:
+        hi3
+    else 8, 7, 6,:
+        hi4
+    else 8, 7,:
+        hi5
+    else 8,:
+        hi6
+    else:
+        hi7
+    end
+
+
+For (List Comprehensions)
+:::::::::::::::::::::::::
+
+::
+
+    for A in range(10); A < 10:
+        A + 1
+    end
+
+    for A in range(10); A < 10:
+        B = A * 2
+        B + 1
+    end
+
+    for A in B;
+        A < 10:
+
+        A + 2
+    end
+
+Match
+:::::
+
+::
+
+    match A:
+        case A=42, a:
+            ok
+    end
+
+Sequence Types
+::::::::::::::
+
+::
+
+    A = (a, 1, true)
+    D = {a: 1, b: 2}
+    ED = {}
+    ET = ()
+    {a := A, b := B} = D
+
+Receive
+:::::::
+
+::
+
+    receive
+        case: nomatch
+        case A: A
+        case error, Reason: Reason
+        case A, B: (A, B)
+        else: thisistheelse
+    end
+
+Expressions
+:::::::::::
+
+::
+
+    A = 1 * 2 + 3
+    B = 1 * (2 + 3)
+    C = 3 - 5 - 7
+    C = (3 - 5) - 7
+    D = 3 - (5 - 7)
+    E = 1 < 2 and 2 >= 3 or 4 + 5
+
+Function Attributes
+:::::::::::::::::::
+
+::
+
+    fn hello
+        @public
+        @http.get("/foo/:num") -> json
+        @doc("some hello world function")
+        @accept -> json
+        @produces(json, xml, edn)
+        @spec(integer(), ok) -> (ok, term()) or notfound
+
+        case A, B: A + B
+    end
+
+String Escaping
+:::::::::::::::
+
+::
+
+    A = "a \"hi\" \\\" \\' 'there'"
+    B = 'a "hi" \\" \\\' \'there\''
+
+
+Try Catch
+:::::::::
+
+::
+
+        try
+            F(2)
+        catch
+            case Throw: Throw
+            case throw, T1: T1
+            case error, E1: E1
+            case exit, X1: X1
+            case A, C: C
+            else: iselse
+        after
+            43
+        end
+
