@@ -63,6 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#numbers">Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cons-lists">Cons Lists</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#maps">Maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tuples">Tuples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#atoms">Atoms</a></li>
@@ -205,6 +206,24 @@ square brackets ([ and  ]), examples of lists:</p>
 <li>[1, 2,]</li>
 </ul>
 </div>
+<div class="section" id="cons-lists">
+<h2>Cons Lists<a class="headerlink" href="#cons-lists" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Cons">Cons List Type in Wikipedia</a></p>
+<p>You can create a list like [1,2,3] with an alternative syntax:</p>
+<ul class="simple">
+<li>[1 :: [2 :: [3]]]</li>
+</ul>
+<p>It&#8217;s useful to extract the head and keep the tail:</p>
+<ul class="simple">
+<li>[H :: T] = [1,2,3]</li>
+</ul>
+<p>Now <em>H</em> is 1, and <em>T</em> is [2, 3]</p>
+<p>You can do the reverse and create a new list by &#8220;consing&#8221; a new head to an existing list:</p>
+<ul class="simple">
+<li>L = [1 :: [2, 3]]</li>
+</ul>
+<p>Now <em>L</em> is [1,2,3]</p>
+</div>
 <div class="section" id="maps">
 <h2>Maps<a class="headerlink" href="#maps" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Associative_array">Map Data Type in Wikipedia</a></p>
@@ -215,10 +234,15 @@ curly brackets ({ and }), examples ofmaps</p>
 <li>{one: 1}</li>
 <li>{one: 1, 1: one}</li>
 </ul>
-<p>the last element of a map can have a trailing comma:</p>
+<p>The last element of a map can have a trailing comma:</p>
 <ul class="simple">
 <li>{one: 1,}</li>
 <li>{one: 1, 1: one,}</li>
+</ul>
+<p>You can extract fields from a map by using pattern match replacing : for =</p>
+<ul class="simple">
+<li>M = {one: 1, two: 2}</li>
+<li>{one = One, two = Two} = M</li>
 </ul>
 </div>
 <div class="section" id="tuples">
@@ -246,6 +270,14 @@ item tuples to distinguish from an expression in parenthesis:</p>
 <li>ok</li>
 <li>error</li>
 <li>hi_there</li>
+</ul>
+<p>If you want to have spaces or symbols in an atom you can wrap it in &#8220;`&#8221;:</p>
+<ul class="simple">
+<li>`hello world!`</li>
+</ul>
+<p>or use a tagged string:</p>
+<ul class="simple">
+<li>#atom &#8220;hello world!&#8221;</li>
 </ul>
 </div>
 <div class="section" id="process-id-pid">
@@ -374,12 +406,9 @@ parenthesis are the record fields, you can provide default values for fields.</p
 </pre></div>
 </div>
 <p>To pattern match against a record:</p>
-<div class="highlight-python"><div class="highlight"><pre>(#r.person {age: Age}) = P1
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#r.person {age: Age} = P1</span>
 </pre></div>
 </div>
-<p>Since tags can be applied to expressions and the match expression is used after
-the first tag we need to wrap the tag and map in parenthesis so it applies
-only to the map and not to the whole expression.</p>
 </div>
 <div class="section" id="binary">
 <h2>Binary<a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h2>
@@ -510,17 +539,6 @@ D = #c &quot;C&quot;
 </pre></div>
 </div>
 </div>
-<div class="section" id="function-calls">
-<h4>Function Calls<a class="headerlink" href="#function-calls" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">C1</span> <span class="o">=</span> <span class="n">a</span><span class="p">()</span>
-<span class="n">C2</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
-<span class="n">C3</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="p">()</span>
-<span class="n">C4</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">B</span><span class="p">()</span>
-<span class="n">C5</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">b</span><span class="p">()</span>
-<span class="n">C6</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">B</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="id2">
 <h4>Function References<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><div class="highlight"><pre>CR1 = fn a:0
@@ -563,8 +581,11 @@ end
 </div>
 <div class="section" id="record-syntax">
 <h4>Record Syntax<a class="headerlink" href="#record-syntax" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#r.sponge.name Bob</span>
-<span class="c">#r.sponge name</span>
+<div class="highlight-python"><div class="highlight"><pre>State = #r.state {counter: 1, last_modification: now()}
+State1 = #r.state State#{counter: 2}
+Counter = #r.state.counter State
+CounterIdx = #r.state counter
+#r.state {counter: Counter} = State
 </pre></div>
 </div>
 </div>
@@ -586,18 +607,70 @@ Module = #i module
 </pre></div>
 </div>
 </div>
+<div class="section" id="list">
+<h4>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>Cons = [a :: b]
+L = [2,3,4]
+L0 = [2,3,4,]
+L1 = [1 :: L]
+L10 = [1, :: L]
+L2 = [0, 1 :: L]
+L20 = [0, 1, :: L]
+L3 = [0, 1, 2 :: L]
+L30 = [0, 1, 2, :: L]
+</pre></div>
+</div>
+</div>
 <div class="section" id="id4">
-<h4>Function Calls<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">CallEmpty</span> <span class="o">=</span> <span class="n">hello</span><span class="p">()</span>
-<span class="n">CallOne</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">CallTwo</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<h4>Maps<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>{}
+A = {a: b}
+A0 = {a: b,}
+{atom: atom, &#39;bstr&#39;: &#39;hi&#39;, &quot;str&quot;: &quot;hi&quot;, 42: 24, 1.2: 2.1, true: false}
+{atom = atom, &#39;bstr&#39; = &#39;hi&#39;, &quot;str&quot; = &quot;hi&quot;, 42 = 24, 1.2 = 2.1, true = false} = A
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-calls">
+<h4>Function Calls<a class="headerlink" href="#function-calls" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>L = lists
+S = seq
+R = lists.seq(1, 10)
+R = L.S(1, 10)
+R = lists.S(1, 10)
+R = L.seq(1, 10)
+One = identity(1)
+
+I = fn identity:1
+One = I(1)
+
+L1 = fn lists.seq:2
+L2 = fn lists.S:2
+L3 = fn L.seq:2
+L4 = fn L.S:2
+R = L1(1, 10)
+R = L2(1, 10)
+R = L3(1, 10)
+R = L4(1, 10)
+
+MapR = fn case List, Fun:
+  lists.map(Fun, List)
+end
+
+lists.map(R) &lt;&lt;- case X:
+  X + 1
+end
+
+MapR(R) &lt;- case X:
+  X + 1
+end
 </pre></div>
 </div>
 </div>
 <div class="section" id="id5">
 <h4>Tagged Expressions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><div class="highlight"><pre>^_ &quot;this is kind of a comment?&quot;
-^_ match A:
+^_ match A
     case 1: one
     case 2: two
     else: dontknow
@@ -614,68 +687,50 @@ for A in range(10); A &lt; 10; A &lt;- foo(10): A + 1 end
 </div>
 <div class="section" id="when">
 <h4>When<a class="headerlink" href="#when" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>when 7, 6; 5; 4, 3; 2, 1:
-    hi
+<div class="highlight-python"><div class="highlight"><pre>when true, false; true, false; true; false:
+    1
+else true, false; true, false; true:
+    2
+else true, false; true, false:
+    3
+else true, false:
+    4
+else true:
+    5
+else:
+    6
 end
 
-when 8, 7, 6; 4, 3; 2; 1:
-    hi1
-else 8, 7, 6; 4, 3; 2:
-    hi2
-else 8, 7, 6; 4, 3:
-    hi3
-else 8, 7, 6:
-    hi4
-else 8, 7:
-    hi5
-else 8:
-    hi6
-else:
-    hi7
-end
-
-when 8, 7, 6,; 4, 3,; 2,; 1,:
-    hi1
-else 8, 7, 6,; 4, 3,; 2,:
-    hi2
-else 8, 7, 6,; 4, 3,:
-    hi3
-else 8, 7, 6,:
-    hi4
-else 8, 7,:
-    hi5
-else 8,:
-    hi6
-else:
-    hi7
+when true: ok
+else: error
 end
 </pre></div>
 </div>
 </div>
 <div class="section" id="for-list-comprehensions">
 <h4>For (List Comprehensions)<a class="headerlink" href="#for-list-comprehensions" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>for A in range(10); A &lt; 10:
-    A + 1
+<div class="highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10):
+  X + 1
 end
 
-for A in range(10); A &lt; 10:
-    B = A * 2
-    B + 1
+for X in lists.seq(1, 10); X % 2 is 0:
+  X + 1
 end
 
-for A in B;
-    A &lt; 10:
-
-    A + 2
+for X in lists.seq(1, 10); Y in lists.seq(10, 20):
+  (X, Y)
 end
 </pre></div>
 </div>
 </div>
 <div class="section" id="match">
 <h4>Match<a class="headerlink" href="#match" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>match A:
-    case A=42, a:
-        ok
+<div class="highlight-python"><div class="highlight"><pre>match Error
+     case throw, T1: T1
+     case error, E1: E1
+     case exit, X1: X1
+     case A, C: C
+     else: iselse
 end
 </pre></div>
 </div>
@@ -693,11 +748,21 @@ ET = ()
 <div class="section" id="receive">
 <h4>Receive<a class="headerlink" href="#receive" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><div class="highlight"><pre>receive
-    case: nomatch
-    case A: A
-    case error, Reason: Reason
-    case A, B: (A, B)
-    else: thisistheelse
+     case throw, T1: T1
+     case error, E1: E1
+     case exit, X1: X1
+     case A, C: C
+     else: iselse
+end
+
+receive
+     case throw, T1: T1
+     case error, E1: E1
+     case exit, X1: X1
+     case A, C: C
+     else: iselse
+after 1000:
+     ok
 end
 </pre></div>
 </div>
@@ -735,19 +800,44 @@ end
 </pre></div>
 </div>
 </div>
+<div class="section" id="chars">
+<h4>Chars<a class="headerlink" href="#chars" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>A = #c &quot;A&quot;
+Hello = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
+</pre></div>
+</div>
+</div>
 <div class="section" id="try-catch">
 <h4>Try Catch<a class="headerlink" href="#try-catch" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><div class="highlight"><pre>try
-    F(2)
-catch
-    case Throw: Throw
-    case throw, T1: T1
-    case error, E1: E1
-    case exit, X1: X1
-    case A, C: C
-    else: iselse
+  1/0
 after
-    43
+  ok
+end
+
+try
+  1/0
+catch
+    case error, badarith: ok
+end
+
+try
+  1/0
+catch
+    case error, badarith: ok
+after
+  ok
+end
+
+try
+  1/0
+catch
+     case throw, T1: T1
+     case Throw: Throw
+     case error, E1: E1
+     case exit, X1: X1
+     case A, C: C
+     else: iselse
 end
 </pre></div>
 </div>
