@@ -9,7 +9,7 @@ Welcome to Efene Programming Language's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    quickstart
    language-reference

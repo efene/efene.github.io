@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Efene Programming Language’s documentation! &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Language Tradeoffs &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   
 
   
-    <link rel="top" title="Efene Programming Language 1.0 documentation" href="#"/>
-        <link rel="next" title="Quick Start" href="quickstart.html"/> 
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Language Reference" href="language-reference.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -43,7 +43,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> Efene Programming Language</a>
+        <a href="index.html" class="fa fa-home"> Efene Programming Language</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,7 +56,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#boolean">Boolean</a></li>
@@ -76,12 +76,12 @@
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#hardcode-language-reference">Hardcode Language Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#record-pattern-matching-vs-map-pattern-matching">Record Pattern Matching vs Map Pattern Matching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#function-call-vs-function-declaration">Function Call vs Function Declaration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#chaining-and-operations">Chaining = and ! Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#refactoring-match-to-a-function">Refactoring Match to a Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#one-item-case-in-match-is-a-special-case">One Item Case in Match is a Special Case</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Language Tradeoffs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#record-pattern-matching-vs-map-pattern-matching">Record Pattern Matching vs Map Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function-call-vs-function-declaration">Function Call vs Function Declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chaining-and-operations">Chaining = and ! Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#refactoring-match-to-a-function">Refactoring Match to a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#one-item-case-in-match-is-a-special-case">One Item Case in Match is a Special Case</a></li>
 </ul>
 </li>
 </ul>
@@ -96,7 +96,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Efene Programming Language</a>
+        <a href="index.html">Efene Programming Language</a>
       </nav>
 
 
@@ -105,12 +105,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Welcome to Efene Programming Language&#8217;s documentation!</li>
+    <li>Language Tradeoffs</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/tradeoffs.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -118,24 +118,45 @@
 </div>
           <div role="main">
             
-  <div class="section" id="welcome-to-efene-programming-language-s-documentation">
-<h1>Welcome to Efene Programming Language&#8217;s documentation!<a class="headerlink" href="#welcome-to-efene-programming-language-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
-</ul>
+  <div class="section" id="language-tradeoffs">
+<h1>Language Tradeoffs<a class="headerlink" href="#language-tradeoffs" title="Permalink to this headline">¶</a></h1>
+<p>Efene syntax is designed to be regular and avoid introducing inconsistencies,
+but at the same time it tries to make it easy to write common code, trying to
+balance this introduces some inconsistencies or tradeoffs that are documented
+here.</p>
+<div class="section" id="record-pattern-matching-vs-map-pattern-matching">
+<h2>Record Pattern Matching vs Map Pattern Matching<a class="headerlink" href="#record-pattern-matching-vs-map-pattern-matching" title="Permalink to this headline">¶</a></h2>
+<p>Record pattern matching:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#r.person {name: Name} = P1</span>
+</pre></div>
+</div>
+<p>Map pattern matching:</p>
+<div class="highlight-python"><div class="highlight"><pre>{name = Name} = P1
+</pre></div>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
+<div class="section" id="function-call-vs-function-declaration">
+<h2>Function Call vs Function Declaration<a class="headerlink" href="#function-call-vs-function-declaration" title="Permalink to this headline">¶</a></h2>
+<p>In Erlang a function call has the same syntax as a function declaration, in
+efene it isn&#8217;t</p>
+</div>
+<div class="section" id="chaining-and-operations">
+<h2>Chaining = and ! Operations<a class="headerlink" href="#chaining-and-operations" title="Permalink to this headline">¶</a></h2>
+<p>Efene doesn&#8217;t allow chaining = and ! ops in the same expression.</p>
+</div>
+<div class="section" id="refactoring-match-to-a-function">
+<h2>Refactoring Match to a Function<a class="headerlink" href="#refactoring-match-to-a-function" title="Permalink to this headline">¶</a></h2>
+<p>For convenience in a match expression elements separated with commas match like
+a tuple, if you refactor it to be a funcion and you still want to match a tuple
+you have to wrap it in parenthesis.</p>
+</div>
+<div class="section" id="one-item-case-in-match-is-a-special-case">
+<h2>One Item Case in Match is a Special Case<a class="headerlink" href="#one-item-case-in-match-is-a-special-case" title="Permalink to this headline">¶</a></h2>
+<p>Given the design described above a case with one item would match a one item
+tuple instead of one value, since this isn&#8217;t normally the expected behaviour a
+one item case will be special cased to match a value and not a one item tuple,
+it you want to match a one item tuple you have to write it explicity.</p>
+</div>
 </div>
 
 
@@ -144,8 +165,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="language-reference.html" class="btn btn-neutral" title="Language Reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
