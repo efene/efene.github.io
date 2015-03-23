@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#tagged-expressions">Tagged Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#records">Records</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#binary">Binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hardcode-language-reference">Hardcode Language Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -400,6 +401,358 @@ all the alternatives:</p>
 <p>On a field you can specify the variable to match to, the size, type, sign, endianness and unit.</p>
 <p>For a detailes explanation of what each of those values do please refer to
 <a class="reference external" href="http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax">erlang&#8217;s bit syntax docs</a>.</p>
+</div>
+<div class="section" id="hardcode-language-reference">
+<h2>Hardcode Language Reference<a class="headerlink" href="#hardcode-language-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="global-attributes">
+<h3>Global Attributes<a class="headerlink" href="#global-attributes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="export">
+<h4>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@export(hello/0, plus/2)
+</pre></div>
+</div>
+</div>
+<div class="section" id="export-type">
+<h4>Export Type<a class="headerlink" href="#export-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@export_type(tint/0, c2/1)
+</pre></div>
+</div>
+</div>
+<div class="section" id="literal-type">
+<h4>Literal Type<a class="headerlink" href="#literal-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@type(tint) -&gt; 42
+@type(tatom) -&gt; asd
+@type(tbool) -&gt; false
+@type(lempty) -&gt; []
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-type">
+<h4>List Type<a class="headerlink" href="#list-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@type(lone) -&gt; [42]
+@type(l3) -&gt; [tatom()]
+</pre></div>
+</div>
+</div>
+<div class="section" id="range-type">
+<h4>Range Type<a class="headerlink" href="#range-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@type(trange) -&gt; range(1, 10)
+</pre></div>
+</div>
+</div>
+<div class="section" id="union-type">
+<h4>Union Type<a class="headerlink" href="#union-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@type(tres) -&gt; (ok, integer()) or (error, term()) or (stop, normal)
+</pre></div>
+</div>
+</div>
+<div class="section" id="binary-type">
+<h4>Binary Type<a class="headerlink" href="#binary-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@type(bsempty) -&gt; binary(0, 0)
+@type(bsone) -&gt; binary(4, 0)
+@type(bsonemul) -&gt; binary(0, 5)
+@type(bstwo) -&gt; binary(4, 5)
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameterized-type">
+<h4>Parameterized Type<a class="headerlink" href="#parameterized-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@type(p1(X)) -&gt; (ok, X, X)
+@type(p2(X, Y)) -&gt; (ok, X, Y)
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-type">
+<h4>Function Type<a class="headerlink" href="#function-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@type(f1) -&gt; fun()
+@type(f2) -&gt; fun(any, integer())
+@type(f3) -&gt; fun([boolean(), term()], integer())
+@type(f4) -&gt; fun([], integer())
+</pre></div>
+</div>
+</div>
+<div class="section" id="opaque-type-and-record-type">
+<h4>Opaque Type and Record Type<a class="headerlink" href="#opaque-type-and-record-type" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@opaque(tperson) -&gt; #r person
+</pre></div>
+</div>
+</div>
+<div class="section" id="record-definition">
+<h4>Record Definition<a class="headerlink" href="#record-definition" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@record(foo) -&gt; (a, b = 12, c = true, d = 12)
+</pre></div>
+</div>
+</div>
+<div class="section" id="record-definition-with-types">
+<h4>Record Definition with Types<a class="headerlink" href="#record-definition-with-types" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>@record(person) -&gt; (first = &quot;&quot; is string(), last is list(char()), age is integer())
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-with-else-case">
+<h4>Function with else case<a class="headerlink" href="#function-with-else-case" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>fn plus
+    case A, B:
+        A + B
+    else:
+        42
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-likes">
+<h4>String Likes<a class="headerlink" href="#string-likes" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>A = &#39;I\&#39;m a binary string&#39;
+B = &quot;I&#39;m a regular string&quot;
+C = #atom &quot;I&#39;m an atom&quot;
+C1 = `I am an atom too`
+D = #c &quot;C&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-calls">
+<h4>Function Calls<a class="headerlink" href="#function-calls" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">C1</span> <span class="o">=</span> <span class="n">a</span><span class="p">()</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">C3</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="p">()</span>
+<span class="n">C4</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">B</span><span class="p">()</span>
+<span class="n">C5</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">b</span><span class="p">()</span>
+<span class="n">C6</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">B</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Function References<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>CR1 = fn a:0
+CR3 = fn a.b:2
+CR4 = fn a.B:3
+CR5 = fn A.b:4
+CR6 = fn A.B:5
+</pre></div>
+</div>
+</div>
+<div class="section" id="anonymous-functions">
+<h4>Anonymous Functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>F = fn case 1: one end
+
+F1 = fn
+    case 1: one
+    case _: other
+end
+
+F2 = fn
+    case 1: one
+    else: other
+end
+
+Plus = fn
+    case A, B: A + B
+    else: 42
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="named-anonymous-functions">
+<h4>Named Anonymous Functions<a class="headerlink" href="#named-anonymous-functions" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>F3 = fn Fact
+    case 0: 1
+    case N: N * Fact(N - 1)
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="record-syntax">
+<h4>Record Syntax<a class="headerlink" href="#record-syntax" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#r.sponge.name Bob</span>
+<span class="c">#r.sponge name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-time-information">
+<h4>Compile Time Information<a class="headerlink" href="#compile-time-information" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>Line = #i line
+Module = #i module
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Tuples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Empty</span> <span class="o">=</span> <span class="p">()</span>
+<span class="n">One</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<span class="n">One1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,)</span>
+<span class="n">OneExpr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">OneExpr1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Two</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>Function Calls<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">CallEmpty</span> <span class="o">=</span> <span class="n">hello</span><span class="p">()</span>
+<span class="n">CallOne</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">CallTwo</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>Tagged Expressions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>^_ &quot;this is kind of a comment?&quot;
+^_ match A:
+    case 1: one
+    case 2: two
+    else: dontknow
+end
+
+A = ^b [{}, {val: A}, {size: 8}, {type: float}, {sign: unsigned}, {endianness: big},
+    {unit: 8},
+    {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+
+for A in range(10); A &lt; 10; A &lt;- foo(10): A + 1 end
+^b for A in range(10); A &lt; 10; A &lt;- foo(10): A + 1 end
+</pre></div>
+</div>
+</div>
+<div class="section" id="when">
+<h4>When<a class="headerlink" href="#when" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>when 7, 6; 5; 4, 3; 2, 1:
+    hi
+end
+
+when 8, 7, 6; 4, 3; 2; 1:
+    hi1
+else 8, 7, 6; 4, 3; 2:
+    hi2
+else 8, 7, 6; 4, 3:
+    hi3
+else 8, 7, 6:
+    hi4
+else 8, 7:
+    hi5
+else 8:
+    hi6
+else:
+    hi7
+end
+
+when 8, 7, 6,; 4, 3,; 2,; 1,:
+    hi1
+else 8, 7, 6,; 4, 3,; 2,:
+    hi2
+else 8, 7, 6,; 4, 3,:
+    hi3
+else 8, 7, 6,:
+    hi4
+else 8, 7,:
+    hi5
+else 8,:
+    hi6
+else:
+    hi7
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-list-comprehensions">
+<h4>For (List Comprehensions)<a class="headerlink" href="#for-list-comprehensions" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>for A in range(10); A &lt; 10:
+    A + 1
+end
+
+for A in range(10); A &lt; 10:
+    B = A * 2
+    B + 1
+end
+
+for A in B;
+    A &lt; 10:
+
+    A + 2
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="match">
+<h4>Match<a class="headerlink" href="#match" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>match A:
+    case A=42, a:
+        ok
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="sequence-types">
+<h4>Sequence Types<a class="headerlink" href="#sequence-types" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>A = (a, 1, true)
+D = {a: 1, b: 2}
+ED = {}
+ET = ()
+{a := A, b := B} = D
+</pre></div>
+</div>
+</div>
+<div class="section" id="receive">
+<h4>Receive<a class="headerlink" href="#receive" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>receive
+    case: nomatch
+    case A: A
+    case error, Reason: Reason
+    case A, B: (A, B)
+    else: thisistheelse
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="expressions">
+<h4>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span>
+<span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">7</span>
+<span class="n">D</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">or</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-attributes">
+<h4>Function Attributes<a class="headerlink" href="#function-attributes" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>fn hello
+    @public
+    @http.get(&quot;/foo/:num&quot;) -&gt; json
+    @doc(&quot;some hello world function&quot;)
+    @accept -&gt; json
+    @produces(json, xml, edn)
+    @spec(integer(), ok) -&gt; (ok, term()) or notfound
+
+    case A, B: A + B
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-escaping">
+<h4>String Escaping<a class="headerlink" href="#string-escaping" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="s">&quot;a </span><span class="se">\&quot;</span><span class="s">hi</span><span class="se">\&quot;</span><span class="s"> </span><span class="se">\\\&quot;</span><span class="s"> </span><span class="se">\\</span><span class="s">&#39; &#39;there&#39;&quot;</span>
+<span class="n">B</span> <span class="o">=</span> <span class="s">&#39;a &quot;hi&quot; </span><span class="se">\\</span><span class="s">&quot; </span><span class="se">\\\&#39;</span><span class="s"> </span><span class="se">\&#39;</span><span class="s">there</span><span class="se">\&#39;</span><span class="s">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="try-catch">
+<h4>Try Catch<a class="headerlink" href="#try-catch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>try
+    F(2)
+catch
+    case Throw: Throw
+    case throw, T1: T1
+    case error, E1: E1
+    case exit, X1: X1
+    case A, C: C
+    else: iselse
+after
+    43
+end
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
