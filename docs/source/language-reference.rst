@@ -105,6 +105,28 @@ the last element of a list can have a trailing comma:
 * [1,]
 * [1, 2,]
 
+Cons Lists
+----------
+
+`Cons List Type in Wikipedia <https://en.wikipedia.org/wiki/Cons>`_
+
+You can create a list like [1,2,3] with an alternative syntax:
+
+* [1 :: [2 :: [3]]]
+
+It's useful to extract the head and keep the tail:
+
+* [H :: T] = [1,2,3]
+
+Now *H* is 1, and *T* is [2, 3]
+
+You can do the reverse and create a new list by "consing" a new head to an existing list:
+
+* L = [1 :: [2, 3]]
+
+Now *L* is [1,2,3]
+
+
 Maps
 ----
 
@@ -117,10 +139,15 @@ curly brackets ({ and }), examples ofmaps
 * {one: 1}
 * {one: 1, 1: one}
 
-the last element of a map can have a trailing comma:
+The last element of a map can have a trailing comma:
 
 * {one: 1,}
 * {one: 1, 1: one,}
+
+You can extract fields from a map by using pattern match replacing : for =
+
+* M = {one: 1, two: 2}
+* {one = One, two = Two} = M
 
 Tuples
 ------
@@ -148,6 +175,14 @@ An atom is a literal, a constant with name, examples of atoms:
 * ok
 * error
 * hi_there
+
+If you want to have spaces or symbols in an atom you can wrap it in "`":
+
+* \`hello world!\`
+
+or use a tagged string:
+
+* #atom "hello world!"
 
 Process Id (Pid)
 ----------------
@@ -287,19 +322,15 @@ parenthesis are the record fields, you can provide default values for fields.
 
 To instantiate a record::
 
-        P = #r.person {name: "bob", lastname: "sponge", age:29}
+    P = #r.person {name: "bob", lastname: "sponge", age:29}
 
 To update a record::
 
-        P1 = #r.person P#{age:28}
+    P1 = #r.person P#{age:28}
 
 To pattern match against a record::
 
-        (#r.person {age: Age}) = P1
-
-Since tags can be applied to expressions and the match expression is used after
-the first tag we need to wrap the tag and map in parenthesis so it applies
-only to the map and not to the whole expression.
+    #r.person {age: Age} = P1
 
 Binary
 ------
@@ -450,18 +481,6 @@ String Likes
     C1 = `I am an atom too`
     D = #c "C"
 
-Function Calls
-::::::::::::::
-
-::
-
-    C1 = a()
-    C2 = A()
-    C3 = a.b()
-    C4 = a.B()
-    C5 = A.b()
-    C6 = A.B()
-
 Function References
 :::::::::::::::::::
 
@@ -511,8 +530,11 @@ Record Syntax
 
 ::
 
-    #r.sponge.name Bob
-    #r.sponge name
+    State = #r.state {counter: 1, last_modification: now()}
+    State1 = #r.state State#{counter: 2}
+    Counter = #r.state.counter State
+    CounterIdx = #r.state counter
+    #r.state {counter: Counter} = State
 
 Compile Time Information
 ::::::::::::::::::::::::
@@ -534,14 +556,68 @@ Tuples
     OneExpr1 = (4 - 1)
     Two = (1, 2)
 
+List
+::::
+
+::
+
+    Cons = [a :: b]
+    L = [2,3,4]
+    L0 = [2,3,4,]
+    L1 = [1 :: L]
+    L10 = [1, :: L]
+    L2 = [0, 1 :: L]
+    L20 = [0, 1, :: L]
+    L3 = [0, 1, 2 :: L]
+    L30 = [0, 1, 2, :: L]
+
+Maps
+::::
+
+::
+
+    {}
+    A = {a: b}
+    A0 = {a: b,}
+    {atom: atom, 'bstr': 'hi', "str": "hi", 42: 24, 1.2: 2.1, true: false}
+    {atom = atom, 'bstr' = 'hi', "str" = "hi", 42 = 24, 1.2 = 2.1, true = false} = A
+
 Function Calls
 ::::::::::::::
 
 ::
 
-    CallEmpty = hello()
-    CallOne = hello(1)
-    CallTwo = hello(1, 2)
+    L = lists
+    S = seq
+    R = lists.seq(1, 10)
+    R = L.S(1, 10)
+    R = lists.S(1, 10)
+    R = L.seq(1, 10)
+    One = identity(1)
+
+    I = fn identity:1
+    One = I(1)
+
+    L1 = fn lists.seq:2
+    L2 = fn lists.S:2
+    L3 = fn L.seq:2
+    L4 = fn L.S:2
+    R = L1(1, 10)
+    R = L2(1, 10)
+    R = L3(1, 10)
+    R = L4(1, 10)
+
+    MapR = fn case List, Fun:
+      lists.map(Fun, List)
+    end
+
+    lists.map(R) <<- case X:
+      X + 1
+    end
+
+    MapR(R) <- case X:
+      X + 1
+    end
 
 Tagged Expressions
 ::::::::::::::::::
@@ -549,7 +625,7 @@ Tagged Expressions
 ::
 
     ^_ "this is kind of a comment?"
-    ^_ match A:
+    ^_ match A
         case 1: one
         case 2: two
         else: dontknow
@@ -567,72 +643,53 @@ When
 
 ::
 
-    when 7, 6; 5; 4, 3; 2, 1:
-        hi
-    end
-
-    when 8, 7, 6; 4, 3; 2; 1:
-        hi1
-    else 8, 7, 6; 4, 3; 2:
-        hi2
-    else 8, 7, 6; 4, 3:
-        hi3
-    else 8, 7, 6:
-        hi4
-    else 8, 7:
-        hi5
-    else 8:
-        hi6
+    when true, false; true, false; true; false:
+        1
+    else true, false; true, false; true:
+        2
+    else true, false; true, false:
+        3
+    else true, false:
+        4
+    else true:
+        5
     else:
-        hi7
+        6
     end
 
-    when 8, 7, 6,; 4, 3,; 2,; 1,:
-        hi1
-    else 8, 7, 6,; 4, 3,; 2,:
-        hi2
-    else 8, 7, 6,; 4, 3,:
-        hi3
-    else 8, 7, 6,:
-        hi4
-    else 8, 7,:
-        hi5
-    else 8,:
-        hi6
-    else:
-        hi7
+    when true: ok
+    else: error
     end
-
 
 For (List Comprehensions)
 :::::::::::::::::::::::::
 
 ::
 
-    for A in range(10); A < 10:
-        A + 1
-    end
+   for X in lists.seq(1, 10):
+     X + 1
+   end
 
-    for A in range(10); A < 10:
-        B = A * 2
-        B + 1
-    end
+   for X in lists.seq(1, 10); X % 2 is 0:
+     X + 1
+   end
 
-    for A in B;
-        A < 10:
-
-        A + 2
-    end
+   for X in lists.seq(1, 10); Y in lists.seq(10, 20):
+     (X, Y)
+   end
 
 Match
 :::::
 
 ::
 
-    match A:
-        case A=42, a:
-            ok
-    end
+   match Error
+        case throw, T1: T1
+        case error, E1: E1
+        case exit, X1: X1
+        case A, C: C
+        else: iselse
+   end
 
 Sequence Types
 ::::::::::::::
@@ -650,13 +707,23 @@ Receive
 
 ::
 
-    receive
-        case: nomatch
-        case A: A
-        case error, Reason: Reason
-        case A, B: (A, B)
-        else: thisistheelse
-    end
+   receive
+        case throw, T1: T1
+        case error, E1: E1
+        case exit, X1: X1
+        case A, C: C
+        else: iselse
+   end
+
+   receive
+        case throw, T1: T1
+        case error, E1: E1
+        case exit, X1: X1
+        case A, C: C
+        else: iselse
+   after 1000:
+        ok
+   end
 
 Expressions
 :::::::::::
@@ -694,22 +761,47 @@ String Escaping
     A = "a \"hi\" \\\" \\' 'there'"
     B = 'a "hi" \\" \\\' \'there\''
 
+Chars
+:::::
+
+::
+
+    A = #c "A"
+    Hello = [#c "h", #c "e", #c "l", #c "l", #c "o"]
 
 Try Catch
 :::::::::
 
 ::
 
-        try
-            F(2)
-        catch
-            case Throw: Throw
-            case throw, T1: T1
-            case error, E1: E1
-            case exit, X1: X1
-            case A, C: C
-            else: iselse
-        after
-            43
-        end
+   try
+     1/0
+   after
+     ok
+   end
+
+   try
+     1/0
+   catch
+       case error, badarith: ok
+   end
+
+   try
+     1/0
+   catch
+       case error, badarith: ok
+   after
+     ok
+   end
+
+   try
+     1/0
+   catch
+        case throw, T1: T1
+        case Throw: Throw
+        case error, E1: E1
+        case exit, X1: X1
+        case A, C: C
+        else: iselse
+   end
 
