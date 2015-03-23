@@ -43,3 +43,11 @@ Given the design described above a case with one item would match a one item
 tuple instead of one value, since this isn't normally the expected behaviour a
 one item case will be special cased to match a value and not a one item tuple,
 it you want to match a one item tuple you have to write it explicity.
+
+Not Necessarily Tradeoffs
+-------------------------
+
+Zero Items Case Matches Empty Tuple
+...................................
+
+Not necessarily a tradeoff since it's not something you will write frequently.
