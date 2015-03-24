@@ -77,6 +77,15 @@
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#hardcode-language-reference">Hardcode Language Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#record-pattern-matching-vs-map-pattern-matching">Record Pattern Matching vs Map Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#function-call-vs-function-declaration">Function Call vs Function Declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#chaining-and-operations">Chaining = and ! Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#refactoring-match-to-a-function">Refactoring Match to a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#one-item-case-in-match-is-a-special-case">One Item Case in Match is a Special Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#not-necessarily-tradeoffs">Not Necessarily Tradeoffs</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -136,7 +145,7 @@ chmod u+x rebar3
 </pre></div>
 </div>
 <p>now we can compile our app:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene compile
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 compile
 </pre></div>
 </div>
 <p>and try it in the erlang shell (sorry, no stable efene shell yet):</p>
@@ -150,7 +159,7 @@ Hello mariano!ok
 </div>
 <p>but given that we are good software citizens we test our code with unit tests,
 that&#8217;s why we want to run some unit tests to be sure that this works:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene ct
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 ct
 </pre></div>
 </div>
 <p>this will compile the tests and run the tests for you.</p>

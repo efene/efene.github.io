@@ -26,7 +26,7 @@ and we create a new app called myfnapp using the fn_app template::
 
 now we can compile our app::
 
-    ./rebar3 efene compile
+    ./rebar3 compile
 
 and try it in the erlang shell (sorry, no stable efene shell yet)::
 
@@ -40,7 +40,7 @@ and try it::
 but given that we are good software citizens we test our code with unit tests,
 that's why we want to run some unit tests to be sure that this works::
 
-    ./rebar3 efene ct
+    ./rebar3 ct
 
 this will compile the tests and run the tests for you.
 
