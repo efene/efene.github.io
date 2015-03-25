@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
+   philosophy
    help-needed
    quickstart
    language-reference
