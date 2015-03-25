@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Efene Programming Language’s documentation! &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Help Needed &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -28,8 +28,9 @@
   
 
   
-    <link rel="top" title="Efene Programming Language 1.0 documentation" href="#"/>
-        <link rel="next" title="Help Needed" href="help-needed.html"/> 
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Quick Start" href="quickstart.html"/>
+        <link rel="prev" title="Welcome to Efene Programming Language’s documentation!" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -43,7 +44,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> Efene Programming Language</a>
+        <a href="index.html" class="fa fa-home"> Efene Programming Language</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,11 +57,11 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
-<li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="help-needed.html#wants-to-play-with-efene">Wants to Play with Efene</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help-needed.html#no-erlang-knowledge-required">No Erlang Knowledge Required</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help-needed.html#erlang-knowledge-required">Erlang Knowledge Required</a></li>
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Help Needed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wants-to-play-with-efene">Wants to Play with Efene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-erlang-knowledge-required">No Erlang Knowledge Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#erlang-knowledge-required">Erlang Knowledge Required</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
@@ -108,7 +109,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Efene Programming Language</a>
+        <a href="index.html">Efene Programming Language</a>
       </nav>
 
 
@@ -117,12 +118,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Welcome to Efene Programming Language&#8217;s documentation!</li>
+    <li>Help Needed</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/help-needed.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -130,26 +131,62 @@
 </div>
           <div role="main">
             
-  <div class="section" id="welcome-to-efene-programming-language-s-documentation">
-<h1>Welcome to Efene Programming Language&#8217;s documentation!<a class="headerlink" href="#welcome-to-efene-programming-language-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="help-needed">
+<h1>Help Needed<a class="headerlink" href="#help-needed" title="Permalink to this headline">¶</a></h1>
+<p>Here we list how you can help this project, there are tasks for every knowledge
+level.</p>
+<div class="section" id="wants-to-play-with-efene">
+<h2>Wants to Play with Efene<a class="headerlink" href="#wants-to-play-with-efene" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+<li>Try efene report anything that confuses you or doesn&#8217;t work<ul>
+<li>This includes incomplete, confusing or hard to understand error messages</li>
 </ul>
+</li>
+<li>Explicitly test error detection and report errors that aren&#8217;t handled correclty<ul>
+<li>For example if they end up in an internal error or traceback</li>
+<li>Incomplete, confusing or hard to understand error messages</li>
+</ul>
+</li>
+<li>Look for missing Erlang syntax support<ul>
+<li>Expressions that you can write in erlang but you can&#8217;t in efene</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="no-erlang-knowledge-required">
+<h2>No Erlang Knowledge Required<a class="headerlink" href="#no-erlang-knowledge-required" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://lighttable.com/">LightTable</a> syntax highlighting support</li>
+<li>Vim syntax highlighting support</li>
+<li>Emacs syntax highlighting support</li>
+<li><a class="reference external" href="http://pygments.org/">Pygments</a> syntax highlighting support</li>
+</ul>
+</div>
+<div class="section" id="erlang-knowledge-required">
+<h2>Erlang Knowledge Required<a class="headerlink" href="#erlang-knowledge-required" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="improve-the-pretty-printer">
+<h3>Improve the Pretty Printer<a class="headerlink" href="#improve-the-pretty-printer" title="Permalink to this headline">¶</a></h3>
+<p>Efene pretty printer (fn_pp.erl) has some corner cases where indentation is
+broken, take it to go fmt level.</p>
+</div>
+<div class="section" id="lager-interoperability">
+<h3>Lager Interoperability<a class="headerlink" href="#lager-interoperability" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/basho/lager/">Lager</a> works by using parse transforms, we
+have to look for a way to allow using lager without duplicating all the ast
+generation.</p>
+</div>
+<div class="section" id="efene-repl">
+<h3>Efene REPL<a class="headerlink" href="#efene-repl" title="Permalink to this headline">¶</a></h3>
+<p>A <a class="reference external" href="http://www.rebar3.org/">rebar3</a> plugin to run an efene repl/shell</p>
+</div>
+<div class="section" id="erlang-compatibility-tests">
+<h3>Erlang Compatibility Tests<a class="headerlink" href="#erlang-compatibility-tests" title="Permalink to this headline">¶</a></h3>
+<p>Write tests that check that efene and erlang code that do the same thing
+actually do the same thing.</p>
+<p>For example write the code twice generating output and diffing the output.</p>
+<p>A more complex solution is to compare the generated ast ignoring line numbers.</p>
+</div>
+</div>
 </div>
 
 
@@ -158,8 +195,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="help-needed.html" class="btn btn-neutral float-right" title="Help Needed"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Efene Programming Language’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

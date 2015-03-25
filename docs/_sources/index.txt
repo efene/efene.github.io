@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
+   help-needed
    quickstart
    language-reference
    tradeoffs
