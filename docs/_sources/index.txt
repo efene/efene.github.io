@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 1
 
    philosophy
+   community
    help-needed
    quickstart
    language-reference
