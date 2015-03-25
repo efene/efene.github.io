@@ -16,6 +16,7 @@ Contents:
    language-reference
    tradeoffs
    rebar-plugin
+   recommended-libraries
 
 Indices and tables
 ==================

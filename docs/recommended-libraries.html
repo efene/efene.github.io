@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Efene Programming Language’s documentation! &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Recommended Libraries &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   
 
   
-    <link rel="top" title="Efene Programming Language 1.0 documentation" href="#"/>
-        <link rel="next" title="Help Needed" href="help-needed.html"/> 
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Rebar Plugin" href="rebar-plugin.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -43,7 +43,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> Efene Programming Language</a>
+        <a href="index.html" class="fa fa-home"> Efene Programming Language</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,7 +56,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="help-needed.html#wants-to-play-with-efene">Wants to Play with Efene</a></li>
 <li class="toctree-l2"><a class="reference internal" href="help-needed.html#no-erlang-knowledge-required">No Erlang Knowledge Required</a></li>
@@ -96,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#common-test-task">Common Test Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Recommended Libraries</a></li>
 </ul>
 
         
@@ -109,7 +109,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Efene Programming Language</a>
+        <a href="index.html">Efene Programming Language</a>
       </nav>
 
 
@@ -118,12 +118,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Welcome to Efene Programming Language&#8217;s documentation!</li>
+    <li>Recommended Libraries</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/recommended-libraries.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -131,27 +131,72 @@
 </div>
           <div role="main">
             
-  <div class="section" id="welcome-to-efene-programming-language-s-documentation">
-<h1>Welcome to Efene Programming Language&#8217;s documentation!<a class="headerlink" href="#welcome-to-efene-programming-language-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
+  <div class="section" id="recommended-libraries">
+<h1>Recommended Libraries<a class="headerlink" href="#recommended-libraries" title="Permalink to this headline">¶</a></h1>
+<p>This is kind of a &#8220;Efene Standard Library&#8221; composed of recommended modules for
+different tasks, we recommend one library per task, if it doesn&#8217;t satisfy your
+needs please help us improve them.</p>
+<p>There are two JSON parsing libs since one is pure erlang and the other one is
+NIF based.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="21%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Task</th>
+<th class="head">Name</th>
+<th class="head">Link</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HTTP Server</td>
+<td>Cowboy</td>
+<td><a class="reference external" href="https://github.com/ninenines/cowboy">https://github.com/ninenines/cowboy</a></td>
+</tr>
+<tr class="row-odd"><td>HTTP Client</td>
+<td>Shotgun</td>
+<td><a class="reference external" href="https://github.com/inaka/shotgun">https://github.com/inaka/shotgun</a></td>
+</tr>
+<tr class="row-even"><td>WebSockets/SSE/COMET</td>
+<td>Bullet</td>
+<td><a class="reference external" href="https://github.com/extend/bullet">https://github.com/extend/bullet</a></td>
+</tr>
+<tr class="row-odd"><td>Socket Server</td>
+<td>Ranch</td>
+<td><a class="reference external" href="https://github.com/ninenines/ranch">https://github.com/ninenines/ranch</a></td>
+</tr>
+<tr class="row-even"><td>JSON Parsing</td>
+<td>Jsx</td>
+<td><a class="reference external" href="https://github.com/talentdeficit/jsx">https://github.com/talentdeficit/jsx</a></td>
+</tr>
+<tr class="row-odd"><td>JSON Parsing</td>
+<td>Jiffy</td>
+<td><a class="reference external" href="https://github.com/davisp/jiffy">https://github.com/davisp/jiffy</a></td>
+</tr>
+<tr class="row-even"><td>Metrics</td>
+<td>Exometer</td>
+<td><a class="reference external" href="https://github.com/Feuerlabs/exometer">https://github.com/Feuerlabs/exometer</a></td>
+</tr>
+<tr class="row-odd"><td>Testing</td>
+<td>Common Test</td>
+<td><a class="reference external" href="http://www.erlang.org/doc/man/common_test.html">http://www.erlang.org/doc/man/common_test.html</a></td>
+</tr>
+<tr class="row-even"><td>Generative Testing</td>
+<td>Triq</td>
+<td><a class="reference external" href="https://github.com/krestenkrab/triq">https://github.com/krestenkrab/triq</a></td>
+</tr>
+<tr class="row-odd"><td>Worker Pool</td>
+<td>Worker Pool</td>
+<td><a class="reference external" href="https://github.com/inaka/worker_pool">https://github.com/inaka/worker_pool</a></td>
+</tr>
+<tr class="row-even"><td>Utilities</td>
+<td>Katana</td>
+<td><a class="reference external" href="https://github.com/inaka/erlang-katana">https://github.com/inaka/erlang-katana</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -160,8 +205,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="help-needed.html" class="btn btn-neutral float-right" title="Help Needed"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="rebar-plugin.html" class="btn btn-neutral" title="Rebar Plugin"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
