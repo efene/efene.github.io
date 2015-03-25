@@ -29,6 +29,7 @@
 
   
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Rebar Plugin" href="rebar-plugin.html"/>
         <link rel="prev" title="Language Reference" href="language-reference.html"/> 
 
   
@@ -83,6 +84,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#refactoring-match-to-a-function">Refactoring Match to a Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#one-item-case-in-match-is-a-special-case">One Item Case in Match is a Special Case</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#not-necessarily-tradeoffs">Not Necessarily Tradeoffs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#compile-task">Compile Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#common-test-task">Common Test Task</a></li>
 </ul>
 </li>
 </ul>
@@ -164,6 +170,12 @@ it you want to match a one item tuple you have to write it explicity.</p>
 <h3>Zero Items Case Matches Empty Tuple<a class="headerlink" href="#zero-items-case-matches-empty-tuple" title="Permalink to this headline">¶</a></h3>
 <p>Not necessarily a tradeoff since it&#8217;s not something you will write frequently.</p>
 </div>
+<div class="section" id="colon-after-timeout-expression">
+<h3>Colon After Timeout Expression<a class="headerlink" href="#colon-after-timeout-expression" title="Permalink to this headline">¶</a></h3>
+<p>For simplicity the match expression doesn&#8217;t have a colon after the value to
+pattern match but the after section of the receive expression does have a colon
+because of parsing limitations.</p>
+</div>
 </div>
 </div>
 
@@ -172,6 +184,8 @@ it you want to match a one item tuple you have to write it explicity.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rebar-plugin.html" class="btn btn-neutral float-right" title="Rebar Plugin"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="language-reference.html" class="btn btn-neutral" title="Language Reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -51,3 +51,10 @@ Zero Items Case Matches Empty Tuple
 ...................................
 
 Not necessarily a tradeoff since it's not something you will write frequently.
+
+Colon After Timeout Expression
+..............................
+
+For simplicity the match expression doesn't have a colon after the value to
+pattern match but the after section of the receive expression does have a colon
+because of parsing limitations.
