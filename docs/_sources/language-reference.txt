@@ -625,7 +625,7 @@ Tagged Expressions
 ::
 
     ^_ "this is kind of a comment?"
-    ^_ match A
+    ^_ match A:
         case 1: one
         case 2: two
         else: dontknow
@@ -683,7 +683,7 @@ Match
 
 ::
 
-   match Error
+   match Error:
         case throw, T1: T1
         case error, E1: E1
         case exit, X1: X1
