@@ -14,6 +14,7 @@ Contents:
    quickstart
    language-reference
    tradeoffs
+   rebar-plugin
 
 Indices and tables
 ==================

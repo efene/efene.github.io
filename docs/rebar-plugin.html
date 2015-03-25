@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Rebar Plugin &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -28,7 +28,8 @@
   
 
   
-    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/> 
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Language Tradeoffs" href="tradeoffs.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -44,7 +45,7 @@
       <div class="wy-side-nav-search">
         <a href="index.html" class="fa fa-home"> Efene Programming Language</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -55,7 +56,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#boolean">Boolean</a></li>
@@ -84,9 +85,9 @@
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#not-necessarily-tradeoffs">Not Necessarily Tradeoffs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#compile-task">Compile Task</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#common-test-task">Common Test Task</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Rebar Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compile-task">Compile Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-test-task">Common Test Task</a></li>
 </ul>
 </li>
 </ul>
@@ -112,8 +113,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Rebar Plugin</li>
       <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/rebar-plugin.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -121,22 +124,82 @@
 </div>
           <div role="main">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="rebar-plugin">
+<h1>Rebar Plugin<a class="headerlink" href="#rebar-plugin" title="Permalink to this headline">¶</a></h1>
+<p>Efene is used as a library through a <a class="reference external" href="http://www.rebar3.org">rebar3</a> plugin
+that is already available in efene rebar templates.</p>
+<div class="section" id="compile-task">
+<h2>Compile Task<a class="headerlink" href="#compile-task" title="Permalink to this headline">¶</a></h2>
+<p>Efene compile task can be used as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene compile
+</pre></div>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--format</span></kbd></td>
+<td><p class="first">output format of the compile task, by default is &#8220;beam&#8221;, values:</p>
+<ul class="last simple">
+<li>rawlex: output of the lexer step</li>
+<li>lex: cleaned up lexer</li>
+<li>ast: efene abstract syntax tree</li>
+<li>erlast: erlang abstract syntax tree</li>
+<li>mod: erlang abstract syntax tree with module nodes</li>
+<li>erl: erlang code</li>
+<li>beam: beam bytecode</li>
+</ul>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--file</span></kbd></td>
+<td>file to compile, by default it will compile all files in the project</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example-usage">
+<h3>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
+<p>This section uses the project described in the <a class="reference internal" href="quickstart.html#quick-start"><em>Quick Start</em></a> section.</p>
+<div class="section" id="compile-all-files">
+<h4>Compile All Files<a class="headerlink" href="#compile-all-files" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>./rebar efene compile
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-one-file-to-erlang">
+<h4>Compile One File to Erlang<a class="headerlink" href="#compile-one-file-to-erlang" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene compile --format erl --file src/myfnapp.fn
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="common-test-task">
+<h2>Common Test Task<a class="headerlink" href="#common-test-task" title="Permalink to this headline">¶</a></h2>
+<p>Efene <a class="reference external" href="http://www.erlang.org/doc/man/common_test.html">commmon test</a> task
+can be used as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene ct
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This task doesn&#8217;t work at the moment</p>
+</div>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="tradeoffs.html" class="btn btn-neutral" title="Language Tradeoffs"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -172,7 +235,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -188,14 +250,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
