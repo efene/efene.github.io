@@ -144,6 +144,10 @@
 <h1>Help Needed<a class="headerlink" href="#help-needed" title="Permalink to this headline">¶</a></h1>
 <p>Here we list how you can help this project, there are tasks for every knowledge
 level.</p>
+<p>Please visit <a class="reference external" href="https://github.com/efene/community/issues">Efene Community Issue Tracker</a>
+for top level tasks that don&#8217;t fit in a specific project (or the project
+doesn&#8217;t exist yet). Visit each specific project issue tracker for issues
+specific to existing projects at <a class="reference external" href="https://github.com/efene/">https://github.com/efene/</a></p>
 <div class="section" id="wants-to-play-with-efene">
 <h2>Wants to Play with Efene<a class="headerlink" href="#wants-to-play-with-efene" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -160,15 +164,35 @@ level.</p>
 <li>Expressions that you can write in erlang but you can&#8217;t in efene</li>
 </ul>
 </li>
+<li>Write Rebar3 templates for common modules:<ul>
+<li><a class="reference external" href="https://github.com/efene/community/issues/1">gen_server template</a></li>
+<li><a class="reference external" href="https://github.com/efene/community/issues/2">gen_event template</a></li>
+<li><a class="reference external" href="https://github.com/efene/community/issues/3">supervisor template</a></li>
+<li><a class="reference external" href="https://github.com/efene/community/issues/4">gen_fsm template</a></li>
+<li><a class="reference external" href="https://github.com/efene/community/issues/5">Cowboy REST JSON API template</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="no-erlang-knowledge-required">
 <h2>No Erlang Knowledge Required<a class="headerlink" href="#no-erlang-knowledge-required" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="http://lighttable.com/">LightTable</a> syntax highlighting support</li>
-<li>Vim syntax highlighting support</li>
-<li>Emacs syntax highlighting support</li>
-<li><a class="reference external" href="http://pygments.org/">Pygments</a> syntax highlighting support</li>
+<li><a class="reference external" href="http://lighttable.com/">LightTable</a> syntax highlighting support<ul>
+<li><a class="reference external" href="https://github.com/efene/community/issues/8">Issue 8</a></li>
+</ul>
+</li>
+<li>Vim syntax highlighting support<ul>
+<li><a class="reference external" href="https://github.com/efene/community/issues/6">Issue 6</a></li>
+</ul>
+</li>
+<li>Emacs syntax highlighting support<ul>
+<li><a class="reference external" href="https://github.com/efene/community/issues/7">Issue 7</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="http://pygments.org/">Pygments</a> syntax highlighting support<ul>
+<li><a class="reference external" href="https://github.com/efene/community/issues/9">Issue 9</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="erlang-knowledge-required">
@@ -193,7 +217,10 @@ generation.</p>
 </div>
 <div class="section" id="efene-repl">
 <h3>Efene REPL<a class="headerlink" href="#efene-repl" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference external" href="http://www.rebar3.org/">rebar3</a> plugin to run an efene repl/shell</p>
+<p>A <a class="reference external" href="http://www.rebar3.org/">rebar3</a> plugin to run an efene repl/shell.</p>
+<p>Ideally make the backend a socket based protocol so we can reuse it in other
+places, investigate if some existing protocol like swank of nrepl fits our
+needs to avoid reinventing the flat tire.</p>
 </div>
 <div class="section" id="erlang-compatibility-tests">
 <h3>Erlang Compatibility Tests<a class="headerlink" href="#erlang-compatibility-tests" title="Permalink to this headline">¶</a></h3>
