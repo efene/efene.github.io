@@ -3,10 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Efene Programming Language's documentation!
-======================================================
+Efene Programming Language
+==========================
 
-Contents:
+Efene is an alternative syntax for the Erlang Programming Language focusing
+on simplicity, ease of use and programmer UX.
+
+Documentation
+-------------
 
 .. toctree::
    :maxdepth: 1
@@ -19,11 +23,3 @@ Contents:
    tradeoffs
    rebar-plugin
    recommended-libraries
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
