@@ -31,6 +31,12 @@ No Erlang Knowledge Required
 Erlang Knowledge Required
 -------------------------
 
+Improve rebar3 plugins
+......................
+
+* Add options to `compile <https://github.com/efene/rebar3_efene_compile>`_
+* Make `ct plugin <https://github.com/efene/rebar3_efene_ct>`_ work (requires talking with rebar3 devs)
+
 Improve the Pretty Printer
 ..........................
 
