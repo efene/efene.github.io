@@ -1,8 +1,15 @@
 Language Reference
 ==================
 
+.. contents::
+   :local:
+   :depth: 2
+
+Values
+------
+
 Boolean
--------
+.......
 
 `Boolean Data Type in Wikipedia <https://en.wikipedia.org/wiki/Boolean_data_type>`_
 
@@ -15,10 +22,10 @@ Efene has another data type that allows far more flexibility to signal "states"
 in your program called atoms, they are covered bellow.
 
 Numbers
--------
+.......
 
 Integers
-........
+::::::::
 
 `Integer Data Type in Wikipedia <https://en.wikipedia.org/wiki/Integer_%28computer_science%29>`_
 
@@ -34,12 +41,12 @@ Efene doesn't have notation for hexadecimal, binary or other bases, they can
 be added using tagged data which is covered below.
 
 Floats
-......
+::::::
 
 `Float Data Type in Wikipedia <https://en.wikipedia.org/wiki/Floating_point>`_
 
 This data type represents a decimal number, it has only one syntax, the one
-you are used to, the following are examples of floats: 
+you are used to, the following are examples of floats:
 
 * 0.0
 * 1.2
@@ -50,7 +57,7 @@ Efene doesn't have notation for scientific notation, they may be added in the
 future, for now it can be added using tagged data which is covered below.
 
 Strings
--------
+.......
 
 `String Data Type in Wikipedia <https://en.wikipedia.org/wiki/String_%28computer_science%29>`_
 
@@ -58,7 +65,7 @@ There are two ways of representing text (strings) in erlang they have different
 pros and cons, we won't cover them here.
 
 List Strings
-............
+::::::::::::
 
 A List String is simply a list of characters represented as numbers, it's
 actually not a data type on itself "hello" is shorthand for the list [104,101,108,108,111].
@@ -71,7 +78,7 @@ List Strings are enclosed in double quotes ("), examples of List Strings:
 * "this \"is\" also a string"
 
 Binary Strings
-..............
+::::::::::::::
 
 A Binary String is a binary representation of text, Binary Strings are enclosed
 in single quotes ('), examples of Binary Strings:
@@ -84,10 +91,18 @@ in single quotes ('), examples of Binary Strings:
 .. note::
 
     The Erlang atom syntax with single quotes is supported in efene with tagged
-    data, see below.
+    values and backticks, see below.
+
+Chars
+:::::
+
+A character is a number representing a character in a string::
+
+    A = #c "A"
+    Hello = [#c "h", #c "e", #c "l", #c "l", #c "o"]
 
 Lists
------
+.....
 
 `List Data Type in Wikipedia <https://en.wikipedia.org/wiki/List_%28abstract_data_type%29>`_
 
@@ -106,7 +121,7 @@ the last element of a list can have a trailing comma:
 * [1, 2,]
 
 Cons Lists
-----------
+..........
 
 `Cons List Type in Wikipedia <https://en.wikipedia.org/wiki/Cons>`_
 
@@ -128,12 +143,12 @@ Now *L* is [1,2,3]
 
 
 Maps
-----
+....
 
 `Map Data Type in Wikipedia <https://en.wikipedia.org/wiki/Associative_array>`_
 
 A Map is a sequence of elements associating keys to values, it's represented by a comma separated sequence of association pairs enclosed in opening and closing
-curly brackets ({ and }), examples ofmaps 
+curly brackets ({ and }), examples of maps:
 
 * {}
 * {one: 1}
@@ -149,8 +164,12 @@ You can extract fields from a map by using pattern match replacing : for =
 * M = {one: 1, two: 2}
 * {one = One, two = Two} = M
 
+You can update an existing map:
+
+* M1 = M#{three: 3}
+
 Tuples
-------
+......
 
 A Tuple is a fixed sequence of elements, it's represented by a comma separated sequence
 of other data types (including nested tuples) enclosed in opening and closing
@@ -168,7 +187,7 @@ item tuples to distinguish from an expression in parenthesis:
 * (1, 2,)
 
 Atoms
------
+.....
 
 An atom is a literal, a constant with name, examples of atoms:
 
@@ -184,8 +203,44 @@ or use a tagged string:
 
 * #atom "hello world!"
 
+Variables
+.........
+
+If a variable is bound to a value, the return value is this value. Unbound
+variables are only allowed in patterns.
+
+Variables start with an uppercase letter or underscore (_) and may contain
+alphanumeric characters and underscores. Examples::
+
+    X
+    Name1
+    PhoneNumber
+    Phone_number
+    _
+    _Height
+
+Variables are bound to values using pattern matching. Erlang uses single
+assignment, a variable can only be bound once.
+
+The anonymous variable is denoted by underscore (_) and can be used when a
+variable is required but its value can be ignored. Example::
+
+    [H :: _] = [1,2,3]
+
+Variables starting with underscore (_), for example _Height, are normal
+variables, not anonymous. They are however ignored by the compiler in the sense
+that they will not generate any warnings for unused variables.
+
+Note that since variables starting with an underscore are not anonymous, this will match::
+
+    (_,_) = (1,2)
+
+But this will fail::
+
+    (_N,_N) = (1,2)
+
 Process Id (Pid)
-----------------
+................
 
 A process identifier, pid, identifies a process.
 
@@ -193,16 +248,16 @@ spawn/1,2,3,4, spawn_link/1,2,3,4 and spawn_opt/4,
 which are used to create processes, return values of this type.
 
 Reference
----------
+.........
 
 A reference is a term which is unique in an Erlang runtime system, created by
 calling make_ref/0.
 
 Function
---------
+........
 
 Anonymouse Functions
-....................
+::::::::::::::::::::
 
 Functions can be created and assigned to variables inside other functions, the
 syntax is::
@@ -228,7 +283,7 @@ in the case where the last clause is a "catch all" clause we can use else instea
         end
 
 Named Functions
-...............
+:::::::::::::::
 
 Named Functions exist to refer to a function inside of it to do recursion as you
 would do with a toplevel function.
@@ -248,7 +303,7 @@ refer to itself then you don't need a named function.
 You can see more details and examples in this article: http://joearms.github.io/2014/02/01/big-changes-to-erlang.html
 
 Function References
-...................
+:::::::::::::::::::
 
 If we want to pass a reference to a function as a parameter or set it to a
 variable we can use the function reference syntax.
@@ -270,21 +325,113 @@ Notice you can't make a function reference to a function stored on a variable li
 
 since it's already a function reference on itself, this will result in an error.
 
-Tagged Expressions
-------------------
+Function Calls
+::::::::::::::
 
-Expressions and data types can be tagged in efene, this is insipired from
+There are many ways to call a function, it depends if the function is local,
+from another module and if we know the name and/or the module in advance or
+we have a reference to it in a variable.
+
+The simples way to call a local function (or an automatically imported function) is
+just giving the name and passing the parameters.
+
+Local call::
+
+    One = identity(1)
+
+Call to a function in another module::
+
+    R = lists.seq(1, 10)
+
+Dynamic local call::
+
+    I = fn identity:1
+    One = I(1)
+
+Dynamic call to a function in another module::
+
+    L = lists
+    S = seq
+    R = L.S(1, 10)
+    R = lists.S(1, 10)
+    R = L.seq(1, 10)
+
+    L1 = fn lists.seq:2
+    L2 = fn lists.S:2
+    L3 = fn L.seq:2
+    L4 = fn L.S:2
+
+    R = L1(1, 10)
+    R = L2(1, 10)
+    R = L3(1, 10)
+    R = L4(1, 10)
+
+Threading function calls:
+
+::
+
+    IsOdd = fn case X:
+                    X % 2 is 0
+               end
+
+    Increment = fn case X:
+                        X + 1
+                   end
+
+    MyMap = fn case List, Fun:
+                    lists.map(Fun, List)
+               end
+
+    lists.seq(1, 10) ->>
+        lists.filter(IsOdd) ->
+        MyMap(Increment)
+
+(I define MyMap to reverse the order of the arguments of lists.map so I can
+use -> in the example)
+
+the ->> operator inserts the value from the left as the last argument in the
+function on the right (imagine that ->> sends the value to the other side)
+
+the -> operator inserts the value from the left as the first argument in the
+function on the right (imagine that ->> sends the value to the closest side)
+
+Higher order function calls::
+
+
+    MapR = fn case List, Fun:
+      lists.map(Fun, List)
+    end
+
+    R = lists.seq(1, 10)
+
+    lists.map(R) <<- case X:
+      X + 1
+    end
+
+    MapR(R) <- case X:
+      X + 1
+    end
+
+The <- operator inserts the anonymous function as the last argument in the
+function (imagine that <- sends the value to the closest side).
+
+The <<- operator inserts the anonymous function as the first argument in the
+function (imagine that <<- sends the value to the other side).
+
+Tagged Values
+.............
+
+Expressions and values can be tagged in efene, this is inspired from
 `the edn format <https://github.com/edn-format/edn>`_.
 
 This allows to transform a value or expression at compile time to some other
 value or expression by tagging it.
 
-a tag is comprised of the # sign followed by a path, that is a sequence of
-atoms or variables joined with dots, examples of tagged values::
+a tagged value is comprised of the # sign followed by a path, that is a
+sequence of atoms or variables joined with dots, examples of tagged values::
 
     #atom "I'm an atom"
     #c "A"
-    #_ "this is ignored"
 
 The first case transforms the string to an atom at compile time, it has the same
 effect as the single quotes in erlang.
@@ -292,10 +439,12 @@ effect as the single quotes in erlang.
 The second case transforms a string of length 1 into a character type, it has
 the same effect as the dolar sign in erlang.
 
-The last one is quite useful, it just "ignores" the expression or value that
-follows, actually it doesn't ignore it, it just replaces it by a special atom,
-as long as you don't assign the result or return it the value of the atom
-doesn't matter.
+a tagged expression works the same as a tagged value but applies to expressions,
+the syntax is the same except that the ^ symbol is used instead of #::
+
+    ^_ begin "this is ignored" end
+
+It just "ignores" the expression or value that follows.
 
 Efene adds support for some erlang syntax via tagged values and expressions
 as you can see above.
@@ -306,7 +455,7 @@ imagine string internationalization, logging, profiling, stdlib type
 constructors using values etc.
 
 Records
--------
+.......
 
 A record is a compile time data structure that erlang transforms into tuples at
 run time with the name of the record in it, it's kind of a named tuple where
@@ -332,8 +481,14 @@ To pattern match against a record::
 
     #r.person {age: Age} = P1
 
+To get the value of a field::
+
+    Counter = #r.state.counter State
+
+To get the tuple index of a field:
+
 Binary
-------
+......
 
 Binary is a data type to express erlang's bit syntax, where you can specify
 the format of a binary, you can read more at `erlang's bit syntax docs <http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax>`_
@@ -353,316 +508,315 @@ all the alternatives::
 
 On a field you can specify the variable to match to, the size, type, sign, endianness and unit.
 
-For a detailes explanation of what each of those values do please refer to
+For a detailed explanation of what each of those values do please refer to
 `erlang's bit syntax docs <http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax>`_.
 
-Hardcode Language Reference
----------------------------
-
-Global Attributes
-.................
-
-Export
-::::::
-
-::
-
-    @export(hello/0, plus/2)
-
-Export Type
-:::::::::::
-
-::
-
-    @export_type(tint/0, c2/1)
-
-Literal Type
-::::::::::::
-
-::
-
-    @type(tint) -> 42
-    @type(tatom) -> asd
-    @type(tbool) -> false
-    @type(lempty) -> []
-
-List Type
-:::::::::
-
-::
-
-    @type(lone) -> [42]
-    @type(l3) -> [tatom()]
-
-Range Type
-::::::::::
-
-::
-
-    @type(trange) -> range(1, 10)
-
-Union Type
-::::::::::
-
-::
-
-    @type(tres) -> (ok, integer()) or (error, term()) or (stop, normal)
-
-Binary Type
-:::::::::::
-
-::
-
-    @type(bsempty) -> binary(0, 0)
-    @type(bsone) -> binary(4, 0)
-    @type(bsonemul) -> binary(0, 5)
-    @type(bstwo) -> binary(4, 5)
-
-
-Parameterized Type
-::::::::::::::::::
-
-::
-
-    @type(p1(X)) -> (ok, X, X)
-    @type(p2(X, Y)) -> (ok, X, Y)
-
-Function Type
-:::::::::::::
-
-::
-
-    @type(f1) -> fun()
-    @type(f2) -> fun(any, integer())
-    @type(f3) -> fun([boolean(), term()], integer())
-    @type(f4) -> fun([], integer())
-
-Opaque Type and Record Type
-:::::::::::::::::::::::::::
-
-::
-
-    @opaque(tperson) -> #r person
-
-Record Definition
-:::::::::::::::::
-
-::
-
-    @record(foo) -> (a, b = 12, c = true, d = 12)
-
-Record Definition with Types
-::::::::::::::::::::::::::::
-
-::
-
-    @record(person) -> (first = "" is string(), last is list(char()), age is integer())
-
-Function with else case
-:::::::::::::::::::::::
-
-::
-
-    fn plus
-        case A, B:
-            A + B
-        else:
-            42
-    end
-
-String Likes
-::::::::::::
-
-::
-
-    A = 'I\'m a binary string'
-    B = "I'm a regular string"
-    C = #atom "I'm an atom"
-    C1 = `I am an atom too`
-    D = #c "C"
-
-Function References
-:::::::::::::::::::
-
-::
-
-    CR1 = fn a:0
-    CR3 = fn a.b:2
-    CR4 = fn a.B:3
-    CR5 = fn A.b:4
-    CR6 = fn A.B:5
-
-Anonymous Functions
-:::::::::::::::::::
-
-::
-
-    F = fn case 1: one end
-
-    F1 = fn
-        case 1: one
-        case _: other
-    end
-
-    F2 = fn
-        case 1: one
-        else: other
-    end
-
-    Plus = fn
-        case A, B: A + B
-        else: 42
-    end
-
-
-Named Anonymous Functions
-:::::::::::::::::::::::::
-
-::
-
-    F3 = fn Fact
-        case 0: 1
-        case N: N * Fact(N - 1)
-    end
-
-Record Syntax
-:::::::::::::
-
-::
-
-    State = #r.state {counter: 1, last_modification: now()}
-    State1 = #r.state State#{counter: 2}
-    Counter = #r.state.counter State
-    CounterIdx = #r.state counter
-    #r.state {counter: Counter} = State
-
 Compile Time Information
-::::::::::::::::::::::::
+........................
 
-::
+Using tagged values we can get some information at compile time.
+
+This gets the current line::
 
     Line = #i line
+
+This gets the current module name as an atom::
+
     Module = #i module
 
-Tuples
-::::::
+Operations
+----------
 
-::
+Boolean Operations
+..................
 
-    Empty = ()
-    One = (1,)
-    One1 = (4 - 1,)
-    OneExpr = (1)
-    OneExpr1 = (4 - 1)
-    Two = (1, 2)
+==== ======================= =================================================
+Op   Description             Erlang Equivalent
+==== ======================= =================================================
+or   Short Circuit Or        orelse
+and  Short Circuit And       andalso
+xor  Xor                     xor
+orr  Non Short Circuit Or    or
+andd Non Short Circuit And   and
+==== ======================= =================================================
 
-List
-::::
+Comparisson Operations
+......................
 
-::
+==== ========================== ==============================================
+Op   Description                Erlang Equivalent
+==== ========================== ==============================================
+==   equal to                   ==
+!=   not equal to               /=
+<    less than                  <
+<=   less than or equal to      =<
+>    greater than               >
+>=   greater than or equal to   >=
+is   exactly equal to           =:=
+isnt exactly not equal to       =/=
+==== ========================== ==============================================
 
-    Cons = [a :: b]
-    L = [2,3,4]
-    L0 = [2,3,4,]
-    L1 = [1 :: L]
-    L10 = [1, :: L]
-    L2 = [0, 1 :: L]
-    L20 = [0, 1, :: L]
-    L3 = [0, 1, 2 :: L]
-    L30 = [0, 1, 2, :: L]
+The arguments may be of different data types. The following order is defined::
 
-Maps
-::::
+    number < atom < reference < fun < port < pid < tuple < list < bit string
 
-::
+Lists are compared element by element.
 
-    {}
-    A = {a: b}
-    A0 = {a: b,}
-    {atom: atom, 'bstr': 'hi', "str": "hi", 42: 24, 1.2: 2.1, true: false}
-    {atom = atom, 'bstr' = 'hi', "str" = "hi", 42 = 24, 1.2 = 2.1, true = false} = A
+Tuples are ordered by size, two tuples with the same size are compared element by element.
 
-Function Calls
-::::::::::::::
+When comparing an integer to a float, the term with the lesser precision will
+be converted into the other term's type, unless the operator is one of *is* or
+*isnt*.
 
-::
+A float is more precise than an integer until all significant figures of the
+float are to the left of the decimal point.
 
-    L = lists
-    S = seq
-    R = lists.seq(1, 10)
-    R = L.S(1, 10)
-    R = lists.S(1, 10)
-    R = L.seq(1, 10)
-    One = identity(1)
+This happens when the float is larger/smaller than +/-9007199254740992.0. The
+conversion strategy is changed depending on the size of the float because
+otherwise comparison of large floats and integers would lose their
+transitivity.
 
-    I = fn identity:1
-    One = I(1)
+Concat Operations
+..................
 
-    L1 = fn lists.seq:2
-    L2 = fn lists.S:2
-    L3 = fn L.seq:2
-    L4 = fn L.S:2
-    R = L1(1, 10)
-    R = L2(1, 10)
-    R = L3(1, 10)
-    R = L4(1, 10)
+==== ========================== ==============================================
+Op   Description                Erlang Equivalent
+==== ========================== ==============================================
+++   list concatenation         ++
+--   list substraction          --
+==== ========================== ==============================================
 
-    MapR = fn case List, Fun:
-      lists.map(Fun, List)
-    end
+The list concatenation operator ++ appends its second argument to its first and returns the resulting list.
 
-    lists.map(R) <<- case X:
-      X + 1
-    end
+The list subtraction operator -- produces a list which is a copy of the first argument, subjected to the following procedure: for each element in the second argument, the first occurrence of this element (if any) is removed.
 
-    MapR(R) <- case X:
-      X + 1
-    end
+.. warning::
 
-Tagged Expressions
-::::::::::::::::::
+    The complexity of A -- B is proportional to length(A) * length(B), meaning
+    that it will be very slow if both A and B are long lists.
 
-::
 
-    ^_ "this is kind of a comment?"
-    ^_ match A:
-        case 1: one
-        case 2: two
-        else: dontknow
-    end
+Aritmetic Operations
+....................
 
-    A = ^b [{}, {val: A}, {size: 8}, {type: float}, {sign: unsigned}, {endianness: big},
-        {unit: 8},
-        {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+==== ========================== ==============================================
+Op   Description                Erlang Equivalent
+==== ========================== ==============================================
+\+   addition                   \+
+\-   substraction               \-
+\*   multiplication             \*
+/    division                   /
+%    remainder                  rem
+//   integer division           div
+==== ========================== ==============================================
 
-    for A in range(10); A < 10; A <- foo(10): A + 1 end
-    ^b for A in range(10); A < 10; A <- foo(10): A + 1 end
+Binary Operations
+.................
+
+==== ========================== ==============================================
+Op   Description                Erlang Equivalent
+==== ========================== ==============================================
+\|   binary or                  bor
+&    binary and                 band
+^    binary xor                 bxor
+<<   shift left                 bsl
+>>   shift right                bsr
+==== ========================== ==============================================
+
+Unary Operations
+................
+
+==== ========================== ==============================================
+Op   Description                Erlang Equivalent
+==== ========================== ==============================================
+\-   integer negative           \-
+not  boolean not                not
+~    binary not                 bnot
+==== ========================== ==============================================
+
+Expressions
+-----------
 
 When
-::::
+....
+
+Abstract Syntax
+:::::::::::::::
+
+Simple::
+
+    when GuardSeq1:
+        Body1
+    else:
+        ElseBody
+    end
+
+Complete::
+
+    when GuardSeq1:
+        Body1
+    else GuardSeq2:
+        Body2
+    ...
+    else GuardSeqN:
+        BodyN
+    else:
+        ElseBody
+    end
+
+Examples
+::::::::
 
 ::
 
-    when true, false; true, false; true; false:
-        1
-    else true, false; true, false; true:
-        2
-    else true, false; true, false:
-        3
-    else true, false:
-        4
-    else true:
-        5
+    when true:
+        io.format("guard evaluated to true")
     else:
-        6
+        io.format("no guard evaluated to true")
     end
 
-    when true: ok
-    else: error
+::
+
+    when A < 10:
+        io.format("A < 10")
+    else A < 20:
+        io.format("A < 20 and >= 10")
+    else A < 30:
+        io.format("A < 30 and >= 20")
+    else:
+        io.format("A > 30")
     end
 
-For (List Comprehensions)
-:::::::::::::::::::::::::
+Description
+:::::::::::
+
+When expression is similar to if/else if/else in other languages but with some
+extra limitations.
+
+This limitations come from the fact that when expressions
+are identical to function guard expressions.
+
+The set of valid guard expressions (sometimes called guard tests) is a subset
+of the set of valid Erlang expressions. The reason for restricting the set of
+valid expressions is that evaluation of a guard expression must be guaranteed
+to be free of side effects. Valid guard expressions are:
+
+* the atom true,
+* other constants (terms and bound variables), all regarded as false,
+* term comparisons,
+* arithmetic expressions,
+* boolean expressions
+* short-circuit expressions (and/or)
+* calls to the BIFs
+
+    + is_atom/1
+    + is_binary/1
+    + is_bitstring/1
+    + is_boolean/1
+    + is_float/1
+    + is_function/1
+    + is_function/2
+    + is_integer/1
+    + is_list/1
+    + is_map/1
+    + is_number/1
+    + is_pid/1
+    + is_port/1
+    + is_record/2
+    + is_record/3
+    + is_reference/1
+    + is_tuple/1
+
+If an arithmetic expression, a boolean expression, a short-circuit expression,
+or a call to a guard BIF fails (because of invalid arguments), the entire guard
+fails. If the guard was part of a guard sequence, the next guard in the
+sequence (that is, the guard following the next semicolon) will be evaluated.
+
+A guard sequence is a sequence of guards, separated by semicolon (;).
+The guard sequence is true if at least one of the guards is true.
+(The remaining guards, if any, will not be evaluated.)::
+
+    Guard1;...;GuardK
+
+A guard is a sequence of guard expressions, separated by comma (,).
+The guard is true if all guard expressions evaluate to true::
+
+    GuardExpr1,...,GuardExprN
+
+example::
+
+    when Cond1, Cond2; Cond3:
+        1
+    else Cond4; Cond5, Cond6, Cond7:
+        2
+    else:
+        3
+    end
+
+Match
+.....
+
+Abstract Syntax
+:::::::::::::::
+
+::
+
+    match Expr:
+        case Pattern1 [when GuardSeq1]:
+            Body1
+        ...
+        [case PatternN [when GuardSeqN]:
+            BodyN]
+        [else:
+            BodyElse]
+    end
+
+Examples
+::::::::
+
+Simple::
+
+    match Result:
+        case ok, Value:
+            io.format("everything ok ~p~n", [Value])
+            do_something(Value)
+        case error, Reason:
+            io.format("error: ~p~n", [Reason])
+            fail(Reason)
+    end
+
+When and Else::
+
+    match Result:
+        case ok, Value when is_integer(Value), Value < 10:
+            io.format("everything ok, value is < 10: ~p~n", [Value])
+            do_something(Value)
+        case ok, Value when is_atom(Value):
+            io.format("everything ok, value is atom~p~n", [Value])
+            do_something_atom(Value)
+        case error, Reason:
+            io.format("error: ~p~n", [Reason])
+            fail(Reason)
+        else:
+            io.format("Value doesn't match any case")
+    end
+
+Description
+:::::::::::
+
+The expression Expr is evaluated and the patterns Pattern are sequentially
+matched against the result. If a match succeeds and the optional guard sequence
+GuardSeq is true, the corresponding Body is evaluated.
+
+The return value of Body is the return value of the case expression.
+
+If else is present and no Pattern matched BodyElse will be executed.
+
+If there is no matching pattern with a true guard sequence, a case_clause
+run-time error will occur.
+
+For
+...
 
 ::
 
@@ -678,130 +832,240 @@ For (List Comprehensions)
      (X, Y)
    end
 
-Match
-:::::
+TODO
 
-::
+Try/Catch/After
+...............
 
-   match Error:
-        case throw, T1: T1
-        case error, E1: E1
-        case exit, X1: X1
-        case A, C: C
-        else: iselse
-   end
+TODO
 
-Sequence Types
-::::::::::::::
+Receive/After
+.............
 
-::
-
-    A = (a, 1, true)
-    D = {a: 1, b: 2}
-    ED = {}
-    ET = ()
-    {a := A, b := B} = D
-
-Receive
-:::::::
-
-::
-
-   receive
-        case throw, T1: T1
-        case error, E1: E1
-        case exit, X1: X1
-        case A, C: C
-        else: iselse
-   end
-
-   receive
-        case throw, T1: T1
-        case error, E1: E1
-        case exit, X1: X1
-        case A, C: C
-        else: iselse
-   after 1000:
-        ok
-   end
-
-Expressions
-:::::::::::
-
-::
-
-    A = 1 * 2 + 3
-    B = 1 * (2 + 3)
-    C = 3 - 5 - 7
-    C = (3 - 5) - 7
-    D = 3 - (5 - 7)
-    E = 1 < 2 and 2 >= 3 or 4 + 5
-
-Function Attributes
-:::::::::::::::::::
-
-::
-
-    fn hello
-        @public
-        @http.get("/foo/:num") -> json
-        @doc("some hello world function")
-        @accept -> json
-        @produces(json, xml, edn)
-        @spec(integer(), ok) -> (ok, term()) or notfound
-
-        case A, B: A + B
-    end
-
-String Escaping
+Abstract Syntax
 :::::::::::::::
 
 ::
 
-    A = "a \"hi\" \\\" \\' 'there'"
-    B = 'a "hi" \\" \\\' \'there\''
+    receive
+        case Pattern1 [when GuardSeq1]:
+            Body1
+        ...
+        [case PatternN [when GuardSeqN]:
+            BodyN]
+        [else:
+            BodyElse]
+    after ExprT:
+        BodyAfter
+    end
 
-Chars
-:::::
+Examples
+::::::::
 
 ::
 
-    A = #c "A"
-    Hello = [#c "h", #c "e", #c "l", #c "l", #c "o"]
+       receive
+            case throw, T1: T1
+            case error, E1: E1
+            case exit, X1: X1
+            case A, C: C
+            else: iselse
+       after 1000:
+            ok
+       end
 
-Try Catch
-:::::::::
+Description
+:::::::::::
+
+Receives messages sent to the process.
+
+The patterns Pattern are sequentially matched against the first message in time
+order in the mailbox, then the second, and so on.
+
+If a match succeeds and the optional guard sequence GuardSeq is true, the
+corresponding Body is evaluated.
+
+The matching message is consumed, that is removed from the mailbox, while any
+other messages in the mailbox remain unchanged.
+
+The return value of Body is the return value of the receive expression.
+
+receive never fails. Execution is suspended, possibly indefinitely, until a
+message arrives that does match one of the patterns and with a true guard
+sequence.
+
+It is possible to augment the receive expression with a timeout, ExprT should
+evaluate to an integer. The highest allowed value is 16#ffffffff, that is, the
+value must fit in 32 bits. receive..after works exactly as receive, except that
+if no matching message has arrived within ExprT milliseconds, then BodyT is
+evaluated instead and its return value becomes the return value of the
+receive..after expression.
+
+There are two special cases for the timeout value ExprT:
+
+infinity
+    The process should wait indefinitely for a matching message, this is the same as not using a timeout. Can be useful for timeout values that are calculated at run-time.
+0
+    If there is no matching message in the mailbox, the timeout will occur immediately.
+
+Begin
+.....
+
+Abstract Syntax
+:::::::::::::::
 
 ::
 
-   try
-     1/0
-   after
-     ok
-   end
+    begin
+        Expr1
+        ...
+        ExprN
+    end
 
-   try
-     1/0
-   catch
-       case error, badarith: ok
-   end
+Examples
+::::::::
 
-   try
-     1/0
-   catch
-       case error, badarith: ok
-   after
-     ok
-   end
+::
 
-   try
-     1/0
-   catch
-        case throw, T1: T1
-        case Throw: Throw
-        case error, E1: E1
-        case exit, X1: X1
-        case A, C: C
-        else: iselse
-   end
+    Value = begin
+        io.format("returning 42")
+        42
+    end
 
+Description
+:::::::::::
+
+Block expressions provide a way to group a sequence of expressions, similar to
+a clause body. The return value is the value of the last expression ExprN.
+
+Module Level Expressions
+------------------------
+
+Top Level Function
+..................
+
+TODO
+
+Well Known Function Attributes
+::::::::::::::::::::::::::::::
+
+@public
+#######
+
+TODO
+
+@spec
+#####
+
+TODO
+
+Attributes
+..........
+
+Generic Attributes
+::::::::::::::::::
+
+TODO
+
+Well Known Attributes
+:::::::::::::::::::::
+
+Export
+######
+
+::
+
+    @export(hello/0, plus/2)
+
+Export Type
+###########
+
+::
+
+    @export_type(tint/0, c2/1)
+
+
+Record Definition
+#################
+
+::
+
+    @record(foo) -> (a, b = 12, c = true, d = 12)
+
+Record Definition with Types
+############################
+
+::
+
+    @record(person) -> (first = "" is string(), last is list(char()), age is integer())
+
+Type Attributes
+:::::::::::::::
+
+Literal Type
+############
+
+::
+
+    @type(tint) -> 42
+    @type(tatom) -> asd
+    @type(tbool) -> false
+    @type(lempty) -> []
+
+List Type
+#########
+
+::
+
+    @type(lone) -> [42]
+    @type(l3) -> [tatom()]
+
+Range Type
+##########
+
+::
+
+    @type(trange) -> range(1, 10)
+
+Union Type
+##########
+
+::
+
+    @type(tres) -> (ok, integer()) or (error, term()) or (stop, normal)
+
+Binary Type
+###########
+
+::
+
+    @type(bsempty) -> binary(0, 0)
+    @type(bsone) -> binary(4, 0)
+    @type(bsonemul) -> binary(0, 5)
+    @type(bstwo) -> binary(4, 5)
+
+
+Parameterized Type
+##################
+
+::
+
+    @type(p1(X)) -> (ok, X, X)
+    @type(p2(X, Y)) -> (ok, X, Y)
+
+Function Type
+#############
+
+::
+
+    @type(f1) -> fun()
+    @type(f2) -> fun(any, integer())
+    @type(f3) -> fun([boolean(), term()], integer())
+    @type(f4) -> fun([], integer())
+
+Opaque Type and Record Type
+###########################
+
+::
+
+    @opaque(tperson) -> #r person
