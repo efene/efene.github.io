@@ -74,21 +74,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Language Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#boolean">Boolean</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#numbers">Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lists">Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cons-lists">Cons Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#maps">Maps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tuples">Tuples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#atoms">Atoms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#process-id-pid">Process Id (Pid)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#function">Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tagged-expressions">Tagged Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#records">Records</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#binary">Binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hardcode-language-reference">Hardcode Language Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#values">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operations">Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-level-expressions">Module Level Expressions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
@@ -142,8 +131,56 @@
             
   <div class="section" id="language-reference">
 <h1>Language Reference<a class="headerlink" href="#language-reference" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#values" id="id11">Values</a><ul>
+<li><a class="reference internal" href="#boolean" id="id12">Boolean</a></li>
+<li><a class="reference internal" href="#numbers" id="id13">Numbers</a></li>
+<li><a class="reference internal" href="#strings" id="id14">Strings</a></li>
+<li><a class="reference internal" href="#lists" id="id15">Lists</a></li>
+<li><a class="reference internal" href="#cons-lists" id="id16">Cons Lists</a></li>
+<li><a class="reference internal" href="#maps" id="id17">Maps</a></li>
+<li><a class="reference internal" href="#tuples" id="id18">Tuples</a></li>
+<li><a class="reference internal" href="#atoms" id="id19">Atoms</a></li>
+<li><a class="reference internal" href="#variables" id="id20">Variables</a></li>
+<li><a class="reference internal" href="#process-id-pid" id="id21">Process Id (Pid)</a></li>
+<li><a class="reference internal" href="#reference" id="id22">Reference</a></li>
+<li><a class="reference internal" href="#function" id="id23">Function</a></li>
+<li><a class="reference internal" href="#tagged-values" id="id24">Tagged Values</a></li>
+<li><a class="reference internal" href="#records" id="id25">Records</a></li>
+<li><a class="reference internal" href="#binary" id="id26">Binary</a></li>
+<li><a class="reference internal" href="#compile-time-information" id="id27">Compile Time Information</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operations" id="id28">Operations</a><ul>
+<li><a class="reference internal" href="#boolean-operations" id="id29">Boolean Operations</a></li>
+<li><a class="reference internal" href="#comparisson-operations" id="id30">Comparisson Operations</a></li>
+<li><a class="reference internal" href="#concat-operations" id="id31">Concat Operations</a></li>
+<li><a class="reference internal" href="#aritmetic-operations" id="id32">Aritmetic Operations</a></li>
+<li><a class="reference internal" href="#binary-operations" id="id33">Binary Operations</a></li>
+<li><a class="reference internal" href="#unary-operations" id="id34">Unary Operations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#expressions" id="id35">Expressions</a><ul>
+<li><a class="reference internal" href="#when" id="id36">When</a></li>
+<li><a class="reference internal" href="#match" id="id37">Match</a></li>
+<li><a class="reference internal" href="#for" id="id38">For</a></li>
+<li><a class="reference internal" href="#try-catch-after" id="id39">Try/Catch/After</a></li>
+<li><a class="reference internal" href="#receive-after" id="id40">Receive/After</a></li>
+<li><a class="reference internal" href="#begin" id="id41">Begin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-level-expressions" id="id42">Module Level Expressions</a><ul>
+<li><a class="reference internal" href="#top-level-function" id="id43">Top Level Function</a></li>
+<li><a class="reference internal" href="#attributes" id="id44">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="values">
+<h2><a class="toc-backref" href="#id11">Values</a><a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="boolean">
-<h2>Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id12">Boolean</a><a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_data_type">Boolean Data Type in Wikipedia</a></p>
 <p>This is the simplest data type, it can take two values:</p>
 <ul class="simple">
@@ -154,9 +191,9 @@
 in your program called atoms, they are covered bellow.</p>
 </div>
 <div class="section" id="numbers">
-<h2>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id13">Numbers</a><a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="integers">
-<h3>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">¶</a></h3>
+<h4>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">Integer Data Type in Wikipedia</a></p>
 <p>This data type represents an integer number, it has only one syntax, the one
 you are used to, the following are examples of integers:</p>
@@ -170,7 +207,7 @@ you are used to, the following are examples of integers:</p>
 be added using tagged data which is covered below.</p>
 </div>
 <div class="section" id="floats">
-<h3>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">¶</a></h3>
+<h4>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Floating_point">Float Data Type in Wikipedia</a></p>
 <p>This data type represents a decimal number, it has only one syntax, the one
 you are used to, the following are examples of floats:</p>
@@ -185,12 +222,12 @@ future, for now it can be added using tagged data which is covered below.</p>
 </div>
 </div>
 <div class="section" id="strings">
-<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id14">Strings</a><a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/String_%28computer_science%29">String Data Type in Wikipedia</a></p>
 <p>There are two ways of representing text (strings) in erlang they have different
 pros and cons, we won&#8217;t cover them here.</p>
 <div class="section" id="list-strings">
-<h3>List Strings<a class="headerlink" href="#list-strings" title="Permalink to this headline">¶</a></h3>
+<h4>List Strings<a class="headerlink" href="#list-strings" title="Permalink to this headline">¶</a></h4>
 <p>A List String is simply a list of characters represented as numbers, it&#8217;s
 actually not a data type on itself &#8220;hello&#8221; is shorthand for the list [104,101,108,108,111].</p>
 <p>List Strings are enclosed in double quotes (&#8221;), examples of List Strings:</p>
@@ -202,7 +239,7 @@ actually not a data type on itself &#8220;hello&#8221; is shorthand for the list
 </ul>
 </div>
 <div class="section" id="binary-strings">
-<h3>Binary Strings<a class="headerlink" href="#binary-strings" title="Permalink to this headline">¶</a></h3>
+<h4>Binary Strings<a class="headerlink" href="#binary-strings" title="Permalink to this headline">¶</a></h4>
 <p>A Binary String is a binary representation of text, Binary Strings are enclosed
 in single quotes (&#8216;), examples of Binary Strings:</p>
 <ul class="simple">
@@ -214,12 +251,20 @@ in single quotes (&#8216;), examples of Binary Strings:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The Erlang atom syntax with single quotes is supported in efene with tagged
-data, see below.</p>
+values and backticks, see below.</p>
+</div>
+</div>
+<div class="section" id="chars">
+<h4>Chars<a class="headerlink" href="#chars" title="Permalink to this headline">¶</a></h4>
+<p>A character is a number representing a character in a string:</p>
+<div class="highlight-python"><div class="highlight"><pre>A = #c &quot;A&quot;
+Hello = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
+</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="lists">
-<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id15">Lists</a><a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/List_%28abstract_data_type%29">List Data Type in Wikipedia</a></p>
 <p>A List is a variable sequence of elements, it&#8217;s represented by a comma separated sequence
 of other data types (including nested lists) enclosed in opening and closing
@@ -237,7 +282,7 @@ square brackets ([ and  ]), examples of lists:</p>
 </ul>
 </div>
 <div class="section" id="cons-lists">
-<h2>Cons Lists<a class="headerlink" href="#cons-lists" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id16">Cons Lists</a><a class="headerlink" href="#cons-lists" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Cons">Cons List Type in Wikipedia</a></p>
 <p>You can create a list like [1,2,3] with an alternative syntax:</p>
 <ul class="simple">
@@ -255,10 +300,10 @@ square brackets ([ and  ]), examples of lists:</p>
 <p>Now <em>L</em> is [1,2,3]</p>
 </div>
 <div class="section" id="maps">
-<h2>Maps<a class="headerlink" href="#maps" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id17">Maps</a><a class="headerlink" href="#maps" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Associative_array">Map Data Type in Wikipedia</a></p>
 <p>A Map is a sequence of elements associating keys to values, it&#8217;s represented by a comma separated sequence of association pairs enclosed in opening and closing
-curly brackets ({ and }), examples ofmaps</p>
+curly brackets ({ and }), examples of maps:</p>
 <ul class="simple">
 <li>{}</li>
 <li>{one: 1}</li>
@@ -274,9 +319,13 @@ curly brackets ({ and }), examples ofmaps</p>
 <li>M = {one: 1, two: 2}</li>
 <li>{one = One, two = Two} = M</li>
 </ul>
+<p>You can update an existing map:</p>
+<ul class="simple">
+<li>M1 = M#{three: 3}</li>
+</ul>
 </div>
 <div class="section" id="tuples">
-<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id18">Tuples</a><a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
 <p>A Tuple is a fixed sequence of elements, it&#8217;s represented by a comma separated sequence
 of other data types (including nested tuples) enclosed in opening and closing
 parenthesis ( and ), examples of tuples:</p>
@@ -294,7 +343,7 @@ item tuples to distinguish from an expression in parenthesis:</p>
 </ul>
 </div>
 <div class="section" id="atoms">
-<h2>Atoms<a class="headerlink" href="#atoms" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id19">Atoms</a><a class="headerlink" href="#atoms" title="Permalink to this headline">¶</a></h3>
 <p>An atom is a literal, a constant with name, examples of atoms:</p>
 <ul class="simple">
 <li>ok</li>
@@ -310,21 +359,54 @@ item tuples to distinguish from an expression in parenthesis:</p>
 <li>#atom &#8220;hello world!&#8221;</li>
 </ul>
 </div>
+<div class="section" id="variables">
+<h3><a class="toc-backref" href="#id20">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>If a variable is bound to a value, the return value is this value. Unbound
+variables are only allowed in patterns.</p>
+<p>Variables start with an uppercase letter or underscore (_) and may contain
+alphanumeric characters and underscores. Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">X</span>
+<span class="n">Name1</span>
+<span class="n">PhoneNumber</span>
+<span class="n">Phone_number</span>
+<span class="n">_</span>
+<span class="n">_Height</span>
+</pre></div>
+</div>
+<p>Variables are bound to values using pattern matching. Erlang uses single
+assignment, a variable can only be bound once.</p>
+<p>The anonymous variable is denoted by underscore (_) and can be used when a
+variable is required but its value can be ignored. Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>[H :: _] = [1,2,3]
+</pre></div>
+</div>
+<p>Variables starting with underscore (_), for example _Height, are normal
+variables, not anonymous. They are however ignored by the compiler in the sense
+that they will not generate any warnings for unused variables.</p>
+<p>Note that since variables starting with an underscore are not anonymous, this will match:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But this will fail:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">_N</span><span class="p">,</span><span class="n">_N</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="process-id-pid">
-<h2>Process Id (Pid)<a class="headerlink" href="#process-id-pid" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id21">Process Id (Pid)</a><a class="headerlink" href="#process-id-pid" title="Permalink to this headline">¶</a></h3>
 <p>A process identifier, pid, identifies a process.</p>
 <p>spawn/1,2,3,4, spawn_link/1,2,3,4 and spawn_opt/4,
 which are used to create processes, return values of this type.</p>
 </div>
 <div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id22">Reference</a><a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
 <p>A reference is a term which is unique in an Erlang runtime system, created by
 calling make_ref/0.</p>
 </div>
 <div class="section" id="function">
-<h2>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id23">Function</a><a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="anonymouse-functions">
-<h3>Anonymouse Functions<a class="headerlink" href="#anonymouse-functions" title="Permalink to this headline">¶</a></h3>
+<h4>Anonymouse Functions<a class="headerlink" href="#anonymouse-functions" title="Permalink to this headline">¶</a></h4>
 <p>Functions can be created and assigned to variables inside other functions, the
 syntax is:</p>
 <div class="highlight-python"><div class="highlight"><pre>fn [case [parameters]: body]+ end
@@ -350,7 +432,7 @@ end
 </div>
 </div>
 <div class="section" id="named-functions">
-<h3>Named Functions<a class="headerlink" href="#named-functions" title="Permalink to this headline">¶</a></h3>
+<h4>Named Functions<a class="headerlink" href="#named-functions" title="Permalink to this headline">¶</a></h4>
 <p>Named Functions exist to refer to a function inside of it to do recursion as you
 would do with a toplevel function.</p>
 <p>The syntax is the same as an anonymous function but with a variable as it&#8217;s name,
@@ -367,7 +449,7 @@ refer to itself then you don&#8217;t need a named function.</p>
 <p>You can see more details and examples in this article: <a class="reference external" href="http://joearms.github.io/2014/02/01/big-changes-to-erlang.html">http://joearms.github.io/2014/02/01/big-changes-to-erlang.html</a></p>
 </div>
 <div class="section" id="function-references">
-<h3>Function References<a class="headerlink" href="#function-references" title="Permalink to this headline">¶</a></h3>
+<h4>Function References<a class="headerlink" href="#function-references" title="Permalink to this headline">¶</a></h4>
 <p>If we want to pass a reference to a function as a parameter or set it to a
 variable we can use the function reference syntax.</p>
 <p>It&#8217;s composed of the keyword <strong>fn</strong>, the function name, including module if
@@ -386,28 +468,112 @@ CR6 = fn A.B:5
 </div>
 <p>since it&#8217;s already a function reference on itself, this will result in an error.</p>
 </div>
+<div class="section" id="function-calls">
+<h4>Function Calls<a class="headerlink" href="#function-calls" title="Permalink to this headline">¶</a></h4>
+<p>There are many ways to call a function, it depends if the function is local,
+from another module and if we know the name and/or the module in advance or
+we have a reference to it in a variable.</p>
+<p>The simples way to call a local function (or an automatically imported function) is
+just giving the name and passing the parameters.</p>
+<p>Local call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">One</span> <span class="o">=</span> <span class="n">identity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="tagged-expressions">
-<h2>Tagged Expressions<a class="headerlink" href="#tagged-expressions" title="Permalink to this headline">¶</a></h2>
-<p>Expressions and data types can be tagged in efene, this is insipired from
+<p>Call to a function in another module:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">R</span> <span class="o">=</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dynamic local call:</p>
+<div class="highlight-python"><div class="highlight"><pre>I = fn identity:1
+One = I(1)
+</pre></div>
+</div>
+<p>Dynamic call to a function in another module:</p>
+<div class="highlight-python"><div class="highlight"><pre>L = lists
+S = seq
+R = L.S(1, 10)
+R = lists.S(1, 10)
+R = L.seq(1, 10)
+
+L1 = fn lists.seq:2
+L2 = fn lists.S:2
+L3 = fn L.seq:2
+L4 = fn L.S:2
+
+R = L1(1, 10)
+R = L2(1, 10)
+R = L3(1, 10)
+R = L4(1, 10)
+</pre></div>
+</div>
+<p>Threading function calls:</p>
+<div class="highlight-python"><div class="highlight"><pre>IsOdd = fn case X:
+                X % 2 is 0
+           end
+
+Increment = fn case X:
+                    X + 1
+               end
+
+MyMap = fn case List, Fun:
+                lists.map(Fun, List)
+           end
+
+lists.seq(1, 10) -&gt;&gt;
+    lists.filter(IsOdd) -&gt;
+    MyMap(Increment)
+</pre></div>
+</div>
+<p>(I define MyMap to reverse the order of the arguments of lists.map so I can
+use -&gt; in the example)</p>
+<p>the -&gt;&gt; operator inserts the value from the left as the last argument in the
+function on the right (imagine that -&gt;&gt; sends the value to the other side)</p>
+<p>the -&gt; operator inserts the value from the left as the first argument in the
+function on the right (imagine that -&gt;&gt; sends the value to the closest side)</p>
+<p>Higher order function calls:</p>
+<div class="highlight-python"><div class="highlight"><pre>MapR = fn case List, Fun:
+  lists.map(Fun, List)
+end
+
+R = lists.seq(1, 10)
+
+lists.map(R) &lt;&lt;- case X:
+  X + 1
+end
+
+MapR(R) &lt;- case X:
+  X + 1
+end
+</pre></div>
+</div>
+<p>The &lt;- operator inserts the anonymous function as the last argument in the
+function (imagine that &lt;- sends the value to the closest side).</p>
+<p>The &lt;&lt;- operator inserts the anonymous function as the first argument in the
+function (imagine that &lt;&lt;- sends the value to the other side).</p>
+</div>
+</div>
+<div class="section" id="tagged-values">
+<h3><a class="toc-backref" href="#id24">Tagged Values</a><a class="headerlink" href="#tagged-values" title="Permalink to this headline">¶</a></h3>
+<p>Expressions and values can be tagged in efene, this is inspired from
 <a class="reference external" href="https://github.com/edn-format/edn">the edn format</a>.</p>
 <p>This allows to transform a value or expression at compile time to some other
 value or expression by tagging it.</p>
-<p>a tag is comprised of the # sign followed by a path, that is a sequence of
-atoms or variables joined with dots, examples of tagged values:</p>
+<p>a tagged value is comprised of the # sign followed by a path, that is a
+sequence of atoms or variables joined with dots, examples of tagged values:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#atom &quot;I&#39;m an atom&quot;</span>
 <span class="c">#c &quot;A&quot;</span>
-<span class="c">#_ &quot;this is ignored&quot;</span>
 </pre></div>
 </div>
 <p>The first case transforms the string to an atom at compile time, it has the same
 effect as the single quotes in erlang.</p>
 <p>The second case transforms a string of length 1 into a character type, it has
 the same effect as the dolar sign in erlang.</p>
-<p>The last one is quite useful, it just &#8220;ignores&#8221; the expression or value that
-follows, actually it doesn&#8217;t ignore it, it just replaces it by a special atom,
-as long as you don&#8217;t assign the result or return it the value of the atom
-doesn&#8217;t matter.</p>
+<p>a tagged expression works the same as a tagged value but applies to expressions,
+the syntax is the same except that the ^ symbol is used instead of #:</p>
+<div class="highlight-python"><div class="highlight"><pre>^_ begin &quot;this is ignored&quot; end
+</pre></div>
+</div>
+<p>It just &#8220;ignores&#8221; the expression or value that follows.</p>
 <p>Efene adds support for some erlang syntax via tagged values and expressions
 as you can see above.</p>
 <p>In the future this functionality will be provided to compiler extensions that
@@ -416,7 +582,7 @@ imagine string internationalization, logging, profiling, stdlib type
 constructors using values etc.</p>
 </div>
 <div class="section" id="records">
-<h2>Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id25">Records</a><a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h3>
 <p>A record is a compile time data structure that erlang transforms into tuples at
 run time with the name of the record in it, it&#8217;s kind of a named tuple where
 at run time field names are translated into tuple indexes.</p>
@@ -439,9 +605,14 @@ parenthesis are the record fields, you can provide default values for fields.</p
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#r.person {age: Age} = P1</span>
 </pre></div>
 </div>
+<p>To get the value of a field:</p>
+<div class="highlight-python"><div class="highlight"><pre>Counter = #r.state.counter State
+</pre></div>
+</div>
+<p>To get the tuple index of a field:</p>
 </div>
 <div class="section" id="binary">
-<h2>Binary<a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h2>
+<h3><a class="toc-backref" href="#id26">Binary</a><a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h3>
 <p>Binary is a data type to express erlang&#8217;s bit syntax, where you can specify
 the format of a binary, you can read more at <a class="reference external" href="http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax">erlang&#8217;s bit syntax docs</a></p>
 <p>In efene binaries are implemented using a tagged list that contains a map
@@ -458,287 +629,453 @@ all the alternatives:</p>
 </pre></div>
 </div>
 <p>On a field you can specify the variable to match to, the size, type, sign, endianness and unit.</p>
-<p>For a detailes explanation of what each of those values do please refer to
+<p>For a detailed explanation of what each of those values do please refer to
 <a class="reference external" href="http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax">erlang&#8217;s bit syntax docs</a>.</p>
 </div>
-<div class="section" id="hardcode-language-reference">
-<h2>Hardcode Language Reference<a class="headerlink" href="#hardcode-language-reference" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="global-attributes">
-<h3>Global Attributes<a class="headerlink" href="#global-attributes" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="export">
-<h4>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@export(hello/0, plus/2)
-</pre></div>
-</div>
-</div>
-<div class="section" id="export-type">
-<h4>Export Type<a class="headerlink" href="#export-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@export_type(tint/0, c2/1)
-</pre></div>
-</div>
-</div>
-<div class="section" id="literal-type">
-<h4>Literal Type<a class="headerlink" href="#literal-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@type(tint) -&gt; 42
-@type(tatom) -&gt; asd
-@type(tbool) -&gt; false
-@type(lempty) -&gt; []
-</pre></div>
-</div>
-</div>
-<div class="section" id="list-type">
-<h4>List Type<a class="headerlink" href="#list-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@type(lone) -&gt; [42]
-@type(l3) -&gt; [tatom()]
-</pre></div>
-</div>
-</div>
-<div class="section" id="range-type">
-<h4>Range Type<a class="headerlink" href="#range-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@type(trange) -&gt; range(1, 10)
-</pre></div>
-</div>
-</div>
-<div class="section" id="union-type">
-<h4>Union Type<a class="headerlink" href="#union-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@type(tres) -&gt; (ok, integer()) or (error, term()) or (stop, normal)
-</pre></div>
-</div>
-</div>
-<div class="section" id="binary-type">
-<h4>Binary Type<a class="headerlink" href="#binary-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@type(bsempty) -&gt; binary(0, 0)
-@type(bsone) -&gt; binary(4, 0)
-@type(bsonemul) -&gt; binary(0, 5)
-@type(bstwo) -&gt; binary(4, 5)
-</pre></div>
-</div>
-</div>
-<div class="section" id="parameterized-type">
-<h4>Parameterized Type<a class="headerlink" href="#parameterized-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@type(p1(X)) -&gt; (ok, X, X)
-@type(p2(X, Y)) -&gt; (ok, X, Y)
-</pre></div>
-</div>
-</div>
-<div class="section" id="function-type">
-<h4>Function Type<a class="headerlink" href="#function-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@type(f1) -&gt; fun()
-@type(f2) -&gt; fun(any, integer())
-@type(f3) -&gt; fun([boolean(), term()], integer())
-@type(f4) -&gt; fun([], integer())
-</pre></div>
-</div>
-</div>
-<div class="section" id="opaque-type-and-record-type">
-<h4>Opaque Type and Record Type<a class="headerlink" href="#opaque-type-and-record-type" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@opaque(tperson) -&gt; #r person
-</pre></div>
-</div>
-</div>
-<div class="section" id="record-definition">
-<h4>Record Definition<a class="headerlink" href="#record-definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@record(foo) -&gt; (a, b = 12, c = true, d = 12)
-</pre></div>
-</div>
-</div>
-<div class="section" id="record-definition-with-types">
-<h4>Record Definition with Types<a class="headerlink" href="#record-definition-with-types" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@record(person) -&gt; (first = &quot;&quot; is string(), last is list(char()), age is integer())
-</pre></div>
-</div>
-</div>
-<div class="section" id="function-with-else-case">
-<h4>Function with else case<a class="headerlink" href="#function-with-else-case" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>fn plus
-    case A, B:
-        A + B
-    else:
-        42
-end
-</pre></div>
-</div>
-</div>
-<div class="section" id="string-likes">
-<h4>String Likes<a class="headerlink" href="#string-likes" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>A = &#39;I\&#39;m a binary string&#39;
-B = &quot;I&#39;m a regular string&quot;
-C = #atom &quot;I&#39;m an atom&quot;
-C1 = `I am an atom too`
-D = #c &quot;C&quot;
-</pre></div>
-</div>
-</div>
-<div class="section" id="id2">
-<h4>Function References<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>CR1 = fn a:0
-CR3 = fn a.b:2
-CR4 = fn a.B:3
-CR5 = fn A.b:4
-CR6 = fn A.B:5
-</pre></div>
-</div>
-</div>
-<div class="section" id="anonymous-functions">
-<h4>Anonymous Functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>F = fn case 1: one end
-
-F1 = fn
-    case 1: one
-    case _: other
-end
-
-F2 = fn
-    case 1: one
-    else: other
-end
-
-Plus = fn
-    case A, B: A + B
-    else: 42
-end
-</pre></div>
-</div>
-</div>
-<div class="section" id="named-anonymous-functions">
-<h4>Named Anonymous Functions<a class="headerlink" href="#named-anonymous-functions" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>F3 = fn Fact
-    case 0: 1
-    case N: N * Fact(N - 1)
-end
-</pre></div>
-</div>
-</div>
-<div class="section" id="record-syntax">
-<h4>Record Syntax<a class="headerlink" href="#record-syntax" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>State = #r.state {counter: 1, last_modification: now()}
-State1 = #r.state State#{counter: 2}
-Counter = #r.state.counter State
-CounterIdx = #r.state counter
-#r.state {counter: Counter} = State
-</pre></div>
-</div>
-</div>
 <div class="section" id="compile-time-information">
-<h4>Compile Time Information<a class="headerlink" href="#compile-time-information" title="Permalink to this headline">¶</a></h4>
+<h3><a class="toc-backref" href="#id27">Compile Time Information</a><a class="headerlink" href="#compile-time-information" title="Permalink to this headline">¶</a></h3>
+<p>Using tagged values we can get some information at compile time.</p>
+<p>This gets the current line:</p>
 <div class="highlight-python"><div class="highlight"><pre>Line = #i line
-Module = #i module
+</pre></div>
+</div>
+<p>This gets the current module name as an atom:</p>
+<div class="highlight-python"><div class="highlight"><pre>Module = #i module
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="operations">
+<h2><a class="toc-backref" href="#id28">Operations</a><a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="boolean-operations">
+<h3><a class="toc-backref" href="#id29">Boolean Operations</a><a class="headerlink" href="#boolean-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="30%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>or</td>
+<td>Short Circuit Or</td>
+<td>orelse</td>
+</tr>
+<tr class="row-odd"><td>and</td>
+<td>Short Circuit And</td>
+<td>andalso</td>
+</tr>
+<tr class="row-even"><td>xor</td>
+<td>Xor</td>
+<td>xor</td>
+</tr>
+<tr class="row-odd"><td>orr</td>
+<td>Non Short Circuit Or</td>
+<td>or</td>
+</tr>
+<tr class="row-even"><td>andd</td>
+<td>Non Short Circuit And</td>
+<td>and</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="comparisson-operations">
+<h3><a class="toc-backref" href="#id30">Comparisson Operations</a><a class="headerlink" href="#comparisson-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="34%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>==</td>
+<td>equal to</td>
+<td>==</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>not equal to</td>
+<td>/=</td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>less than</td>
+<td>&lt;</td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>less than or equal to</td>
+<td>=&lt;</td>
+</tr>
+<tr class="row-even"><td>&gt;</td>
+<td>greater than</td>
+<td>&gt;</td>
+</tr>
+<tr class="row-odd"><td>&gt;=</td>
+<td>greater than or equal to</td>
+<td>&gt;=</td>
+</tr>
+<tr class="row-even"><td>is</td>
+<td>exactly equal to</td>
+<td>=:=</td>
+</tr>
+<tr class="row-odd"><td>isnt</td>
+<td>exactly not equal to</td>
+<td>=/=</td>
+</tr>
+</tbody>
+</table>
+<p>The arguments may be of different data types. The following order is defined:</p>
+<div class="highlight-python"><div class="highlight"><pre>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string
+</pre></div>
+</div>
+<p>Lists are compared element by element.</p>
+<p>Tuples are ordered by size, two tuples with the same size are compared element by element.</p>
+<p>When comparing an integer to a float, the term with the lesser precision will
+be converted into the other term&#8217;s type, unless the operator is one of <em>is</em> or
+<em>isnt</em>.</p>
+<p>A float is more precise than an integer until all significant figures of the
+float are to the left of the decimal point.</p>
+<p>This happens when the float is larger/smaller than +/-9007199254740992.0. The
+conversion strategy is changed depending on the size of the float because
+otherwise comparison of large floats and integers would lose their
+transitivity.</p>
+</div>
+<div class="section" id="concat-operations">
+<h3><a class="toc-backref" href="#id31">Concat Operations</a><a class="headerlink" href="#concat-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="34%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>++</td>
+<td>list concatenation</td>
+<td>++</td>
+</tr>
+<tr class="row-odd"><td>&#8211;</td>
+<td>list substraction</td>
+<td>&#8211;</td>
+</tr>
+</tbody>
+</table>
+<p>The list concatenation operator ++ appends its second argument to its first and returns the resulting list.</p>
+<p>The list subtraction operator &#8211; produces a list which is a copy of the first argument, subjected to the following procedure: for each element in the second argument, the first occurrence of this element (if any) is removed.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The complexity of A &#8211; B is proportional to length(A) * length(B), meaning
+that it will be very slow if both A and B are long lists.</p>
+</div>
+</div>
+<div class="section" id="aritmetic-operations">
+<h3><a class="toc-backref" href="#id32">Aritmetic Operations</a><a class="headerlink" href="#aritmetic-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="34%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>+</td>
+<td>addition</td>
+<td>+</td>
+</tr>
+<tr class="row-odd"><td>-</td>
+<td>substraction</td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>multiplication</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>/</td>
+<td>division</td>
+<td>/</td>
+</tr>
+<tr class="row-even"><td>%</td>
+<td>remainder</td>
+<td>rem</td>
+</tr>
+<tr class="row-odd"><td>//</td>
+<td>integer division</td>
+<td>div</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="binary-operations">
+<h3><a class="toc-backref" href="#id33">Binary Operations</a><a class="headerlink" href="#binary-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="34%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>|</td>
+<td>binary or</td>
+<td>bor</td>
+</tr>
+<tr class="row-odd"><td>&amp;</td>
+<td>binary and</td>
+<td>band</td>
+</tr>
+<tr class="row-even"><td>^</td>
+<td>binary xor</td>
+<td>bxor</td>
+</tr>
+<tr class="row-odd"><td>&lt;&lt;</td>
+<td>shift left</td>
+<td>bsl</td>
+</tr>
+<tr class="row-even"><td>&gt;&gt;</td>
+<td>shift right</td>
+<td>bsr</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="unary-operations">
+<h3><a class="toc-backref" href="#id34">Unary Operations</a><a class="headerlink" href="#unary-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="34%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-</td>
+<td>integer negative</td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>not</td>
+<td>boolean not</td>
+<td>not</td>
+</tr>
+<tr class="row-even"><td>~</td>
+<td>binary not</td>
+<td>bnot</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="expressions">
+<h2><a class="toc-backref" href="#id35">Expressions</a><a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="when">
+<h3><a class="toc-backref" href="#id36">When</a><a class="headerlink" href="#when" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="abstract-syntax">
+<h4>Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permalink to this headline">¶</a></h4>
+<p>Simple:</p>
+<div class="highlight-python"><div class="highlight"><pre>when GuardSeq1:
+    Body1
+else:
+    ElseBody
+end
+</pre></div>
+</div>
+<p>Complete:</p>
+<div class="highlight-python"><div class="highlight"><pre>when GuardSeq1:
+    Body1
+else GuardSeq2:
+    Body2
+...
+else GuardSeqN:
+    BodyN
+else:
+    ElseBody
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>when true:
+    io.format(&quot;guard evaluated to true&quot;)
+else:
+    io.format(&quot;no guard evaluated to true&quot;)
+end
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>when A &lt; 10:
+    io.format(&quot;A &lt; 10&quot;)
+else A &lt; 20:
+    io.format(&quot;A &lt; 20 and &gt;= 10&quot;)
+else A &lt; 30:
+    io.format(&quot;A &lt; 30 and &gt;= 20&quot;)
+else:
+    io.format(&quot;A &gt; 30&quot;)
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p>When expression is similar to if/else if/else in other languages but with some
+extra limitations.</p>
+<p>This limitations come from the fact that when expressions
+are identical to function guard expressions.</p>
+<p>The set of valid guard expressions (sometimes called guard tests) is a subset
+of the set of valid Erlang expressions. The reason for restricting the set of
+valid expressions is that evaluation of a guard expression must be guaranteed
+to be free of side effects. Valid guard expressions are:</p>
+<ul>
+<li><p class="first">the atom true,</p>
+</li>
+<li><p class="first">other constants (terms and bound variables), all regarded as false,</p>
+</li>
+<li><p class="first">term comparisons,</p>
+</li>
+<li><p class="first">arithmetic expressions,</p>
+</li>
+<li><p class="first">boolean expressions</p>
+</li>
+<li><p class="first">short-circuit expressions (and/or)</p>
+</li>
+<li><p class="first">calls to the BIFs</p>
+<blockquote>
+<div><ul class="simple">
+<li>is_atom/1</li>
+<li>is_binary/1</li>
+<li>is_bitstring/1</li>
+<li>is_boolean/1</li>
+<li>is_float/1</li>
+<li>is_function/1</li>
+<li>is_function/2</li>
+<li>is_integer/1</li>
+<li>is_list/1</li>
+<li>is_map/1</li>
+<li>is_number/1</li>
+<li>is_pid/1</li>
+<li>is_port/1</li>
+<li>is_record/2</li>
+<li>is_record/3</li>
+<li>is_reference/1</li>
+<li>is_tuple/1</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>If an arithmetic expression, a boolean expression, a short-circuit expression,
+or a call to a guard BIF fails (because of invalid arguments), the entire guard
+fails. If the guard was part of a guard sequence, the next guard in the
+sequence (that is, the guard following the next semicolon) will be evaluated.</p>
+<p>A guard sequence is a sequence of guards, separated by semicolon (;).
+The guard sequence is true if at least one of the guards is true.
+(The remaining guards, if any, will not be evaluated.):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Guard1</span><span class="p">;</span><span class="o">...</span><span class="p">;</span><span class="n">GuardK</span>
+</pre></div>
+</div>
+<p>A guard is a sequence of guard expressions, separated by comma (,).
+The guard is true if all guard expressions evaluate to true:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GuardExpr1</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="n">GuardExprN</span>
+</pre></div>
+</div>
+<p>example:</p>
+<div class="highlight-python"><div class="highlight"><pre>when Cond1, Cond2; Cond3:
+    1
+else Cond4; Cond5, Cond6, Cond7:
+    2
+else:
+    3
+end
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="match">
+<h3><a class="toc-backref" href="#id37">Match</a><a class="headerlink" href="#match" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Abstract Syntax<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>match Expr:
+    case Pattern1 [when GuardSeq1]:
+        Body1
+    ...
+    [case PatternN [when GuardSeqN]:
+        BodyN]
+    [else:
+        BodyElse]
+end
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
-<h4>Tuples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Empty</span> <span class="o">=</span> <span class="p">()</span>
-<span class="n">One</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-<span class="n">One1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,)</span>
-<span class="n">OneExpr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">OneExpr1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">Two</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<h4>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Simple:</p>
+<div class="highlight-python"><div class="highlight"><pre>match Result:
+    case ok, Value:
+        io.format(&quot;everything ok ~p~n&quot;, [Value])
+        do_something(Value)
+    case error, Reason:
+        io.format(&quot;error: ~p~n&quot;, [Reason])
+        fail(Reason)
+end
 </pre></div>
 </div>
-</div>
-<div class="section" id="list">
-<h4>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>Cons = [a :: b]
-L = [2,3,4]
-L0 = [2,3,4,]
-L1 = [1 :: L]
-L10 = [1, :: L]
-L2 = [0, 1 :: L]
-L20 = [0, 1, :: L]
-L3 = [0, 1, 2 :: L]
-L30 = [0, 1, 2, :: L]
+<p>When and Else:</p>
+<div class="highlight-python"><div class="highlight"><pre>match Result:
+    case ok, Value when is_integer(Value), Value &lt; 10:
+        io.format(&quot;everything ok, value is &lt; 10: ~p~n&quot;, [Value])
+        do_something(Value)
+    case ok, Value when is_atom(Value):
+        io.format(&quot;everything ok, value is atom~p~n&quot;, [Value])
+        do_something_atom(Value)
+    case error, Reason:
+        io.format(&quot;error: ~p~n&quot;, [Reason])
+        fail(Reason)
+    else:
+        io.format(&quot;Value doesn&#39;t match any case&quot;)
+end
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
-<h4>Maps<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>{}
-A = {a: b}
-A0 = {a: b,}
-{atom: atom, &#39;bstr&#39;: &#39;hi&#39;, &quot;str&quot;: &quot;hi&quot;, 42: 24, 1.2: 2.1, true: false}
-{atom = atom, &#39;bstr&#39; = &#39;hi&#39;, &quot;str&quot; = &quot;hi&quot;, 42 = 24, 1.2 = 2.1, true = false} = A
-</pre></div>
+<h4>Description<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The expression Expr is evaluated and the patterns Pattern are sequentially
+matched against the result. If a match succeeds and the optional guard sequence
+GuardSeq is true, the corresponding Body is evaluated.</p>
+<p>The return value of Body is the return value of the case expression.</p>
+<p>If else is present and no Pattern matched BodyElse will be executed.</p>
+<p>If there is no matching pattern with a true guard sequence, a case_clause
+run-time error will occur.</p>
 </div>
 </div>
-<div class="section" id="function-calls">
-<h4>Function Calls<a class="headerlink" href="#function-calls" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>L = lists
-S = seq
-R = lists.seq(1, 10)
-R = L.S(1, 10)
-R = lists.S(1, 10)
-R = L.seq(1, 10)
-One = identity(1)
-
-I = fn identity:1
-One = I(1)
-
-L1 = fn lists.seq:2
-L2 = fn lists.S:2
-L3 = fn L.seq:2
-L4 = fn L.S:2
-R = L1(1, 10)
-R = L2(1, 10)
-R = L3(1, 10)
-R = L4(1, 10)
-
-MapR = fn case List, Fun:
-  lists.map(Fun, List)
-end
-
-lists.map(R) &lt;&lt;- case X:
-  X + 1
-end
-
-MapR(R) &lt;- case X:
-  X + 1
-end
-</pre></div>
-</div>
-</div>
-<div class="section" id="id5">
-<h4>Tagged Expressions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>^_ &quot;this is kind of a comment?&quot;
-^_ match A:
-    case 1: one
-    case 2: two
-    else: dontknow
-end
-
-A = ^b [{}, {val: A}, {size: 8}, {type: float}, {sign: unsigned}, {endianness: big},
-    {unit: 8},
-    {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
-
-for A in range(10); A &lt; 10; A &lt;- foo(10): A + 1 end
-^b for A in range(10); A &lt; 10; A &lt;- foo(10): A + 1 end
-</pre></div>
-</div>
-</div>
-<div class="section" id="when">
-<h4>When<a class="headerlink" href="#when" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>when true, false; true, false; true; false:
-    1
-else true, false; true, false; true:
-    2
-else true, false; true, false:
-    3
-else true, false:
-    4
-else true:
-    5
-else:
-    6
-end
-
-when true: ok
-else: error
-end
-</pre></div>
-</div>
-</div>
-<div class="section" id="for-list-comprehensions">
-<h4>For (List Comprehensions)<a class="headerlink" href="#for-list-comprehensions" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="for">
+<h3><a class="toc-backref" href="#id38">For</a><a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10):
   X + 1
 end
@@ -752,40 +1089,33 @@ for X in lists.seq(1, 10); Y in lists.seq(10, 20):
 end
 </pre></div>
 </div>
+<p>TODO</p>
 </div>
-<div class="section" id="match">
-<h4>Match<a class="headerlink" href="#match" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>match Error:
-     case throw, T1: T1
-     case error, E1: E1
-     case exit, X1: X1
-     case A, C: C
-     else: iselse
-end
-</pre></div>
+<div class="section" id="try-catch-after">
+<h3><a class="toc-backref" href="#id39">Try/Catch/After</a><a class="headerlink" href="#try-catch-after" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
 </div>
-</div>
-<div class="section" id="sequence-types">
-<h4>Sequence Types<a class="headerlink" href="#sequence-types" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>A = (a, 1, true)
-D = {a: 1, b: 2}
-ED = {}
-ET = ()
-{a := A, b := B} = D
-</pre></div>
-</div>
-</div>
-<div class="section" id="receive">
-<h4>Receive<a class="headerlink" href="#receive" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="receive-after">
+<h3><a class="toc-backref" href="#id40">Receive/After</a><a class="headerlink" href="#receive-after" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Abstract Syntax<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><div class="highlight"><pre>receive
-     case throw, T1: T1
-     case error, E1: E1
-     case exit, X1: X1
-     case A, C: C
-     else: iselse
+    case Pattern1 [when GuardSeq1]:
+        Body1
+    ...
+    [case PatternN [when GuardSeqN]:
+        BodyN]
+    [else:
+        BodyElse]
+after ExprT:
+    BodyAfter
 end
-
-receive
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Examples<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>receive
      case throw, T1: T1
      case error, E1: E1
      case exit, X1: X1
@@ -797,79 +1127,172 @@ end
 </pre></div>
 </div>
 </div>
-<div class="section" id="expressions">
-<h4>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="n">B</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span>
-<span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">7</span>
-<span class="n">D</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
-<span class="n">E</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">or</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span>
-</pre></div>
+<div class="section" id="id7">
+<h4>Description<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Receives messages sent to the process.</p>
+<p>The patterns Pattern are sequentially matched against the first message in time
+order in the mailbox, then the second, and so on.</p>
+<p>If a match succeeds and the optional guard sequence GuardSeq is true, the
+corresponding Body is evaluated.</p>
+<p>The matching message is consumed, that is removed from the mailbox, while any
+other messages in the mailbox remain unchanged.</p>
+<p>The return value of Body is the return value of the receive expression.</p>
+<p>receive never fails. Execution is suspended, possibly indefinitely, until a
+message arrives that does match one of the patterns and with a true guard
+sequence.</p>
+<p>It is possible to augment the receive expression with a timeout, ExprT should
+evaluate to an integer. The highest allowed value is 16#ffffffff, that is, the
+value must fit in 32 bits. receive..after works exactly as receive, except that
+if no matching message has arrived within ExprT milliseconds, then BodyT is
+evaluated instead and its return value becomes the return value of the
+receive..after expression.</p>
+<p>There are two special cases for the timeout value ExprT:</p>
+<dl class="docutils">
+<dt>infinity</dt>
+<dd>The process should wait indefinitely for a matching message, this is the same as not using a timeout. Can be useful for timeout values that are calculated at run-time.</dd>
+<dt>0</dt>
+<dd>If there is no matching message in the mailbox, the timeout will occur immediately.</dd>
+</dl>
 </div>
 </div>
-<div class="section" id="function-attributes">
-<h4>Function Attributes<a class="headerlink" href="#function-attributes" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>fn hello
-    @public
-    @http.get(&quot;/foo/:num&quot;) -&gt; json
-    @doc(&quot;some hello world function&quot;)
-    @accept -&gt; json
-    @produces(json, xml, edn)
-    @spec(integer(), ok) -&gt; (ok, term()) or notfound
-
-    case A, B: A + B
+<div class="section" id="begin">
+<h3><a class="toc-backref" href="#id41">Begin</a><a class="headerlink" href="#begin" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>Abstract Syntax<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>begin
+    Expr1
+    ...
+    ExprN
 end
 </pre></div>
 </div>
 </div>
-<div class="section" id="string-escaping">
-<h4>String Escaping<a class="headerlink" href="#string-escaping" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="s">&quot;a </span><span class="se">\&quot;</span><span class="s">hi</span><span class="se">\&quot;</span><span class="s"> </span><span class="se">\\\&quot;</span><span class="s"> </span><span class="se">\\</span><span class="s">&#39; &#39;there&#39;&quot;</span>
-<span class="n">B</span> <span class="o">=</span> <span class="s">&#39;a &quot;hi&quot; </span><span class="se">\\</span><span class="s">&quot; </span><span class="se">\\\&#39;</span><span class="s"> </span><span class="se">\&#39;</span><span class="s">there</span><span class="se">\&#39;</span><span class="s">&#39;</span>
+<div class="section" id="id9">
+<h4>Examples<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>Value = begin
+    io.format(&quot;returning 42&quot;)
+    42
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>Description<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>Block expressions provide a way to group a sequence of expressions, similar to
+a clause body. The return value is the value of the last expression ExprN.</p>
+</div>
+</div>
+</div>
+<div class="section" id="module-level-expressions">
+<h2><a class="toc-backref" href="#id42">Module Level Expressions</a><a class="headerlink" href="#module-level-expressions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="top-level-function">
+<h3><a class="toc-backref" href="#id43">Top Level Function</a><a class="headerlink" href="#top-level-function" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+<div class="section" id="well-known-function-attributes">
+<h4>Well Known Function Attributes<a class="headerlink" href="#well-known-function-attributes" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="public">
+<h5>&#64;public<a class="headerlink" href="#public" title="Permalink to this headline">¶</a></h5>
+<p>TODO</p>
+</div>
+<div class="section" id="spec">
+<h5>&#64;spec<a class="headerlink" href="#spec" title="Permalink to this headline">¶</a></h5>
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div class="section" id="attributes">
+<h3><a class="toc-backref" href="#id44">Attributes</a><a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="generic-attributes">
+<h4>Generic Attributes<a class="headerlink" href="#generic-attributes" title="Permalink to this headline">¶</a></h4>
+<p>TODO</p>
+</div>
+<div class="section" id="well-known-attributes">
+<h4>Well Known Attributes<a class="headerlink" href="#well-known-attributes" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="export">
+<h5>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@export(hello/0, plus/2)
 </pre></div>
 </div>
 </div>
-<div class="section" id="chars">
-<h4>Chars<a class="headerlink" href="#chars" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>A = #c &quot;A&quot;
-Hello = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
+<div class="section" id="export-type">
+<h5>Export Type<a class="headerlink" href="#export-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@export_type(tint/0, c2/1)
 </pre></div>
 </div>
 </div>
-<div class="section" id="try-catch">
-<h4>Try Catch<a class="headerlink" href="#try-catch" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>try
-  1/0
-after
-  ok
-end
-
-try
-  1/0
-catch
-    case error, badarith: ok
-end
-
-try
-  1/0
-catch
-    case error, badarith: ok
-after
-  ok
-end
-
-try
-  1/0
-catch
-     case throw, T1: T1
-     case Throw: Throw
-     case error, E1: E1
-     case exit, X1: X1
-     case A, C: C
-     else: iselse
-end
+<div class="section" id="record-definition">
+<h5>Record Definition<a class="headerlink" href="#record-definition" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@record(foo) -&gt; (a, b = 12, c = true, d = 12)
 </pre></div>
+</div>
+</div>
+<div class="section" id="record-definition-with-types">
+<h5>Record Definition with Types<a class="headerlink" href="#record-definition-with-types" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@record(person) -&gt; (first = &quot;&quot; is string(), last is list(char()), age is integer())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="type-attributes">
+<h4>Type Attributes<a class="headerlink" href="#type-attributes" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="literal-type">
+<h5>Literal Type<a class="headerlink" href="#literal-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@type(tint) -&gt; 42
+@type(tatom) -&gt; asd
+@type(tbool) -&gt; false
+@type(lempty) -&gt; []
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-type">
+<h5>List Type<a class="headerlink" href="#list-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@type(lone) -&gt; [42]
+@type(l3) -&gt; [tatom()]
+</pre></div>
+</div>
+</div>
+<div class="section" id="range-type">
+<h5>Range Type<a class="headerlink" href="#range-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@type(trange) -&gt; range(1, 10)
+</pre></div>
+</div>
+</div>
+<div class="section" id="union-type">
+<h5>Union Type<a class="headerlink" href="#union-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@type(tres) -&gt; (ok, integer()) or (error, term()) or (stop, normal)
+</pre></div>
+</div>
+</div>
+<div class="section" id="binary-type">
+<h5>Binary Type<a class="headerlink" href="#binary-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@type(bsempty) -&gt; binary(0, 0)
+@type(bsone) -&gt; binary(4, 0)
+@type(bsonemul) -&gt; binary(0, 5)
+@type(bstwo) -&gt; binary(4, 5)
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameterized-type">
+<h5>Parameterized Type<a class="headerlink" href="#parameterized-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@type(p1(X)) -&gt; (ok, X, X)
+@type(p2(X, Y)) -&gt; (ok, X, Y)
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-type">
+<h5>Function Type<a class="headerlink" href="#function-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@type(f1) -&gt; fun()
+@type(f2) -&gt; fun(any, integer())
+@type(f3) -&gt; fun([boolean(), term()], integer())
+@type(f4) -&gt; fun([], integer())
+</pre></div>
+</div>
+</div>
+<div class="section" id="opaque-type-and-record-type">
+<h5>Opaque Type and Record Type<a class="headerlink" href="#opaque-type-and-record-type" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre>@opaque(tperson) -&gt; #r person
+</pre></div>
+</div>
 </div>
 </div>
 </div>
