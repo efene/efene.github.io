@@ -17,6 +17,11 @@ needs to be done once::
     mkdir -p ~/.config/rebar3/templates
     git clone https://github.com/efene/rebar3_efene_template_app.git ~/.config/rebar3/templates/fn_app
 
+you can install other templates to use later running the following commands::
+
+    git clone https://github.com/efene/rebar3_efene_template_gen_server.git ~/.config/rebar3/templates/fn_gen_server
+    git clone https://github.com/efene/rebar3_efene_template_supervisor.git ~/.config/rebar3/templates/fn_supervisor
+
 now let's create a project called myfnapp by creating the directory::
 
     mkdir myfnapp
