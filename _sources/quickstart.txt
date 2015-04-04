@@ -7,7 +7,7 @@ Here is a screencast of this procedure:
 
 .. raw:: html
 
-    <script type="text/javascript" src="https://asciinema.org/a/18167.js" id="asciicast-18167" async></script>
+    <script type="text/javascript" src="https://asciinema.org/a/18378.js" id="asciicast-18378" async></script>
 
 We will use `rebar3 <http://www.rebar3.org/>`_ to make our lifes easier.
 
