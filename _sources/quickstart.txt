@@ -49,7 +49,12 @@ and try it in the erlang shell (sorry, no stable efene shell yet)::
 and try it::
 
     1> myfnapp:hello("mariano").
-    Hello mariano!ok
+    Hello mariano!
+    ok
+
+    2> myfnapp:add(2, 3).
+    5
+
 
 but given that we are good software citizens we test our code with unit tests,
 that's why we want to run some unit tests to be sure that this works::
@@ -57,6 +62,11 @@ that's why we want to run some unit tests to be sure that this works::
     ./rebar3 ct
 
 this will compile the tests and run the tests for you.
+
+in the template one test should fail, open test/{{name}}_SUITE.fn and fix it,
+then run the test task again::
+
+    ./rebar3 ct
 
 that's it, now you can make changes, run *./rebar3 ct* again and
 keep going.
