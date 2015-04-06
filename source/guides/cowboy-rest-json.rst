@@ -5,7 +5,7 @@ Here is a screencast of this procedure:
 
 .. raw:: html
 
-    <script type="text/javascript" src="https://asciinema.org/a/18378.js" id="asciicast-18378" async></script>
+    <script type="text/javascript" src="https://asciinema.org/a/18417.js" id="asciicast-18417" async></script>
 
 Like in the :ref:`quick-start` we will use `rebar3 <http://www.rebar3.org/>`_
 
