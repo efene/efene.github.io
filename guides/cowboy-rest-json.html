@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cowboy REST JSON API Guide &mdash; Efene Programming Language 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="../index.html"/>
+        <link rel="up" title="Guides" href="index.html"/>
+        <link rel="prev" title="Guides" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Efene Programming Language</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Efene Philisophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community.html#mailing-list">Mailing List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community.html#irc-channel">IRC Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community.html#twitter">Twitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community.html#github">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help-needed.html">Help Needed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../help-needed.html#wants-to-play-with-efene">Wants to Play with Efene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../help-needed.html#no-erlang-knowledge-required">No Erlang Knowledge Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../help-needed.html#erlang-knowledge-required">Erlang Knowledge Required</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language-reference.html">Language Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../language-reference.html#values">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-reference.html#operations">Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-reference.html#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-reference.html#module-level-expressions">Module Level Expressions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tradeoffs.html">Language Tradeoffs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tradeoffs.html#record-pattern-matching-vs-map-pattern-matching">Record Pattern Matching vs Map Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tradeoffs.html#function-call-vs-function-declaration">Function Call vs Function Declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tradeoffs.html#chaining-and-operations">Chaining = and ! Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tradeoffs.html#refactoring-match-to-a-function">Refactoring Match to a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tradeoffs.html#one-item-case-in-match-is-a-special-case">One Item Case in Match is a Special Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tradeoffs.html#not-necessarily-tradeoffs">Not Necessarily Tradeoffs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rebar-plugin.html">Rebar Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rebar-plugin.html#compile-task">Compile Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rebar-plugin.html#common-test-task">Common Test Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../recommended-libraries.html">Recommended Libraries</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Guides</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Cowboy REST JSON API Guide</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Efene Programming Language</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Guides</a> &raquo;</li>
+      
+    <li>Cowboy REST JSON API Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/guides/cowboy-rest-json.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="cowboy-rest-json-api-guide">
+<h1>Cowboy REST JSON API Guide<a class="headerlink" href="#cowboy-rest-json-api-guide" title="Permalink to this headline">¶</a></h1>
+<p>Here is a screencast of this procedure:</p>
+<script type="text/javascript" src="https://asciinema.org/a/18417.js" id="asciicast-18417" async></script><p>Like in the <a class="reference internal" href="../quickstart.html#quick-start"><em>Quick Start</em></a> we will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a></p>
+<p>First let&#8217;s start installing the template we will use, this needs to be done only once:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.config/rebar3/templates
+git clone https://github.com/efene/rebar3_efene_template_rest_app.git ~/.config/rebar3/templates/fn_rest_app
+</pre></div>
+</div>
+<p>Now we create the folder where our new project will live:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir myrestapp
+cd myrestapp
+</pre></div>
+</div>
+<p>Then we install rebar inside our project folder:</p>
+<div class="highlight-python"><div class="highlight"><pre>wget https://s3.amazonaws.com/rebar3/rebar3
+chmod u+x rebar3
+</pre></div>
+</div>
+<p>We can then create the project using the installed template, change myrestapp for the name of your project but if you do remember to change it in the following commands too:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 new fn_rest_app name=myrestapp
+</pre></div>
+</div>
+<p>We can then compile the project:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 compile
+</pre></div>
+</div>
+<p>And start it via the erlang shell:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
+</pre></div>
+</div>
+<p>Inside the shell we run:</p>
+<div class="highlight-python"><div class="highlight"><pre>application:ensure_all_started(myrestapp).
+</pre></div>
+</div>
+<p>From another shell we can test our API:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl http://localhost:8080/
+curl http://localhost:8080/ -H &quot;Accept: text/plain&quot;
+curl http://localhost:8080/ -H &quot;Accept: application/json&quot;
+</pre></div>
+</div>
+<p>We can open our browser and go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> to see the html version.</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Guides"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Mariano Guerra.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

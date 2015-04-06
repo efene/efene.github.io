@@ -23,3 +23,4 @@ Documentation
    tradeoffs
    rebar-plugin
    recommended-libraries
+   guides/index
