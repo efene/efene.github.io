@@ -137,6 +137,8 @@
             
   <div class="section" id="cowboy-rest-json-api-guide">
 <h1>Cowboy REST JSON API Guide<a class="headerlink" href="#cowboy-rest-json-api-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="initial-setup">
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
 <p>Here is a screencast of this procedure:</p>
 <script type="text/javascript" src="https://asciinema.org/a/18417.js" id="asciicast-18417" async></script><p>Like in the <a class="reference internal" href="../quickstart.html#quick-start"><em>Quick Start</em></a> we will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a></p>
 <p>First let&#8217;s start installing the template we will use, this needs to be done only once:</p>
@@ -177,6 +179,52 @@ curl http://localhost:8080/ -H &quot;Accept: application/json&quot;
 </pre></div>
 </div>
 <p>We can open our browser and go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> to see the html version.</p>
+</div>
+<div class="section" id="adding-a-resource">
+<h2>Adding a Resource<a class="headerlink" href="#adding-a-resource" title="Permalink to this headline">¶</a></h2>
+<p>We have our basic REST API running but we want to add a resource, for that we
+can use another template, the first time we will need to add it to our template
+directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_rest_resource.git ~/.config/rebar3/templates/fn_rest_resource
+</pre></div>
+</div>
+<p>After this we can create our new resource, let&#8217;s create a user resource:</p>
+<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_rest_resource name=user
+</pre></div>
+</div>
+<p>Finally we need to add our resource to the routes of our API, open src/myrestapp_app.fn and change this:</p>
+<div class="highlight-python"><div class="highlight"><pre>Dispatch = cowboy_router.compile([(`_`, [(&quot;/&quot;, myrestapp_handler, []) ])
+</pre></div>
+</div>
+<p>For this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Dispatch</span> <span class="o">=</span> <span class="n">cowboy_router</span><span class="o">.</span><span class="n">compile</span><span class="p">([(</span><span class="sb">`_`</span><span class="p">,</span>
+                                   <span class="p">[(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">myrestapp_handler</span><span class="p">,</span> <span class="p">[]),</span>
+                                    <span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">,</span> <span class="n">user_rest_handler</span><span class="p">,</span> <span class="p">[])])</span>
+                                 <span class="p">])</span>
+</pre></div>
+</div>
+<p>Stop the shell if you are running it (press Control + C) and start it again:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
+</pre></div>
+</div>
+<p>And start the server:</p>
+<div class="highlight-python"><div class="highlight"><pre>application:ensure_all_started(myrestapp).
+</pre></div>
+</div>
+<p>Now we can test our resource from the command line:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X GET http://localhost:8080/user -H &quot;Content-Type: application/json&quot;
+{&quot;method&quot;:&quot;GET&quot;}
+
+curl -X DELETE http://localhost:8080/user -H &quot;Content-Type: application/json&quot;
+
+curl -X POST http://localhost:8080/user -H &quot;Content-Type: application/json&quot; -d &quot;[1,2,3]&quot;
+{&quot;body&quot;:[1,2,3],&quot;method&quot;:&quot;POST&quot;}
+
+curl -X PUT http://localhost:8080/user -H &quot;Content-Type: application/json&quot; -d &quot;[1,2,3]&quot;
+{&quot;body&quot;:[1,2,3],&quot;method&quot;:&quot;PUT&quot;}
+</pre></div>
+</div>
+</div>
 </div>
 
 
