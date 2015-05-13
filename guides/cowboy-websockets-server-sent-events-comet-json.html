@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Guides &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Cowboy WebSockets/Server Sent Events/COMET JSON API Guide &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
 
   
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="../index.html"/>
-        <link rel="next" title="Cowboy REST JSON API Guide" href="cowboy-rest-json.html"/>
-        <link rel="prev" title="Recommended Libraries" href="../recommended-libraries.html"/> 
+        <link rel="up" title="Guides" href="index.html"/>
+        <link rel="prev" title="Cowboy REST JSON API Guide" href="cowboy-rest-json.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -95,9 +95,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Guides</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Guides</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cowboy-rest-json.html">Cowboy REST JSON API Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a></li>
 </ul>
 </li>
 </ul>
@@ -123,10 +123,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Guides</li>
+          <li><a href="index.html">Guides</a> &raquo;</li>
+      
+    <li>Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/guides/index.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/guides/cowboy-websockets-server-sent-events-comet-json.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -134,13 +136,46 @@
 </div>
           <div role="main">
             
-  <div class="section" id="guides">
-<h1>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="cowboy-rest-json.html">Cowboy REST JSON API Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a></li>
-</ul>
+  <div class="section" id="cowboy-websockets-server-sent-events-comet-json-api-guide">
+<h1>Cowboy WebSockets/Server Sent Events/COMET JSON API Guide<a class="headerlink" href="#cowboy-websockets-server-sent-events-comet-json-api-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="initial-setup">
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
+<p>Like in the <a class="reference internal" href="../quickstart.html#quick-start"><em>Quick Start</em></a> we will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a></p>
+<p>First let&#8217;s start installing the template we will use, this needs to be done only once:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.config/rebar3/templates
+git clone https://github.com/efene/rebar3_efene_template_push_app.git ~/.config/rebar3/templates/fn_push_app
+</pre></div>
+</div>
+<p>Now we create the folder where our new project will live:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir mypushapp
+cd mypushapp
+</pre></div>
+</div>
+<p>Then we install rebar inside our project folder:</p>
+<div class="highlight-python"><div class="highlight"><pre>wget https://s3.amazonaws.com/rebar3/rebar3
+chmod u+x rebar3
+</pre></div>
+</div>
+<p>We can then create the project using the installed template, change mypushapp for the name of your project but if you do remember to change it in the following commands too:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 new fn_push_app name=mypushapp
+</pre></div>
+</div>
+<p>We can then compile the project:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 compile
+</pre></div>
+</div>
+<p>And start it via the erlang shell:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
+</pre></div>
+</div>
+<p>Inside the shell we run:</p>
+<div class="highlight-python"><div class="highlight"><pre>application:ensure_all_started(mypushapp).
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This guide is incomplete</p>
+</div>
 </div>
 </div>
 
@@ -150,10 +185,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cowboy-rest-json.html" class="btn btn-neutral float-right" title="Cowboy REST JSON API Guide"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../recommended-libraries.html" class="btn btn-neutral" title="Recommended Libraries"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cowboy-rest-json.html" class="btn btn-neutral" title="Cowboy REST JSON API Guide"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
