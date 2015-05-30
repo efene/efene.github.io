@@ -30,6 +30,7 @@
   
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="../index.html"/>
         <link rel="up" title="Guides" href="index.html"/>
+        <link rel="next" title="Cowboy WebSockets/Server Sent Events/COMET JSON API Guide" href="cowboy-websockets-server-sent-events-comet-json.html"/>
         <link rel="prev" title="Guides" href="index.html"/> 
 
   
@@ -97,6 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../recommended-libraries.html">Recommended Libraries</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Guides</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">Cowboy REST JSON API Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a></li>
 </ul>
 </li>
 </ul>
@@ -160,16 +162,8 @@ chmod u+x rebar3
 <div class="highlight-python"><div class="highlight"><pre>./rebar3 new fn_rest_app name=myrestapp
 </pre></div>
 </div>
-<p>We can then compile the project:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 compile
-</pre></div>
-</div>
-<p>And start it via the erlang shell:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
-</pre></div>
-</div>
-<p>Inside the shell we run:</p>
-<div class="highlight-python"><div class="highlight"><pre>application:ensure_all_started(myrestapp).
+<p>We can then run the project:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 run
 </pre></div>
 </div>
 <p>From another shell we can test our API:</p>
@@ -204,11 +198,7 @@ directory:</p>
 </pre></div>
 </div>
 <p>Stop the shell if you are running it (press Control + C) and start it again:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
-</pre></div>
-</div>
-<p>And start the server:</p>
-<div class="highlight-python"><div class="highlight"><pre>application:ensure_all_started(myrestapp).
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 run
 </pre></div>
 </div>
 <p>Now we can test our resource from the command line:</p>
@@ -232,6 +222,8 @@ curl -X PUT http://localhost:8080/user -H &quot;Content-Type: application/json&q
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cowboy-websockets-server-sent-events-comet-json.html" class="btn btn-neutral float-right" title="Cowboy WebSockets/Server Sent Events/COMET JSON API Guide"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Guides"><span class="fa fa-arrow-circle-left"></span> Previous</a>
