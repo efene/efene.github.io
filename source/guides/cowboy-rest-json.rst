@@ -31,17 +31,9 @@ We can then create the project using the installed template, change myrestapp fo
 
     ./rebar3 new fn_rest_app name=myrestapp
 
-We can then compile the project::
+We can then run the project::
 
-    ./rebar3 compile
-
-And start it via the erlang shell::
-
-    ./rebar3 shell
-
-Inside the shell we run::
-
-    application:ensure_all_started(myrestapp).
+    ./rebar3 run
 
 From another shell we can test our API::
 
@@ -77,11 +69,7 @@ For this::
 
 Stop the shell if you are running it (press Control + C) and start it again::
 
-    ./rebar3 shell
-
-And start the server::
-
-    application:ensure_all_started(myrestapp).
+    ./rebar3 run
 
 Now we can test our resource from the command line::
 
