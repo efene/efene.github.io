@@ -18,6 +18,7 @@ Documentation
    philosophy
    community
    help-needed
+   language-introduction
    quickstart
    language-reference
    tradeoffs
