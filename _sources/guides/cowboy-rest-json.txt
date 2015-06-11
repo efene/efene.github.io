@@ -43,6 +43,11 @@ From another shell we can test our API::
 
 We can open our browser and go to http://localhost:8080/ to see the html version.
 
+You can quit the console by running **q().** like this::
+
+    (myrestapp@127.0.0.1)1> q().
+    ok
+
 Adding a Resource
 -----------------
 

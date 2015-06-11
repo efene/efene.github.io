@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Search &mdash; Efene Programming Language 1.0 documentation</title>
@@ -14,7 +15,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -28,10 +28,12 @@
   
 
   
+
+  
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -42,20 +44,32 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> Efene Programming Language</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="#" method="get">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Efene Programming Language
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Efene Philisophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="community.html#mailing-list">Mailing List</a></li>
@@ -67,15 +81,114 @@
 <li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="help-needed.html#wants-to-play-with-efene">Wants to Play with Efene</a></li>
 <li class="toctree-l2"><a class="reference internal" href="help-needed.html#no-erlang-knowledge-required">No Erlang Knowledge Required</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help-needed.html#erlang-knowledge-required">Erlang Knowledge Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help-needed.html#erlang-knowledge-required">Erlang Knowledge Required</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#improve-rebar3-plugins">Improve rebar3 plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#improve-the-pretty-printer">Improve the Pretty Printer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#lager-interoperability">Lager Interoperability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#efene-repl">Efene REPL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#erlang-compatibility-tests">Erlang Compatibility Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-simple-function">A Simple Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#variables-on-function-arguments">Variables on Function Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-two-cases">A Function with Two Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#same-variable-in-multiple-function-arguments">Same Variable in multiple Function Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#putting-it-all-together">Putting it All Together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#calling-functions-in-other-modules">Calling Functions (in other Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#some-more-pattern-matching">Some more Pattern Matching</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#values">Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#operations">Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#expressions">Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-reference.html#module-level-expressions">Module Level Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#values">Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#boolean">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#numbers">Numbers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#integers">Integers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#floats">Floats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#strings">Strings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#list-strings">List Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#binary-strings">Binary Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#chars">Chars</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#lists">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#cons-lists">Cons Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#maps">Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#tuples">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#atoms">Atoms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#process-id-pid">Process Id (Pid)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#reference">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#function">Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#anonymouse-functions">Anonymouse Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#named-functions">Named Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#function-references">Function References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#function-calls">Function Calls</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#tagged-values">Tagged Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#records">Records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#binary">Binary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#compile-time-information">Compile Time Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#operations">Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#comparisson-operations">Comparisson Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#concat-operations">Concat Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#aritmetic-operations">Aritmetic Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#binary-operations">Binary Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#unary-operations">Unary Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#expressions">Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#when">When</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#abstract-syntax">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#description">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#match">Match</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id3">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id4">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id5">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#for">For</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#try-catch-after">Try/Catch/After</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#receive-after">Receive/After</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id6">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id7">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id8">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#begin">Begin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id9">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id10">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id11">Description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#module-level-expressions">Module Level Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#top-level-function">Top Level Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-function-attributes">Well Known Function Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#attributes">Attributes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#generic-attributes">Generic Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-attributes">Well Known Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#type-attributes">Type Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
@@ -84,22 +197,41 @@
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#chaining-and-operations">Chaining = and ! Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#refactoring-match-to-a-function">Refactoring Match to a Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#one-item-case-in-match-is-a-special-case">One Item Case in Match is a Special Case</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#not-necessarily-tradeoffs">Not Necessarily Tradeoffs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#not-necessarily-tradeoffs">Not Necessarily Tradeoffs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tradeoffs.html#zero-items-case-matches-empty-tuple">Zero Items Case Matches Empty Tuple</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#compile-task">Compile Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#compile-task">Compile Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rebar-plugin.html#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rebar-plugin.html#example-usage">Example Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rebar-plugin.html#compile-all-files">Compile All Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rebar-plugin.html#compile-one-file-to-erlang">Compile One File to Erlang</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#common-test-task">Common Test Task</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/cowboy-rest-json.html">Cowboy REST JSON API Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/cowboy-rest-json.html">Cowboy REST JSON API Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#initial-setup">Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#adding-a-resource">Adding a Resource</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html#initial-setup">Initial Setup</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -128,7 +260,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <noscript>
   <div id="fallback" class="admonition warning">
@@ -155,9 +287,10 @@
         &copy; Copyright 2015, Mariano Guerra.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
