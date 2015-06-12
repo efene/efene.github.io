@@ -317,7 +317,7 @@ the next line indented.</p>
 the last expression of a block is the returned value, in efene (almost) everything
 is an expression, which means it returns a value.</p>
 <p>So that&#8217;s a verbose way to describe how to define such a simple function, don&#8217;t
-worry, as we go along we will asume undestanding on things explained before.</p>
+worry, as we go along we will assume understanding on things explained before.</p>
 </div>
 <div class="section" id="variables-on-function-arguments">
 <h2>Variables on Function Arguments<a class="headerlink" href="#variables-on-function-arguments" title="Permalink to this headline">¶</a></h2>
@@ -333,7 +333,7 @@ arguments before the colon, you may have noticed that they are uppercase, in
 efene (as in erlang) variables are uppercase or start with an underscore, words
 that start with lowercase are atoms, like the function name <strong>add_two</strong>.</p>
 <p>Atoms are objects whose value is its name, you can find them in other languages
-like cloure, lisp, scheme and ruby sometimes with sligthly different syntax.</p>
+like clojure, lisp, scheme and ruby sometimes with slightly different syntax.</p>
 <p>Now back to our, function, it takes to arguments, A and B and returns A + B,
 no big deal right?</p>
 <p>Like before we don&#8217;t need to write return, it&#8217;s implicit that the last
@@ -354,7 +354,7 @@ of those arguments.</p>
 </div>
 <p>Again we have our function cases inside &#8220;fn &lt;name of function&gt; ... end&#8221; as before
 but now we have two cases, here the function takes one argument, which must be
-a boolean and returns the string represenation for that boolean, if the value
+a boolean and returns the string representation for that boolean, if the value
 is not a boolean it will return the string &#8216;not a boolean&#8217;.</p>
 <p>There are two things to notice here, first in the argument we can write values
 instead of just variable names as in most programming languages, that&#8217;s called
@@ -363,7 +363,7 @@ body <strong>if</strong> the values match the patterns.</p>
 <p>the last clause is an else clause, which we can write to match any value for the
 arguments but where we don&#8217;t care about those values, it&#8217;s kind of a catch all,
 clause. We use it to return when the argument is not a boolean.</p>
-<p>Here is an alternative way of writting that function:</p>
+<p>Here is an alternative way of writing that function:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">bool_to_text</span>
     <span class="k">case</span> <span class="kc">true</span><span class="o">:</span> <span class="s1">&#39;true&#39;</span>
     <span class="k">case</span> <span class="kc">false</span><span class="o">:</span> <span class="s1">&#39;false&#39;</span>
@@ -371,7 +371,7 @@ clause. We use it to return when the argument is not a boolean.</p>
 <span class="nx">end</span>
 </pre></div>
 </div>
-<p>here instead of else we are writting a case clause that uses the special
+<p>here instead of else we are writing a case clause that uses the special
 variable <strong>_</strong> which in efene is used to express that we want to ignore that
 value.</p>
 <p>We use the <strong>_</strong> variable to be explicit that we don&#8217;t care about the value and
@@ -449,7 +449,7 @@ it so it won&#8217;t raise a warning if the variable isn&#8217;t used.</p>
 after the arguments we have the &#8220;when A == B&#8221; which is called a &#8220;guard&#8221; and is
 an expression that we can add to a case clause to do additional checks on the
 arguments of a case clause.</p>
-<p>In this case we are chacking that A is equal to B, but the guard can be much
+<p>In this case we are checking that A is equal to B, but the guard can be much
 more complex.</p>
 <p>One more thing..., those guards look a lot like if statements on other languages,
 can we use them standalone too?</p>
@@ -481,7 +481,7 @@ versions of efene may introduce if expressions, but not before 1.0.</p>
 <h2>Putting it All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s put all the things we learned about function definitions together in a
 simple example.</p>
-<p>Let&#8217;s write a function that divices two numbers:</p>
+<p>Let&#8217;s write a function that divides two numbers:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">divide_two_unsafe</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="o">:</span> <span class="nx">A</span> <span class="o">/</span> <span class="nx">B</span>
 <span class="nx">end</span>
@@ -498,7 +498,7 @@ this will raise an exception.</p>
 </pre></div>
 </div>
 <p>Here we have to cases, the first ignores the first parameter (by naming it with
-an undescore prefix) and matches the second parameter with 0.</p>
+an underscore prefix) and matches the second parameter with 0.</p>
 <p>If this case matches then we return a tuple, which is a fixed sequence of values
 (you may know them if you come from python), where the first item is the atom error
 and the second item is an atom describing the error type.</p>
@@ -550,7 +550,7 @@ a dot:</p>
 </div>
 <p>Then there is the &#8220;~n&#8221; thing, first <strong>~n</strong> is a control sequence that efene
 translates to a new line, in other languages you may use \n instead.</p>
-<p>Second, only if you are really obseervant is that in this case the string uses
+<p>Second, only if you are really observant is that in this case the string uses
 double quotes and in an example before we used single quotes.</p>
 <p>In some other languages like python and javascript this doesn&#8217;t make a
 difference since both single quoted and double quoted strings are treated the
@@ -566,7 +566,7 @@ of concatenating two lists.</p>
 <p>Well that&#8217;s the list part in list string, list strings are simply a list of
 numbers each representing a character, this means it&#8217;s really easy to operate
 on list strings with operations and functions that expect lists, the bad part
-is that it&#8217;s almost imposible to distinguis a list string from a list of
+is that it&#8217;s almost impossible to distinguish a list string from a list of
 numbers, that&#8217;s why sometimes we use binary strings.</p>
 <p>It took a lot of text to describe what:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Text</span> <span class="o">++</span> <span class="s">&quot;~n&quot;</span><span class="p">)</span>
@@ -580,7 +580,7 @@ contains a control sequence which io.format replaces for a new line.</p>
 <div class="section" id="a-function-with-the-same-name-but-different-number-of-arguments">
 <h2>A Function with the same Name but Different Number of Arguments<a class="headerlink" href="#a-function-with-the-same-name-but-different-number-of-arguments" title="Permalink to this headline">¶</a></h2>
 <p>In efene to refer to a function you need to specify it&#8217;s name (if the module
-name is not specified it&#8217;s asumed that the function is in the current module)
+name is not specified it&#8217;s assumed that the function is in the current module)
 but also the number of arguments it received (normally called &#8220;arity&#8221; of the
 function).</p>
 <p>This is needed since two functions in efene can have the same name but different
@@ -596,7 +596,7 @@ above but with a different <em>arity</em>:</p>
 <p>Here we define the function print with arity 2, the first argument is called
 Format and it contains a string optionally with control sequences that
 io.format will replace for it&#8217;s meaning. The second argument is called Args and
-contains the values needed for the control secuences contained in the Format
+contains the values needed for the control sequences contained in the Format
 string.</p>
 <p>So, what are this magical control sequences we talk about other than &#8220;~n&#8221;?</p>
 <p>For a full list of them you can see <a class="reference external" href="http://erlang.org/doc/man/io.html#format-2">the documentation of io.format:2</a>.</p>
@@ -621,7 +621,7 @@ this control sequence for the value provided in the Args list in this position&#
 <h2>Many Ways to Call a Function<a class="headerlink" href="#many-ways-to-call-a-function" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s now see all the ways you can call a function in efene other than the common
 case where you write the name and arguments and optionally the module name.</p>
-<p>Say you want to call a function dinamically, that is, some part is defined in
+<p>Say you want to call a function dynamically, that is, some part is defined in
 a variable, how would you do that? let&#8217;s see:</p>
 <div class="highlight-javascript"><div class="highlight"><pre>fn dynamic_call
     @doc(&quot;this function shows all the ways you can call a function&quot;)
@@ -897,8 +897,8 @@ to be throw.</p>
 <p>We also can optionally provide an after section that will be executed both when
 there&#8217;s no exception and when there is, usually to do some cleanup like closing
 a file or a socket.</p>
-<p>In the third example we use the builting <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#throw-1">erlang.throw:1</a>
-function to throw an exception of type throw and we inmediatly catch it and
+<p>In the third example we use the builtin <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#throw-1">erlang.throw:1</a>
+function to throw an exception of type throw and we immediately catch it and
 print what the error was.</p>
 </div>
 <div class="section" id="arithmetic-operations">
@@ -934,11 +934,11 @@ languages with a little difference:</p>
 <li>andd</li>
 <li>orr</li>
 </ul>
-<p>Those are available for erlang compatibility, andd is the non short cirquit
-version of and and orr is the non short cirquit version of or, this means that
+<p>Those are available for erlang compatibility, andd is the non short circuit
+version of and and orr is the non short circuit version of or, this means that
 when used all the terms of the bool operation will be evaluated no matter if it
 wasn&#8217;t required.</p>
-<p>Normally boolean operations in most programming languages are short cirquited so
+<p>Normally boolean operations in most programming languages are short circuited so
 you shouldn&#8217;t use andd/orr unless you know what you are doing or you want some
 erlang compatibility.</p>
 </div>
@@ -970,10 +970,10 @@ them here:</p>
 <li>Lists: [], [1, 2, 3]</li>
 <li>Tuples: (), (1,), (1, 2)</li>
 </ul>
-<p>Here we will cover two data types that are used for the same thing, olding key
+<p>Here we will cover two data types that are used for the same thing, holding key
 -&gt; value pairs, you may call them objects, maps, dicts, hash maps, associative
 arrays depending on the language you use.</p>
-<p>In efene there are two types that fulfil the same need, the new way, which is
+<p>In efene there are two types that fulfill the same need, the new way, which is
 more flexible, and the old way, which you will need to know to understand erlang
 libraries and code.</p>
 <div class="section" id="the-new-way-maps">
@@ -1019,8 +1019,8 @@ with pattern matching.</p>
 <p>Like we saw before the <strong>=</strong> sign in efene means &#8220;match&#8221; not &#8220;assign&#8221;, this
 means that efene will try to make both sides match, if there are unbound
 variables it will bound them to the value on the right side so they match, if
-they are bound then they must match otherwise a bad match exception will ocurr.</p>
-<p>Notice that we use <strong>=</strong> on maps to signify match and <strong>:</strong> to signigy that we
+they are bound then they must match otherwise a bad match exception will occur.</p>
+<p>Notice that we use <strong>=</strong> on maps to signify match and <strong>:</strong> to signify that we
 are assigning them, this is to make it explicit when we are matching and when
 we are assigning.</p>
 <p>Finally to update a map by changing the content of one or more fields on a previous
@@ -1117,17 +1117,17 @@ lists, let&#8217;s see a little bit more about pattern matching on lists.</p>
 <p>Lists in efene are of a particular type that allows for some useful operations
 on them, if you come from lisp/scheme/clojure you will know what a cons list
 is, if not here is a quick introduction.</p>
-<p>Lists in efene are not like arrays in other languages which are a continuos
+<p>Lists in efene are not like arrays in other languages which are a continuous
 chunk of memory with pointer to its items (you may call them vectors depending
 on the language).</p>
 <p>In efene lists are what is normally known as cons lists, a list in efene
-is constucted by a structure that has two items, the first is called the head
+is constructed by a structure that has two items, the first is called the head
 and the second is called the tail.</p>
 <p>So, how do you build a list with that? well, you put the first item in the head
 and the rest in the tail.</p>
 <p>So, what goes on the tail then? another pair, with the second item in the head
 and the rest in the tail</p>
-<p>And so on recursively until the last item is an empty list to signal that theres
+<p>And so on recursively until the last item is an empty list to signal that there&#8217;s
 nothing else and that&#8217;s the end of the list.</p>
 <p>Let&#8217;s see an example:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -1146,7 +1146,7 @@ nothing else and that&#8217;s the end of the list.</p>
 </pre></div>
 </div>
 <p>That&#8217;s simple and easy, but what happens if the list has 100 elements or we
-don&#8217;t know exaclty how many elements it has?</p>
+don&#8217;t know exactly how many elements it has?</p>
 <p>Here&#8217;s where the list structure comes handy, we can match against the head and
 the rest:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">[</span><span class="nx">Head1</span> <span class="o">::</span> <span class="nx">Tail1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -1157,7 +1157,7 @@ the rest:</p>
 <div class="highlight-python"><div class="highlight"><pre>head 1, tail [2,3,4]
 </pre></div>
 </div>
-<p>We get the first valie in the Head1 variable and the rest of the list in the
+<p>We get the first value in the Head1 variable and the rest of the list in the
 Tail1 variable, notice that we use a special operator <strong>::</strong> to express that
 we are not matching a list of two items like we would if we wrote [Head1, Tail1]
 but that we want to extract the head and tail of the list.</p>
@@ -1199,7 +1199,7 @@ end
 </pre></div>
 </div>
 <p>The #c tag is used to convert a string of one character into the integer
-representing that character, as we said before lis strings in efene are simply
+representing that character, as we said before list strings in efene are simply
 lists of characters, and we also said that lists are simple nested pairs,
 let&#8217;s reinforce that with the following example:</p>
 <div class="highlight-javascript"><div class="highlight"><pre>Hello1 = &quot;hello&quot;
@@ -1218,7 +1218,7 @@ to write nested pairs, the three are the same from the language perspective.</p>
 <p>If you wanted to know how to express an atom with spaces or with weird symbols,
 there you have the answer.</p>
 <p>You can tag a string with the #atom tag and the compiler will convert it into an
-atom or you can use backticks if you prefer amore &#8220;native&#8221; syntax.</p>
+atom or you can use back ticks if you prefer a more &#8220;native&#8221; syntax.</p>
 <p>And lastly, something that may be useful to help you print diagnostic messages
 and find problems easier:</p>
 <div class="highlight-javascript"><div class="highlight"><pre>print(&quot;this print is at line ~p in module ~p&quot;, [#i line, #i module])
@@ -1237,7 +1237,7 @@ this print is at line 307 in module reference
 <p>of course the line and module will change depending on where they were in your
 code.</p>
 <p>Tagged values and tagged expressions are two of the ways erlang provides to
-extend the language in the future withouth changing or complicating its syntax,
+extend the language in the future without changing or complicating its syntax,
 this will be available after 1.0 as compiler plugins so that developers can
 write their own tag handlers that will be used at compile time to be
 transformed into something else.</p>
@@ -1254,7 +1254,7 @@ course as its efene counterpart, the begin ... end block:</p>
                  <span class="nx">end</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Instead of prividing a variable or a simple function call we wanted to do three
+<p>Instead of providing a variable or a simple function call we wanted to do three
 operations, if that&#8217;s what&#8217;s required then what you need is a begin ... end
 block.</p>
 <p>It&#8217;s not something you need every day but here it&#8217;s documented for completeness.</p>
@@ -1296,7 +1296,7 @@ example:</p>
 something depending on what it got and spawn_receive, which will spawn a new
 process that will interact with the current process we are running.</p>
 <p>Let&#8217;s see it line by line, first we get the process id (pid) of the current process
-by calling the builting function <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#self-0">erlang.self:0</a>:</p>
+by calling the builtin function <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#self-0">erlang.self:0</a>:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">OuterPid</span> <span class="o">=</span> <span class="nx">self</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1396,11 +1396,11 @@ and the second item being the type passed as second argument to the result
 type.</p>
 <p>After the result type declaration we declare another type called
 <strong>division_error</strong>, which doesn&#8217;t receive arguments and is defined as the
-result type where the error type can be the atom division_by_zero amd the value
+result type where the error type can be the atom division_by_zero and the value
 type can be any number.</p>
 <p>Notice that types are like function calls, a bare atom is just the atom value.</p>
 <p>Then we define our divide_two_typed function and after the name we add a function
-anotation <em>&#64;spec</em> that is used to provide a type specification for the function,
+annotation <em>&#64;spec</em> that is used to provide a type specification for the function,
 there we define that the function receives two arguments of type number and
 returns a value that satisfies the division_error type.</p>
 <p>For more details on the syntax see the <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>

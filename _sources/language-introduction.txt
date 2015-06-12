@@ -41,7 +41,7 @@ the last expression of a block is the returned value, in efene (almost) everythi
 is an expression, which means it returns a value.
 
 So that's a verbose way to describe how to define such a simple function, don't
-worry, as we go along we will asume undestanding on things explained before.
+worry, as we go along we will assume understanding on things explained before.
 
 Variables on Function Arguments
 -------------------------------
@@ -61,7 +61,7 @@ efene (as in erlang) variables are uppercase or start with an underscore, words
 that start with lowercase are atoms, like the function name **add_two**.
 
 Atoms are objects whose value is its name, you can find them in other languages
-like cloure, lisp, scheme and ruby sometimes with sligthly different syntax.
+like clojure, lisp, scheme and ruby sometimes with slightly different syntax.
 
 Now back to our, function, it takes to arguments, A and B and returns A + B,
 no big deal right?
@@ -88,7 +88,7 @@ Let's try our first function with two cases then:
 
 Again we have our function cases inside "fn <name of function> ... end" as before
 but now we have two cases, here the function takes one argument, which must be
-a boolean and returns the string represenation for that boolean, if the value
+a boolean and returns the string representation for that boolean, if the value
 is not a boolean it will return the string 'not a boolean'.
 
 There are two things to notice here, first in the argument we can write values
@@ -100,7 +100,7 @@ the last clause is an else clause, which we can write to match any value for the
 arguments but where we don't care about those values, it's kind of a catch all,
 clause. We use it to return when the argument is not a boolean.
 
-Here is an alternative way of writting that function:
+Here is an alternative way of writing that function:
 
 .. code-block:: javascript
 
@@ -110,7 +110,7 @@ Here is an alternative way of writting that function:
         case _: 'not a boolean'
     end
 
-here instead of else we are writting a case clause that uses the special
+here instead of else we are writing a case clause that uses the special
 variable **_** which in efene is used to express that we want to ignore that
 value.
 
@@ -211,7 +211,7 @@ after the arguments we have the "when A == B" which is called a "guard" and is
 an expression that we can add to a case clause to do additional checks on the
 arguments of a case clause.
 
-In this case we are chacking that A is equal to B, but the guard can be much
+In this case we are checking that A is equal to B, but the guard can be much
 more complex.
 
 One more thing..., those guards look a lot like if statements on other languages,
@@ -250,7 +250,7 @@ Putting it All Together
 Let's put all the things we learned about function definitions together in a
 simple example.
 
-Let's write a function that divices two numbers:
+Let's write a function that divides two numbers:
 
 .. code-block:: javascript
 
@@ -272,7 +272,7 @@ Let's rewrite it to avoid raising an exception:
     end
 
 Here we have to cases, the first ignores the first parameter (by naming it with
-an undescore prefix) and matches the second parameter with 0.
+an underscore prefix) and matches the second parameter with 0.
 
 If this case matches then we return a tuple, which is a fixed sequence of values
 (you may know them if you come from python), where the first item is the atom error
@@ -340,7 +340,7 @@ a dot::
 Then there is the "~n" thing, first **~n** is a control sequence that efene
 translates to a new line, in other languages you may use \\n instead.
 
-Second, only if you are really obseervant is that in this case the string uses
+Second, only if you are really observant is that in this case the string uses
 double quotes and in an example before we used single quotes.
 
 In some other languages like python and javascript this doesn't make a
@@ -361,7 +361,7 @@ But those aren't lists, those are list strings you may say.
 Well that's the list part in list string, list strings are simply a list of
 numbers each representing a character, this means it's really easy to operate
 on list strings with operations and functions that expect lists, the bad part
-is that it's almost imposible to distinguis a list string from a list of
+is that it's almost impossible to distinguish a list string from a list of
 numbers, that's why sometimes we use binary strings.
 
 It took a lot of text to describe what::
@@ -378,7 +378,7 @@ A Function with the same Name but Different Number of Arguments
 ---------------------------------------------------------------
 
 In efene to refer to a function you need to specify it's name (if the module
-name is not specified it's asumed that the function is in the current module)
+name is not specified it's assumed that the function is in the current module)
 but also the number of arguments it received (normally called "arity" of the
 function).
 
@@ -398,7 +398,7 @@ above but with a different *arity*:
 Here we define the function print with arity 2, the first argument is called
 Format and it contains a string optionally with control sequences that
 io.format will replace for it's meaning. The second argument is called Args and
-contains the values needed for the control secuences contained in the Format
+contains the values needed for the control sequences contained in the Format
 string.
 
 So, what are this magical control sequences we talk about other than "~n"?
@@ -430,7 +430,7 @@ Many Ways to Call a Function
 Let's now see all the ways you can call a function in efene other than the common
 case where you write the name and arguments and optionally the module name.
 
-Say you want to call a function dinamically, that is, some part is defined in
+Say you want to call a function dynamically, that is, some part is defined in
 a variable, how would you do that? let's see:
 
 .. code-block:: javascript
@@ -768,8 +768,8 @@ We also can optionally provide an after section that will be executed both when
 there's no exception and when there is, usually to do some cleanup like closing
 a file or a socket.
 
-In the third example we use the builting `erlang.throw:1 <http://www.erlang.org/doc/man/erlang.html#throw-1>`_
-function to throw an exception of type throw and we inmediatly catch it and
+In the third example we use the builtin `erlang.throw:1 <http://www.erlang.org/doc/man/erlang.html#throw-1>`_
+function to throw an exception of type throw and we immediately catch it and
 print what the error was.
 
 Arithmetic Operations
@@ -814,12 +814,12 @@ A little note on some of them, you may have noticed two strange ones:
 * andd
 * orr
 
-Those are available for erlang compatibility, andd is the non short cirquit
-version of and and orr is the non short cirquit version of or, this means that
+Those are available for erlang compatibility, andd is the non short circuit
+version of and and orr is the non short circuit version of or, this means that
 when used all the terms of the bool operation will be evaluated no matter if it
 wasn't required.
 
-Normally boolean operations in most programming languages are short cirquited so
+Normally boolean operations in most programming languages are short circuited so
 you shouldn't use andd/orr unless you know what you are doing or you want some
 erlang compatibility.
 
@@ -855,11 +855,11 @@ them here:
 * Lists: [], [1, 2, 3]
 * Tuples: (), (1,), (1, 2)
 
-Here we will cover two data types that are used for the same thing, olding key
+Here we will cover two data types that are used for the same thing, holding key
 -> value pairs, you may call them objects, maps, dicts, hash maps, associative
 arrays depending on the language you use.
 
-In efene there are two types that fulfil the same need, the new way, which is
+In efene there are two types that fulfill the same need, the new way, which is
 more flexible, and the old way, which you will need to know to understand erlang
 libraries and code.
 
@@ -915,9 +915,9 @@ Then we do pattern matching on the map to extract the same fields:
 Like we saw before the **=** sign in efene means "match" not "assign", this
 means that efene will try to make both sides match, if there are unbound
 variables it will bound them to the value on the right side so they match, if
-they are bound then they must match otherwise a bad match exception will ocurr.
+they are bound then they must match otherwise a bad match exception will occur.
 
-Notice that we use **=** on maps to signify match and **:** to signigy that we
+Notice that we use **=** on maps to signify match and **:** to signify that we
 are assigning them, this is to make it explicit when we are matching and when
 we are assigning.
 
@@ -1040,12 +1040,12 @@ Lists in efene are of a particular type that allows for some useful operations
 on them, if you come from lisp/scheme/clojure you will know what a cons list
 is, if not here is a quick introduction.
 
-Lists in efene are not like arrays in other languages which are a continuos
+Lists in efene are not like arrays in other languages which are a continuous
 chunk of memory with pointer to its items (you may call them vectors depending
 on the language).
 
 In efene lists are what is normally known as cons lists, a list in efene
-is constucted by a structure that has two items, the first is called the head
+is constructed by a structure that has two items, the first is called the head
 and the second is called the tail.
 
 So, how do you build a list with that? well, you put the first item in the head
@@ -1054,7 +1054,7 @@ and the rest in the tail.
 So, what goes on the tail then? another pair, with the second item in the head
 and the rest in the tail
 
-And so on recursively until the last item is an empty list to signal that theres
+And so on recursively until the last item is an empty list to signal that there's
 nothing else and that's the end of the list.
 
 Let's see an example:
@@ -1078,7 +1078,7 @@ First we pattern match against a list of four items:
         [One, Two, Three, Four] = [1, 2, 3, 4]
 
 That's simple and easy, but what happens if the list has 100 elements or we
-don't know exaclty how many elements it has?
+don't know exactly how many elements it has?
 
 Here's where the list structure comes handy, we can match against the head and
 the rest:
@@ -1092,7 +1092,7 @@ This will print::
 
     head 1, tail [2,3,4]
 
-We get the first valie in the Head1 variable and the rest of the list in the
+We get the first value in the Head1 variable and the rest of the list in the
 Tail1 variable, notice that we use a special operator **::** to express that
 we are not matching a list of two items like we would if we wrote [Head1, Tail1]
 but that we want to extract the head and tail of the list.
@@ -1142,7 +1142,7 @@ Let's see them line by line:
             print("the code for character C is ~p", [#c "C"])
 
 The #c tag is used to convert a string of one character into the integer
-representing that character, as we said before lis strings in efene are simply
+representing that character, as we said before list strings in efene are simply
 lists of characters, and we also said that lists are simple nested pairs,
 let's reinforce that with the following example:
 
@@ -1167,7 +1167,7 @@ If you wanted to know how to express an atom with spaces or with weird symbols,
 there you have the answer.
 
 You can tag a string with the #atom tag and the compiler will convert it into an
-atom or you can use backticks if you prefer amore "native" syntax.
+atom or you can use back ticks if you prefer a more "native" syntax.
 
 And lastly, something that may be useful to help you print diagnostic messages
 and find problems easier:
@@ -1191,7 +1191,7 @@ of course the line and module will change depending on where they were in your
 code.
 
 Tagged values and tagged expressions are two of the ways erlang provides to
-extend the language in the future withouth changing or complicating its syntax,
+extend the language in the future without changing or complicating its syntax,
 this will be available after 1.0 as compiler plugins so that developers can
 write their own tag handlers that will be used at compile time to be
 transformed into something else.
@@ -1211,7 +1211,7 @@ course as its efene counterpart, the begin ... end block:
                              divide_two(A, B)
                          end])
 
-Instead of prividing a variable or a simple function call we wanted to do three
+Instead of providing a variable or a simple function call we wanted to do three
 operations, if that's what's required then what you need is a begin ... end
 block.
 
@@ -1258,7 +1258,7 @@ something depending on what it got and spawn_receive, which will spawn a new
 process that will interact with the current process we are running.
 
 Let's see it line by line, first we get the process id (pid) of the current process
-by calling the builting function `erlang.self:0 <http://www.erlang.org/doc/man/erlang.html#self-0>`_:
+by calling the builtin function `erlang.self:0 <http://www.erlang.org/doc/man/erlang.html#self-0>`_:
 
 .. code-block:: javascript
 
@@ -1381,13 +1381,13 @@ type.
 
 After the result type declaration we declare another type called
 **division_error**, which doesn't receive arguments and is defined as the
-result type where the error type can be the atom division_by_zero amd the value
+result type where the error type can be the atom division_by_zero and the value
 type can be any number.
 
 Notice that types are like function calls, a bare atom is just the atom value.
 
 Then we define our divide_two_typed function and after the name we add a function
-anotation *@spec* that is used to provide a type specification for the function,
+annotation *@spec* that is used to provide a type specification for the function,
 there we define that the function receives two arguments of type number and
 returns a value that satisfies the division_error type.
 
