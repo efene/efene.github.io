@@ -661,6 +661,62 @@ than tuples!
 The good thing is that one item tuples isn't a common thing on efene/erlang
 so you won't need to use this special case that often.
 
+Looping
+-------
+
+If you need to apply operations to the items in the list efene provides the
+for comprehension, which is similar to a list comprehension (or a map operation
+if you come from more functional background).
+
+The for comprehension will assign each item of the list to a variable and
+execute the block of code with it:
+
+.. code-block:: javascript
+
+        for I in lists.seq(1, 10):
+            print("I: ~p", [I])
+        end
+
+Notice that like almost everything in efene, the for comprehension is an expression, which
+means that it returns a value that can be used or assigned to a variable.
+
+What value does it return? the accumulation of results returned by all
+iterations, in this case as in any other case, the results are the result of
+the last expression in the for block.
+
+Take this into account if you are looping over a big collection and the last
+expression generates some big value, if you don't use it you will be generating
+a huge list for nothing. If you want to avoid this, you can write a simple value
+like **nil** as the last expression in the for body.
+
+Like everything else in efene you can write guards to restrict the values generated
+from the collection you are iteration over, for example, let's skip the odd values:
+
+.. code-block:: javascript
+
+        for I1 in lists.seq(1, 10); I1 % 2 == 0:
+            print("I1: ~p", [I1])
+        end
+
+In a for comprehension you can have one or more generators and filters separated
+by semicolons, here we can have more than one filter, let's skip odd values and
+the number 8:
+
+.. code-block:: javascript
+
+        for I2 in lists.seq(1, 10); I2 % 2 == 0; I2 != 8:
+            print("I2: ~p", [I2])
+        end
+
+We can also have more than one generator, here we will generate two values and
+will print them only if thy are not equal:
+
+.. code-block:: javascript
+
+        for I3 in lists.seq(1, 4); J3 in lists.seq(1, 4); I3 != J3:
+            print("I3, J3: ~p, ~p", [I3, J3])
+        end
+
 Catching Exceptions
 -------------------
 
