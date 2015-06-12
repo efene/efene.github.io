@@ -772,6 +772,430 @@ In the third example we use the builting `erlang.throw:1 <http://www.erlang.org/
 function to throw an exception of type throw and we inmediatly catch it and
 print what the error was.
 
+Arithmetic Operations
+---------------------
+
+If you come from a mainstream programming language the arithmetic operations
+won't be a surprise for you, here is a simple operation to illustrate them:
+
+.. code-block:: javascript
+
+        print("add ops ~p", [1 + 2 - 3 + -4])
+        print("mul ops ~p", [1 * 2 / 3 % 4])
+
+For more details on operations described in this and the following sections see
+the :ref:`language-reference`.
+
+Comparison Operations
+---------------------
+
+Like before, comparison operations are really similar to mainstream programming
+languages with a little difference:
+
+.. code-block:: javascript
+
+        R = 1 < 2 <= 3 == 4 is 5 != 6 isnt 7 >= 8 > 9
+        print("comp ops ~p", [R])
+
+the little difference is that instead of === and !== we use is and isnt.
+
+Boolean Operations
+------------------
+
+Without further ado, here are the boolean operations:
+
+.. code-block:: javascript
+
+        R = true and false or true xor false andd not true orr not false
+        print("bool ops ~p", [R])
+
+A little note on some of them, you may have noticed two strange ones:
+
+* andd
+* orr
+
+Those are available for erlang compatibility, andd is the non short cirquit
+version of and and orr is the non short cirquit version of or, this means that
+when used all the terms of the bool operation will be evaluated no matter if it
+wasn't required.
+
+Normally boolean operations in most programming languages are short cirquited so
+you shouldn't use andd/orr unless you know what you are doing or you want some
+erlang compatibility.
+
+Binary Operations
+-----------------
+
+Here are the binary operations:
+
+.. code-block:: javascript
+
+        R = ~1 & 2 ^ 3 | 4
+        print("bin ops ~p", [])
+
+If you need them, then the syntax should be what you would expect, if you don't
+know what they are for you can come back later when you need them or check the
+:ref:`language-reference`
+
+Data Types Overview
+-------------------
+
+Until here we have seen most of the data types available in efene, let's list
+them here:
+
+* Booleans: true, false
+* Integers: 1, 2, 42 etc.
+* Floats: 1.2, 3.1415 etc.
+* Atoms: ok, error, print, hi, some_atom
+* Strings
+
+  + binary strings: 'hi there', ''
+  + list strings:   "hi there", ""
+
+* Lists: [], [1, 2, 3]
+* Tuples: (), (1,), (1, 2)
+
+Here we will cover two data types that are used for the same thing, olding key
+-> value pairs, you may call them objects, maps, dicts, hash maps, associative
+arrays depending on the language you use.
+
+In efene there are two types that fulfil the same need, the new way, which is
+more flexible, and the old way, which you will need to know to understand erlang
+libraries and code.
+
+The New Way: Maps
+.................
+
+Maps are really similar to what you are used in other languages, you can put
+a key of any type and a value of any type and then get them by key, let's see
+an example:
+
+.. code-block:: javascript
+
+    fn use_maps
+        case:
+            Account1 = {username: 'bob', password: 'secret', email: 'bob@gmail.com'}
+
+            print("account1 ~p", [Account1])
+            print("account1 username ~p email ~p", [maps.get(username, Account1),
+                                                    maps.get(email, Account1)])
+
+            {username = Username, email = Email} = Account1
+            Account2 = Account1#{email: 'bob@nickelodeon.com'}
+
+            print("account1 username ~p email ~p", [Username, Email])
+
+            print("account2 ~p", [Account2])
+            print("account2 username ~p email ~p", [maps.get(username, Account2),
+                                                    maps.get(email, Account2)])
+
+            Post = {title: "My Post"}
+            print("post ~p", [Post])
+    end
+
+As I said near the beginning of this article the syntax is almost like JSON,
+except that you can have any type as keys, not only strings.
+
+To get a value from its key you can do it two ways, calling a function or
+with pattern matching.
+
+In the example above we use both ways, first we use the function `maps.get:2 <http://www.erlang.org/doc/man/maps.html#get-2>`_:
+
+.. code-block:: javascript
+
+            print("account1 username ~p email ~p", [maps.get(username, Account1),
+                                                    maps.get(email, Account1)])
+
+Then we do pattern matching on the map to extract the same fields:
+
+.. code-block:: javascript
+
+    {username = Username, email = Email} = Account1
+
+Like we saw before the **=** sign in efene means "match" not "assign", this
+means that efene will try to make both sides match, if there are unbound
+variables it will bound them to the value on the right side so they match, if
+they are bound then they must match otherwise a bad match exception will ocurr.
+
+Notice that we use **=** on maps to signify match and **:** to signigy that we
+are assigning them, this is to make it explicit when we are matching and when
+we are assigning.
+
+Finally to update a map by changing the content of one or more fields on a previous
+map we can do:
+
+.. code-block:: javascript
+
+            Account2 = Account1#{email: 'bob@nickelodeon.com'}
+
+On the right side we write the name of the variable that contains the map we
+want to update, then the **#** sign and then the assignment of the fields we
+want to add or update.
+
+The Old Way: Records
+--------------------
+
+Maps are a relative new feature in the Erlang world, before them the only
+way to have something similar to objects/dicts/maps from other languages were
+records, let's see the same example as before but with record:
+
+.. code-block:: javascript
+
+    @record(account) -> (username, password, email)
+    @record(post) -> (title is string(), content = "" is string(), author = "anonymous")
+
+    fn use_records
+        case:
+            Account1 = #r.account {username: 'bob', password: 'secret'}
+
+            print("account1 ~p", [Account1])
+            print("account1 username ~p email ~p", [#r.account.username Account1,
+                                                    #r.account.email Account1])
+
+            #r.account {username: Username, email: Email} = Account1
+            Account2 = #r.account Account1#{email: 'bob@nickelodeon.com'}
+
+            print("account1 username ~p email ~p", [Username, Email])
+
+            print("account2 ~p", [Account2])
+            print("account2 username ~p email ~p", [#r.account.username Account2,
+                                                    #r.account.email Account2])
+
+            UsernameIndex = #r.account username
+            print("username field index is ~p", [UsernameIndex])
+
+            Post = #r.post {title: "My Post"}
+            print("post ~p", [Post])
+    end
+
+First we need to declare the record, since it's a "compile time trick" that
+the erlang compiler does, it needs to know the fields before hand to check
+and transform records to its underlying representation.
+
+.. code-block:: javascript
+
+    @record(account) -> (username, password, email)
+
+Now that we declared our record we can create an instance of it:
+
+.. code-block:: javascript
+
+            Account1 = #r.account {username: 'bob', password: 'secret'}
+
+It looks really similar to the map example except that the map is "tagged" with
+the record name.
+
+To access the record fields we need a special syntax since record are
+transformed at compile time and all information about them is lost at run time.
+
+This means for example that you can't list the fields of a record at run time.
+
+Here is how you access to a field in a record:
+
+.. code-block:: javascript
+
+            print("account1 username ~p email ~p", [#r.account.username Account1,
+                                                    #r.account.email Account1])
+
+Like before you "tag" a variable with the name of the record and the name of the field.
+
+To extract more than one field at a time you can use pattern matching:
+
+.. code-block:: javascript
+
+            #r.account {username: Username, email: Email} = Account1
+
+Notice that in this case we also use **:** on the left side, this is because
+that's how erlang handles it (it doesn't make a distinction between assigning
+and matching for records as it does for maps).
+
+To update a record again is similar to how you would do it with a map, you
+just "tag" the map update with the name of the record:
+
+.. code-block:: javascript
+
+            Account2 = #r.account Account1#{email: 'bob@nickelodeon.com'}
+
+You may have noticed that the record declaration for the type **post** is a
+little bit different.
+
+This is because in record declarations you can provide defaults and also annotate the types of the fields:
+
+.. code-block:: javascript
+
+    @record(post) -> (title is string(), content = "" is string(), author = "anonymous")
+
+We will see more about types later, now about the defaults, if you don't assign
+a value when creating a record and the field doesn't have a default set its value
+will be the atom **undefined**, if that's not what you want you can provide a
+better default like we did in the **post** record declaration.
+
+Even some more Pattern Matching
+-------------------------------
+
+We already saw how to pattern match on tuples, numbers, maps, records and whole
+lists, let's see a little bit more about pattern matching on lists.
+
+Lists in efene are of a particular type that allows for some useful operations
+on them, if you come from lisp/scheme/clojure you will know what a cons list
+is, if not here is a quick introduction.
+
+Lists in efene are not like arrays in other languages which are a continuos
+chunk of memory with pointer to its items (you may call them vectors depending
+on the language).
+
+In efene lists are what is normally known as cons lists, a list in efene
+is constucted by a structure that has two items, the first is called the head
+and the second is called the tail.
+
+So, how do you build a list with that? well, you put the first item in the head
+and the rest in the tail.
+
+So, what goes on the tail then? another pair, with the second item in the head
+and the rest in the tail
+
+And so on recursively until the last item is an empty list to signal that theres
+nothing else and that's the end of the list.
+
+Let's see an example:
+
+.. code-block:: javascript
+
+        [One, Two, Three, Four] = [1, 2, 3, 4]
+        print("items on the list are: ~p ~p ~p ~p", [One, Two, Three, Four])
+        print("the list is ~p", [[1, 2, 3, 4]])
+        print("the list is ~p", [[1 :: [2 :: [3 :: []]]]])
+
+        [Head1 :: Tail1] = [1, 2, 3, 4]
+        [Head2 :: Tail2] = [1]
+        print("head ~p, tail ~p", [Head1, Tail1])
+        print("head ~p, tail ~p", [Head2, Tail2])
+
+First we pattern match against a list of four items:
+
+.. code-block:: javascript
+
+        [One, Two, Three, Four] = [1, 2, 3, 4]
+
+That's simple and easy, but what happens if the list has 100 elements or we
+don't know exaclty how many elements it has?
+
+Here's where the list structure comes handy, we can match against the head and
+the rest:
+
+.. code-block:: javascript
+
+        [Head1 :: Tail1] = [1, 2, 3, 4]
+        print("head ~p, tail ~p", [Head1, Tail1])
+
+This will print::
+
+    head 1, tail [2,3,4]
+
+We get the first valie in the Head1 variable and the rest of the list in the
+Tail1 variable, notice that we use a special operator **::** to express that
+we are not matching a list of two items like we would if we wrote [Head1, Tail1]
+but that we want to extract the head and tail of the list.
+
+But what if the list has just one item?, let's see:
+
+.. code-block:: javascript
+
+        [Head2 :: Tail2] = [1]
+        print("head ~p, tail ~p", [Head2, Tail2])
+
+This will print::
+
+    head 1, tail []
+
+As I said above, the "marker" for the end of the list is an empty list, we
+could also match this list as [Head2] = [1] and it would have worked, but it
+wouldn't match if the list has more than one item.
+
+More about Tagging
+------------------
+
+In the section about records we saw that there's a way to tag values to tell
+the compiler to treat them a differently, here we will see other uses of tagged
+values:
+
+.. code-block:: javascript
+
+    fn tagged_values
+        case:
+            print("the code for character C is ~p", [#c "C"])
+
+            Hello1 = "hello"
+            Hello2 = [#c "h", #c "e", #c "l", #c "l", #c "o"]
+            Hello3 = [#c "h" :: [#c "e" :: [#c "l" :: [#c "l" :: [#c "o" :: []]]]]]
+
+            print("this three strings are equivalent ~p ~p ~p", [Hello1, Hello2, Hello3])
+
+            print("this two atoms are equivalent ~p ~p", [#atom "an atom", `an atom`])
+            print("this print is at line ~p in module ~p", [#i line, #i module])
+    end
+
+Let's see them line by line:
+
+.. code-block:: javascript
+
+            print("the code for character C is ~p", [#c "C"])
+
+The #c tag is used to convert a string of one character into the integer
+representing that character, as we said before lis strings in efene are simply
+lists of characters, and we also said that lists are simple nested pairs,
+let's reinforce that with the following example:
+
+.. code-block:: javascript
+
+            Hello1 = "hello"
+            Hello2 = [#c "h", #c "e", #c "l", #c "l", #c "o"]
+            Hello3 = [#c "h" :: [#c "e" :: [#c "l" :: [#c "l" :: [#c "o" :: []]]]]]
+
+            print("this three strings are equivalent ~p ~p ~p", [Hello1, Hello2, Hello3])
+
+As you can see the string syntax and the list syntax are just a convenience
+to write nested pairs, the three are the same from the language perspective.
+
+Let's continue with the following line:
+
+.. code-block:: javascript
+
+            print("this two atoms are equivalent ~p ~p", [#atom "an atom", `an atom`])
+
+If you wanted to know how to express an atom with spaces or with weird symbols,
+there you have the answer.
+
+You can tag a string with the #atom tag and the compiler will convert it into an
+atom or you can use backticks if you prefer amore "native" syntax.
+
+And lastly, something that may be useful to help you print diagnostic messages
+and find problems easier:
+
+.. code-block:: javascript
+
+            print("this print is at line ~p in module ~p", [#i line, #i module])
+
+if you tag the atoms line and module with the #i tag they will be converted at
+compile time to the current line as a number and to the module name as an atom
+respectively.
+
+Finally, the code above will print something like the following::
+
+    the code for character C is 67
+    this three strings are equivalent "hello" "hello" "hello"
+    this two atoms are equivalent 'an atom' 'an atom'
+    this print is at line 307 in module reference
+
+of course the line and module will change depending on where they were in your
+code.
+
+Tagged values and tagged expressions are two of the ways erlang provides to
+extend the language in the future withouth changing or complicating its syntax,
+this will be available after 1.0 as compiler plugins so that developers can
+write their own tag handlers that will be used at compile time to be
+transformed into something else.
+
 Blocks of Code as Values
 ------------------------
 
@@ -792,6 +1216,140 @@ operations, if that's what's required then what you need is a begin ... end
 block.
 
 It's not something you need every day but here it's documented for completeness.
+
+Sending and Receiving Messages
+------------------------------
+
+If you came to efene it may be because you heard that the erlang VM supports
+cheap processes and message passing, here we will cover them, let's see an
+example:
+
+.. code-block:: javascript
+
+    fn receive_and_print
+        case:
+            Pid = self()
+            receive
+                case ping:
+                     print("~p received ping", [Pid])
+                case Other:
+                     print("~p received something else: ~p", [Pid, Other])
+            after 1000:
+                  print("Nothing received after 1000ms")
+            end
+    end
+
+    fn spawn_receive
+        case:
+            OuterPid = self()
+            spawn(fn case:
+                  SpawnPid = self()
+                  print("Process ~p sending to ~p", [SpawnPid, OuterPid])
+                  OuterPid ! ping
+            end)
+
+            receive_and_print()
+
+            receive_and_print()
+    end
+
+We define two functions, receive_and_print which will wait for a message and print
+something depending on what it got and spawn_receive, which will spawn a new
+process that will interact with the current process we are running.
+
+Let's see it line by line, first we get the process id (pid) of the current process
+by calling the builting function `erlang.self:0 <http://www.erlang.org/doc/man/erlang.html#self-0>`_:
+
+.. code-block:: javascript
+
+            OuterPid = self()
+
+Then we spawn a new process by calling the builtin function `erlang.spawn:1 <http://www.erlang.org/doc/man/erlang.html#spawn-1>`_:
+
+.. code-block:: javascript
+
+            spawn(fn case:
+                  SpawnPid = self()
+                  print("Process ~p sending to ~p", [SpawnPid, OuterPid])
+                  OuterPid ! ping
+            end)
+
+We pass one argument to spawn, which is an anonymous function that takes no
+arguments, in it's body it gets its process id, then prints a message and
+finally it sends the ping atom as a message to the process identified by the
+process id stored in the variable OuterPid by using the **!** operator.
+
+.. code-block:: javascript
+
+            receive_and_print()
+
+            receive_and_print()
+
+Then we call receive_and_print twice, the output of running this code will be
+something like::
+
+    Process <0.81.0> sending to <0.44.0>
+    <0.44.0> received ping
+    Nothing received after 1000ms
+
+The printed process ids will probably differ on your machine.
+
+Now let's analyze the receive_and_print function, first we get the pid of the
+current process:
+
+.. code-block:: javascript
+
+            Pid = self()
+
+Then we use the receive expression to receive messages:
+
+.. code-block:: javascript
+
+            receive
+                case ping:
+                     print("~p received ping", [Pid])
+                case Other:
+                     print("~p received something else: ~p", [Pid, Other])
+            after 1000:
+                  print("Nothing received after 1000ms")
+            end
+
+The syntax should be already familiar, it starts with the receive keyword and
+continues with zero or more case clauses, optionally an after section that
+specifies the amount of milliseconds to wait for a message to arrive, if no
+message arrives then the after body will be executed.
+
+In the case clauses we pattern match against the ping atom to display a specific
+message and then we match against anything to display a "catch all message",
+if no message is received after a second we give up and print a message.
+
+That's why we call it two times even when we spawned one process that sent
+one message.
+
+The first time it will receive a message and match against ping, but the second
+time it will timeout and print the timeout message.
+
+If you read carefully you will notice I said "with zero or more case clauses",
+when I described the receive expression, it wasn't an error, you can have
+zero case clauses, here is a useful example of that:
+
+.. code-block:: javascript
+
+    fn sleep
+        case TimeMs:
+             print("sleeping ~pms", [TimeMs])
+
+             receive
+             after TimeMs:
+                   ok
+             end
+    end
+
+The sleep function will print a message and sleep for the specified amount of
+milliseconds, then return ok.
+
+Like any other expression, the receive expression will return the last value
+evaluated on the case clause it matches or in the after section.
 
 Adding some Types
 -----------------
