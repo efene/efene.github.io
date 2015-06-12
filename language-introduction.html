@@ -103,7 +103,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#many-ways-to-call-a-function">Many Ways to Call a Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#some-more-pattern-matching">Some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#looping">Looping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#catching-exceptions">Catching Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blocks-of-code-as-values">Blocks of Code as Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-some-types">Adding some Types</a></li>
 </ul>
 </li>
@@ -796,6 +798,50 @@ than tuples!</p>
 <p>The good thing is that one item tuples isn&#8217;t a common thing on efene/erlang
 so you won&#8217;t need to use this special case that often.</p>
 </div>
+<div class="section" id="looping">
+<h2>Looping<a class="headerlink" href="#looping" title="Permalink to this headline">¶</a></h2>
+<p>If you need to apply operations to the items in the list efene provides the
+for comprehension, which is similar to a list comprehension (or a map operation
+if you come from more functional background).</p>
+<p>The for comprehension will assign each item of the list to a variable and
+execute the block of code with it:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I</span><span class="p">])</span>
+<span class="nx">end</span>
+</pre></div>
+</div>
+<p>Notice that like almost everything in efene, the for comprehension is an expression, which
+means that it returns a value that can be used or assigned to a variable.</p>
+<p>What value does it return? the accumulation of results returned by all
+iterations, in this case as in any other case, the results are the result of
+the last expression in the for block.</p>
+<p>Take this into account if you are looping over a big collection and the last
+expression generates some big value, if you don&#8217;t use it you will be generating
+a huge list for nothing. If you want to avoid this, you can write a simple value
+like <strong>nil</strong> as the last expression in the for body.</p>
+<p>Like everything else in efene you can write guards to restrict the values generated
+from the collection you are iteration over, for example, let&#8217;s skip the odd values:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I1</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">I1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I1: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I1</span><span class="p">])</span>
+<span class="nx">end</span>
+</pre></div>
+</div>
+<p>In a for comprehension you can have one or more generators and filters separated
+by semicolons, here we can have more than one filter, let&#8217;s skip odd values and
+the number 8:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I2</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">I2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">I2</span> <span class="o">!=</span> <span class="mi">8</span><span class="o">:</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I2: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I2</span><span class="p">])</span>
+<span class="nx">end</span>
+</pre></div>
+</div>
+<p>We can also have more than one generator, here we will generate two values and
+will print them only if thy are not equal:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">J3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">I3</span> <span class="o">!=</span> <span class="nx">J3</span><span class="o">:</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I3, J3: ~p, ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I3</span><span class="p">,</span> <span class="nx">J3</span><span class="p">])</span>
+<span class="nx">end</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="catching-exceptions">
 <h2>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this headline">¶</a></h2>
 <p>Before we declared the function divide_two_unsafe,if we called it with the
@@ -842,6 +888,23 @@ a file or a socket.</p>
 <p>In the third example we use the builting <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#throw-1">erlang.throw:1</a>
 function to throw an exception of type throw and we inmediatly catch it and
 print what the error was.</p>
+</div>
+<div class="section" id="blocks-of-code-as-values">
+<h2>Blocks of Code as Values<a class="headerlink" href="#blocks-of-code-as-values" title="Permalink to this headline">¶</a></h2>
+<p>If for some reason we need to have more than one line of code in a place where
+only a value is expected we can use a little known feature of erlang which of
+course as its efene counterpart, the begin ... end block:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">io</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;block result: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">begin</span>
+                     <span class="nx">A</span> <span class="o">=</span> <span class="mi">8</span>
+                     <span class="nx">B</span> <span class="o">=</span> <span class="mi">0</span>
+                     <span class="nx">divide_two</span><span class="p">(</span><span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="p">)</span>
+                 <span class="nx">end</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Instead of prividing a variable or a simple function call we wanted to do three
+operations, if that&#8217;s what&#8217;s required then what you need is a begin ... end
+block.</p>
+<p>It&#8217;s not something you need every day but here it&#8217;s documented for completeness.</p>
 </div>
 <div class="section" id="adding-some-types">
 <h2>Adding some Types<a class="headerlink" href="#adding-some-types" title="Permalink to this headline">¶</a></h2>
