@@ -2,7 +2,7 @@ Efene Introduction
 ==================
 
 This section describes the language through simple working examples, for a
-complete reference see:ref:`language-reference`.
+complete reference see :ref:`language-reference`.
 
 We will introduce the data types as we need them, but for a quick introduction
 let's say that if you know what JSON is, which data types it support and how to
