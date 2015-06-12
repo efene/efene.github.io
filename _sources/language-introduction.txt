@@ -694,7 +694,7 @@ from the collection you are iteration over, for example, let's skip the odd valu
 
 .. code-block:: javascript
 
-        for I1 in lists.seq(1, 10); I1 % 2 == 0:
+        for I1 in lists.seq(1, 10); when I1 % 2 == 0:
             print("I1: ~p", [I1])
         end
 
@@ -704,7 +704,7 @@ the number 8:
 
 .. code-block:: javascript
 
-        for I2 in lists.seq(1, 10); I2 % 2 == 0; I2 != 8:
+        for I2 in lists.seq(1, 10); when I2 % 2 == 0; when I2 != 8:
             print("I2: ~p", [I2])
         end
 
@@ -713,7 +713,7 @@ will print them only if thy are not equal:
 
 .. code-block:: javascript
 
-        for I3 in lists.seq(1, 4); J3 in lists.seq(1, 4); I3 != J3:
+        for I3 in lists.seq(1, 4); J3 in lists.seq(1, 4); when I3 != J3:
             print("I3, J3: ~p, ~p", [I3, J3])
         end
 
@@ -814,13 +814,13 @@ A little note on some of them, you may have noticed two strange ones:
 * andd
 * orr
 
-Those are available for erlang compatibility, andd is the non short circuit
-version of and and orr is the non short circuit version of or, this means that
+Those are available for erlang compatibility, **andd** is the non short circuit
+version of **and** and **orr** is the non short circuit version of **or**, this means that
 when used all the terms of the bool operation will be evaluated no matter if it
 wasn't required.
 
 Normally boolean operations in most programming languages are short circuited so
-you shouldn't use andd/orr unless you know what you are doing or you want some
+you shouldn't use **andd**/**orr** unless you know what you are doing or you want some
 erlang compatibility.
 
 Binary Operations

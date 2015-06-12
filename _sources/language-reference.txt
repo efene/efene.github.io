@@ -826,7 +826,7 @@ For
      X + 1
    end
 
-   for X in lists.seq(1, 10); X % 2 is 0:
+   for X in lists.seq(1, 10); when X % 2 is 0:
      X + 1
    end
 

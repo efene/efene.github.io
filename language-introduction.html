@@ -833,7 +833,7 @@ a huge list for nothing. If you want to avoid this, you can write a simple value
 like <strong>nil</strong> as the last expression in the for body.</p>
 <p>Like everything else in efene you can write guards to restrict the values generated
 from the collection you are iteration over, for example, let&#8217;s skip the odd values:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I1</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">I1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I1</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I1: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I1</span><span class="p">])</span>
 <span class="nx">end</span>
 </pre></div>
@@ -841,14 +841,14 @@ from the collection you are iteration over, for example, let&#8217;s skip the od
 <p>In a for comprehension you can have one or more generators and filters separated
 by semicolons, here we can have more than one filter, let&#8217;s skip odd values and
 the number 8:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I2</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">I2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">I2</span> <span class="o">!=</span> <span class="mi">8</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I2</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">when</span> <span class="nx">I2</span> <span class="o">!=</span> <span class="mi">8</span><span class="o">:</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I2: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I2</span><span class="p">])</span>
 <span class="nx">end</span>
 </pre></div>
 </div>
 <p>We can also have more than one generator, here we will generate two values and
 will print them only if thy are not equal:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">J3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">I3</span> <span class="o">!=</span> <span class="nx">J3</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">J3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I3</span> <span class="o">!=</span> <span class="nx">J3</span><span class="o">:</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I3, J3: ~p, ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I3</span><span class="p">,</span> <span class="nx">J3</span><span class="p">])</span>
 <span class="nx">end</span>
 </pre></div>
@@ -934,12 +934,12 @@ languages with a little difference:</p>
 <li>andd</li>
 <li>orr</li>
 </ul>
-<p>Those are available for erlang compatibility, andd is the non short circuit
-version of and and orr is the non short circuit version of or, this means that
+<p>Those are available for erlang compatibility, <strong>andd</strong> is the non short circuit
+version of <strong>and</strong> and <strong>orr</strong> is the non short circuit version of <strong>or</strong>, this means that
 when used all the terms of the bool operation will be evaluated no matter if it
 wasn&#8217;t required.</p>
 <p>Normally boolean operations in most programming languages are short circuited so
-you shouldn&#8217;t use andd/orr unless you know what you are doing or you want some
+you shouldn&#8217;t use <strong>andd</strong>/<strong>orr</strong> unless you know what you are doing or you want some
 erlang compatibility.</p>
 </div>
 <div class="section" id="binary-operations">
