@@ -661,6 +661,61 @@ than tuples!
 The good thing is that one item tuples isn't a common thing on efene/erlang
 so you won't need to use this special case that often.
 
+Catching Exceptions
+-------------------
+
+Before we declared the function divide_two_unsafe,if we called it with the
+second argument being 0 an exception would occur, how do we handle that exception?
+
+As is common in languages with exceptions there's a way to catch them, let's
+see how it works in efene:
+
+.. code-block:: javascript
+
+        try
+            divide_two_unsafe(8, 2)
+        catch
+            case T, E:
+                 print("Error doing 8/2: ~p ~p", [T, E])
+        end
+
+        try
+            divide_two_unsafe(8, 0)
+        catch
+            case T1, E1:
+                 print("Error doing 8/0: ~p ~p", [T1, E1])
+        after
+            print("After division attempt")
+        end
+
+        try
+            throw(hi)
+        catch
+            case E2:
+                 print("Error was: ~p", [E2])
+        end
+
+First we call divide_two_unsafe(8, 2), which won't result in an exception, this
+will return the result of the division, given that try/catch is an expression
+too in efene.
+
+Then we call divide_two_unsafe(8, 0), which will throw an exception, the body
+of the try is followed by the catch keyword and after that by the already
+known case clauses.
+
+In this case we can match against either one or two values, if we match against
+two values the first one will be the exception type (which can be throw, exit
+or error). If we match against a single value the type of the error is assumed
+to be throw.
+
+We also can optionally provide an after section that will be executed both when
+there's no exception and when there is, usually to do some cleanup like closing
+a file or a socket.
+
+In the third example we use the builting `erlang.throw:1 <http://www.erlang.org/doc/man/erlang.html#throw-1>`_
+function to throw an exception of type throw and we inmediatly catch it and
+print what the error was.
+
 Adding some Types
 -----------------
 

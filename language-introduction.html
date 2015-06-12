@@ -103,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#many-ways-to-call-a-function">Many Ways to Call a Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#some-more-pattern-matching">Some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#catching-exceptions">Catching Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-some-types">Adding some Types</a></li>
 </ul>
 </li>
@@ -794,6 +795,53 @@ expression was a one item tuple then we wouldn&#8217;t be able to match things o
 than tuples!</p>
 <p>The good thing is that one item tuples isn&#8217;t a common thing on efene/erlang
 so you won&#8217;t need to use this special case that often.</p>
+</div>
+<div class="section" id="catching-exceptions">
+<h2>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this headline">¶</a></h2>
+<p>Before we declared the function divide_two_unsafe,if we called it with the
+second argument being 0 an exception would occur, how do we handle that exception?</p>
+<p>As is common in languages with exceptions there&#8217;s a way to catch them, let&#8217;s
+see how it works in efene:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">try</span>
+    <span class="nx">divide_two_unsafe</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">catch</span>
+    <span class="k">case</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">E</span><span class="o">:</span>
+         <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Error doing 8/2: ~p ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">T</span><span class="p">,</span> <span class="nx">E</span><span class="p">])</span>
+<span class="nx">end</span>
+
+<span class="k">try</span>
+    <span class="nx">divide_two_unsafe</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">catch</span>
+    <span class="k">case</span> <span class="nx">T1</span><span class="p">,</span> <span class="nx">E1</span><span class="o">:</span>
+         <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Error doing 8/0: ~p ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">T1</span><span class="p">,</span> <span class="nx">E1</span><span class="p">])</span>
+<span class="nx">after</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;After division attempt&quot;</span><span class="p">)</span>
+<span class="nx">end</span>
+
+<span class="k">try</span>
+    <span class="k">throw</span><span class="p">(</span><span class="nx">hi</span><span class="p">)</span>
+<span class="k">catch</span>
+    <span class="k">case</span> <span class="nx">E2</span><span class="o">:</span>
+         <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Error was: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">E2</span><span class="p">])</span>
+<span class="nx">end</span>
+</pre></div>
+</div>
+<p>First we call divide_two_unsafe(8, 2), which won&#8217;t result in an exception, this
+will return the result of the division, given that try/catch is an expression
+too in efene.</p>
+<p>Then we call divide_two_unsafe(8, 0), which will throw an exception, the body
+of the try is followed by the catch keyword and after that by the already
+known case clauses.</p>
+<p>In this case we can match against either one or two values, if we match against
+two values the first one will be the exception type (which can be throw, exit
+or error). If we match against a single value the type of the error is assumed
+to be throw.</p>
+<p>We also can optionally provide an after section that will be executed both when
+there&#8217;s no exception and when there is, usually to do some cleanup like closing
+a file or a socket.</p>
+<p>In the third example we use the builting <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#throw-1">erlang.throw:1</a>
+function to throw an exception of type throw and we inmediatly catch it and
+print what the error was.</p>
 </div>
 <div class="section" id="adding-some-types">
 <h2>Adding some Types<a class="headerlink" href="#adding-some-types" title="Permalink to this headline">¶</a></h2>
