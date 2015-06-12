@@ -1,11 +1,12 @@
 Efene Introduction
 ==================
 
-This section describes the language through simple working examples, for a complete reference see:ref:`language-reference`.
+This section describes the language through simple working examples, for a
+complete reference see:ref:`language-reference`.
 
 We will introduce the data types as we need them, but for a quick introduction
-let's say that if you know what JSON is, which data types it support and how
-to read it then you know 80% of efene's data types and syntax.
+let's say that if you know what JSON is, which data types it support and how to
+read it then you know 80% of efene's data types and syntax.
 
 A Simple Function
 -----------------
@@ -213,6 +214,36 @@ arguments of a case clause.
 In this case we are chacking that A is equal to B, but the guard can be much
 more complex.
 
+One more thing..., those guards look a lot like if statements on other languages,
+can we use them standalone too?
+
+well, yes we can, let's rewrite the previous function one more time:
+
+.. code-block:: javascript
+
+    fn two_are_the_same_3
+        case A, B:
+            when A == B:
+                true
+            else:
+                false
+            end
+    end
+
+well, that looks really similar, isn't it? you can use guards as kind of **if
+statements** but there's a catch, since guards in functions must execute quick
+(you don't want to slow down your function calls evaluating slow guards) and
+they also must be free of side effects (you don't want two successive calls to
+a function to be different because some guard is doing something weird) the
+erlang VM only allows a restricted set of operations to be used in a guard,
+this means you can't call your own functions in a guard, only a subset of
+erlang functions are allowed in guards, you can see a list of allowed operations
+in this `Stack Overflow Answer <http://stackoverflow.com/a/11177231>`_.
+
+If you want to use something more similar to an if statement then use a match
+expression and match against true and false (or against true and else), future
+versions of efene may introduce if expressions, but not before 1.0.
+
 Putting it All Together
 -----------------------
 
@@ -393,6 +424,133 @@ will print::
 
     first argument is 1 second argument is false
 
+Many Ways to Call a Function
+----------------------------
+
+Let's now see all the ways you can call a function in efene other than the common
+case where you write the name and arguments and optionally the module name.
+
+Say you want to call a function dinamically, that is, some part is defined in
+a variable, how would you do that? let's see:
+
+.. code-block:: javascript
+
+    fn dynamic_call
+        @doc("this function shows all the ways you can call a function")
+        case:
+            Mod = lists
+            Fun = seq
+            From = 1
+            To = 4
+
+            R = lists.seq(From, To)
+            R = lists.Fun(From, To)
+            R = Mod.seq(From, To)
+            R = Mod.Fun(From, To)
+
+            F1 = fn lists.seq:2
+            F2 = fn lists.Fun:2
+            F3 = fn Mod.seq:2
+            F4 = fn Mod.Fun:2
+
+            R = F1(From, To)
+            R = F2(From, To)
+            R = F3(From, To)
+            R = F4(From, To)
+
+            Fn = fn case: lists.seq(From, To) end
+
+            R = Fn()
+
+            R = apply(lists, seq, [From, To])
+            R = apply(lists, Fun, [From, To])
+            R = apply(Mod, seq, [From, To])
+            R = apply(Mod, Fun, [From, To])
+
+            print("all calls returned the same result")
+    end
+
+First you may have noticed the @doc thing after the function name and before
+the case clause, this is a function annotation, efene allows you to attach
+metadata to functions for many purposes like documentation, visibility outside
+the module, types and any other use you may think of, in this case we attach
+the docs for the function.
+
+the function dynamic_call receives no arguments and calls the function `lists.seq:2 <http://www.erlang.org/doc/man/lists.html#seq-2>`_ in any way it can.
+
+first the usual way:
+
+.. code-block:: javascript
+
+            R = lists.seq(From, To)
+
+then using the Fun variable to provide the function name:
+
+.. code-block:: javascript
+
+            R = lists.Fun(From, To)
+
+then using the Mod variable to provide the module name
+
+.. code-block:: javascript
+
+            R = Mod.seq(From, To)
+
+then using both Mod and Fun
+
+.. code-block:: javascript
+
+            R = Mod.Fun(From, To)
+
+Notice that all function calls **match** the result against the same variable
+(R) this is because all functions are the same function and hence return the
+same result, we are using the same variable to match and make sure all function
+calls return the same value.
+
+If some call returned a different value efene would raise a bad match exception.
+
+Now instead of calling the function let's build a function reference, this is
+we hold a reference to the function in a variable which we can pass around.
+
+Again there are many ways to get a function reference, in all of them we need
+to specify the module (optionally), the function name and the arity:
+
+.. code-block:: javascript
+
+            F1 = fn lists.seq:2
+            F2 = fn lists.Fun:2
+            F3 = fn Mod.seq:2
+            F4 = fn Mod.Fun:2
+
+Like before we can use variables which hold the name of the module, function
+or both, now we can call the function with our function references:
+
+.. code-block:: javascript
+
+            R = F1(From, To)
+            R = F2(From, To)
+            R = F3(From, To)
+            R = F4(From, To)
+
+We can also *wrap* the function in an anonymous function and assign that
+anonymous function to a variable, then call it:
+
+.. code-block:: javascript
+
+            Fn = fn case: lists.seq(From, To) end
+            R = Fn()
+
+If we had the arguments to the function in a list we can also call the function
+dynamically using `erlang.apply:3 <http://www.erlang.org/doc/man/erlang.html#apply-3>`_
+
+.. code-block:: javascript
+
+            R = apply(lists, seq, [From, To])
+            R = apply(lists, Fun, [From, To])
+            R = apply(Mod, seq, [From, To])
+            R = apply(Mod, Fun, [From, To])
+
+That's it, all the ways there is to call a function!
 
 Some more Pattern Matching
 --------------------------
@@ -407,7 +565,7 @@ if the result was successful or not.
 
 For that we can define the following function:
 
-.. code-blob:: javascript
+.. code-block:: javascript
 
     fn print_div_result
         case (ok, Result):
@@ -428,19 +586,19 @@ The second case matches the tuple (error, Reason) and prints the message
 but what if we want to do this pattern matching in other places? do we have
 to create a function to do the pattern match?
 
-luckily the answer is now, there's a way to do pattern matching with multiple
-cases inside the body of a function, let's see how by defining the same functionality as above
-but with a function with a single case clause:
+luckily the answer is no, there's a way to do pattern matching with multiple
+cases inside the body of a function, let's see how by defining the same
+functionality as above but with a function with a single case clause:
 
 .. code-block:: javascript
 
     fn print_div_result_1
         case A, B:
              match divide_two(A, B):
-                case ok, Result:
-                     print("result of ~p/~p is: ~p", [A, B, Result])
-                case error, Reason:
-                     print("error of ~p/~p is: ~p", [A, B, Reason])
+                case (ok, Result):
+                    print("result is: ~p", [Result])
+                case (error, Reason):
+                    print("error is: ~p", [Reason])
              end
     end
 
@@ -450,18 +608,56 @@ are the numbers we want to divide.
 Then we use the *match expression* which calls divide_two(A, B) and matches
 the result of that against two clauses.
 
-You may notice that the content of the match expression is almost the same as
-the content of the print_div_result function, only with some minor differences
-in the the text being printed but with another difference.
+You may notice that the content of the match expression is the same as
+the content of the print_div_result function.
 
 since pattern matching against tuples is so common in efene we provide you with
 a convenient syntax that will "unroll" the tuple for you in the case clauses
-without having to write the parenthesis yourself.
+without having to write the parenthesis yourself, let's see a version that uses
+this feature:
 
-in print_div_result we call the function with one argument which is a tuple of
-two items, not with two arguments, that's why we have to match against the
-tuple explicitly, in the match expression you can only match against a value,
-which normally is a tuple, so we provide this convenient syntax to match
-against tuples.
+.. code-block:: javascript
 
+    fn print_div_result_2
+        case A, B:
+             match divide_two(A, B):
+                case ok, Result:
+                    print("result is: ~p", [Result])
+                case error, Reason:
+                    print("error is: ~p", [Reason])
+             end
+    end
+
+As you can see parenthesis aren't needed, if the case clause in a match expression
+has more than one argument then efene assumes you are matching on a tuple (since
+the expression in match can be only one).
+
+This introduces a small "special case" (we don't like special cases but we think
+this one justifies its existence).
+
+if you want to match a tuple of one item in a match expression you need to write
+it explicitly, a small example to see why:
+
+.. code-block:: javascript
+
+    Value = (42,)
+
+    match Value:
+        case (42,): ok
+        else: wat
+    end
+
+    Value1 = 42
+
+    match Value1:
+        case 42: ok
+        else: wat
+    end
+
+This is because if we assumed that a case clause with one argument inside a match
+expression was a one item tuple then we wouldn't be able to match things other
+than tuples!
+
+The good thing is that one item tuples isn't a common thing on efene/erlang
+so you won't need to use this special case that often.
 
