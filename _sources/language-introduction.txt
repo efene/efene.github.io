@@ -2,7 +2,7 @@ Efene Introduction
 ==================
 
 This section describes the language through simple working examples, for a
-complete reference see:ref:`language-reference`.
+complete reference see :ref:`language-reference`.
 
 We will introduce the data types as we need them, but for a quick introduction
 let's say that if you know what JSON is, which data types it support and how to
@@ -660,4 +660,48 @@ than tuples!
 
 The good thing is that one item tuples isn't a common thing on efene/erlang
 so you won't need to use this special case that often.
+
+Adding some Types
+-----------------
+
+At some point you may want to add some types to your code, for documentation
+purposes or to help tools like `dialyzer <http://www.erlang.org/doc/man/dialyzer.html>`_
+spot bugs for you, efene as usual provides the same features as erlang to add
+types to your code, let's see an example:
+
+.. code-block:: javascript
+
+    @type(result(E, V)) -> (error, E) or (ok, V)
+    @type(division_error()) -> result(division_by_zero, number())
+
+    fn divide_two_typed
+        @spec(number(), number()) -> division_error()
+        case _A, 0: (error, division_by_zero)
+        case A, B: (ok, A / B)
+    end
+
+First we declare a new generic type called **result** which receives two arguments,
+this means you can "parameterize" the type providing your own types to it.
+
+The result type is defined as either a two item tuple with the first item being
+the atom error and the second item being the type passed as first argument to
+the result type **or** a two item tuple containing the ok atom as first item
+and the second item being the type passed as second argument to the result
+type.
+
+After the result type declaration we declare another type called
+**division_error**, which doesn't receive arguments and is defined as the
+result type where the error type can be the atom division_by_zero amd the value
+type can be any number.
+
+Notice that types are like function calls, a bare atom is just the atom value.
+
+Then we define our divide_two_typed function and after the name we add a function
+anotation *@spec* that is used to provide a type specification for the function,
+there we define that the function receives two arguments of type number and
+returns a value that satisfies the division_error type.
+
+For more details on the syntax see the :ref:`language-reference`.
+
+For more details on types see `Erlang's Types and Function Specifications <http://www.erlang.org/doc/reference_manual/typespec.html>`_ documentation about it.
 

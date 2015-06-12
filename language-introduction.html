@@ -103,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#many-ways-to-call-a-function">Many Ways to Call a Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#some-more-pattern-matching">Some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-some-types">Adding some Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
@@ -272,7 +273,7 @@
   <div class="section" id="efene-introduction">
 <h1>Efene Introduction<a class="headerlink" href="#efene-introduction" title="Permalink to this headline">¶</a></h1>
 <p>This section describes the language through simple working examples, for a
-complete reference see:ref:<cite>language-reference</cite>.</p>
+complete reference see <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
 <p>We will introduce the data types as we need them, but for a quick introduction
 let&#8217;s say that if you know what JSON is, which data types it support and how to
 read it then you know 80% of efene&#8217;s data types and syntax.</p>
@@ -793,6 +794,41 @@ expression was a one item tuple then we wouldn&#8217;t be able to match things o
 than tuples!</p>
 <p>The good thing is that one item tuples isn&#8217;t a common thing on efene/erlang
 so you won&#8217;t need to use this special case that often.</p>
+</div>
+<div class="section" id="adding-some-types">
+<h2>Adding some Types<a class="headerlink" href="#adding-some-types" title="Permalink to this headline">¶</a></h2>
+<p>At some point you may want to add some types to your code, for documentation
+purposes or to help tools like <a class="reference external" href="http://www.erlang.org/doc/man/dialyzer.html">dialyzer</a>
+spot bugs for you, efene as usual provides the same features as erlang to add
+types to your code, let&#8217;s see an example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre>@type(result(E, V)) -&gt; (error, E) or (ok, V)
+@type(division_error()) -&gt; result(division_by_zero, number())
+
+fn divide_two_typed
+    @spec(number(), number()) -&gt; division_error()
+    case _A, 0: (error, division_by_zero)
+    case A, B: (ok, A / B)
+end
+</pre></div>
+</div>
+<p>First we declare a new generic type called <strong>result</strong> which receives two arguments,
+this means you can &#8220;parameterize&#8221; the type providing your own types to it.</p>
+<p>The result type is defined as either a two item tuple with the first item being
+the atom error and the second item being the type passed as first argument to
+the result type <strong>or</strong> a two item tuple containing the ok atom as first item
+and the second item being the type passed as second argument to the result
+type.</p>
+<p>After the result type declaration we declare another type called
+<strong>division_error</strong>, which doesn&#8217;t receive arguments and is defined as the
+result type where the error type can be the atom division_by_zero amd the value
+type can be any number.</p>
+<p>Notice that types are like function calls, a bare atom is just the atom value.</p>
+<p>Then we define our divide_two_typed function and after the name we add a function
+anotation <em>&#64;spec</em> that is used to provide a type specification for the function,
+there we define that the function receives two arguments of type number and
+returns a value that satisfies the division_error type.</p>
+<p>For more details on the syntax see the <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
+<p>For more details on types see <a class="reference external" href="http://www.erlang.org/doc/reference_manual/typespec.html">Erlang&#8217;s Types and Function Specifications</a> documentation about it.</p>
 </div>
 </div>
 
