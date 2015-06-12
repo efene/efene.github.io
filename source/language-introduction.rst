@@ -716,6 +716,27 @@ In the third example we use the builting `erlang.throw:1 <http://www.erlang.org/
 function to throw an exception of type throw and we inmediatly catch it and
 print what the error was.
 
+Blocks of Code as Values
+------------------------
+
+If for some reason we need to have more than one line of code in a place where
+only a value is expected we can use a little known feature of erlang which of
+course as its efene counterpart, the begin ... end block:
+
+.. code-block:: javascript
+
+        io.format("block result: ~p", [begin
+                             A = 8
+                             B = 0
+                             divide_two(A, B)
+                         end])
+
+Instead of prividing a variable or a simple function call we wanted to do three
+operations, if that's what's required then what you need is a begin ... end
+block.
+
+It's not something you need every day but here it's documented for completeness.
+
 Adding some Types
 -----------------
 
