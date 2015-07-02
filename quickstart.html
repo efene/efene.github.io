@@ -99,8 +99,26 @@
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-two-cases">A Function with Two Cases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#same-variable-in-multiple-function-arguments">Same Variable in multiple Function Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#putting-it-all-together">Putting it All Together</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#calling-functions-in-other-modules">Calling Functions (in Other Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#calling-functions-in-other-modules">Calling Functions (in other Modules)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#many-ways-to-call-a-function">Many Ways to Call a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#some-more-pattern-matching">Some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#looping">Looping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#catching-exceptions">Catching Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#comparison-operations">Comparison Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#binary-operations">Binary Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#data-types-overview">Data Types Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-introduction.html#the-new-way-maps">The New Way: Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#the-old-way-records">The Old Way: Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#even-some-more-pattern-matching">Even some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#more-about-tagging">More about Tagging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#blocks-of-code-as-values">Blocks of Code as Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#sending-and-receiving-messages">Sending and Receiving Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#adding-some-types">Adding some Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start</a></li>
@@ -315,7 +333,22 @@ ok
 5
 </pre></div>
 </div>
-<p>but given that we are good software citizens we test our code with unit tests,
+<p>we can also try the logging version of the hello function, which uses the
+<a class="reference external" href="https://github.com/basho/lager/">lager logging library</a>, for that we need to
+start the lager application before running the function, this needs to be done
+manually on the shell but will be done automatically by the virtual machine
+when running an application:</p>
+<div class="highlight-python"><div class="highlight"><pre>1&gt; application:ensure_all_started(myfnapp).
+{ok,[syntax_tools,compiler,goldrush,lager,myfnapp]}
+20:21:49.127 [info] Application lager started on node nonode@nohost
+20:21:49.127 [info] Application myfnapp started on node nonode@nohost
+
+2&gt; myfnapp:log_hello(&quot;bob&quot;).
+20:22:11.517 [info] Hello bob!
+ok
+</pre></div>
+</div>
+<p>given that we are good software citizens we test our code with unit tests,
 that&#8217;s why we want to run some unit tests to be sure that this works:</p>
 <div class="highlight-python"><div class="highlight"><pre>./rebar3 ct
 </pre></div>

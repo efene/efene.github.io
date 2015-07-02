@@ -55,8 +55,22 @@ and try it::
     2> myfnapp:add(2, 3).
     5
 
+we can also try the logging version of the hello function, which uses the
+`lager logging library <https://github.com/basho/lager/>`_, for that we need to
+start the lager application before running the function, this needs to be done
+manually on the shell but will be done automatically by the virtual machine
+when running an application::
 
-but given that we are good software citizens we test our code with unit tests,
+    1> application:ensure_all_started(myfnapp).
+    {ok,[syntax_tools,compiler,goldrush,lager,myfnapp]}
+    20:21:49.127 [info] Application lager started on node nonode@nohost
+    20:21:49.127 [info] Application myfnapp started on node nonode@nohost
+
+    2> myfnapp:log_hello("bob").
+    20:22:11.517 [info] Hello bob!
+    ok
+
+given that we are good software citizens we test our code with unit tests,
 that's why we want to run some unit tests to be sure that this works::
 
     ./rebar3 ct
