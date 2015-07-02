@@ -55,11 +55,18 @@ and try it::
     2> myfnapp:add(2, 3).
     5
 
+you can quit the shell by calling the q function like this::
+
+    3> q().
+    ok
+
 we can also try the logging version of the hello function, which uses the
 `lager logging library <https://github.com/basho/lager/>`_, for that we need to
 start the lager application before running the function, this needs to be done
 manually on the shell but will be done automatically by the virtual machine
 when running an application::
+
+    ./rebar3 shell
 
     1> application:ensure_all_started(myfnapp).
     {ok,[syntax_tools,compiler,goldrush,lager,myfnapp]}
@@ -70,14 +77,18 @@ when running an application::
     20:22:11.517 [info] Hello bob!
     ok
 
-given that we are good software citizens we test our code with unit tests,
-that's why we want to run some unit tests to be sure that this works::
+    3> q().
+    ok
+
+given that we are good software citizens we test our code, that's why we want
+to run some unit tests to be sure that this works::
 
     ./rebar3 ct
 
-this will compile the tests and run the tests for you.
+this will compile the tests and run them for you.
 
-in the template one test should fail, open test/{{name}}_SUITE.fn and fix it,
+in the template one test should fail, open test/{{name}}_SUITE.fn
+(test/myfnapp_SUITE if you didn't change the app name) and fix it,
 then run the test task again::
 
     ./rebar3 ct

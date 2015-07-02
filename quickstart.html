@@ -333,12 +333,19 @@ ok
 5
 </pre></div>
 </div>
+<p>you can quit the shell by calling the q function like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>3&gt; q().
+ok
+</pre></div>
+</div>
 <p>we can also try the logging version of the hello function, which uses the
 <a class="reference external" href="https://github.com/basho/lager/">lager logging library</a>, for that we need to
 start the lager application before running the function, this needs to be done
 manually on the shell but will be done automatically by the virtual machine
 when running an application:</p>
-<div class="highlight-python"><div class="highlight"><pre>1&gt; application:ensure_all_started(myfnapp).
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
+
+1&gt; application:ensure_all_started(myfnapp).
 {ok,[syntax_tools,compiler,goldrush,lager,myfnapp]}
 20:21:49.127 [info] Application lager started on node nonode@nohost
 20:21:49.127 [info] Application myfnapp started on node nonode@nohost
@@ -346,15 +353,19 @@ when running an application:</p>
 2&gt; myfnapp:log_hello(&quot;bob&quot;).
 20:22:11.517 [info] Hello bob!
 ok
+
+3&gt; q().
+ok
 </pre></div>
 </div>
-<p>given that we are good software citizens we test our code with unit tests,
-that&#8217;s why we want to run some unit tests to be sure that this works:</p>
+<p>given that we are good software citizens we test our code, that&#8217;s why we want
+to run some unit tests to be sure that this works:</p>
 <div class="highlight-python"><div class="highlight"><pre>./rebar3 ct
 </pre></div>
 </div>
-<p>this will compile the tests and run the tests for you.</p>
-<p>in the template one test should fail, open test/{{name}}_SUITE.fn and fix it,
+<p>this will compile the tests and run them for you.</p>
+<p>in the template one test should fail, open test/{{name}}_SUITE.fn
+(test/myfnapp_SUITE if you didn&#8217;t change the app name) and fix it,
 then run the test task again:</p>
 <div class="highlight-python"><div class="highlight"><pre>./rebar3 ct
 </pre></div>
