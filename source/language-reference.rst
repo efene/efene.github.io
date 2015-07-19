@@ -940,6 +940,36 @@ Description
 Block expressions provide a way to group a sequence of expressions, similar to
 a clause body. The return value is the value of the last expression ExprN.
 
+Macros
+------
+
+Macros are an extension to support using Erlang Macros defined in Erlang modules
+from efene, to use Erlang Macros from a module you need first to include that
+module in your efene module and then use them.
+
+Macro Constants
+...............
+
+Macro Constants are macros that are a definition of a name that expands to
+an expression, it can be used to name constants or to expand an expression in
+multiple places, to expand a macro constant you have to write the name of
+the macro constant tagged with the #m tag::
+
+    #m Author
+    #m LINE
+    #m PI
+
+Macro Functions
+...............
+
+Macro Functions are macros that receive arguments and use them to expand
+its definition using those arguments, to expand a macro call you have to write
+the macro as a function call tagged with the #m tag::
+
+    #m AUTHOR(bob)
+    #m Text(1 * 2 + 3)
+    #m AddPlusOne(2, 3)
+
 Module Level Expressions
 ------------------------
 
@@ -954,20 +984,15 @@ Well Known Function Attributes
 @public
 #######
 
-TODO
+Exports the function to be used from other modules.
 
 @spec
 #####
 
-TODO
+Defines the types of function arguments and return type for current function.
 
 Attributes
 ..........
-
-Generic Attributes
-::::::::::::::::::
-
-TODO
 
 Well Known Attributes
 :::::::::::::::::::::
@@ -979,6 +1004,9 @@ Export
 
     @export(hello/0, plus/2)
 
+Has the same behavior as adding the @public attribute to a function, exports
+the function to be used from other modules.
+
 Export Type
 ###########
 
@@ -986,6 +1014,7 @@ Export Type
 
     @export_type(tint/0, c2/1)
 
+Exports the types to be used from other modules.
 
 Record Definition
 #################
@@ -994,12 +1023,19 @@ Record Definition
 
     @record(foo) -> (a, b = 12, c = true, d = 12)
 
+Defined a record by providing a name and a tuple with field names as atoms
+and optionally a default value in case a value is not providing on construction.
+
+For more information see `Erlang's Record Manual Page <http://www.erlang.org/doc/reference_manual/records.html>`_
+
 Record Definition with Types
 ############################
 
 ::
 
     @record(person) -> (first = "" is string(), last is list(char()), age is integer())
+
+Record fields can contain a type definition to help tools like `Dialyzer <http://www.erlang.org/doc/man/dialyzer.html>`_
 
 Type Attributes
 :::::::::::::::
@@ -1071,3 +1107,54 @@ Opaque Type and Record Type
 ::
 
     @opaque(tperson) -> #r person
+
+Version Attribute (vsn)
+:::::::::::::::::::::::
+
+::
+
+    @vsn("1.2.0")
+    @vsn((1, 2, 0))
+
+Module version. The parameter is any literal term and can be retrieved using
+`beam_lib.version:1 <http://www.erlang.org/doc/man/beam_lib.html#version-1>`_.
+
+If this attribute is not specified, the version defaults to the MD5 checksum of
+the module.
+
+On Load Attribute (on_load)
+:::::::::::::::::::::::::::
+
+::
+
+    @on_load(fname/0)
+
+This attribute names a function that is to be run automatically when a module
+is loaded. For more information, see `Running a Function When a Module is
+Loaded <http://www.erlang.org/doc/reference_manual/code_loading.html#on_load>`_.
+
+Import Attribute (import)
+:::::::::::::::::::::::::
+
+::
+
+    @import(erlang, [phash2/1])
+
+Imported functions. Can be called the same way as local functions, that is,
+without any module prefix.
+
+Module, an atom, specifies which module to import functions from. Functions is
+a list similar as for export.
+
+Include Attribute (include)
+:::::::::::::::::::::::::::
+
+::
+
+    @include("path/to/file.hrl")
+
+Include an erlang file in the current module, code is included in the current
+module and macros are available for use, see
+`macro use example on how to use them <https://github.com/efene/efene/blob/master/examples/use_macros.fn>`_
+here is the included file `ms.hrl <https://github.com/efene/efene/blob/master/examples/ms.hrl>`_
+
