@@ -25,19 +25,8 @@ We can then create the project using the installed template, change mypushapp fo
 
     ./rebar3 new fn_push_app name=mypushapp
 
-We can then compile the project::
+We can then run the project::
 
-    ./rebar3 compile
+    ./rebar3 run
 
-And start it via the erlang shell::
-
-    ./rebar3 shell
-
-Inside the shell we run::
-
-    application:ensure_all_started(mypushapp).
-
-.. note::
-
-    This guide is incomplete
 
