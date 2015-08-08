@@ -99,8 +99,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#a-function-with-two-cases">A Function with Two Cases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#same-variable-in-multiple-function-arguments">Same Variable in multiple Function Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#putting-it-all-together">Putting it All Together</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#calling-functions-in-other-modules">Calling Functions (in Other Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#calling-functions-in-other-modules">Calling Functions (in other Modules)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#many-ways-to-call-a-function">Many Ways to Call a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#some-more-pattern-matching">Some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#looping">Looping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#catching-exceptions">Catching Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#comparison-operations">Comparison Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#binary-operations">Binary Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#data-types-overview">Data Types Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../language-introduction.html#the-new-way-maps">The New Way: Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#the-old-way-records">The Old Way: Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#even-some-more-pattern-matching">Even some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#more-about-tagging">More about Tagging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#blocks-of-code-as-values">Blocks of Code as Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#sending-and-receiving-messages">Sending and Receiving Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-introduction.html#adding-some-types">Adding some Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
@@ -177,15 +195,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../language-reference.html#macros">Macros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../language-reference.html#macro-constants">Macro Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-reference.html#macro-functions">Macro Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../language-reference.html#module-level-expressions">Module Level Expressions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../language-reference.html#top-level-function">Top Level Function</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../language-reference.html#well-known-function-attributes">Well Known Function Attributes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../language-reference.html#attributes">Attributes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../language-reference.html#generic-attributes">Generic Attributes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../language-reference.html#well-known-attributes">Well Known Attributes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../language-reference.html#type-attributes">Type Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../language-reference.html#version-attribute-vsn">Version Attribute (vsn)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../language-reference.html#on-load-attribute-on-load">On Load Attribute (on_load)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../language-reference.html#import-attribute-import">Import Attribute (import)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../language-reference.html#include-attribute-include">Include Attribute (include)</a></li>
 </ul>
 </li>
 </ul>
@@ -273,7 +299,7 @@
 <h1>Cowboy WebSockets/Server Sent Events/COMET JSON API Guide<a class="headerlink" href="#cowboy-websockets-server-sent-events-comet-json-api-guide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="initial-setup">
 <h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
-<p>Like in the <a class="reference internal" href="../quickstart.html#quick-start"><span>Quick Start</span></a> we will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a></p>
+<p>Like in the <a class="reference internal" href="../quickstart.html#quick-start"><em>Quick Start</em></a> we will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a></p>
 <p>First let&#8217;s start installing the template we will use, this needs to be done only once:</p>
 <div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.config/rebar3/templates
 git clone https://github.com/efene/rebar3_efene_template_push_app.git ~/.config/rebar3/templates/fn_push_app
@@ -293,21 +319,9 @@ chmod u+x rebar3
 <div class="highlight-python"><div class="highlight"><pre>./rebar3 new fn_push_app name=mypushapp
 </pre></div>
 </div>
-<p>We can then compile the project:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 compile
+<p>We can then run the project:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 run
 </pre></div>
-</div>
-<p>And start it via the erlang shell:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
-</pre></div>
-</div>
-<p>Inside the shell we run:</p>
-<div class="highlight-python"><div class="highlight"><pre>application:ensure_all_started(mypushapp).
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This guide is incomplete</p>
 </div>
 </div>
 </div>

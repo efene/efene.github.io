@@ -99,8 +99,26 @@
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-two-cases">A Function with Two Cases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#same-variable-in-multiple-function-arguments">Same Variable in multiple Function Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#putting-it-all-together">Putting it All Together</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#calling-functions-in-other-modules">Calling Functions (in Other Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#calling-functions-in-other-modules">Calling Functions (in other Modules)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#many-ways-to-call-a-function">Many Ways to Call a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#some-more-pattern-matching">Some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#looping">Looping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#catching-exceptions">Catching Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#comparison-operations">Comparison Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#binary-operations">Binary Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#data-types-overview">Data Types Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-introduction.html#the-new-way-maps">The New Way: Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#the-old-way-records">The Old Way: Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#even-some-more-pattern-matching">Even some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#more-about-tagging">More about Tagging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#blocks-of-code-as-values">Blocks of Code as Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#sending-and-receiving-messages">Sending and Receiving Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#adding-some-types">Adding some Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
@@ -177,15 +195,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#macros">Macros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#macro-constants">Macro Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#macro-functions">Macro Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#module-level-expressions">Module Level Expressions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#top-level-function">Top Level Function</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-function-attributes">Well Known Function Attributes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#attributes">Attributes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#generic-attributes">Generic Attributes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-attributes">Well Known Attributes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#type-attributes">Type Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#version-attribute-vsn">Version Attribute (vsn)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#on-load-attribute-on-load">On Load Attribute (on_load)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#import-attribute-import">Import Attribute (import)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#include-attribute-include">Include Attribute (include)</a></li>
 </ul>
 </li>
 </ul>
@@ -304,7 +330,7 @@ that is already available in efene rebar templates.</p>
 </div>
 <div class="section" id="example-usage">
 <h3>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
-<p>This section uses the project described in the <a class="reference internal" href="quickstart.html#quick-start"><span>Quick Start</span></a> section.</p>
+<p>This section uses the project described in the <a class="reference internal" href="quickstart.html#quick-start"><em>Quick Start</em></a> section.</p>
 <div class="section" id="compile-all-files">
 <h4>Compile All Files<a class="headerlink" href="#compile-all-files" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><div class="highlight"><pre>./rebar efene compile

@@ -195,15 +195,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#macros">Macros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#macro-constants">Macro Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#macro-functions">Macro Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#module-level-expressions">Module Level Expressions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#top-level-function">Top Level Function</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-function-attributes">Well Known Function Attributes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#attributes">Attributes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#generic-attributes">Generic Attributes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-attributes">Well Known Attributes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#type-attributes">Type Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#version-attribute-vsn">Version Attribute (vsn)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#on-load-attribute-on-load">On Load Attribute (on_load)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#import-attribute-import">Import Attribute (import)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#include-attribute-include">Include Attribute (include)</a></li>
 </ul>
 </li>
 </ul>
@@ -288,7 +296,7 @@
   <div class="section" id="efene-introduction">
 <h1>Efene Introduction<a class="headerlink" href="#efene-introduction" title="Permalink to this headline">¶</a></h1>
 <p>This section describes the language through simple working examples, for a
-complete reference see <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
+complete reference see <a class="reference internal" href="language-reference.html#language-reference"><em>Language Reference</em></a>.</p>
 <p>We will introduce the data types as we need them, but for a quick introduction
 let&#8217;s say that if you know what JSON is, which data types it support and how to
 read it then you know 80% of efene&#8217;s data types and syntax.</p>
@@ -555,7 +563,7 @@ double quotes and in an example before we used single quotes.</p>
 <p>In some other languages like python and javascript this doesn&#8217;t make a
 difference since both single quoted and double quoted strings are treated the
 same, but in efene they are different, I will leave the details for the
-<a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a> but I will say that single quote strings are binary
+<a class="reference internal" href="language-reference.html#language-reference"><em>Language Reference</em></a> but I will say that single quote strings are binary
 strings and double quote strings are list strings.</p>
 <p>For now I will just say that most functions in the standard library expect list
 strings and will fail if binary strings are used.</p>
@@ -910,7 +918,7 @@ won&#8217;t be a surprise for you, here is a simple operation to illustrate them
 </pre></div>
 </div>
 <p>For more details on operations described in this and the following sections see
-the <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
+the <a class="reference internal" href="language-reference.html#language-reference"><em>Language Reference</em></a>.</p>
 </div>
 <div class="section" id="comparison-operations">
 <h2>Comparison Operations<a class="headerlink" href="#comparison-operations" title="Permalink to this headline">¶</a></h2>
@@ -951,7 +959,7 @@ erlang compatibility.</p>
 </div>
 <p>If you need them, then the syntax should be what you would expect, if you don&#8217;t
 know what they are for you can come back later when you need them or check the
-<a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a></p>
+<a class="reference internal" href="language-reference.html#language-reference"><em>Language Reference</em></a></p>
 </div>
 <div class="section" id="data-types-overview">
 <h2>Data Types Overview<a class="headerlink" href="#data-types-overview" title="Permalink to this headline">¶</a></h2>
@@ -1403,7 +1411,7 @@ type can be any number.</p>
 annotation <em>&#64;spec</em> that is used to provide a type specification for the function,
 there we define that the function receives two arguments of type number and
 returns a value that satisfies the division_error type.</p>
-<p>For more details on the syntax see the <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
+<p>For more details on the syntax see the <a class="reference internal" href="language-reference.html#language-reference"><em>Language Reference</em></a>.</p>
 <p>For more details on types see <a class="reference external" href="http://www.erlang.org/doc/reference_manual/typespec.html">Erlang&#8217;s Types and Function Specifications</a> documentation about it.</p>
 </div>
 </div>
