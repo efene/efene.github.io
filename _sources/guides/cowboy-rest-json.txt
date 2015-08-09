@@ -31,9 +31,13 @@ We can then create the project using the installed template, change myrestapp fo
 
     ./rebar3 new fn_rest_app name=myrestapp
 
-We can then run the project::
+We can then build the project::
 
-    ./rebar3 run
+    ./rebar3 release
+
+And start it::
+
+    ./_build/default/rel/myrestapp/bin/myrestapp console
 
 From another shell we can test our API::
 
@@ -59,9 +63,11 @@ directory::
 
 After this we can create our new resource, let's create a user resource::
 
+    cd apps/myrestapp/src
     rebar3 new fn_rest_resource name=user
+    cd ../../..
 
-Finally we need to add our resource to the routes of our API, open src/myrestapp_app.fn and change this::
+Finally we need to add our resource to the routes of our API, open apps/myrestapp/src/myrestapp_app.fn and change this::
 
     Dispatch = cowboy_router.compile([(`_`, [("/", myrestapp_handler, []) ])
 
@@ -72,9 +78,10 @@ For this::
                                         ("/user", user_rest_handler, [])])
                                      ])
 
-Stop the shell if you are running it (press Control + C) and start it again::
+Stop the shell if you are running it (call "q()."), build and start it again::
 
-    ./rebar3 run
+    ./rebar3 release
+    ./_build/default/rel/myrestapp/bin/myrestapp console
 
 Now we can test our resource from the command line::
 
@@ -89,3 +96,22 @@ Now we can test our resource from the command line::
     curl -X PUT http://localhost:8080/user -H "Content-Type: application/json" -d "[1,2,3]"
     {"body":[1,2,3],"method":"PUT"}
 
+Changing the Configuration
+--------------------------
+
+Say we want to change the port where the app is running, how do we do it?
+
+Well, this template has it all covered, we use `cuttlefish <https://github.com/basho/cuttlefish>`_ to handle the configuration.
+
+Open the file at **./_build/default/rel/myrestapp/etc/myrestapp.conf** and search for the line that contains "http.port = 8080",
+
+change the port to something else, like 8081, save and quit.
+
+Now start the server again and look at the logs while it starts, it should print a line like this::
+
+    [info] App myrestapp started at port 8081
+
+this configuration file and its parser are generated from the file at
+config/config.schema, read the cuttlefish documentation for more information,
+but as a start you can modify/remove the existing fields that are there as
+examples.

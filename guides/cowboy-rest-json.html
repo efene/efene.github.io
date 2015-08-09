@@ -249,6 +249,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">Cowboy REST JSON API Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adding-a-resource">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-configuration">Changing the Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a><ul>
@@ -321,8 +322,12 @@ chmod u+x rebar3
 <div class="highlight-python"><div class="highlight"><pre>./rebar3 new fn_rest_app name=myrestapp
 </pre></div>
 </div>
-<p>We can then run the project:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 run
+<p>We can then build the project:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 release
+</pre></div>
+</div>
+<p>And start it:</p>
+<div class="highlight-python"><div class="highlight"><pre>./_build/default/rel/myrestapp/bin/myrestapp console
 </pre></div>
 </div>
 <p>From another shell we can test our API:</p>
@@ -347,10 +352,12 @@ directory:</p>
 </pre></div>
 </div>
 <p>After this we can create our new resource, let&#8217;s create a user resource:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_rest_resource name=user
+<div class="highlight-python"><div class="highlight"><pre>cd apps/myrestapp/src
+rebar3 new fn_rest_resource name=user
+cd ../../..
 </pre></div>
 </div>
-<p>Finally we need to add our resource to the routes of our API, open src/myrestapp_app.fn and change this:</p>
+<p>Finally we need to add our resource to the routes of our API, open apps/myrestapp/src/myrestapp_app.fn and change this:</p>
 <div class="highlight-python"><div class="highlight"><pre>Dispatch = cowboy_router.compile([(`_`, [(&quot;/&quot;, myrestapp_handler, []) ])
 </pre></div>
 </div>
@@ -361,8 +368,9 @@ directory:</p>
                                  <span class="p">])</span>
 </pre></div>
 </div>
-<p>Stop the shell if you are running it (press Control + C) and start it again:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 run
+<p>Stop the shell if you are running it (call &#8220;q().&#8221;), build and start it again:</p>
+<div class="highlight-python"><div class="highlight"><pre>./rebar3 release
+./_build/default/rel/myrestapp/bin/myrestapp console
 </pre></div>
 </div>
 <p>Now we can test our resource from the command line:</p>
@@ -378,6 +386,21 @@ curl -X PUT http://localhost:8080/user -H &quot;Content-Type: application/json&q
 {&quot;body&quot;:[1,2,3],&quot;method&quot;:&quot;PUT&quot;}
 </pre></div>
 </div>
+</div>
+<div class="section" id="changing-the-configuration">
+<h2>Changing the Configuration<a class="headerlink" href="#changing-the-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Say we want to change the port where the app is running, how do we do it?</p>
+<p>Well, this template has it all covered, we use <a class="reference external" href="https://github.com/basho/cuttlefish">cuttlefish</a> to handle the configuration.</p>
+<p>Open the file at <strong>./_build/default/rel/myrestapp/etc/myrestapp.conf</strong> and search for the line that contains &#8220;http.port = 8080&#8221;,</p>
+<p>change the port to something else, like 8081, save and quit.</p>
+<p>Now start the server again and look at the logs while it starts, it should print a line like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>[info] App myrestapp started at port 8081
+</pre></div>
+</div>
+<p>this configuration file and its parser are generated from the file at
+config/config.schema, read the cuttlefish documentation for more information,
+but as a start you can modify/remove the existing fields that are there as
+examples.</p>
 </div>
 </div>
 
