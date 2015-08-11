@@ -25,13 +25,7 @@ Wants to Play with Efene
 
   + Expressions that you can write in erlang but you can't in efene
 
-* Write Rebar3 templates for common modules:
-
-  + `gen_server template <https://github.com/efene/community/issues/1>`_
-  + `gen_event template <https://github.com/efene/community/issues/2>`_
-  + `supervisor template <https://github.com/efene/community/issues/3>`_
-  + `gen_fsm template <https://github.com/efene/community/issues/4>`_
-  + `Cowboy REST JSON API template <https://github.com/efene/community/issues/5>`_
+* Write Rebar3 templates for common modules
 
 No Erlang Knowledge Required
 ----------------------------
@@ -59,20 +53,13 @@ Improve rebar3 plugins
 ......................
 
 * Add options to `compile <https://github.com/efene/rebar3_efene_compile>`_
-* Make `ct plugin <https://github.com/efene/rebar3_efene_ct>`_ work (requires talking with rebar3 devs)
+* Add options to `ct plugin <https://github.com/efene/rebar3_efene_ct>`_
 
 Improve the Pretty Printer
 ..........................
 
 Efene pretty printer (fn_pp.erl) has some corner cases where indentation is
 broken, take it to go fmt level.
-
-Lager Interoperability
-......................
-
-`Lager <https://github.com/basho/lager/>`_ works by using parse transforms, we
-have to look for a way to allow using lager without duplicating all the ast
-generation.
 
 Efene REPL
 ..........

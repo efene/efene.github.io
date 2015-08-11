@@ -7,7 +7,7 @@ Efene Programming Language
 ==========================
 
 Efene is an alternative syntax for the Erlang Programming Language focusing
-on simplicity, ease of use and programmer UX.
+on simplicity, consistency, ease of use and programmer UX.
 
 Documentation
 -------------

@@ -86,7 +86,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#erlang-knowledge-required">Erlang Knowledge Required</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#improve-rebar3-plugins">Improve rebar3 plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#improve-the-pretty-printer">Improve the Pretty Printer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lager-interoperability">Lager Interoperability</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#efene-repl">Efene REPL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#erlang-compatibility-tests">Erlang Compatibility Tests</a></li>
 </ul>
@@ -179,18 +178,26 @@
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#id5">Description</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="language-reference.html#for">For</a></li>
-<li class="toctree-l3"><a class="reference internal" href="language-reference.html#try-catch-after">Try/Catch/After</a></li>
-<li class="toctree-l3"><a class="reference internal" href="language-reference.html#receive-after">Receive/After</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#for">For</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#id6">Abstract Syntax</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#id7">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id8">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#try-catch-after">Try/Catch/After</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id8">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id9">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#receive-after">Receive/After</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id10">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id11">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id12">Description</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#begin">Begin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id9">Abstract Syntax</a></li>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id10">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id11">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id13">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id14">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id15">Description</a></li>
 </ul>
 </li>
 </ul>
@@ -202,6 +209,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#module-level-expressions">Module Level Expressions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#top-level-function">Top Level Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id16">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id17">Examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-function-attributes">Well Known Function Attributes</a></li>
 </ul>
 </li>
@@ -248,6 +257,7 @@
 <li class="toctree-l2"><a class="reference internal" href="guides/cowboy-rest-json.html">Cowboy REST JSON API Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#initial-setup">Initial Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#adding-a-resource">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#changing-the-configuration">Changing the Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a><ul>
@@ -317,14 +327,7 @@ specific to existing projects at <a class="reference external" href="https://git
 <li>Expressions that you can write in erlang but you can&#8217;t in efene</li>
 </ul>
 </li>
-<li>Write Rebar3 templates for common modules:<ul>
-<li><a class="reference external" href="https://github.com/efene/community/issues/1">gen_server template</a></li>
-<li><a class="reference external" href="https://github.com/efene/community/issues/2">gen_event template</a></li>
-<li><a class="reference external" href="https://github.com/efene/community/issues/3">supervisor template</a></li>
-<li><a class="reference external" href="https://github.com/efene/community/issues/4">gen_fsm template</a></li>
-<li><a class="reference external" href="https://github.com/efene/community/issues/5">Cowboy REST JSON API template</a></li>
-</ul>
-</li>
+<li>Write Rebar3 templates for common modules</li>
 </ul>
 </div>
 <div class="section" id="no-erlang-knowledge-required">
@@ -354,19 +357,13 @@ specific to existing projects at <a class="reference external" href="https://git
 <h3>Improve rebar3 plugins<a class="headerlink" href="#improve-rebar3-plugins" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add options to <a class="reference external" href="https://github.com/efene/rebar3_efene_compile">compile</a></li>
-<li>Make <a class="reference external" href="https://github.com/efene/rebar3_efene_ct">ct plugin</a> work (requires talking with rebar3 devs)</li>
+<li>Add options to <a class="reference external" href="https://github.com/efene/rebar3_efene_ct">ct plugin</a></li>
 </ul>
 </div>
 <div class="section" id="improve-the-pretty-printer">
 <h3>Improve the Pretty Printer<a class="headerlink" href="#improve-the-pretty-printer" title="Permalink to this headline">¶</a></h3>
 <p>Efene pretty printer (fn_pp.erl) has some corner cases where indentation is
 broken, take it to go fmt level.</p>
-</div>
-<div class="section" id="lager-interoperability">
-<h3>Lager Interoperability<a class="headerlink" href="#lager-interoperability" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://github.com/basho/lager/">Lager</a> works by using parse transforms, we
-have to look for a way to allow using lager without duplicating all the ast
-generation.</p>
 </div>
 <div class="section" id="efene-repl">
 <h3>Efene REPL<a class="headerlink" href="#efene-repl" title="Permalink to this headline">¶</a></h3>

@@ -10,3 +10,4 @@ Efene Philisophy
 * We like descriptive and helpful error messages
 * Just erlang alternative syntax
 * No standard library, but "blessed" preferably existing libraries for each task
+* Documentation, project templates and rebar plugins are as important as the compiler
