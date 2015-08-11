@@ -264,25 +264,34 @@ Anonymouse Functions
 Functions can be created and assigned to variables inside other functions, the
 syntax is::
 
-    fn [case [parameters]: body]+ end
+    fn [case <parameter>*: <body>]+ [else: <body>] end
 
-for example, the simples case with one function clause::
+Simples function::
 
-        F = fn case 1: one end
+    One = fn one case: 1 end
 
-we can use pattern matching to match different cases::
+Receiving arguments::
 
-        F1 = fn
-            case 1: one
-            case _: other
-        end
+    Identity = fn case Val: Val end
 
-in the case where the last clause is a "catch all" clause we can use else instead::
+    AddTwo = fn case A, B: A + V end
 
-        F2 = fn
-            case 1: one
-            else: other
-        end
+Multiple case clauses::
+
+    Division = fn
+        case A, 0:
+            (error, division_by_zero)
+        case A, B:
+            A / B
+    end
+
+Cases with else::
+
+    MyXor = fn
+        case true, false: true
+        case false, true: true
+        else: false
+    end
 
 Named Functions
 :::::::::::::::
@@ -398,7 +407,6 @@ the -> operator inserts the value from the left as the first argument in the
 function on the right (imagine that ->> sends the value to the closest side)
 
 Higher order function calls::
-
 
     MapR = fn case List, Fun:
       lists.map(Fun, List)
@@ -820,26 +828,150 @@ run-time error will occur.
 For
 ...
 
+Abstract Syntax
+:::::::::::::::
+
 ::
+
+    for (<generator>;<filter>)+:
+        <body>
+    end
+
+The for expression starts with the **for** reserved keywords followed with at
+least one *generator* and zero or more *generators* or *filters* separated by
+semicolons finished by a colon.
+
+After the colon one or more expressions that will be evaluated as the body
+of the for for each element in the generators that pass the filter expressions.
+
+Note that for is an expression, this means it returns a list with each item
+being the result of evaluating the last expression in the body. This means
+that if you are not interested in the result of the for expression, for example
+if you are only interested in side effects like printing sending messages or
+logging, then you should take care to avoid having a big value being generated
+as the last expression in the body, since this will be acumulated in a list
+and returned when the for finishes.
+
+A generator is an expression like::
+
+    A in B
+
+Where B should be evaluated to a sequence and each element of that sequence
+will be assigned to A and be available in the for body.
+
+A filter is an expresion like::
+
+    when <condition>
+
+where condition should be an expression that evaluates to true of false, if
+a filter returns false then the body wont be generated for that value.
+
+Examples
+::::::::
+
+For with one generator::
 
    for X in lists.seq(1, 10):
      X + 1
    end
 
+For with one generator and one filter::
+
    for X in lists.seq(1, 10); when X % 2 is 0:
      X + 1
    end
+
+For with two generators::
 
    for X in lists.seq(1, 10); Y in lists.seq(10, 20):
      (X, Y)
    end
 
-TODO
-
 Try/Catch/After
 ...............
 
-TODO
+Abstract Syntax
+:::::::::::::::
+
+::
+
+    try
+        <body>
+    [catch <case>+ [<else>]]
+    [after <body>]
+    end
+
+A try expression is an expression used to handle one or more expressions that
+may raise an exception, the expression starts with the **try** keyword followed
+by one or more expressions as the try body.
+
+Optionally a catch section can be included starting with the **catch** keyword
+followed by one or more case clauses and optionally an else clause used when
+we want to catch any type of exception but we don't care about the value being
+thrown.
+
+Optionally an *after** section can be included starting with the **after**
+keyword and followed by one or more expressions in the after body which will be
+executed no mather if an exception is being thrown or not, this is useful to
+run code that should run to do cleanup in both cases like closing a file
+handle.
+
+The case clauses in the try expression are restricted to one or two arguments.
+
+In case of having one argument the type of exception is assumed to be throw,
+in case of having two arguments the first must be the type of exception that
+the case clause will handle, the exception type must be one of:
+
+* throw
+* error
+* exit
+* an expression that evaluates to one of the above
+* an unbound variable which will be bound with the exception type
+
+the second argument can be used to pattern match or an unbound variable can
+be used to get the details of the exception.
+
+Examples
+::::::::
+
+No catch::
+
+       try
+         1/0
+       after
+         ok
+       end
+
+Catch type and reason::
+
+       try
+         1/0
+       catch
+           case error, badarith: ok
+       end
+
+Catch and after::
+
+       try
+         1/0
+       catch
+           case error, badarith: ok
+       after
+         ok
+       end
+
+All possible catchs::
+
+       try
+         1/0
+       catch
+            case throw, T1: T1
+            case Throw: Throw
+            case error, E1: E1
+            case exit, X1: X1
+            case A, C: C
+            else: iselse
+       end
 
 Receive/After
 .............
@@ -976,7 +1108,58 @@ Module Level Expressions
 Top Level Function
 ..................
 
-TODO
+Abstract Syntax
+:::::::::::::::
+
+::
+
+    fn <name> [attribues] [cases] end
+
+A top level function is defining by starting with the reserved keyword **fn**
+followed by the name as an atom.
+
+Them zero or more attributes and then one or more case clauses finished with
+the **end** keyword.
+
+Examples
+::::::::
+
+Simples function::
+
+    fn one case: 1 end
+
+Simple with attributes::
+
+    fn one @public case: 1 end
+
+    fn two @public
+        @doc("returns the number two")
+        case:
+            2
+    end
+
+Receiving arguments::
+
+    fn identity case Val: Val end
+
+    fn add_two case A, B: A + V end
+
+Multiple case clauses::
+
+    fn division
+        case A, 0:
+            (error, division_by_zero)
+        case A, B:
+            A / B
+    end
+
+Cases with else::
+
+    fn my_xor_
+        case true, false: true
+        case false, true: true
+        else: false
+    end
 
 Well Known Function Attributes
 ::::::::::::::::::::::::::::::
