@@ -104,6 +104,41 @@ Databases
 * `Bitcask <https://github.com/basho/bitcask>`_
 * `sumo_db <https://github.com/inaka/sumo_db>`_
 
+Database Clients
+................
+
+TODO
+
+Package Manager
+...............
+
+* `Hex <https://hex.pm/>`_
+
+Interop
+.......
+
+TODO
+
+Data Formats
+............
+
+TODO
+
+Cryptography
+............
+
+TODO
+
+Auth
+....
+
+TODO
+
+Encoding/Decoding
+.................
+
+TODO
+
 Templates
 .........
 
@@ -121,6 +156,7 @@ Distributed Programming
 .......................
 
 * `Riak Core <https://github.com/basho/riak_core>`_
+* `chash <https://github.com/Licenser/chash>`_
 
 Metrics
 .......
@@ -233,8 +269,8 @@ Data Structure Manipulation
 * `Hubble <https://github.com/ferd/hubble>`_
 * `Dotto <https://github.com/marianoguerra/dotto>`_
 
-Cron
-....
+Scheduling
+..........
 
 * `ErlCron <https://github.com/erlware/erlcron>`_
 

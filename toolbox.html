@@ -282,6 +282,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#databases">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-clients">Database Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-manager">Package Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interop">Interop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-formats">Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cryptography">Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auth">Auth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encoding-decoding">Encoding/Decoding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-line">Command Line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#distributed-programming">Distributed Programming</a></li>
@@ -303,7 +310,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#static-checkers">Static Checkers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#performance-and-debugging">Performance and Debugging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-structure-manipulation">Data Structure Manipulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cron">Cron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scheduling">Scheduling</a></li>
 </ul>
 </li>
 </ul>
@@ -364,28 +371,35 @@
 <li><a class="reference internal" href="#logging" id="id18">Logging</a></li>
 <li><a class="reference internal" href="#configuration" id="id19">Configuration</a></li>
 <li><a class="reference internal" href="#databases" id="id20">Databases</a></li>
-<li><a class="reference internal" href="#templates" id="id21">Templates</a></li>
-<li><a class="reference internal" href="#command-line" id="id22">Command Line</a></li>
-<li><a class="reference internal" href="#distributed-programming" id="id23">Distributed Programming</a></li>
-<li><a class="reference internal" href="#metrics" id="id24">Metrics</a></li>
-<li><a class="reference internal" href="#xml" id="id25">XML</a></li>
-<li><a class="reference internal" href="#json" id="id26">JSON</a></li>
-<li><a class="reference internal" href="#json-schema" id="id27">JSON Schema</a></li>
-<li><a class="reference internal" href="#json-web-token" id="id28">JSON Web Token</a></li>
-<li><a class="reference internal" href="#json-patch" id="id29">JSON Patch</a></li>
-<li><a class="reference internal" href="#javascript" id="id30">Javascript</a></li>
-<li><a class="reference internal" href="#pub-sub" id="id31">Pub/Sub</a></li>
-<li><a class="reference internal" href="#worker-resource-pools" id="id32">Worker/Resource Pools</a></li>
-<li><a class="reference internal" href="#rate-limiting" id="id33">Rate Limiting</a></li>
-<li><a class="reference internal" href="#statistics" id="id34">Statistics</a></li>
-<li><a class="reference internal" href="#cloud" id="id35">Cloud</a></li>
-<li><a class="reference internal" href="#sockets" id="id36">Sockets</a></li>
-<li><a class="reference internal" href="#utils" id="id37">Utils</a></li>
-<li><a class="reference internal" href="#parsing" id="id38">Parsing</a></li>
-<li><a class="reference internal" href="#static-checkers" id="id39">Static Checkers</a></li>
-<li><a class="reference internal" href="#performance-and-debugging" id="id40">Performance and Debugging</a></li>
-<li><a class="reference internal" href="#data-structure-manipulation" id="id41">Data Structure Manipulation</a></li>
-<li><a class="reference internal" href="#cron" id="id42">Cron</a></li>
+<li><a class="reference internal" href="#database-clients" id="id21">Database Clients</a></li>
+<li><a class="reference internal" href="#package-manager" id="id22">Package Manager</a></li>
+<li><a class="reference internal" href="#interop" id="id23">Interop</a></li>
+<li><a class="reference internal" href="#data-formats" id="id24">Data Formats</a></li>
+<li><a class="reference internal" href="#cryptography" id="id25">Cryptography</a></li>
+<li><a class="reference internal" href="#auth" id="id26">Auth</a></li>
+<li><a class="reference internal" href="#encoding-decoding" id="id27">Encoding/Decoding</a></li>
+<li><a class="reference internal" href="#templates" id="id28">Templates</a></li>
+<li><a class="reference internal" href="#command-line" id="id29">Command Line</a></li>
+<li><a class="reference internal" href="#distributed-programming" id="id30">Distributed Programming</a></li>
+<li><a class="reference internal" href="#metrics" id="id31">Metrics</a></li>
+<li><a class="reference internal" href="#xml" id="id32">XML</a></li>
+<li><a class="reference internal" href="#json" id="id33">JSON</a></li>
+<li><a class="reference internal" href="#json-schema" id="id34">JSON Schema</a></li>
+<li><a class="reference internal" href="#json-web-token" id="id35">JSON Web Token</a></li>
+<li><a class="reference internal" href="#json-patch" id="id36">JSON Patch</a></li>
+<li><a class="reference internal" href="#javascript" id="id37">Javascript</a></li>
+<li><a class="reference internal" href="#pub-sub" id="id38">Pub/Sub</a></li>
+<li><a class="reference internal" href="#worker-resource-pools" id="id39">Worker/Resource Pools</a></li>
+<li><a class="reference internal" href="#rate-limiting" id="id40">Rate Limiting</a></li>
+<li><a class="reference internal" href="#statistics" id="id41">Statistics</a></li>
+<li><a class="reference internal" href="#cloud" id="id42">Cloud</a></li>
+<li><a class="reference internal" href="#sockets" id="id43">Sockets</a></li>
+<li><a class="reference internal" href="#utils" id="id44">Utils</a></li>
+<li><a class="reference internal" href="#parsing" id="id45">Parsing</a></li>
+<li><a class="reference internal" href="#static-checkers" id="id46">Static Checkers</a></li>
+<li><a class="reference internal" href="#performance-and-debugging" id="id47">Performance and Debugging</a></li>
+<li><a class="reference internal" href="#data-structure-manipulation" id="id48">Data Structure Manipulation</a></li>
+<li><a class="reference internal" href="#scheduling" id="id49">Scheduling</a></li>
 </ul>
 </div>
 <div class="section" id="testing">
@@ -500,15 +514,45 @@
 <li><a class="reference external" href="https://github.com/inaka/sumo_db">sumo_db</a></li>
 </ul>
 </div>
+<div class="section" id="database-clients">
+<h2><a class="toc-backref" href="#id21">Database Clients</a><a class="headerlink" href="#database-clients" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="package-manager">
+<h2><a class="toc-backref" href="#id22">Package Manager</a><a class="headerlink" href="#package-manager" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://hex.pm/">Hex</a></li>
+</ul>
+</div>
+<div class="section" id="interop">
+<h2><a class="toc-backref" href="#id23">Interop</a><a class="headerlink" href="#interop" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="data-formats">
+<h2><a class="toc-backref" href="#id24">Data Formats</a><a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="cryptography">
+<h2><a class="toc-backref" href="#id25">Cryptography</a><a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="auth">
+<h2><a class="toc-backref" href="#id26">Auth</a><a class="headerlink" href="#auth" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="encoding-decoding">
+<h2><a class="toc-backref" href="#id27">Encoding/Decoding</a><a class="headerlink" href="#encoding-decoding" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
 <div class="section" id="templates">
-<h2><a class="toc-backref" href="#id21">Templates</a><a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">Templates</a><a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/soranoba/bbmustache">Mustache</a></li>
 <li><a class="reference external" href="https://github.com/erlydtl/erlydtl">ErlyDtl</a></li>
 </ul>
 </div>
 <div class="section" id="command-line">
-<h2><a class="toc-backref" href="#id22">Command Line</a><a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">Command Line</a><a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/jcomellas/getopt">getopt</a></li>
 <li><a class="reference external" href="https://github.com/basho/clique">clique</a></li>
@@ -516,58 +560,59 @@
 </ul>
 </div>
 <div class="section" id="distributed-programming">
-<h2><a class="toc-backref" href="#id23">Distributed Programming</a><a class="headerlink" href="#distributed-programming" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">Distributed Programming</a><a class="headerlink" href="#distributed-programming" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/riak_core">Riak Core</a></li>
+<li><a class="reference external" href="https://github.com/Licenser/chash">chash</a></li>
 </ul>
 </div>
 <div class="section" id="metrics">
-<h2><a class="toc-backref" href="#id24">Metrics</a><a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">Metrics</a><a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/Feuerlabs/exometer">Exometer</a></li>
 <li><a class="reference external" href="https://github.com/basho/folsom">Folsom</a></li>
 </ul>
 </div>
 <div class="section" id="xml">
-<h2><a class="toc-backref" href="#id25">XML</a><a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">XML</a><a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/man/xmerl.html">Xmerl</a></li>
 </ul>
 </div>
 <div class="section" id="json">
-<h2><a class="toc-backref" href="#id26">JSON</a><a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">JSON</a><a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/talentdeficit/jsx">jsx</a></li>
 <li><a class="reference external" href="https://github.com/davisp/jiffy">jiffy</a></li>
 </ul>
 </div>
 <div class="section" id="json-schema">
-<h2><a class="toc-backref" href="#id27">JSON Schema</a><a class="headerlink" href="#json-schema" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">JSON Schema</a><a class="headerlink" href="#json-schema" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/klarna/jesse">jesse</a></li>
 </ul>
 </div>
 <div class="section" id="json-web-token">
-<h2><a class="toc-backref" href="#id28">JSON Web Token</a><a class="headerlink" href="#json-web-token" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id35">JSON Web Token</a><a class="headerlink" href="#json-web-token" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/ejwt">ejwt</a></li>
 <li><a class="reference external" href="https://github.com/marianoguerra/jwt-erl">jwt-erl</a></li>
 </ul>
 </div>
 <div class="section" id="json-patch">
-<h2><a class="toc-backref" href="#id29">JSON Patch</a><a class="headerlink" href="#json-patch" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">JSON Patch</a><a class="headerlink" href="#json-patch" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/marianoguerra/json-patch.erl">json-patch</a></li>
 </ul>
 </div>
 <div class="section" id="javascript">
-<h2><a class="toc-backref" href="#id30">Javascript</a><a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">Javascript</a><a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/erlang_js">erlang_js</a></li>
 </ul>
 </div>
 <div class="section" id="pub-sub">
-<h2><a class="toc-backref" href="#id31">Pub/Sub</a><a class="headerlink" href="#pub-sub" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id38">Pub/Sub</a><a class="headerlink" href="#pub-sub" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://cabol.github.io/erlbus-erlang-message-bus/">ErlBus</a></li>
 <li>` &lt;&gt;`_</li>
@@ -575,7 +620,7 @@
 </ul>
 </div>
 <div class="section" id="worker-resource-pools">
-<h2><a class="toc-backref" href="#id32">Worker/Resource Pools</a><a class="headerlink" href="#worker-resource-pools" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id39">Worker/Resource Pools</a><a class="headerlink" href="#worker-resource-pools" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/sidejob">Sidejob</a></li>
 <li><a class="reference external" href="https://github.com/devinus/poolboy">Poolboy</a></li>
@@ -585,33 +630,33 @@
 </ul>
 </div>
 <div class="section" id="rate-limiting">
-<h2><a class="toc-backref" href="#id33">Rate Limiting</a><a class="headerlink" href="#rate-limiting" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">Rate Limiting</a><a class="headerlink" href="#rate-limiting" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ferd/pobox">Pobox</a></li>
 <li><a class="reference external" href="https://github.com/ferd/backoff">Backoff</a></li>
 </ul>
 </div>
 <div class="section" id="statistics">
-<h2><a class="toc-backref" href="#id34">Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/basho_stats">basho_stats</a></li>
 </ul>
 </div>
 <div class="section" id="cloud">
-<h2><a class="toc-backref" href="#id35">Cloud</a><a class="headerlink" href="#cloud" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">Cloud</a><a class="headerlink" href="#cloud" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/gleber/erlcloud">erlcloud</a></li>
 </ul>
 </div>
 <div class="section" id="sockets">
-<h2><a class="toc-backref" href="#id36">Sockets</a><a class="headerlink" href="#sockets" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">Sockets</a><a class="headerlink" href="#sockets" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ninenines/ranch">Ranch</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/gen_tcp.html">gen_tcp</a></li>
 </ul>
 </div>
 <div class="section" id="utils">
-<h2><a class="toc-backref" href="#id37">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/erlang-katana">Katana</a></li>
 <li><a class="reference external" href="https://github.com/ferd/uuid">uuid</a></li>
@@ -620,7 +665,7 @@
 </ul>
 </div>
 <div class="section" id="parsing">
-<h2><a class="toc-backref" href="#id38">Parsing</a><a class="headerlink" href="#parsing" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id45">Parsing</a><a class="headerlink" href="#parsing" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/man/leex.html">Leex</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/yecc.html">Yeec</a></li>
@@ -629,7 +674,7 @@
 </ul>
 </div>
 <div class="section" id="static-checkers">
-<h2><a class="toc-backref" href="#id39">Static Checkers</a><a class="headerlink" href="#static-checkers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id46">Static Checkers</a><a class="headerlink" href="#static-checkers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/apps/tools/xref_chapter.html">Xref</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/dialyzer.html">Dialyzer</a></li>
@@ -637,21 +682,21 @@
 </ul>
 </div>
 <div class="section" id="performance-and-debugging">
-<h2><a class="toc-backref" href="#id40">Performance and Debugging</a><a class="headerlink" href="#performance-and-debugging" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id47">Performance and Debugging</a><a class="headerlink" href="#performance-and-debugging" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/massemanet/eper">Eper</a></li>
 <li><a class="reference external" href="https://github.com/ferd/recon">Recon</a></li>
 </ul>
 </div>
 <div class="section" id="data-structure-manipulation">
-<h2><a class="toc-backref" href="#id41">Data Structure Manipulation</a><a class="headerlink" href="#data-structure-manipulation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id48">Data Structure Manipulation</a><a class="headerlink" href="#data-structure-manipulation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ferd/hubble">Hubble</a></li>
 <li><a class="reference external" href="https://github.com/marianoguerra/dotto">Dotto</a></li>
 </ul>
 </div>
-<div class="section" id="cron">
-<h2><a class="toc-backref" href="#id42">Cron</a><a class="headerlink" href="#cron" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scheduling">
+<h2><a class="toc-backref" href="#id49">Scheduling</a><a class="headerlink" href="#scheduling" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/erlware/erlcron">ErlCron</a></li>
 </ul>
