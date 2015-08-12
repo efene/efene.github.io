@@ -200,7 +200,7 @@ Pub/Sub
 .......
 
 * `ErlBus <http://cabol.github.io/erlbus-erlang-message-bus/>`_
-* ` <>`_
+* `gen_event <http://www.erlang.org/doc/man/gen_event.html>`_
 * `West <https://github.com/cabol/west>`_
 
 Worker/Resource Pools
