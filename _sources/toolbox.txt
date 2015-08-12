@@ -143,6 +143,7 @@ Cryptography
 ............
 
 * `crypto <http://www.erlang.org/doc/man/crypto.html>`_
+* `pbkdf2 <https://github.com/basho/erlang-pbkdf2>`_
 
 Auth
 ....
