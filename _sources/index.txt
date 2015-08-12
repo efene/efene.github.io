@@ -25,3 +25,4 @@ Documentation
    rebar-plugin
    recommended-libraries
    guides/index
+   toolbox
