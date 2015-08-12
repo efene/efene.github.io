@@ -54,6 +54,7 @@ Web Servers
 * `Mochiweb <https://github.com/mochi/mochiweb/>`_
 * `WebMachine <https://github.com/webmachine/webmachine/>`_
 * `Elli <https://github.com/knutin/elli>`_
+* `Yaws <http://yaws.hyber.org/>`_
 
 Routing
 .......
@@ -274,3 +275,14 @@ Scheduling
 
 * `ErlCron <https://github.com/erlware/erlcron>`_
 
+Products
+.........
+
+* `CouchDB <http://couchdb.org/>`_
+* `RabbitMQ <http://www.rabbitmq.com/>`_
+* `Riak <http://basho.com/products/#riak>`_
+* `LeoFS <http://leo-project.net/>`_
+* `Ejabberd <https://www.process-one.net/en/ejabberd/>`_
+* `MongooseIM <https://www.erlang-solutions.com/products/mongooseim-massively-scalable-ejabberd-platform>`_
+* `OpenFlow <https://www.erlang-solutions.com/products/openflow>`_
+* `Zotonic <http://zotonic.com/>`_
