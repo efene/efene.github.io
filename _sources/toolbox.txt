@@ -56,6 +56,12 @@ Web Servers
 * `Elli <https://github.com/knutin/elli>`_
 * `Yaws <http://yaws.hyber.org/>`_
 
+Web Frameworks
+..............
+
+* `Axiom <https://github.com/tsujigiri/axiom>`_
+* `ChicagoBoss <https://github.com/ChicagoBoss/ChicagoBoss>`_
+
 Routing
 .......
 
@@ -73,6 +79,7 @@ Web Sockets Servers
 ...................
 
 * `Bullet <https://github.com/extend/bullet/>`_
+* `N2O <https://github.com/synrc/n2o>`_
 
 Web Sockets Clients
 ...................
@@ -108,7 +115,11 @@ Databases
 Database Clients
 ................
 
-TODO
+* `odbc <http://www.erlang.org/doc/apps/odbc/databases.html>`_
+* `epgsql <https://github.com/epgsql/epgsql>`_
+* `emysql <https://github.com/eonblast/Emysql/>`_
+* `couchbeam <https://github.com/benoitc/couchbeam>`_
+* `mongodb <https://github.com/mongodb/mongodb-erlang>`_
 
 Package Manager
 ...............
@@ -118,27 +129,33 @@ Package Manager
 Interop
 .......
 
-TODO
+* `jinterface <http://www.erlang.org/doc/apps/jinterface/index.html>`_
+* `NIFs <http://www.erlang.org/doc/tutorial/nif.html>`_
+* `Ports <http://www.erlang.org/doc/reference_manual/ports.html>`_
 
 Data Formats
 ............
 
-TODO
+* `edn-erlang <https://github.com/seancribbs/edn-erlang>`_
+* `erldn <https://github.com/marianoguerra/erldn>`_
 
 Cryptography
 ............
 
-TODO
+* `crypto <http://www.erlang.org/doc/man/crypto.html>`_
 
 Auth
 ....
 
-TODO
+* `OAuth2 <https://github.com/kivra/oauth2>`_
 
 Encoding/Decoding
 .................
 
-TODO
+* `protobuffs <https://github.com/basho/erlang_protobuffs>`_
+* `thrift <https://thrift.apache.org/lib/erl>`_
+* `eavro <https://github.com/SIfoxDevTeam/eavro>`_
+* `transit <https://github.com/isaiah/transit-erlang>`_
 
 Templates
 .........
@@ -169,6 +186,7 @@ XML
 ...
 
 * `Xmerl <http://www.erlang.org/doc/man/xmerl.html>`_
+* `exml <https://github.com/paulgray/exml>`_
 
 JSON
 ....
@@ -203,6 +221,7 @@ Pub/Sub
 * `ErlBus <http://cabol.github.io/erlbus-erlang-message-bus/>`_
 * `gen_event <http://www.erlang.org/doc/man/gen_event.html>`_
 * `West <https://github.com/cabol/west>`_
+* `TinyMQ <https://github.com/ChicagoBoss/tinymq>`_
 
 Worker/Resource Pools
 .....................
@@ -263,6 +282,13 @@ Performance and Debugging
 
 * `Eper <https://github.com/massemanet/eper>`_
 * `Recon <https://github.com/ferd/recon>`_
+* `eflame <https://github.com/proger/eflame>`_
+
+Data Structures
+...............
+
+* `StateBox <https://github.com/mochi/statebox>`_
+* `riak_dt <https://github.com/basho/riak_dt>`_
 
 Data Structure Manipulation
 ...........................
