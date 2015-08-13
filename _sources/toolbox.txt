@@ -174,8 +174,9 @@ Command Line
 Distributed Programming
 .......................
 
-* `Riak Core <https://github.com/basho/riak_core>`_
-* `chash <https://github.com/Licenser/chash>`_
+* `Riak Core <https://github.com/basho/riak_core>`_: distributed system framework, the core of riak_kv
+* `chash <https://github.com/Licenser/chash>`_: consistent hashing library extracted from riak_core
+* `plumtree <https://github.com/helium/plumtree>`_: epidemic broadcast protocol
 
 Metrics
 .......
