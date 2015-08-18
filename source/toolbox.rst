@@ -267,10 +267,12 @@ Utils
 Parsing
 .......
 
-* `Leex <http://www.erlang.org/doc/man/leex.html>`_
-* `Yeec <http://www.erlang.org/doc/man/yecc.html>`_
-* `Aleppo <https://github.com/ErlyORM/aleppo>`_
-* `Neotoma <https://github.com/seancribbs/neotoma>`_
+* `Leex <http://www.erlang.org/doc/man/leex.html>`_: lexer
+* `Yeec <http://www.erlang.org/doc/man/yecc.html>`_: LLR(1) parser generator
+* `Spell1 <https://github.com/rvirding/spell1>`_: LL(1) parser generator
+* `Neotoma <https://github.com/seancribbs/neotoma>`_: packrat parser-generator for parsing expression grammars
+
+* `Aleppo <https://github.com/ErlyORM/aleppo>`_: Alternative Erlang Pre-Processor
 
 Static Checkers
 ...............
