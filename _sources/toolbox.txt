@@ -305,6 +305,12 @@ Scheduling
 
 * `ErlCron <https://github.com/erlware/erlcron>`_
 
+Access Control
+..............
+
+* `snarl <https://github.com/project-fifo/snarl>`_: A Erlang based RBAC server.
+* `nkrole <https://github.com/Nekso/nkrole>`_: a framework for managing complex relations among arbitrary objects in a riak_core cluster
+
 Products
 .........
 
