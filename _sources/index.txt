@@ -18,9 +18,10 @@ Documentation
    philosophy
    community
    help-needed
+   quick-efene-introduction-busy-programmer
    language-introduction
-   quickstart
    language-reference
+   quickstart
    tradeoffs
    rebar-plugin
    recommended-libraries

@@ -1,0 +1,1324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Efene Quick Introduction for the Busy/Lazy Programmer &mdash; Efene Programming Language 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Efene Introduction" href="language-introduction.html"/>
+        <link rel="prev" title="Help Needed" href="help-needed.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Efene Programming Language
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Efene Philisophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="community.html#mailing-list">Mailing List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#irc-channel">IRC Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#twitter">Twitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#github">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help-needed.html#wants-to-play-with-efene">Wants to Play with Efene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help-needed.html#no-erlang-knowledge-required">No Erlang Knowledge Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help-needed.html#erlang-knowledge-required">Erlang Knowledge Required</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#improve-rebar3-plugins">Improve rebar3 plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#improve-the-pretty-printer">Improve the Pretty Printer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#efene-repl">Efene REPL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-needed.html#erlang-compatibility-tests">Erlang Compatibility Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Efene Quick Introduction for the Busy/Lazy Programmer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strings-vs-binary-strings-the-short-version">Strings vs Binary Strings, the Short Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simple-conditions-with-guards">Simple Conditions with Guards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-complex-conditions-with-match">More Complex Conditions with Match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anonymous-functions">Anonymous Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#named-anonymous-functions-wat">Named Anonymous Functions (WAT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#holding-a-reference-to-a-top-level-function">Holding a Reference to a Top Level Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-exceptions">Handling Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#receiving-messages">Receiving Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-list-comprehension-expression">For/List Comprehension Expression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#begin-end-expression">Begin/End Expression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tagged-values-and-expressions">Tagged Values and Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#higher-order-functions">Higher Order Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#threading-values">Threading Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operators">Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparisson-operations">Comparisson Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concat-operations">Concat Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aritmetic-operations">Aritmetic Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary-operations">Binary Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unary-operations">Unary Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#where-to-go-from-here">Where to Go from Here</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-simple-function">A Simple Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#variables-on-function-arguments">Variables on Function Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-two-cases">A Function with Two Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#same-variable-in-multiple-function-arguments">Same Variable in multiple Function Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#putting-it-all-together">Putting it All Together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#calling-functions-in-other-modules">Calling Functions (in other Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#a-function-with-the-same-name-but-different-number-of-arguments">A Function with the same Name but Different Number of Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#many-ways-to-call-a-function">Many Ways to Call a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#some-more-pattern-matching">Some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#looping">Looping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#catching-exceptions">Catching Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#comparison-operations">Comparison Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#binary-operations">Binary Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#data-types-overview">Data Types Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-introduction.html#the-new-way-maps">The New Way: Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#the-old-way-records">The Old Way: Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#even-some-more-pattern-matching">Even some more Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#more-about-tagging">More about Tagging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#blocks-of-code-as-values">Blocks of Code as Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#sending-and-receiving-messages">Sending and Receiving Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language-introduction.html#adding-some-types">Adding some Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#values">Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#boolean">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#numbers">Numbers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#integers">Integers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#floats">Floats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#strings">Strings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#list-strings">List Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#binary-strings">Binary Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#chars">Chars</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#lists">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#cons-lists">Cons Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#maps">Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#tuples">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#atoms">Atoms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#process-id-pid">Process Id (Pid)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#reference">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#function">Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#anonymouse-functions">Anonymouse Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#named-functions">Named Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#function-references">Function References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#function-calls">Function Calls</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#tagged-values">Tagged Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#records">Records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#binary">Binary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#compile-time-information">Compile Time Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#operations">Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#comparisson-operations">Comparisson Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#concat-operations">Concat Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#aritmetic-operations">Aritmetic Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#binary-operations">Binary Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#unary-operations">Unary Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#expressions">Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#when">When</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#abstract-syntax">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#description">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#match">Match</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id3">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id4">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id5">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#for">For</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id6">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id7">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#try-catch-after">Try/Catch/After</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id8">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id9">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#receive-after">Receive/After</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id10">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id11">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id12">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#begin">Begin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id13">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id14">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id15">Description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#macros">Macros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#macro-constants">Macro Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#macro-functions">Macro Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="language-reference.html#module-level-expressions">Module Level Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#top-level-function">Top Level Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id16">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id17">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-function-attributes">Well Known Function Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#attributes">Attributes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-attributes">Well Known Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#type-attributes">Type Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#version-attribute-vsn">Version Attribute (vsn)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#on-load-attribute-on-load">On Load Attribute (on_load)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#import-attribute-import">Import Attribute (import)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#include-attribute-include">Include Attribute (include)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#record-pattern-matching-vs-map-pattern-matching">Record Pattern Matching vs Map Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#function-call-vs-function-declaration">Function Call vs Function Declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#chaining-and-operations">Chaining = and ! Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#refactoring-match-to-a-function">Refactoring Match to a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#one-item-case-in-match-is-a-special-case">One Item Case in Match is a Special Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#not-necessarily-tradeoffs">Not Necessarily Tradeoffs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tradeoffs.html#zero-items-case-matches-empty-tuple">Zero Items Case Matches Empty Tuple</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#compile-task">Compile Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rebar-plugin.html#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rebar-plugin.html#example-usage">Example Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rebar-plugin.html#compile-all-files">Compile All Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rebar-plugin.html#compile-one-file-to-erlang">Compile One File to Erlang</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#common-test-task">Common Test Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/cowboy-rest-json.html">Cowboy REST JSON API Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#initial-setup">Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#adding-a-resource">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#changing-the-configuration">Changing the Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html#initial-setup">Initial Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toolbox.html">Efene Toolbox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#generative-testing">Generative Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#mocking">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#load-generators">Load Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#networking">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#build-tools">Build Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#release-management">Release Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-servers">Web Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-frameworks">Web Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#routing">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#http-clients">HTTP Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-sockets-servers">Web Sockets Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-sockets-clients">Web Sockets Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#server-sent-events-clients">Server Sent Events Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#databases">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#database-clients">Database Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#package-manager">Package Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#interop">Interop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#data-formats">Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#cryptography">Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#auth">Auth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#encoding-decoding">Encoding/Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#command-line">Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#distributed-programming">Distributed Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#xml">XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-schema">JSON Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-web-token">JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-patch">JSON Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#javascript">Javascript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#pub-sub">Pub/Sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#worker-resource-pools">Worker/Resource Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#rate-limiting">Rate Limiting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#statistics">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#cloud">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#sockets">Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#utils">Utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#parsing">Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#static-checkers">Static Checkers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#performance-and-debugging">Performance and Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#data-structures">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#data-structure-manipulation">Data Structure Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#scheduling">Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#access-control">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#products">Products</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Efene Programming Language</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Efene Quick Introduction for the Busy/Lazy Programmer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/quick-efene-introduction-busy-programmer.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="efene-quick-introduction-for-the-busy-lazy-programmer">
+<h1>Efene Quick Introduction for the Busy/Lazy Programmer<a class="headerlink" href="#efene-quick-introduction-for-the-busy-lazy-programmer" title="Permalink to this headline">¶</a></h1>
+<p>This is a quick and consise introduction to the efene programming language
+intended for someone who already programs in some programming language, it will
+only cover syntax and datatypes so you can familiarize with the language in a
+short read and maybe use it as a reference in the future.</p>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<p>Do you know <a class="reference external" href="http://json.org/">Json</a>?</p>
+<p>Yes: great! you know almost all of the data types their syntax</p>
+<p>No: you should click on the above link then...</p>
+<p>Let&#8217;s see a quick example:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;object?&quot;</span><span class="p">:</span> <span class="s">&quot;it&#39;s the thing wrapping this fields, we call it a map&quot;</span><span class="p">,</span>
+    <span class="s">&quot;string&quot;</span><span class="p">:</span> <span class="s">&quot;I&#39;m a string!&quot;</span><span class="p">,</span>
+    <span class="s">&quot;integer&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="s">&quot;float&quot;</span><span class="p">:</span> <span class="mf">3.14</span><span class="p">,</span>
+    <span class="s">&quot;bool&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;null&quot;</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span>
+    <span class="s">&quot;emtpy list&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;nested!&quot;</span><span class="p">]],</span>
+    <span class="s">&quot;other object please&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>But wait, there is more!</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>{
+    what: &#39;&lt;- that&#39;s an atom, like clojure :atom and a ruby :symbol&#39;,
+    &#39;wait!&#39;: &#39;yes, strings in single quotes are a different type of strings&#39;;
+    &#39;how?&#39;: (binary, strings, are, just, another, type, of, strings),
+    &#39;and that?&#39;: &#39;those are tuples, like python tuples&#39;
+    &#39;tuple examples&#39;: {
+        empty: (),
+        one_item: (1,),
+        two: (1, 2),
+        three: (1, 2, 3)
+    }
+}
+</pre></div>
+</div>
+<p>lets recap, efene data types are:</p>
+<ul class="simple">
+<li>boolean: true, false</li>
+<li>null: nil (not actually a type on itself, but a convention)</li>
+</ul>
+<p>Those two aren&#8217;t actual types, just atoms, but by convention they are used
+as booleans and null, the undefined atom is also used in many places.</p>
+<ul class="simple">
+<li>atoms: symbolic identifiers that evaluate to themselves. They provide very fast equality tests.</li>
+<li>integers</li>
+<li>floats</li>
+<li>strings: &#8220;with double quotes&#8221;</li>
+<li>binary strings: &#8216;with single quotes&#8217;</li>
+<li>tuples: ((,), (1,), (1, 2, 3))</li>
+<li>lists:  [[],  [1],  [1, 2, 3]]</li>
+<li>maps: {empty: {}, one: {one: 1}, more: {one: 1, two: 2}}</li>
+</ul>
+</div>
+<div class="section" id="strings-vs-binary-strings-the-short-version">
+<h2>Strings vs Binary Strings, the Short Version<a class="headerlink" href="#strings-vs-binary-strings-the-short-version" title="Permalink to this headline">¶</a></h2>
+<p>Strings are actually lists or integers representing unicode codepoints.</p>
+<p>Binary strings are the binary type with the content being a string encoded in
+utf8.</p>
+</div>
+<div class="section" id="expressions">
+<h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<p>Yes, expressions, not statements, all the expressions covered below return a
+value, so you can use expressions on the right side of an assignment to assign
+(match) the returned value to a variable (well, they don&#8217;t vary that much).</p>
+</div>
+<div class="section" id="simple-conditions-with-guards">
+<h2>Simple Conditions with Guards<a class="headerlink" href="#simple-conditions-with-guards" title="Permalink to this headline">¶</a></h2>
+<p>A guard is similar to an if in other languages but with some restrictions, since
+they are used in many places in the language (for example function clauses),
+the conditions should evaluate fast and be free of side effects, this means
+the subset of functions you can call in a guard condition is very restriceted,
+you shouldn&#8217;t use guards as if, use the match expression instead.</p>
+<p>But let&#8217;s see some examples:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>R1 = when true: ok end
+IsInteger = when is_integer(R1): true else: false end
+IsInteger1 = when is_integer(R1):
+    true
+else:
+    false
+end
+
+IsNumber = when is_integer(A): true
+    else is_float(A): true
+    else: false
+end
+</pre></div>
+</div>
+<p>As you can see guards are defined starting with the when keyword followed by
+a condition, followed by a colon and then one or more expressions separated
+by a new line.</p>
+<p>Also you can see that we can assign the result of the when expression to a
+variable (variables start with an uppercase letter), the result of a guard
+expression is the result of the last expression of the guard clause that
+evaluated to true.</p>
+</div>
+<div class="section" id="more-complex-conditions-with-match">
+<h2>More Complex Conditions with Match<a class="headerlink" href="#more-complex-conditions-with-match" title="Permalink to this headline">¶</a></h2>
+<p>As we said, guards are pretty restrictive in what you can put in the condition,
+that&#8217;s why normally we use the match expression or pattern matching, pattern
+matching is at the core of efene and is used extensively, let&#8217;s see some examples:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>Result = match some_function(A, B):
+    case 42: the_answer
+    else: something_else
+end
+</pre></div>
+</div>
+<p>A simple match expression starts with the match keyword followed by an
+expression that will be evaluated and matched against all case clauses from
+top to bottom, when one matches the body of that case clause will be evaluated
+and the last evaluated expression of the body will be the returned value of
+the match expression.</p>
+<p>you can add an else clause at the end to act as a catch all (as in the when
+expression)</p>
+<p>another example:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>B = 43
+Result = match some_function(true, 14):
+    case 42: the_answer
+    case 41: almost_there
+    case B: missed_it
+    case A when is_integer(A): (at_least_an_integer, A)
+    case _: something_else
+end
+</pre></div>
+</div>
+<p>This one is a little more comples, we match against a literal value in the
+first two case clauses, but in the third we match against an bound variable,
+that is a variable that is bound to a value already, this will match if the
+result of evaluating some_function(true, 14) returns 43, since B is bound to
+that value.</p>
+<p>The fourth case clause matches against an unbound variable, that is a variable
+that doesn&#8217;t have a value yet, but then it has a guard expression that checks
+that A is an integer, this case clause will only match if A is an integer, and
+the A variable will be bound in the case clause body to the result of calling
+some_function, so we can use it for example to return the value inside a tuple.</p>
+<p>The last case clause is another way of writting the else clause from the first
+example, in this case we match against the <em>special</em> variable <strong>_</strong>, this
+variable in efene is used to signify that we are not interested in that value and
+will match against anything, even if used more than once in the same scope.</p>
+<p>Normal variables once they are matched they will only match against the same
+value, if they are matched against something else they will throw a bad match error,
+but the <strong>_</strong> variable will happily match against anything you throw at it, let&#8217;s
+see an example:</p>
+<p>another example:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>fn my_xor case V1, V2:
+
+  R1 = match (V1, V2):
+    case A, A: false
+    case _, _: true
+  end
+
+  R2 = match V1, V2:
+    case B, B: false
+    case _, _: true
+  end
+
+  T = (V1, V2)
+
+  R3 = match T:
+    case C, C: false
+    case _, _: true
+  end
+
+  R4 = match T:
+    case D, D: false
+    else: true
+  end
+
+  R5 = match T:
+    case E, E: false
+    case _: true
+  end
+
+  (R1, R2, R3, R4, R5)
+end
+</pre></div>
+</div>
+<p>Here we define a function (new stuff!) that has only one case clause that
+receives two arguments (V1 and V2) and in the body it does the same thing 5
+times in slightly different ways.</p>
+<p>Notice that the first case clause in the 5 match expressions will match when V1
+and V2 have the same value, since A, B, C, D and E are unbound when evaluating
+the first argument of the case clause they are bound to the value passed in
+since then they are bound for the rest of the current case clause evaluation,
+this means that when matching V2 to A (and B, C etc.) since A is already bound
+to V1, it will only match if V1 is equal to V2.</p>
+<p>The second case clause in the first 3 match expressions could be replaced with
+an else as shown in the fourth or with a simpler case that matches just one
+<strong>_</strong> the difference between the first 3 and the last 2 is that the last two
+would even match something that is not a two item tuple, but since here we are
+in control of the expression we are matching against it won&#8217;t make a differece.</p>
+<p>You may already have noticed that if you write more than one item separated
+by coma in the match condition or in case clauses they are treated as tuples,
+this is to have a more terse syntax with something that is really common when
+writing efene.</p>
+<p>When only one item is available in the match condition or in case clauses it&#8217;s
+evaluated as is, it could be a tuple itself or something else, this means you
+can write tuples surounded with parenthesis if you prefer but we recomend the
+cleaner version without them.</p>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Yes, I wrote a function there without introducing it, I also said &#8220;only one case clause&#8221;, let&#8217;s
+rewrite the previous code as a function:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>fn first_example
+  case 42: the_answer
+  else: something_else
+end
+
+fn second_example
+  case 42: the_answer
+  case 41: almost_there
+  case B: missed_it
+  case A when is_integer(A): (at_least_an_integer, A)
+  case _: something_else
+end
+
+fn my_xor case
+  case A, A: false
+  case _, _: true
+end
+</pre></div>
+</div>
+<p>That should require little explanation, we define a top level function starting
+with the fn keyword followed by an atom that will be the name of the function,
+then one or more case clauses, in the case of functions all case clauses must
+have the same number of arguments and that defines what we call the <strong>arity</strong>
+of the function, in human words, the number of arguments it expects, we can
+have two or more functions with the same name but different arity.</p>
+<p>to call the functions:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre><span class="n">first_example</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">second_example</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+
+<span class="n">my_xor</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>
+<span class="n">my_xor</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice also that we use guard clauses like in the match expression and that
+the case clauses are exactly the same as match expressions, you should start
+noticing this recurring pattern in the following sections.</p>
+</div>
+<div class="section" id="anonymous-functions">
+<h2>Anonymous Functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
+<p>The previous section covered top level (module level) functions, but what if
+we want to create a temporary function inside a function?</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>fn build_functions case:
+    FirstExample = fn
+      case 42: the_answer
+      else: something_else
+    end
+
+    SecondExample = fn
+      case 42: the_answer
+      case 41: almost_there
+      case B: missed_it
+      case A when is_integer(A): (at_least_an_integer, A)
+      case _: something_else
+    end
+
+    MyXor = fn
+      case A, A: false
+      case _, _: true
+    end
+
+    (FirstExample, SecondExample, MyXor)
+end
+</pre></div>
+</div>
+<p>Here we define a top level function called build_functions with arity 0 that
+when called will return a 3 item tuple with 3 functions that are identical
+to the ones defined in the previous section, the only difference is that
+anonymous functions (as their name implies) don&#8217;t carry a name after the fn
+keyword, other than that they are the same as top level functions.</p>
+<p>let&#8217;s now use them</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">Example1</span><span class="p">,</span> <span class="n">Example2</span><span class="p">,</span> <span class="n">Xor</span><span class="p">)</span> <span class="o">=</span> <span class="n">build_functions</span><span class="p">()</span>
+
+<span class="n">Example1</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">Example2</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+
+<span class="n">Xor</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>
+<span class="n">Xor</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I think it doesn&#8217;t require further explanations, after all this is the quick
+introduction :)</p>
+</div>
+<div class="section" id="named-anonymous-functions-wat">
+<h2>Named Anonymous Functions (WAT)<a class="headerlink" href="#named-anonymous-functions-wat" title="Permalink to this headline">¶</a></h2>
+<p>With a top level function you can call the function from one of the case
+clauses to do recursion, but what happens if you want to do the same with an
+anonymous function?</p>
+<p>Well you do something like this:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>Factorial = fn Fact
+    case 0: 1
+    case N: N * Fact(N - 1)
+end
+</pre></div>
+</div>
+<p>The name Fact is only visible inside the function&#8217;s case clauses and is only
+used for recursion, you have to assign it to something to use it.</p>
+</div>
+<div class="section" id="holding-a-reference-to-a-top-level-function">
+<h2>Holding a Reference to a Top Level Function<a class="headerlink" href="#holding-a-reference-to-a-top-level-function" title="Permalink to this headline">¶</a></h2>
+<p>We saw that we can assign an anonymous function to a variable, but what if
+we want to do the same for a top level function or a function in another module?</p>
+<p>We just write the fn keyword followed by the name of the function and
+optionally the module if it&#8217;s in another module followed by a colon and the
+function&#8217;s arity.</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>CR1 = fn a:0
+CR3 = fn a.b:2
+CR4 = fn a.B:3
+CR5 = fn A.b:4
+CR6 = fn A.B:5
+</pre></div>
+</div>
+<p>Now you have a reference to the function, this is also useful to pass a top
+level function to a higher order function.</p>
+</div>
+<div class="section" id="handling-exceptions">
+<h2>Handling Exceptions<a class="headerlink" href="#handling-exceptions" title="Permalink to this headline">¶</a></h2>
+<p>Yes, efene supports exceptions and has the familiar try/catch/after expression
+to handle them, let&#8217;s jump straigt to it:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>R1 = try
+  1/0
+after
+  ok
+end
+
+R2 = try
+  1/0
+catch
+    case error, badarith: ok
+end
+
+R3 = try
+  1/0
+catch
+    case error, badarith: ok
+after
+  ok
+end
+
+R4 = try
+  1/0
+catch
+  case throw, T1: T1
+  case Throw: Throw
+  case error, E1: E1
+  case exit, X1: X1
+  case A, C: C
+  else: iselse
+end
+</pre></div>
+</div>
+<p>As I said earlier and like all other expressions, try/catch/after expression
+(from now on try expressions) return a value that you can match if you want to
+something.</p>
+<p>The expression starts with the try keyword followed by one or more expressions
+in the try body separated by new lines, if the body doesn&#8217;t throw an exception
+the result of evaluating the last expression of the body will be returned.</p>
+<p>If an exception is thrown and no catch section is available the after body will
+be evaluated and the exception will be rethrown.</p>
+<p>If the catch section is available the thrown value will be matched against each
+case clause from top to bottom, if a case clause matches the body will be
+evaluated and the result of the last expression will be returned, if no case
+clause matches the exception will the rethrown. If an after section is defined
+it will be executed.</p>
+<p>case clauses in the catch section have one restriction, they can only have one
+or two arguments, if they have one argument the value will be matched against
+the exception&#8217;s details and the type of the exception is assumed to be throw.
+If the case clause has two arguments the first will be matched against the exception type
+which can be one of <strong>throw</strong>, <strong>error</strong> or <strong>exit</strong> and the second against the
+exception&#8217;s details.</p>
+<p>You can also have an else clause as the last one which will match against
+anything.</p>
+<p>Notice that case clauses in the catch section are equal to case clauses
+everywhere else except for the number of arguments restriction, this mean they
+can have guard expressions.</p>
+</div>
+<div class="section" id="receiving-messages">
+<h2>Receiving Messages<a class="headerlink" href="#receiving-messages" title="Permalink to this headline">¶</a></h2>
+<p>Efene thanks to it&#8217;s runtime provided by the Erlang VM supports message passing,
+to send messages we use the &#8220;bang&#8221; operator <strong>!</strong> where the left side is where
+we want to send the message (a process id or an atom) and the right side is the message we want to send, let&#8217;s see some examples:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>some_registered_process ! 42
+Pid ! ok
+</pre></div>
+</div>
+<p>On the other side we want to receive that message, we do it with the receive expression:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>receive
+  case 42: the_answer
+  case 41: almost_there
+  case B: missed_it
+  case A when is_integer(A): (at_least_an_integer, A)
+  case _: something_else
+end
+</pre></div>
+</div>
+<p>That set of case clauses should be familiar to you, this expression will block
+waiting for a message sent to the current process and when one is received it
+will match it against the case clauses, if one matches the result of evaluating
+its body will be returned (yes, it&#8217;s an expression, and yes, case clauses work
+like everywhere else).</p>
+<p>But what happens if no message is sent? well the code above will block forever,
+we can solve this by adding an after section:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>receive
+  case A, A: false
+  case _, _: true
+after 1000:
+    timeout
+end
+</pre></div>
+</div>
+<p>The after section starts with the after keyword and is followed by an expression
+that should evaluate to a number of milliseconds (or the atom infinity), after
+that time (or never if infinity is passed) the after body will be run and its
+result returned as the result of the receive expression.</p>
+</div>
+<div class="section" id="for-list-comprehension-expression">
+<h2>For/List Comprehension Expression<a class="headerlink" href="#for-list-comprehension-expression" title="Permalink to this headline">¶</a></h2>
+<p>For with one generator:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>For with one generator and one filter:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10); when X % 2 is 0:
+  X + 1
+end
+</pre></div>
+</div>
+<p>For with two generators:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10); Y in lists.seq(10, 20):
+  (X, Y)
+end
+</pre></div>
+</div>
+<p>The for expression in efene works similarly to a list comprehension in other
+languages, you can have one or more generator expressions that assign each
+value of the sequence to a variable and execute the body with the variable
+bound to that value. You can also have zero or more guards that if evaluated to
+false will skip the body for that combination of variables, think of them as
+filters.</p>
+<p>The body of the for expression is evaluated and the last expression on each
+iteration is accumulated in a list and after the for finishes the list is
+returned.</p>
+</div>
+<div class="section" id="begin-end-expression">
+<h2>Begin/End Expression<a class="headerlink" href="#begin-end-expression" title="Permalink to this headline">¶</a></h2>
+<p>You need to put more than one expression in a place where only one expression
+is expected? then begin/end is for you:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>Value = begin
+    io.format(&quot;returning 42&quot;)
+    42
+end
+</pre></div>
+</div>
+<p>The result of evaluating the last expression will be returned as the result
+of the begin/end expression</p>
+</div>
+<div class="section" id="tagged-values-and-expressions">
+<h2>Tagged Values and Expressions<a class="headerlink" href="#tagged-values-and-expressions" title="Permalink to this headline">¶</a></h2>
+<p>Values and expressions in efene can be tagged, what each tag means is unknown
+to efene the language, tags are handled by compiler plugins to give them meaning,
+let&#8217;s explore the &#8220;official&#8221; tags, which are the ones shipped with the standard
+efene compiler (but you can run efene without them if you wish):</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>#atom &quot;I&#39;m an atom&quot;
+#_ &quot;I&#39;m ignored, useful for comments, yes, we don&#39;t have comment syntax&quot;
+
+#_ &quot;The following line evaluated to the integer that represents the character &#39;A&#39;&quot;
+#c &quot;A&quot;
+
+^_ begin
+    &quot;this expression is ignored, useful to comment a whole expression&quot;
+    42
+end
+
+#_ &quot;The following is a binary pattern&quot;
+#b [{},
+    {val: A},
+    {size: 8},
+    {type: float},
+    {sign: unsigned},
+    {endianness: big},
+    {unit: 8},
+    {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+
+#_ &quot;Compile time information&quot;
+CurrentLine = #i line
+CurrentModule = #i module
+
+#_ &quot;Erlang macro expansion (yes we support erlang macros, defined in erlang modules :)&quot;
+#m Author
+#m LINE
+#m PI
+
+#m AUTHOR(bob)
+#m Text(1 * 2 + 3)
+#m AddPlusOne(2, 3)
+
+#_ &quot;Erlang record support defined using tagged values&quot;
+P = #r.person {name: &quot;bob&quot;, lastname: &quot;sponge&quot;, age:29}
+P1 = #r.person P#{age:28}
+#r.person {age: Age} = P1
+Counter = #r.state.counter State
+
+#_ &quot;Binary Comprehension as an extension too&quot;
+^b for A &lt;- foo(10):
+  A + 1
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="higher-order-functions">
+<h2>Higher Order Functions<a class="headerlink" href="#higher-order-functions" title="Permalink to this headline">¶</a></h2>
+<p>Higher order functions are functions that take functions as parameter and
+may return functions as result, common higher order functions are map, filter and reduce.</p>
+<p>Passing functions around is so common in efene that we provide a nicer syntax
+for it which also enables some really lightweight dsl construction:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>#_ &quot;lists.map:2 takes a function as first argument&quot;
+lists.map(List) &lt;&lt;- case X:
+  X + 1
+end
+
+#_ &quot;mymap takes a function as second argument&quot;
+mymap(List) &lt;- case X:
+  X + 1
+end
+</pre></div>
+</div>
+<p>The &lt;- operator inserts the anonymous function as the last argument in the
+function (imagine that &lt;- sends the value to the closest side).</p>
+<p>The &lt;&lt;- operator inserts the anonymous function as the first argument in the
+function (imagine that &lt;&lt;- sends the value to the other side).</p>
+</div>
+<div class="section" id="threading-values">
+<h2>Threading Values<a class="headerlink" href="#threading-values" title="Permalink to this headline">¶</a></h2>
+<p>efene is a lot about simetry and consistency, this means if we have arrows
+pointing in one way surely we should have arrows pointing in the opposite way
+and doing something similar, right?</p>
+<p>Well, we actually do:</p>
+<div class="code ruby highlight-python"><div class="highlight"><pre>IsOdd     = fn case X: X % 2 is 0 end
+Increment = fn case X: X + 1 end
+MyMap     = fn case List, Fun: lists.map(Fun, List) end
+
+lists.seq(1, 10) -&gt;&gt;
+    lists.filter(IsOdd) -&gt;
+    MyMap(Increment)
+</pre></div>
+</div>
+<p>(I define MyMap to reverse the order of the arguments of lists.map so I can
+use -&gt; in the example)</p>
+<p>The -&gt;&gt; operator inserts the value from the left as the last argument in the
+function on the right (imagine that -&gt;&gt; sends the value to the other side)</p>
+<p>The -&gt; operator inserts the value from the left as the first argument in the
+function on the right (imagine that -&gt;&gt; sends the value to the closest side)</p>
+<p>This allows you to &#8220;pipe&#8221; results from one operation to another one withouth
+creating temporary variables.</p>
+</div>
+<div class="section" id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<p>I won&#8217;t introduce operators in detail, you have the language reference for that
+and you told me you are a programmer and you are busy (or lazy), so, withouth
+further ado:</p>
+<div class="section" id="boolean-operations">
+<h3>Boolean Operations<a class="headerlink" href="#boolean-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="31%" />
+<col width="23%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+<th class="head">JS Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>or</td>
+<td>Short Circuit Or</td>
+<td>orelse</td>
+<td>||</td>
+</tr>
+<tr class="row-odd"><td>and</td>
+<td>Short Circuit And</td>
+<td>andalso</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr class="row-even"><td>xor</td>
+<td>Xor</td>
+<td>xor</td>
+<td>No Equivalent</td>
+</tr>
+<tr class="row-odd"><td>orr</td>
+<td>Non Short Circuit Or</td>
+<td>or</td>
+<td>No Equivalent</td>
+</tr>
+<tr class="row-even"><td>andd</td>
+<td>Non Short Circuit And</td>
+<td>and</td>
+<td>No Equivalent</td>
+</tr>
+</tbody>
+</table>
+<p><strong>orr</strong> and <strong>andd</strong> are only available for compatibility with erlang and
+shouldn&#8217;t be used.</p>
+</div>
+<div class="section" id="comparisson-operations">
+<h3>Comparisson Operations<a class="headerlink" href="#comparisson-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="35%" />
+<col width="23%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+<th class="head">JS Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>==</td>
+<td>equal to</td>
+<td>==</td>
+<td>== (Not so much cohercion)</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>not equal to</td>
+<td>/=</td>
+<td>!= (Not so much cohercion)</td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>less than</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>less than or equal to</td>
+<td>=&lt;</td>
+<td>&lt;=</td>
+</tr>
+<tr class="row-even"><td>&gt;</td>
+<td>greater than</td>
+<td>&gt;</td>
+<td>&gt;</td>
+</tr>
+<tr class="row-odd"><td>&gt;=</td>
+<td>greater than or equal to</td>
+<td>&gt;=</td>
+<td>&gt;=</td>
+</tr>
+<tr class="row-even"><td>is</td>
+<td>exactly equal to</td>
+<td>=:=</td>
+<td>===</td>
+</tr>
+<tr class="row-odd"><td>isnt</td>
+<td>exactly not equal to</td>
+<td>=/=</td>
+<td>!==</td>
+</tr>
+</tbody>
+</table>
+<p>The arguments may be of different data types. The following order is defined:</p>
+<div class="highlight-python"><div class="highlight"><pre>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string
+</pre></div>
+</div>
+<p>Lists are compared element by element.</p>
+<p>Tuples are ordered by size, two tuples with the same size are compared element by element.</p>
+<p>When comparing an integer to a float, the term with the lesser precision will
+be converted into the other term&#8217;s type, unless the operator is one of <em>is</em> or
+<em>isnt</em>.</p>
+<p>A float is more precise than an integer until all significant figures of the
+float are to the left of the decimal point.</p>
+<p>This happens when the float is larger/smaller than +/-9007199254740992.0. The
+conversion strategy is changed depending on the size of the float because
+otherwise comparison of large floats and integers would lose their
+transitivity.</p>
+</div>
+<div class="section" id="concat-operations">
+<h3>Concat Operations<a class="headerlink" href="#concat-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="35%" />
+<col width="23%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+<th class="head">JS Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>++</td>
+<td>list concatenation</td>
+<td>++</td>
+<td>Array.prototype.concat</td>
+</tr>
+<tr class="row-odd"><td>&#8211;</td>
+<td>list substraction</td>
+<td>&#8211;</td>
+<td>No Equivalent</td>
+</tr>
+</tbody>
+</table>
+<p>The list concatenation operator ++ appends its second argument to its first and returns the resulting list.</p>
+<p>The list subtraction operator &#8211; produces a list which is a copy of the first argument, subjected to the following procedure: for each element in the second argument, the first occurrence of this element (if any) is removed.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The complexity of A &#8211; B is proportional to length(A) * length(B), meaning
+that it will be very slow if both A and B are long lists.</p>
+</div>
+</div>
+<div class="section" id="aritmetic-operations">
+<h3>Aritmetic Operations<a class="headerlink" href="#aritmetic-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="35%" />
+<col width="23%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+<th class="head">JS Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>+</td>
+<td>addition</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr class="row-odd"><td>-</td>
+<td>substraction</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>multiplication</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>/</td>
+<td>division</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr class="row-even"><td>%</td>
+<td>remainder</td>
+<td>rem</td>
+<td>%</td>
+</tr>
+<tr class="row-odd"><td>//</td>
+<td>integer division</td>
+<td>div</td>
+<td>No Equivalent</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="binary-operations">
+<h3>Binary Operations<a class="headerlink" href="#binary-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="35%" />
+<col width="23%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+<th class="head">JS Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>|</td>
+<td>binary or</td>
+<td>bor</td>
+<td>|</td>
+</tr>
+<tr class="row-odd"><td>&amp;</td>
+<td>binary and</td>
+<td>band</td>
+<td>&amp;</td>
+</tr>
+<tr class="row-even"><td>^</td>
+<td>binary xor</td>
+<td>bxor</td>
+<td>^</td>
+</tr>
+<tr class="row-odd"><td>&lt;&lt;</td>
+<td>shift left</td>
+<td>bsl</td>
+<td>&lt;&lt;</td>
+</tr>
+<tr class="row-even"><td>&gt;&gt;</td>
+<td>shift right</td>
+<td>bsr</td>
+<td>&gt;&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="unary-operations">
+<h3>Unary Operations<a class="headerlink" href="#unary-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="35%" />
+<col width="23%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Op</th>
+<th class="head">Description</th>
+<th class="head">Erlang Equivalent</th>
+<th class="head">JS Equivalent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-</td>
+<td>integer negative</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>not</td>
+<td>boolean not</td>
+<td>not</td>
+<td>!</td>
+</tr>
+<tr class="row-even"><td>~</td>
+<td>binary not</td>
+<td>bnot</td>
+<td>~</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="where-to-go-from-here">
+<h2>Where to Go from Here<a class="headerlink" href="#where-to-go-from-here" title="Permalink to this headline">¶</a></h2>
+<p>This is a quick introduction of a lot of topics, if you want to learn more you
+should check the following resources:</p>
+<ul class="simple">
+<li><a class="reference internal" href="language-reference.html#language-reference"><em>Language Reference</em></a></li>
+<li><a class="reference internal" href="language-introduction.html#introduction"><em>Efene Introduction</em></a></li>
+<li><a class="reference internal" href="quickstart.html#quick-start"><em>Quick Start</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="language-introduction.html" class="btn btn-neutral float-right" title="Efene Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="help-needed.html" class="btn btn-neutral" title="Help Needed" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Mariano Guerra.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

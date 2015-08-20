@@ -382,16 +382,16 @@ Threading function calls:
 ::
 
     IsOdd = fn case X:
-                    X % 2 is 0
-               end
+      X % 2 is 0
+    end
 
     Increment = fn case X:
-                        X + 1
-                   end
+      X + 1
+    end
 
     MyMap = fn case List, Fun:
-                    lists.map(Fun, List)
-               end
+      lists.map(Fun, List)
+    end
 
     lists.seq(1, 10) ->>
         lists.filter(IsOdd) ->
