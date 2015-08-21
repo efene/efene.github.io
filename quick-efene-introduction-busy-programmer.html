@@ -111,9 +111,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#threading-values">Threading Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operators">Operators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#boolean-operations">Boolean Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#comparisson-operations">Comparisson Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-operations">Comparison Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#concat-operations">Concat Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aritmetic-operations">Aritmetic Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arithmetic-operations">Arithmetic Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#binary-operations">Binary Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unary-operations">Unary Operations</a></li>
 </ul>
@@ -304,6 +304,7 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#build-tools">Build Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#release-management">Release Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-servers">Web Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-server-utilities">Web Server Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-frameworks">Web Frameworks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#routing">Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#http-clients">HTTP Clients</a></li>
@@ -386,14 +387,14 @@
             
   <div class="section" id="efene-quick-introduction-for-the-busy-lazy-programmer">
 <h1>Efene Quick Introduction for the Busy/Lazy Programmer<a class="headerlink" href="#efene-quick-introduction-for-the-busy-lazy-programmer" title="Permalink to this headline">¶</a></h1>
-<p>This is a quick and consise introduction to the efene programming language
+<p>This is a quick and concise introduction to the efene programming language
 intended for someone who already programs in some programming language, it will
-only cover syntax and datatypes so you can familiarize with the language in a
+only cover syntax and data types so you can familiarize with the language in a
 short read and maybe use it as a reference in the future.</p>
 <div class="section" id="data-types">
 <h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
-<p>Do you know <a class="reference external" href="http://json.org/">Json</a>?</p>
-<p>Yes: great! you know almost all of the data types their syntax</p>
+<p>Do you know <a class="reference external" href="http://JSON.org/">JSON</a>?</p>
+<p>Yes: great! you know almost all of the data types and their syntax</p>
 <p>No: you should click on the above link then...</p>
 <p>Let&#8217;s see a quick example:</p>
 <div class="code ruby highlight-python"><div class="highlight"><pre><span class="p">{</span>
@@ -403,7 +404,7 @@ short read and maybe use it as a reference in the future.</p>
     <span class="s">&quot;float&quot;</span><span class="p">:</span> <span class="mf">3.14</span><span class="p">,</span>
     <span class="s">&quot;bool&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">&quot;null&quot;</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span>
-    <span class="s">&quot;emtpy list&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s">&quot;empty list&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="s">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;nested!&quot;</span><span class="p">]],</span>
     <span class="s">&quot;other object please&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">}</span>
 <span class="p">}</span>
@@ -427,14 +428,14 @@ short read and maybe use it as a reference in the future.</p>
 <p>lets recap, efene data types are:</p>
 <ul class="simple">
 <li>boolean: true, false</li>
-<li>null: nil (not actually a type on itself, but a convention)</li>
+<li>null: nil</li>
 </ul>
 <p>Those two aren&#8217;t actual types, just atoms, but by convention they are used
 as booleans and null, the undefined atom is also used in many places.</p>
 <ul class="simple">
 <li>atoms: symbolic identifiers that evaluate to themselves. They provide very fast equality tests.</li>
-<li>integers</li>
-<li>floats</li>
+<li>integers: 1, 2, 42</li>
+<li>floats: 1.2, 3.0, 42.7</li>
 <li>strings: &#8220;with double quotes&#8221;</li>
 <li>binary strings: &#8216;with single quotes&#8217;</li>
 <li>tuples: ((,), (1,), (1, 2, 3))</li>
@@ -444,7 +445,7 @@ as booleans and null, the undefined atom is also used in many places.</p>
 </div>
 <div class="section" id="strings-vs-binary-strings-the-short-version">
 <h2>Strings vs Binary Strings, the Short Version<a class="headerlink" href="#strings-vs-binary-strings-the-short-version" title="Permalink to this headline">¶</a></h2>
-<p>Strings are actually lists or integers representing unicode codepoints.</p>
+<p>Strings are actually lists or integers representing unicode code points.</p>
 <p>Binary strings are the binary type with the content being a string encoded in
 utf8.</p>
 </div>
@@ -459,7 +460,7 @@ value, so you can use expressions on the right side of an assignment to assign
 <p>A guard is similar to an if in other languages but with some restrictions, since
 they are used in many places in the language (for example function clauses),
 the conditions should evaluate fast and be free of side effects, this means
-the subset of functions you can call in a guard condition is very restriceted,
+the subset of functions you can call in a guard condition is very restricted,
 you shouldn&#8217;t use guards as if, use the match expression instead.</p>
 <p>But let&#8217;s see some examples:</p>
 <div class="code ruby highlight-python"><div class="highlight"><pre>R1 = when true: ok end
@@ -513,7 +514,7 @@ Result = match some_function(true, 14):
 end
 </pre></div>
 </div>
-<p>This one is a little more comples, we match against a literal value in the
+<p>This one is a little more complex, we match against a literal value in the
 first two case clauses, but in the third we match against an bound variable,
 that is a variable that is bound to a value already, this will match if the
 result of evaluating some_function(true, 14) returns 43, since B is bound to
@@ -523,7 +524,7 @@ that doesn&#8217;t have a value yet, but then it has a guard expression that che
 that A is an integer, this case clause will only match if A is an integer, and
 the A variable will be bound in the case clause body to the result of calling
 some_function, so we can use it for example to return the value inside a tuple.</p>
-<p>The last case clause is another way of writting the else clause from the first
+<p>The last case clause is another way of writing the else clause from the first
 example, in this case we match against the <em>special</em> variable <strong>_</strong>, this
 variable in efene is used to signify that we are not interested in that value and
 will match against anything, even if used more than once in the same scope.</p>
@@ -531,7 +532,6 @@ will match against anything, even if used more than once in the same scope.</p>
 value, if they are matched against something else they will throw a bad match error,
 but the <strong>_</strong> variable will happily match against anything you throw at it, let&#8217;s
 see an example:</p>
-<p>another example:</p>
 <div class="code ruby highlight-python"><div class="highlight"><pre>fn my_xor case V1, V2:
 
   R1 = match (V1, V2):
@@ -557,7 +557,7 @@ see an example:</p>
   end
 
   R5 = match T:
-    case E, E: false
+    case (E, E): false
     case _: true
   end
 
@@ -570,23 +570,24 @@ receives two arguments (V1 and V2) and in the body it does the same thing 5
 times in slightly different ways.</p>
 <p>Notice that the first case clause in the 5 match expressions will match when V1
 and V2 have the same value, since A, B, C, D and E are unbound when evaluating
-the first argument of the case clause they are bound to the value passed in
-since then they are bound for the rest of the current case clause evaluation,
+the first argument of the case clause they are bound to the value passed in.
+Since then they are bound for the rest of the current case clause evaluation,
 this means that when matching V2 to A (and B, C etc.) since A is already bound
 to V1, it will only match if V1 is equal to V2.</p>
 <p>The second case clause in the first 3 match expressions could be replaced with
 an else as shown in the fourth or with a simpler case that matches just one
 <strong>_</strong> the difference between the first 3 and the last 2 is that the last two
 would even match something that is not a two item tuple, but since here we are
-in control of the expression we are matching against it won&#8217;t make a differece.</p>
+in control of the expression we are matching against it won&#8217;t make a difference.</p>
 <p>You may already have noticed that if you write more than one item separated
 by coma in the match condition or in case clauses they are treated as tuples,
 this is to have a more terse syntax with something that is really common when
 writing efene.</p>
 <p>When only one item is available in the match condition or in case clauses it&#8217;s
 evaluated as is, it could be a tuple itself or something else, this means you
-can write tuples surounded with parenthesis if you prefer but we recomend the
-cleaner version without them.</p>
+can write tuples surrounded with parenthesis if you prefer but we recommend the
+cleaner version without them. Notice that the last match has the tuple wrapped
+in parenthesis (E, E).</p>
 </div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
@@ -709,7 +710,7 @@ level function to a higher order function.</p>
 <div class="section" id="handling-exceptions">
 <h2>Handling Exceptions<a class="headerlink" href="#handling-exceptions" title="Permalink to this headline">¶</a></h2>
 <p>Yes, efene supports exceptions and has the familiar try/catch/after expression
-to handle them, let&#8217;s jump straigt to it:</p>
+to handle them, let&#8217;s jump straight to it:</p>
 <div class="code ruby highlight-python"><div class="highlight"><pre>R1 = try
   1/0
 after
@@ -719,13 +720,13 @@ end
 R2 = try
   1/0
 catch
-    case error, badarith: ok
+  case error, badarith: ok
 end
 
 R3 = try
   1/0
 catch
-    case error, badarith: ok
+  case error, badarith: ok
 after
   ok
 end
@@ -743,22 +744,21 @@ end
 </pre></div>
 </div>
 <p>As I said earlier and like all other expressions, try/catch/after expression
-(from now on try expressions) return a value that you can match if you want to
-something.</p>
+(from now on try expressions) return a value that you can match to something (if you want).</p>
 <p>The expression starts with the try keyword followed by one or more expressions
 in the try body separated by new lines, if the body doesn&#8217;t throw an exception
 the result of evaluating the last expression of the body will be returned.</p>
 <p>If an exception is thrown and no catch section is available the after body will
-be evaluated and the exception will be rethrown.</p>
+be evaluated and the exception will be re-thrown.</p>
 <p>If the catch section is available the thrown value will be matched against each
 case clause from top to bottom, if a case clause matches the body will be
 evaluated and the result of the last expression will be returned, if no case
-clause matches the exception will the rethrown. If an after section is defined
-it will be executed.</p>
+clause matches the exception will the re-thrown. If an after section is defined
+it will be executed before re-throwing.</p>
 <p>case clauses in the catch section have one restriction, they can only have one
 or two arguments, if they have one argument the value will be matched against
-the exception&#8217;s details and the type of the exception is assumed to be throw.
-If the case clause has two arguments the first will be matched against the exception type
+the exception&#8217;s details and the type of the exception is assumed to be <strong>throw</strong>.</p>
+<p>If the case clause has two arguments the first will be matched against the exception type
 which can be one of <strong>throw</strong>, <strong>error</strong> or <strong>exit</strong> and the second against the
 exception&#8217;s details.</p>
 <p>You can also have an else clause as the last one which will match against
@@ -805,6 +805,8 @@ end
 that should evaluate to a number of milliseconds (or the atom infinity), after
 that time (or never if infinity is passed) the after body will be run and its
 result returned as the result of the receive expression.</p>
+<p>If the timeout value is 0 the after body will be run inmediatly if no message
+is in the process&#8217; inbox.</p>
 </div>
 <div class="section" id="for-list-comprehension-expression">
 <h2>For/List Comprehension Expression<a class="headerlink" href="#for-list-comprehension-expression" title="Permalink to this headline">¶</a></h2>
@@ -862,7 +864,7 @@ efene compiler (but you can run efene without them if you wish):</p>
 #c &quot;A&quot;
 
 ^_ begin
-    &quot;this expression is ignored, useful to comment a whole expression&quot;
+    &quot;this begin/end expression is ignored, useful to comment a whole expression&quot;
     42
 end
 
@@ -913,7 +915,7 @@ lists.map(List) &lt;&lt;- case X:
   X + 1
 end
 
-#_ &quot;mymap takes a function as second argument&quot;
+#_ &quot;mymap takes a function as last argument&quot;
 mymap(List) &lt;- case X:
   X + 1
 end
@@ -926,7 +928,7 @@ function (imagine that &lt;&lt;- sends the value to the other side).</p>
 </div>
 <div class="section" id="threading-values">
 <h2>Threading Values<a class="headerlink" href="#threading-values" title="Permalink to this headline">¶</a></h2>
-<p>efene is a lot about simetry and consistency, this means if we have arrows
+<p>efene is a lot about symmetry and consistency, this means if we have arrows
 pointing in one way surely we should have arrows pointing in the opposite way
 and doing something similar, right?</p>
 <p>Well, we actually do:</p>
@@ -944,14 +946,14 @@ use -&gt; in the example)</p>
 <p>The -&gt;&gt; operator inserts the value from the left as the last argument in the
 function on the right (imagine that -&gt;&gt; sends the value to the other side)</p>
 <p>The -&gt; operator inserts the value from the left as the first argument in the
-function on the right (imagine that -&gt;&gt; sends the value to the closest side)</p>
-<p>This allows you to &#8220;pipe&#8221; results from one operation to another one withouth
+function on the right (imagine that -&gt; sends the value to the closest side)</p>
+<p>This allows you to &#8220;pipe&#8221; results from one operation to another one without
 creating temporary variables.</p>
 </div>
 <div class="section" id="operators">
 <h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
 <p>I won&#8217;t introduce operators in detail, you have the language reference for that
-and you told me you are a programmer and you are busy (or lazy), so, withouth
+and you told me you are a programmer and you are busy (or lazy), so, without
 further ado:</p>
 <div class="section" id="boolean-operations">
 <h3>Boolean Operations<a class="headerlink" href="#boolean-operations" title="Permalink to this headline">¶</a></h3>
@@ -1000,8 +1002,8 @@ further ado:</p>
 <p><strong>orr</strong> and <strong>andd</strong> are only available for compatibility with erlang and
 shouldn&#8217;t be used.</p>
 </div>
-<div class="section" id="comparisson-operations">
-<h3>Comparisson Operations<a class="headerlink" href="#comparisson-operations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="comparison-operations">
+<h3>Comparison Operations<a class="headerlink" href="#comparison-operations" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%" />
@@ -1020,12 +1022,12 @@ shouldn&#8217;t be used.</p>
 <tr class="row-even"><td>==</td>
 <td>equal to</td>
 <td>==</td>
-<td>== (Not so much cohercion)</td>
+<td>== (Not so much coercion)</td>
 </tr>
 <tr class="row-odd"><td>!=</td>
 <td>not equal to</td>
 <td>/=</td>
-<td>!= (Not so much cohercion)</td>
+<td>!= (Not so much coercion)</td>
 </tr>
 <tr class="row-even"><td>&lt;</td>
 <td>less than</td>
@@ -1098,7 +1100,7 @@ transitivity.</p>
 <td>Array.prototype.concat</td>
 </tr>
 <tr class="row-odd"><td>&#8211;</td>
-<td>list substraction</td>
+<td>list subtraction</td>
 <td>&#8211;</td>
 <td>No Equivalent</td>
 </tr>
@@ -1112,8 +1114,8 @@ transitivity.</p>
 that it will be very slow if both A and B are long lists.</p>
 </div>
 </div>
-<div class="section" id="aritmetic-operations">
-<h3>Aritmetic Operations<a class="headerlink" href="#aritmetic-operations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="arithmetic-operations">
+<h3>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%" />
@@ -1135,7 +1137,7 @@ that it will be very slow if both A and B are long lists.</p>
 <td>+</td>
 </tr>
 <tr class="row-odd"><td>-</td>
-<td>substraction</td>
+<td>subtraction</td>
 <td>-</td>
 <td>-</td>
 </tr>

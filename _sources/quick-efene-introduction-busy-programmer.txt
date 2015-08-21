@@ -3,17 +3,17 @@
 Efene Quick Introduction for the Busy/Lazy Programmer
 =====================================================
 
-This is a quick and consise introduction to the efene programming language
+This is a quick and concise introduction to the efene programming language
 intended for someone who already programs in some programming language, it will
-only cover syntax and datatypes so you can familiarize with the language in a
+only cover syntax and data types so you can familiarize with the language in a
 short read and maybe use it as a reference in the future.
 
 Data Types
 ----------
 
-Do you know `Json <http://json.org/>`_?
+Do you know `JSON <http://JSON.org/>`_?
 
-Yes: great! you know almost all of the data types their syntax
+Yes: great! you know almost all of the data types and their syntax
 
 No: you should click on the above link then...
 
@@ -28,7 +28,7 @@ Let's see a quick example:
         "float": 3.14,
         "bool": true,
         "null": nil,
-        "emtpy list": [],
+        "empty list": [],
         "list": [1, 2, true, false, ["nested!"]],
         "other object please": {"ok": true}
     }
@@ -53,14 +53,14 @@ But wait, there is more!
 lets recap, efene data types are:
 
 * boolean: true, false
-* null: nil (not actually a type on itself, but a convention)
+* null: nil
 
 Those two aren't actual types, just atoms, but by convention they are used
 as booleans and null, the undefined atom is also used in many places.
 
 * atoms: symbolic identifiers that evaluate to themselves. They provide very fast equality tests.
-* integers
-* floats
+* integers: 1, 2, 42
+* floats: 1.2, 3.0, 42.7
 * strings: "with double quotes"
 * binary strings: 'with single quotes'
 
@@ -71,7 +71,7 @@ as booleans and null, the undefined atom is also used in many places.
 Strings vs Binary Strings, the Short Version
 --------------------------------------------
 
-Strings are actually lists or integers representing unicode codepoints.
+Strings are actually lists or integers representing unicode code points.
 
 Binary strings are the binary type with the content being a string encoded in
 utf8.
@@ -89,7 +89,7 @@ Simple Conditions with Guards
 A guard is similar to an if in other languages but with some restrictions, since
 they are used in many places in the language (for example function clauses),
 the conditions should evaluate fast and be free of side effects, this means
-the subset of functions you can call in a guard condition is very restriceted,
+the subset of functions you can call in a guard condition is very restricted,
 you shouldn't use guards as if, use the match expression instead.
 
 But let's see some examples:
@@ -154,7 +154,7 @@ another example:
         case _: something_else
     end
 
-This one is a little more comples, we match against a literal value in the
+This one is a little more complex, we match against a literal value in the
 first two case clauses, but in the third we match against an bound variable,
 that is a variable that is bound to a value already, this will match if the
 result of evaluating some_function(true, 14) returns 43, since B is bound to
@@ -166,7 +166,7 @@ that A is an integer, this case clause will only match if A is an integer, and
 the A variable will be bound in the case clause body to the result of calling
 some_function, so we can use it for example to return the value inside a tuple.
 
-The last case clause is another way of writting the else clause from the first
+The last case clause is another way of writing the else clause from the first
 example, in this case we match against the *special* variable **_**, this
 variable in efene is used to signify that we are not interested in that value and
 will match against anything, even if used more than once in the same scope.
@@ -175,8 +175,6 @@ Normal variables once they are matched they will only match against the same
 value, if they are matched against something else they will throw a bad match error,
 but the **_** variable will happily match against anything you throw at it, let's
 see an example:
-
-another example:
 
 .. code:: ruby
 
@@ -205,7 +203,7 @@ another example:
       end
 
       R5 = match T:
-        case E, E: false
+        case (E, E): false
         case _: true
       end
 
@@ -218,8 +216,8 @@ times in slightly different ways.
 
 Notice that the first case clause in the 5 match expressions will match when V1
 and V2 have the same value, since A, B, C, D and E are unbound when evaluating
-the first argument of the case clause they are bound to the value passed in
-since then they are bound for the rest of the current case clause evaluation,
+the first argument of the case clause they are bound to the value passed in.
+Since then they are bound for the rest of the current case clause evaluation,
 this means that when matching V2 to A (and B, C etc.) since A is already bound
 to V1, it will only match if V1 is equal to V2.
 
@@ -227,7 +225,7 @@ The second case clause in the first 3 match expressions could be replaced with
 an else as shown in the fourth or with a simpler case that matches just one
 **_** the difference between the first 3 and the last 2 is that the last two
 would even match something that is not a two item tuple, but since here we are
-in control of the expression we are matching against it won't make a differece.
+in control of the expression we are matching against it won't make a difference.
 
 You may already have noticed that if you write more than one item separated
 by coma in the match condition or in case clauses they are treated as tuples,
@@ -236,8 +234,9 @@ writing efene.
 
 When only one item is available in the match condition or in case clauses it's
 evaluated as is, it could be a tuple itself or something else, this means you
-can write tuples surounded with parenthesis if you prefer but we recomend the
-cleaner version without them.
+can write tuples surrounded with parenthesis if you prefer but we recommend the
+cleaner version without them. Notice that the last match has the tuple wrapped
+in parenthesis (E, E).
 
 Functions
 ---------
@@ -381,7 +380,7 @@ Handling Exceptions
 -------------------
 
 Yes, efene supports exceptions and has the familiar try/catch/after expression
-to handle them, let's jump straigt to it:
+to handle them, let's jump straight to it:
 
 .. code:: ruby
 
@@ -394,13 +393,13 @@ to handle them, let's jump straigt to it:
        R2 = try
          1/0
        catch
-           case error, badarith: ok
+         case error, badarith: ok
        end
 
        R3 = try
          1/0
        catch
-           case error, badarith: ok
+         case error, badarith: ok
        after
          ok
        end
@@ -417,25 +416,25 @@ to handle them, let's jump straigt to it:
        end
 
 As I said earlier and like all other expressions, try/catch/after expression
-(from now on try expressions) return a value that you can match if you want to
-something.
+(from now on try expressions) return a value that you can match to something (if you want).
 
 The expression starts with the try keyword followed by one or more expressions
 in the try body separated by new lines, if the body doesn't throw an exception
 the result of evaluating the last expression of the body will be returned.
 
 If an exception is thrown and no catch section is available the after body will
-be evaluated and the exception will be rethrown.
+be evaluated and the exception will be re-thrown.
 
 If the catch section is available the thrown value will be matched against each
 case clause from top to bottom, if a case clause matches the body will be
 evaluated and the result of the last expression will be returned, if no case
-clause matches the exception will the rethrown. If an after section is defined
-it will be executed.
+clause matches the exception will the re-thrown. If an after section is defined
+it will be executed before re-throwing.
 
 case clauses in the catch section have one restriction, they can only have one
 or two arguments, if they have one argument the value will be matched against
-the exception's details and the type of the exception is assumed to be throw.
+the exception's details and the type of the exception is assumed to be **throw**.
+
 If the case clause has two arguments the first will be matched against the exception type
 which can be one of **throw**, **error** or **exit** and the second against the
 exception's details.
@@ -493,6 +492,9 @@ The after section starts with the after keyword and is followed by an expression
 that should evaluate to a number of milliseconds (or the atom infinity), after
 that time (or never if infinity is passed) the after body will be run and its
 result returned as the result of the receive expression.
+
+If the timeout value is 0 the after body will be run inmediatly if no message
+is in the process' inbox.
 
 For/List Comprehension Expression
 ---------------------------------
@@ -565,7 +567,7 @@ efene compiler (but you can run efene without them if you wish):
     #c "A"
 
     ^_ begin
-        "this expression is ignored, useful to comment a whole expression"
+        "this begin/end expression is ignored, useful to comment a whole expression"
         42
     end
 
@@ -619,7 +621,7 @@ for it which also enables some really lightweight dsl construction:
       X + 1
     end
 
-    #_ "mymap takes a function as second argument"
+    #_ "mymap takes a function as last argument"
     mymap(List) <- case X:
       X + 1
     end
@@ -635,7 +637,7 @@ function (imagine that <<- sends the value to the other side).
 Threading Values
 ----------------
 
-efene is a lot about simetry and consistency, this means if we have arrows
+efene is a lot about symmetry and consistency, this means if we have arrows
 pointing in one way surely we should have arrows pointing in the opposite way
 and doing something similar, right?
 
@@ -658,16 +660,16 @@ The ->> operator inserts the value from the left as the last argument in the
 function on the right (imagine that ->> sends the value to the other side)
 
 The -> operator inserts the value from the left as the first argument in the
-function on the right (imagine that ->> sends the value to the closest side)
+function on the right (imagine that -> sends the value to the closest side)
 
-This allows you to "pipe" results from one operation to another one withouth
+This allows you to "pipe" results from one operation to another one without
 creating temporary variables.
 
 Operators
 ---------
 
 I won't introduce operators in detail, you have the language reference for that
-and you told me you are a programmer and you are busy (or lazy), so, withouth
+and you told me you are a programmer and you are busy (or lazy), so, without
 further ado:
 
 Boolean Operations
@@ -686,14 +688,14 @@ andd Non Short Circuit And   and               No Equivalent
 **orr** and **andd** are only available for compatibility with erlang and
 shouldn't be used.
 
-Comparisson Operations
+Comparison Operations
 ......................
 
 ==== ========================== ================= ============================
 Op   Description                Erlang Equivalent JS Equivalent
 ==== ========================== ================= ============================
-==   equal to                   ==                == (Not so much cohercion)
-!=   not equal to               /=                != (Not so much cohercion)
+==   equal to                   ==                == (Not so much coercion)
+!=   not equal to               /=                != (Not so much coercion)
 <    less than                  <                 <
 <=   less than or equal to      =<                <=
 >    greater than               >                 >
@@ -729,7 +731,7 @@ Concat Operations
 Op   Description                Erlang Equivalent JS Equivalent
 ==== ========================== ================= ============================
 ++   list concatenation         ++                Array.prototype.concat
---   list substraction          --                No Equivalent
+--   list subtraction           --                No Equivalent
 ==== ========================== ================= ============================
 
 The list concatenation operator ++ appends its second argument to its first and returns the resulting list.
@@ -742,14 +744,14 @@ The list subtraction operator -- produces a list which is a copy of the first ar
     that it will be very slow if both A and B are long lists.
 
 
-Aritmetic Operations
-....................
+Arithmetic Operations
+.....................
 
 ==== ========================== ================= ============================
 Op   Description                Erlang Equivalent JS Equivalent
 ==== ========================== ================= ============================
 \+   addition                   \+                \+
-\-   substraction               \-                \-
+\-   subtraction                \-                \-
 \*   multiplication             \*                \*
 /    division                   /                 /
 %    remainder                  rem               %

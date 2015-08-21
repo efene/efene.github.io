@@ -404,7 +404,7 @@ the ->> operator inserts the value from the left as the last argument in the
 function on the right (imagine that ->> sends the value to the other side)
 
 the -> operator inserts the value from the left as the first argument in the
-function on the right (imagine that ->> sends the value to the closest side)
+function on the right (imagine that -> sends the value to the closest side)
 
 Higher order function calls::
 
