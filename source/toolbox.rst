@@ -56,6 +56,11 @@ Web Servers
 * `Elli <https://github.com/knutin/elli>`_
 * `Yaws <http://yaws.hyber.org/>`_
 
+Web Server Utilities
+....................
+
+* `Cowboy Swagger <https://github.com/inaka/cowboy-swagger>`_: Swagger integration for Cowboy (built on trails)
+
 Web Frameworks
 ..............
 
@@ -66,10 +71,10 @@ Routing
 .......
 
 * `Router <https://github.com/zotonic/router>`_
+* `Cowboy Trails <https://github.com/inaka/cowboy-trails>`: A couple of improvements over Cowboy Routes
 
 HTTP Clients
 ............
-
 
 * `Shotgun <https://github.com/inaka/shotgun>`_
 * `Gun <https://github.com/extend/gun/>`_
