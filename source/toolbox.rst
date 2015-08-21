@@ -130,6 +130,7 @@ Package Manager
 ...............
 
 * `Hex <https://hex.pm/>`_
+* `Rebar3 Hex Plugin <https://github.com/hexpm/rebar3_hex>`_: plugin to use hex from rebar3
 
 Interop
 .......
