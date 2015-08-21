@@ -71,7 +71,7 @@ Routing
 .......
 
 * `Router <https://github.com/zotonic/router>`_
-* `Cowboy Trails <https://github.com/inaka/cowboy-trails>`: A couple of improvements over Cowboy Routes
+* `Cowboy Trails <https://github.com/inaka/cowboy-trails>`_: A couple of improvements over Cowboy Routes
 
 HTTP Clients
 ............
