@@ -54,7 +54,3 @@ Efene `commmon test <http://www.erlang.org/doc/man/common_test.html>`_ task
 can be used as follows::
 
     ./rebar3 efene ct
-
-.. note::
-
-    This task doesn't work at the moment

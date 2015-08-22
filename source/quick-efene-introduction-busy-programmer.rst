@@ -601,7 +601,7 @@ efene compiler (but you can run efene without them if you wish):
     Counter = #r.state.counter State
 
     #_ "Binary Comprehension as an extension too"
-    ^b for A <- foo(10):
+    ^b for A in foo(10):
       A + 1
     end
 
