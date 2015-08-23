@@ -125,6 +125,12 @@ Database Clients
 * `emysql <https://github.com/eonblast/Emysql/>`_
 * `couchbeam <https://github.com/benoitc/couchbeam>`_
 * `mongodb <https://github.com/mongodb/mongodb-erlang>`_
+* `redo <https://github.com/heroku/redo>`_: pipelined erlang redis client
+
+Clients
+.......
+
+* `kafkerl <https://github.com/HernanRivasAcosta/kafkerl>`_: Apache Kafka producer/consumer for erlang
 
 Package Manager
 ...............
@@ -183,6 +189,9 @@ Distributed Programming
 * `Riak Core <https://github.com/basho/riak_core>`_: distributed system framework, the core of riak_kv
 * `chash <https://github.com/Licenser/chash>`_: consistent hashing library extracted from riak_core
 * `plumtree <https://github.com/helium/plumtree>`_: epidemic broadcast protocol
+* `disco <https://github.com/discoproject/disco>`_: Map/Reduce framework for distributed computing http://discoproject.org
+* `nkdist <https://github.com/Nekso/nkdist>`_: Erlang distributed processes
+* `nkcluster <https://github.com/Nekso/nkcluster>`_: A framework to manage jobs at huge Erlang clusters
 
 Metrics
 .......
@@ -320,11 +329,15 @@ Access Control
 Products
 .........
 
-* `CouchDB <http://couchdb.org/>`_
-* `RabbitMQ <http://www.rabbitmq.com/>`_
-* `Riak <http://basho.com/products/#riak>`_
-* `LeoFS <http://leo-project.net/>`_
-* `Ejabberd <https://www.process-one.net/en/ejabberd/>`_
-* `MongooseIM <https://www.erlang-solutions.com/products/mongooseim-massively-scalable-ejabberd-platform>`_
-* `OpenFlow <https://www.erlang-solutions.com/products/openflow>`_
-* `Zotonic <http://zotonic.com/>`_
+* `CouchDB <http://couchdb.org/>`_: Database that uses JSON for documents, JavaScript for MapReduce indexes, and regular HTTP for its API
+* `RabbitMQ <http://www.rabbitmq.com/>`_: Robust messaging for applications
+* `Riak <http://basho.com/products/#riak>`_: Distributed NoSQL database with a key/value design and advanced local and multi-cluster replication
+* `LeoFS <http://leo-project.net/>`_: Unstructured Object Storage for the Web and a highly available, distributed, eventually consistent storage system.
+* `Ejabberd <https://www.process-one.net/en/ejabberd/>`_: World's Most Popular XMPP Server
+* `MongooseIM <https://www.erlang-solutions.com/products/mongooseim-massively-scalable-ejabberd-platform>`_:  Base platform for building high performance messaging systems leveraging XMPP
+* `OpenFlow <https://www.erlang-solutions.com/products/openflow>`_: Software Defined Networking (SDN)
+* `Zotonic <http://zotonic.com/>`_: The Erlang Web Framework & CMS
+* `logplex <https://github.com/heroku/logplex>`_:  Heroku log router
+* `Chef <https://www.chef.io/>`_: Automation for Web-Scale IT
+
+
