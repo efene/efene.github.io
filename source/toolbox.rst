@@ -1,7 +1,7 @@
 Efene Toolbox
 =============
 
-A list of tools and libraries that are useful for efene projects.
+A list of tools and libraries that are useful for efene and erlang projects.
 
 .. contents::
    :local:
