@@ -30,6 +30,7 @@ Clients
 
 * `kafkerl <https://github.com/HernanRivasAcosta/kafkerl>`_: Apache Kafka producer/consumer for erlang
 * `ekaf <https://github.com/helpshift/ekaf>`_: A minimal, high-performance Kafka client in Erlang
+* `cqerl <https://github.com/matehat/cqerl>`_: Native Erlang CQL client for Cassandra
 
 Cloud
 .....
