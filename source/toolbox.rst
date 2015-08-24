@@ -1,7 +1,8 @@
-Efene Toolbox
-=============
+BEAM Toolbox
+============
 
-A list of tools and libraries that are useful for efene and erlang projects.
+A list of tools and libraries that are useful for BEAM languages like efene,
+erlang, LFE and Elixir projects.
 
 .. contents::
    :local:
@@ -28,6 +29,7 @@ Clients
 .......
 
 * `kafkerl <https://github.com/HernanRivasAcosta/kafkerl>`_: Apache Kafka producer/consumer for erlang
+* `ekaf <https://github.com/helpshift/ekaf>`_: A minimal, high-performance Kafka client in Erlang
 
 Cloud
 .....
