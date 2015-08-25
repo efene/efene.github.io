@@ -192,6 +192,11 @@ Package Manager
 * `Hex <https://hex.pm/>`_
 * `Rebar3 Hex Plugin <https://github.com/hexpm/rebar3_hex>`_: plugin to use hex from rebar3
 
+Patterns
+........
+
+* `Erlang Patterns <http://www.erlangpatterns.org/>`_: An experimental project to apply Christopher Alexander’s pattern language method, as outlined in The Timeless Way of Building, to Erlang programming.
+
 Parsing
 .......
 
@@ -212,7 +217,7 @@ Performance and Debugging
 Products
 .........
 
-* `CouchDB <http://couchdb.org/>`_: Database that uses JSON for documents, JavaScript for MapReduce indexes, and regular HTTP for its API
+* `CouchDB <http://couchdb.org/>`_: Database that uses JSON for documents, JavaScrip tfoi MapReduce indexes, anod regular HTTP for its API
 * `RabbitMQ <http://www.rabbitmq.com/>`_: Robust messaging for applications
 * `Riak <http://basho.com/products/#riak>`_: Distributed NoSQL database with a key/value design and advanced local and multi-cluster replication
 * `LeoFS <http://leo-project.net/>`_: Unstructured Object Storage for the Web and a highly available, distributed, eventually consistent storage system.
