@@ -31,6 +31,9 @@ Clients
 * `kafkerl <https://github.com/HernanRivasAcosta/kafkerl>`_: Apache Kafka producer/consumer for erlang
 * `ekaf <https://github.com/helpshift/ekaf>`_: A minimal, high-performance Kafka client in Erlang
 * `cqerl <https://github.com/matehat/cqerl>`_: Native Erlang CQL client for Cassandra
+* `etorrent <https://github.com/jlouis/etorrent>`_: Erlang Bittorrent Client
+* `amqp_client <https://github.com/jbrisbin/amqp_client>`_: Rebar-friendly fork of rabbitmq-erlang-client
+* `zeta <https://github.com/tel/zeta>`_: An Erlang client for Riemann
 
 Cloud
 .....
@@ -81,12 +84,19 @@ Data Formats
 
 * `edn-erlang <https://github.com/seancribbs/edn-erlang>`_
 * `erldn <https://github.com/marianoguerra/erldn>`_
+* `transit-erlang <https://github.com/isaiah/transit-erlang>`_: Transit format for erlang
+* `msgpack-erlang <https://github.com/msgpack/msgpack-erlang>`_: MessagePack (de)serializer implementation for Erlang
+* `protobuffs <https://github.com/basho/erlang_protobuffs>`_
+* `thrift <https://thrift.apache.org/lib/erl>`_
+* `eavro <https://github.com/SIfoxDevTeam/eavro>`_
+* `benc <https://github.com/jlouis/benc>`_: Erlang BEncode parser/unparser
 
 Data Structures
 ...............
 
 * `StateBox <https://github.com/mochi/statebox>`_
 * `riak_dt <https://github.com/basho/riak_dt>`_
+* `pqueue <https://github.com/okeuday/pqueue>`_: Erlang Priority Queues
 
 Data Structure Manipulation
 ...........................
@@ -103,14 +113,13 @@ Distributed Programming
 * `disco <https://github.com/discoproject/disco>`_: Map/Reduce framework for distributed computing http://discoproject.org
 * `nkdist <https://github.com/Nekso/nkdist>`_: Erlang distributed processes
 * `nkcluster <https://github.com/Nekso/nkcluster>`_: A framework to manage jobs at huge Erlang clusters
+* `dht <https://github.com/jlouis/dht>`_: DHT implementation in Erlang
 
-Encoding/Decoding
-.................
+Fault Tolerance
+...............
 
-* `protobuffs <https://github.com/basho/erlang_protobuffs>`_
-* `thrift <https://thrift.apache.org/lib/erl>`_
-* `eavro <https://github.com/SIfoxDevTeam/eavro>`_
-* `transit <https://github.com/isaiah/transit-erlang>`_
+* `fuse <https://github.com/jlouis/fuse>`_: A Circuit Breaker for Erlang
+* `safetyvalve <https://github.com/jlouis/safetyvalve>`_: A safety valve for your erlang node
 
 Generative Testing
 ..................
@@ -118,6 +127,7 @@ Generative Testing
 * `Triq <http://krestenkrab.github.io/triq/>`_
 * `QuickCheck <http://www.quviq.com/products/erlang-quickcheck/>`_
 * `PropEr <http://proper.softlab.ntua.gr/>`_
+* `eqc_lib <https://github.com/jlouis/eqc_lib>`_: Erlang QuickCheck common library functions
 
 HTTP Clients
 ............
@@ -170,6 +180,7 @@ Logging
 .......
 
 * `Lager <https://github.com/basho/lager>`_
+* `erlang-syslog <https://github.com/Vagabond/erlang-syslog>`_: Erlang port driver for interacting with syslog via syslog(3)
 
 Metrics
 .......
@@ -214,6 +225,12 @@ Performance and Debugging
 * `Eper <https://github.com/massemanet/eper>`_
 * `Recon <https://github.com/ferd/recon>`_
 * `eflame <https://github.com/proger/eflame>`_
+
+Protocols
+.........
+
+* `erlirc <https://github.com/archaelus/erlirc>`_: Erlang IRC client/server framework
+* `mdns <https://github.com/arcusfelis/mdns>`_: More generic (yet another) mDNS, Zeroconf, Avahi client/server for Erlang
 
 Products
 .........
@@ -342,6 +359,7 @@ Worker/Resource Pools
 * `worker_pool <https://github.com/inaka/worker_pool>`_
 * `episcina <https://github.com/erlware/episcina>`_
 * `gascheduler <https://github.com/GameAnalytics/gascheduler>`_
+* `dispcount <https://github.com/ferd/dispcount>`_: Erlang task dispatcher based on ETS counters
 
 XML
 ...
