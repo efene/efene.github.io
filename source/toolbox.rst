@@ -52,8 +52,9 @@ Configuration
 Cryptography
 ............
 
-* `crypto <http://www.erlang.org/doc/man/crypto.html>`_
-* `pbkdf2 <https://github.com/basho/erlang-pbkdf2>`_
+* `crypto <http://www.erlang.org/doc/man/crypto.html>`_: Crypto functions
+* `pbkdf2 <https://github.com/basho/erlang-pbkdf2>`_: A PBKDF2 implementation for Erlang extracted from Apache CouchDB
+* `enacl <https://github.com/jlouis/enacl>`_: Erlang bindings for NaCl / libsodium
 
 Database Clients
 ................
