@@ -104,6 +104,12 @@ Data Structure Manipulation
 * `Hubble <https://github.com/ferd/hubble>`_
 * `Dotto <https://github.com/marianoguerra/dotto>`_
 
+Date and Time
+.............
+
+* `dh_date <https://github.com/daleharvey/dh_date>`_: Date formatting / parsing library for erlang
+* `strftimerl <https://github.com/gmr/strftimerl>`_: Erlang implementation of strftime
+
 Distributed Programming
 .......................
 

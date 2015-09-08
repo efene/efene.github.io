@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Language Reference" href="language-reference.html"/>
-        <link rel="prev" title="Efene Introduction" href="language-introduction.html"/> 
+        <link rel="next" title="Language Tradeoffs" href="tradeoffs.html"/>
+        <link rel="prev" title="Language Reference" href="language-reference.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,11 +86,39 @@
 <li class="toctree-l2"><a class="reference internal" href="help-needed.html#erlang-knowledge-required">Erlang Knowledge Required</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="help-needed.html#improve-rebar3-plugins">Improve rebar3 plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="help-needed.html#improve-the-pretty-printer">Improve the Pretty Printer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="help-needed.html#lager-interoperability">Lager Interoperability</a></li>
 <li class="toctree-l3"><a class="reference internal" href="help-needed.html#efene-repl">Efene REPL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="help-needed.html#erlang-compatibility-tests">Erlang Compatibility Tests</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html">Efene Quick Introduction for the Busy/Lazy Programmer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#data-types">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#strings-vs-binary-strings-the-short-version">Strings vs Binary Strings, the Short Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#simple-conditions-with-guards">Simple Conditions with Guards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#more-complex-conditions-with-match">More Complex Conditions with Match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#anonymous-functions">Anonymous Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#named-anonymous-functions-wat">Named Anonymous Functions (WAT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#holding-a-reference-to-a-top-level-function">Holding a Reference to a Top Level Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#handling-exceptions">Handling Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#receiving-messages">Receiving Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#for-list-comprehension-expression">For/List Comprehension Expression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#begin-end-expression">Begin/End Expression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#tagged-values-and-expressions">Tagged Values and Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#higher-order-functions">Higher Order Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#threading-values">Threading Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#operators">Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#comparison-operations">Comparison Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#concat-operations">Concat Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#binary-operations">Binary Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#unary-operations">Unary Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html#where-to-go-from-here">Where to Go from Here</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a><ul>
@@ -121,7 +149,6 @@
 <li class="toctree-l2"><a class="reference internal" href="language-introduction.html#adding-some-types">Adding some Types</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#values">Values</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#boolean">Boolean</a></li>
@@ -179,18 +206,26 @@
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#id5">Description</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="language-reference.html#for">For</a></li>
-<li class="toctree-l3"><a class="reference internal" href="language-reference.html#try-catch-after">Try/Catch/After</a></li>
-<li class="toctree-l3"><a class="reference internal" href="language-reference.html#receive-after">Receive/After</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#for">For</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#id6">Abstract Syntax</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#id7">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id8">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#try-catch-after">Try/Catch/After</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id8">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id9">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="language-reference.html#receive-after">Receive/After</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id10">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id11">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id12">Description</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#begin">Begin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id9">Abstract Syntax</a></li>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id10">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id11">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id13">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id14">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id15">Description</a></li>
 </ul>
 </li>
 </ul>
@@ -202,6 +237,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="language-reference.html#module-level-expressions">Module Level Expressions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="language-reference.html#top-level-function">Top Level Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id16">Abstract Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="language-reference.html#id17">Examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="language-reference.html#well-known-function-attributes">Well Known Function Attributes</a></li>
 </ul>
 </li>
@@ -218,6 +255,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#record-pattern-matching-vs-map-pattern-matching">Record Pattern Matching vs Map Pattern Matching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#function-call-vs-function-declaration">Function Call vs Function Declaration</a></li>
@@ -248,12 +286,70 @@
 <li class="toctree-l2"><a class="reference internal" href="guides/cowboy-rest-json.html">Cowboy REST JSON API Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#initial-setup">Initial Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#adding-a-resource">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/cowboy-rest-json.html#changing-the-configuration">Changing the Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html">Cowboy WebSockets/Server Sent Events/COMET JSON API Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="guides/cowboy-websockets-server-sent-events-comet-json.html#initial-setup">Initial Setup</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#access-control">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#auth">Auth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#build-tools">Build Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#clients">Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#cloud">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#command-line">Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#cryptography">Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#database-clients">Database Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#databases">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#data-formats">Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#data-structures">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#data-structure-manipulation">Data Structure Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#date-and-time">Date and Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#distributed-programming">Distributed Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#fault-tolerance">Fault Tolerance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#generative-testing">Generative Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#http-clients">HTTP Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#interop">Interop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#javascript">Javascript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-schema">JSON Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-web-token">JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-patch">JSON Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#load-generators">Load Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#mocking">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#networking">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#package-manager">Package Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#patterns">Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#parsing">Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#performance-and-debugging">Performance and Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#protocols">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#products">Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#pub-sub">Pub/Sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#rate-limiting">Rate Limiting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#release-management">Release Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#routing">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#scheduling">Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#server-sent-events-clients">Server Sent Events Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#sockets">Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#static-checkers">Static Checkers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#statistics">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#utils">Utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-servers">Web Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-server-utilities">Web Server Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-frameworks">Web Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-sockets-servers">Web Sockets Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-sockets-clients">Web Sockets Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#worker-resource-pools">Worker/Resource Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#xml">XML</a></li>
 </ul>
 </li>
 </ul>
@@ -388,10 +484,10 @@ keep going.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="language-reference.html" class="btn btn-neutral float-right" title="Language Reference" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tradeoffs.html" class="btn btn-neutral float-right" title="Language Tradeoffs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="language-introduction.html" class="btn btn-neutral" title="Efene Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="language-reference.html" class="btn btn-neutral" title="Language Reference" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
