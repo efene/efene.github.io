@@ -306,6 +306,11 @@ Statistics
 
 * `basho_stats <https://github.com/basho/basho_stats>`_
 
+Security
+........
+
+* `erlang-certifi <https://github.com/certifi/erlang-certifi>`_: SSL Certificates for Erlang
+
 Templates
 .........
 
