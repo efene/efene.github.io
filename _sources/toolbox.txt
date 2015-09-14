@@ -327,7 +327,7 @@ Utils
 .....
 
 * `Katana <https://github.com/inaka/erlang-katana>`_
-* `uuid <https://github.com/ferd/uuid>`_
+* `uuid <https://github.com/okeuday/uuid>`_
 * `erlware_commons <https://github.com/erlware/erlware_commons>`_
 * `hope <https://github.com/ibnfirnas/hope>`_
 
