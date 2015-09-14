@@ -126,6 +126,13 @@ Fault Tolerance
 
 * `fuse <https://github.com/jlouis/fuse>`_: A Circuit Breaker for Erlang
 * `safetyvalve <https://github.com/jlouis/safetyvalve>`_: A safety valve for your erlang node
+* `breaky <https://github.com/mmzeeman/breaky>`_: supervise and manage modules and processes depending on external resources.
+* `circuit_breaker <https://github.com/klarna/circuit_breaker>`_: Generic circuit breaker that can be used to break any service that isn't fully functional
+
+File System
+...........
+
+* `fuserl <https://github.com/tonyrog/fuserl>`_: Erlang bindings for FUSE
 
 Generative Testing
 ..................
