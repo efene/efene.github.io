@@ -46,6 +46,7 @@ Command Line
 * `getopt <https://github.com/jcomellas/getopt>`_
 * `clique <https://github.com/basho/clique>`_
 * `escript <http://www.erlang.org/doc/man/escript.html>`_
+* `cf <https://github.com/project-fifo/cf>`_: Colored output for io and io_lib 
 
 Configuration
 ..............
