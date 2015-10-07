@@ -59,6 +59,7 @@ Cryptography
 * `crypto <http://www.erlang.org/doc/man/crypto.html>`_: Crypto functions
 * `pbkdf2 <https://github.com/basho/erlang-pbkdf2>`_: A PBKDF2 implementation for Erlang extracted from Apache CouchDB
 * `enacl <https://github.com/jlouis/enacl>`_: Erlang bindings for NaCl / libsodium
+* `erlsha2 <https://github.com/vinoski/erlsha2>`_: SHA-224, SHA-256, SHA-384, SHA-512 implemented in Erlang NIFs
 
 Database Clients
 ................
@@ -98,6 +99,7 @@ Data Structures
 * `StateBox <https://github.com/mochi/statebox>`_
 * `riak_dt <https://github.com/basho/riak_dt>`_
 * `pqueue <https://github.com/okeuday/pqueue>`_: Erlang Priority Queues
+* `erlang-lru <https://github.com/barrel-db/erlang-lru>`_: Erlang LRU: a fixed size LRU cache
 
 Data Structure Manipulation
 ...........................
