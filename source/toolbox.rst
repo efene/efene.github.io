@@ -356,6 +356,7 @@ Web Server Utilities
 ....................
 
 * `Cowboy Swagger <https://github.com/inaka/cowboy-swagger>`_: Swagger integration for Cowboy (built on trails)
+* `vegur <https://github.com/heroku/vegur>`_: HTTP Proxy Library
 
 Web Frameworks
 ..............
