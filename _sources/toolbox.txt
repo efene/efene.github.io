@@ -335,6 +335,12 @@ Testing
 * `Commom Test <http://www.erlang.org/doc/apps/common_test/basics_chapter.html>`_
 * `EUnit <http://www.erlang.org/doc/apps/eunit/chapter.html>`_
 
+Tools
+.....
+
+* `observer_cli <https://github.com/zhongwencool/observer_cli>`_:  A sharp shell tool see erlang node.
+* `erlyberly <https://github.com/andytill/erlyberly>`_: debugger for erlang and elixir using erlang tracing. It is probably the easiest and quickest way to start debugging your erlang nodes.
+
 Utils
 .....
 
