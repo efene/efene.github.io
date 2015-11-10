@@ -53,6 +53,7 @@ Configuration
 ..............
 
 * `Cuttlefish <https://github.com/basho/cuttlefish>`_
+* `econfig <https://github.com/benoitc/econfig>`_: simple Erlang config handler using INI files
 
 Cryptography
 ............
@@ -243,6 +244,11 @@ Performance and Debugging
 * `Eper <https://github.com/massemanet/eper>`_
 * `Recon <https://github.com/ferd/recon>`_
 * `eflame <https://github.com/proger/eflame>`_
+
+Plugins
+.......
+
+* `hooks <https://github.com/barrel-db/hooks>`_: generic plugin & hook system for Erlang applications
 
 Protocols
 .........
