@@ -346,6 +346,7 @@ Tools
 
 * `observer_cli <https://github.com/zhongwencool/observer_cli>`_:  A sharp shell tool see erlang node.
 * `erlyberly <https://github.com/andytill/erlyberly>`_: debugger for erlang and elixir using erlang tracing. It is probably the easiest and quickest way to start debugging your erlang nodes.
+* `visualixir <https://github.com/koudelka/visualixir>`_: toy process visualizer for remote BEAM nodes, written in Phoenix/Elixir/d3.
 
 Utils
 .....
@@ -375,6 +376,7 @@ Web Frameworks
 
 * `Axiom <https://github.com/tsujigiri/axiom>`_
 * `ChicagoBoss <https://github.com/ChicagoBoss/ChicagoBoss>`_
+* `Tuah <http://mhishami.github.io/tuah/>`_: A Simple Cowboy Frontend, inspired by BeepBeep
 
 Web Sockets Servers
 ...................
