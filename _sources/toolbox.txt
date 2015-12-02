@@ -370,6 +370,7 @@ Web Server Utilities
 ....................
 
 * `Cowboy Swagger <https://github.com/inaka/cowboy-swagger>`_: Swagger integration for Cowboy (built on trails)
+* `sumo_rest <https://github.com/inaka/sumo_rest>`_: Generic cowboy handlers to work with Sumo
 * `vegur <https://github.com/heroku/vegur>`_: HTTP Proxy Library
 
 Web Frameworks
