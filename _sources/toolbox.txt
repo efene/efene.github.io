@@ -68,6 +68,7 @@ Database Clients
 
 * `odbc <http://www.erlang.org/doc/apps/odbc/databases.html>`_
 * `epgsql <https://github.com/epgsql/epgsql>`_
+* `pgpool <https://github.com/ostinelli/pgpool>`_: A PosgreSQL client that automatically uses connection pools and handles reconnections in case of errors. 
 * `emysql <https://github.com/eonblast/Emysql/>`_
 * `couchbeam <https://github.com/benoitc/couchbeam>`_
 * `mongodb <https://github.com/mongodb/mongodb-erlang>`_
