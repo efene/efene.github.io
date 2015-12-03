@@ -126,6 +126,7 @@ Distributed Programming
 * `nkdist <https://github.com/Nekso/nkdist>`_: Erlang distributed processes
 * `nkcluster <https://github.com/Nekso/nkcluster>`_: A framework to manage jobs at huge Erlang clusters
 * `dht <https://github.com/jlouis/dht>`_: DHT implementation in Erlang
+* `syn <https://github.com/ostinelli/syn>`_: global process registry for Erlang
 
 Fault Tolerance
 ...............
