@@ -259,18 +259,27 @@ Protocols
 * `mdns <https://github.com/arcusfelis/mdns>`_: More generic (yet another) mDNS, Zeroconf, Avahi client/server for Erlang
 
 Products
-.........
+........
 
 * `CouchDB <http://couchdb.org/>`_: Database that uses JSON for documents, JavaScrip tfoi MapReduce indexes, anod regular HTTP for its API
 * `RabbitMQ <http://www.rabbitmq.com/>`_: Robust messaging for applications
 * `Riak <http://basho.com/products/#riak>`_: Distributed NoSQL database with a key/value design and advanced local and multi-cluster replication
 * `LeoFS <http://leo-project.net/>`_: Unstructured Object Storage for the Web and a highly available, distributed, eventually consistent storage system.
-* `Ejabberd <https://www.process-one.net/en/ejabberd/>`_: World's Most Popular XMPP Server
-* `MongooseIM <https://www.erlang-solutions.com/products/mongooseim-massively-scalable-ejabberd-platform>`_:  Base platform for building high performance messaging systems leveraging XMPP
 * `OpenFlow <https://www.erlang-solutions.com/products/openflow>`_: Software Defined Networking (SDN)
 * `Zotonic <http://zotonic.com/>`_: The Erlang Web Framework & CMS
 * `logplex <https://github.com/heroku/logplex>`_:  Heroku log router
 * `Chef <https://www.chef.io/>`_: Automation for Web-Scale IT
+
+XMPP Servers
+............
+
+* `Ejabberd <https://www.process-one.net/en/ejabberd/>`_: World's Most Popular XMPP Server
+* `MongooseIM <https://www.erlang-solutions.com/products/mongooseim-massively-scalable-ejabberd-platform>`_:  Base platform for building high performance messaging systems leveraging XMPP
+
+XMPP Clients
+............
+
+* `escalus <https://github.com/esl/escalus>`_: XMPP client library for conveniently testing XMPP servers
 
 Pub/Sub
 .......
