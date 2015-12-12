@@ -163,6 +163,16 @@ Interop
 * `NIFs <http://www.erlang.org/doc/tutorial/nif.html>`_
 * `Ports <http://www.erlang.org/doc/reference_manual/ports.html>`_
 
+Internet of Things
+..................
+
+* `gen_coap <https://github.com/gotthardp/gen_coap>`_: Generic Erlang CoAP Client/Server
+* `vernemq <https://verne.mq/>`_: The most scalable MQTT Message Broker. Powering IoT, M2M, Mobile, and Web Applications.
+* `emqtt <http://emqtt.io/>`_: The Massively Scalable MQTT Broker written in Erlang/OTP
+* `emqttc <https://github.com/emqtt/emqttc>`_: Asynchronous Erlang MQTT Client
+* `rabbitmq-mqtt <https://github.com/rabbitmq/rabbitmq-mqtt>`_: RabbitMQ MQTT gateway
+
+
 Javascript
 ..........
 
