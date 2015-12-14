@@ -135,6 +135,7 @@ Fault Tolerance
 * `safetyvalve <https://github.com/jlouis/safetyvalve>`_: A safety valve for your erlang node
 * `breaky <https://github.com/mmzeeman/breaky>`_: supervise and manage modules and processes depending on external resources.
 * `circuit_breaker <https://github.com/klarna/circuit_breaker>`_: Generic circuit breaker that can be used to break any service that isn't fully functional
+* `elarm: <https://github.com/esl/elarm>`_: an Alarm Manager for Erlang
 
 File System
 ...........
