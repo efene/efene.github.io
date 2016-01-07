@@ -312,9 +312,11 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#date-and-time">Date and Time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#distributed-programming">Distributed Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#fault-tolerance">Fault Tolerance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#file-system">File System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#generative-testing">Generative Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#http-clients">HTTP Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#interop">Interop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#internet-of-things">Internet of Things</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#javascript">Javascript</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#json">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-schema">JSON Schema</a></li>
@@ -329,8 +331,11 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#patterns">Patterns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#parsing">Parsing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#performance-and-debugging">Performance and Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#plugins">Plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#protocols">Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#products">Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#xmpp-servers">XMPP Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#xmpp-clients">XMPP Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#pub-sub">Pub/Sub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#rate-limiting">Rate Limiting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#release-management">Release Management</a></li>
@@ -340,8 +345,10 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#sockets">Sockets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#static-checkers">Static Checkers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#statistics">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#security">Security</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#tools">Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#utils">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-servers">Web Servers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-server-utilities">Web Server Utilities</a></li>
@@ -873,14 +880,17 @@ efene compiler (but you can run efene without them if you wish):</p>
 end
 
 #_ &quot;The following is a binary pattern&quot;
-#b [{},
-    {val: A},
-    {size: 8},
-    {type: float},
-    {sign: unsigned},
-    {endianness: big},
-    {unit: 8},
-    {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+#b {_: _,
+    A: _,
+    JustSize: 8,
+    JustType: binary,
+    E: {},
+    _: {size: 8},
+    _: {type: float},
+    _: {sign: unsigned},
+    _: {endianness: big},
+    _: {unit: 8},
+    B: {size: 8, type: float, sign: signed, endianness: little, unit: 16}}
 
 #_ &quot;Compile time information&quot;
 CurrentLine = #i line

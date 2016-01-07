@@ -312,9 +312,11 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#date-and-time">Date and Time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#distributed-programming">Distributed Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#fault-tolerance">Fault Tolerance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#file-system">File System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#generative-testing">Generative Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#http-clients">HTTP Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#interop">Interop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#internet-of-things">Internet of Things</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#javascript">Javascript</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#json">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#json-schema">JSON Schema</a></li>
@@ -329,8 +331,11 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#patterns">Patterns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#parsing">Parsing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#performance-and-debugging">Performance and Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#plugins">Plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#protocols">Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#products">Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#xmpp-servers">XMPP Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#xmpp-clients">XMPP Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#pub-sub">Pub/Sub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#rate-limiting">Rate Limiting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#release-management">Release Management</a></li>
@@ -340,8 +345,10 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#sockets">Sockets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#static-checkers">Static Checkers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#statistics">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#security">Security</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#tools">Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#utils">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-servers">Web Servers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#web-server-utilities">Web Server Utilities</a></li>
@@ -889,20 +896,35 @@ parenthesis are the record fields, you can provide default values for fields.</p
 <h3><a class="toc-backref" href="#id33">Binary</a><a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h3>
 <p>Binary is a data type to express erlang&#8217;s bit syntax, where you can specify
 the format of a binary, you can read more at <a class="reference external" href="http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax">erlang&#8217;s bit syntax docs</a></p>
-<p>In efene binaries are implemented using a tagged list that contains a map
-for each field describing the format of that field, here is an example covering
-all the alternatives:</p>
-<div class="highlight-python"><div class="highlight"><pre>#b [{},
-    {val: A},
-    {size: 8},
-    {type: float},
-    {sign: unsigned},
-    {endianness: big},
-    {unit: 8},
-    {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+<p>In efene binaries are implemented using a tagged map that contains a sequence
+of key/value pair for each field describing format of that field, here is an
+example covering all the alternatives:</p>
+<div class="highlight-python"><div class="highlight"><pre>#b {_: _,
+    A: _,
+    JustSize: 8,
+    JustType: binary,
+    E: {},
+    _: {size: 8},
+    _: {type: float},
+    _: {sign: unsigned},
+    _: {endianness: big},
+    _: {unit: 8},
+    B: {size: 8, type: float, sign: signed, endianness: little, unit: 16}}
 </pre></div>
 </div>
-<p>On a field you can specify the variable to match to, the size, type, sign, endianness and unit.</p>
+<p>You can use <cite>_</cite> on the key to ignore that field and on the value to provide
+defaults, on the value you can also provide <cite>{}</cite> to specify defaults.</p>
+<p>If the value is an int it&#8217;s assumed to be the size property, if it&#8217;s an atom
+it&#8217;s assumed to be the type attribute.</p>
+<p>Here is an example pattern matching an IPv4 packet:</p>
+<div class="highlight-python"><div class="highlight"><pre>#b {Version:4, IHL:4, TypeOfService:8, TotalLength:16,  Identification:16,
+    FlagX:1, FlagD:1, FlagM:1,  FragmentOffset:13, TTL:8, Protocol:8,
+    HeaderCheckSum:16, SourceAddress:32, DestinationAddress:32,
+    Rest: binary} = Packet
+</pre></div>
+</div>
+<p>On a field you can specify the variable to match to, the size, type, sign,
+endianness and unit.</p>
 <p>For a detailed explanation of what each of those values do please refer to
 <a class="reference external" href="http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax">erlang&#8217;s bit syntax docs</a>.</p>
 </div>

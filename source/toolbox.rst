@@ -173,7 +173,6 @@ Internet of Things
 * `emqttc <https://github.com/emqtt/emqttc>`_: Asynchronous Erlang MQTT Client
 * `rabbitmq-mqtt <https://github.com/rabbitmq/rabbitmq-mqtt>`_: RabbitMQ MQTT gateway
 
-
 Javascript
 ..........
 
@@ -268,6 +267,7 @@ Protocols
 
 * `erlirc <https://github.com/archaelus/erlirc>`_: Erlang IRC client/server framework
 * `mdns <https://github.com/arcusfelis/mdns>`_: More generic (yet another) mDNS, Zeroconf, Avahi client/server for Erlang
+* `esmtp <https://github.com/archaelus/esmtp>`_: Erlang SMTP library
 
 Products
 ........
@@ -369,6 +369,7 @@ Tools
 * `observer_cli <https://github.com/zhongwencool/observer_cli>`_:  A sharp shell tool see erlang node.
 * `erlyberly <https://github.com/andytill/erlyberly>`_: debugger for erlang and elixir using erlang tracing. It is probably the easiest and quickest way to start debugging your erlang nodes.
 * `visualixir <https://github.com/koudelka/visualixir>`_: toy process visualizer for remote BEAM nodes, written in Phoenix/Elixir/d3.
+* `edump <https://github.com/archaelus/edump>`_: Erlang Crashdump Analysis Suite
 
 Utils
 .....

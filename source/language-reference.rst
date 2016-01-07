@@ -503,20 +503,37 @@ Binary
 Binary is a data type to express erlang's bit syntax, where you can specify
 the format of a binary, you can read more at `erlang's bit syntax docs <http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax>`_
 
-In efene binaries are implemented using a tagged list that contains a map
-for each field describing the format of that field, here is an example covering
-all the alternatives::
+In efene binaries are implemented using a tagged map that contains a sequence
+of key/value pair for each field describing format of that field, here is an
+example covering all the alternatives::
 
-    #b [{},
-        {val: A},
-        {size: 8},
-        {type: float},
-        {sign: unsigned},
-        {endianness: big},
-        {unit: 8},
-        {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+    #b {_: _,
+        A: _,
+        JustSize: 8,
+        JustType: binary,
+        E: {},
+        _: {size: 8},
+        _: {type: float},
+        _: {sign: unsigned},
+        _: {endianness: big},
+        _: {unit: 8},
+        B: {size: 8, type: float, sign: signed, endianness: little, unit: 16}}
 
-On a field you can specify the variable to match to, the size, type, sign, endianness and unit.
+You can use `_` on the key to ignore that field and on the value to provide
+defaults, on the value you can also provide `{}` to specify defaults.
+
+If the value is an int it's assumed to be the size property, if it's an atom
+it's assumed to be the type attribute.
+
+Here is an example pattern matching an IPv4 packet::
+
+    #b {Version:4, IHL:4, TypeOfService:8, TotalLength:16,  Identification:16,
+        FlagX:1, FlagD:1, FlagM:1,  FragmentOffset:13, TTL:8, Protocol:8,
+        HeaderCheckSum:16, SourceAddress:32, DestinationAddress:32,
+        Rest: binary} = Packet
+
+On a field you can specify the variable to match to, the size, type, sign,
+endianness and unit.
 
 For a detailed explanation of what each of those values do please refer to
 `erlang's bit syntax docs <http://www.erlang.org/doc/reference_manual/expressions.html#bit_syntax>`_.

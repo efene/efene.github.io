@@ -572,14 +572,17 @@ efene compiler (but you can run efene without them if you wish):
     end
 
     #_ "The following is a binary pattern"
-    #b [{},
-        {val: A},
-        {size: 8},
-        {type: float},
-        {sign: unsigned},
-        {endianness: big},
-        {unit: 8},
-        {val: B, size: 8, type: float, sign: signed, endianness: little, unit: 16}]
+    #b {_: _,
+        A: _,
+        JustSize: 8,
+        JustType: binary,
+        E: {},
+        _: {size: 8},
+        _: {type: float},
+        _: {sign: unsigned},
+        _: {endianness: big},
+        _: {unit: 8},
+        B: {size: 8, type: float, sign: signed, endianness: little, unit: 16}}
 
     #_ "Compile time information"
     CurrentLine = #i line
