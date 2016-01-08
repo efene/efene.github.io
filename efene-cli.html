@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Efene Programming Language &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Efene Command Line Interface &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -30,8 +30,9 @@
   
 
   
-    <link rel="top" title="Efene Programming Language 1.0 documentation" href="#"/>
-        <link rel="next" title="Efene Philisophy" href="philosophy.html"/> 
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Recommended Libraries" href="recommended-libraries.html"/>
+        <link rel="prev" title="Rebar Plugin" href="rebar-plugin.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +49,7 @@
         
 
         
-          <a href="#" class="icon icon-home"> Efene Programming Language
+          <a href="index.html" class="icon icon-home"> Efene Programming Language
         
 
         
@@ -70,7 +71,7 @@
         
           
           
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Efene Philisophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="community.html#mailing-list">Mailing List</a></li>
@@ -280,7 +281,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#common-test-task">Common Test Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Efene Command Line Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/cowboy-rest-json.html">Cowboy REST JSON API Guide</a><ul>
@@ -372,7 +373,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Efene Programming Language</a>
+        <a href="index.html">Efene Programming Language</a>
       </nav>
 
 
@@ -381,13 +382,13 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Efene Programming Language</li>
+    <li>Efene Command Line Interface</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/efene-cli.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -396,30 +397,45 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="efene-programming-language">
-<h1>Efene Programming Language<a class="headerlink" href="#efene-programming-language" title="Permalink to this headline">¶</a></h1>
-<p>Efene is an alternative syntax for the Erlang Programming Language focusing
-on simplicity, consistency, ease of use and programmer UX.</p>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Efene Philisophy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html">Efene Quick Introduction for the Busy/Lazy Programmer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a></li>
-</ul>
+  <div class="section" id="efene-command-line-interface">
+<h1>Efene Command Line Interface<a class="headerlink" href="#efene-command-line-interface" title="Permalink to this headline">¶</a></h1>
+<p>If you plan to use efene for a project we recommend you to use the rebar3
+plugin or if you prefer the <a class="reference external" href="https://github.com/ninenines/efene.mk">efene plugin for erlang.mk</a>.</p>
+<p>This tool is useful for troubleshooting and for learning more about efene.</p>
+<p>The tool can be generated by running:</p>
+<div class="highlight-python"><div class="highlight"><pre>make escript
+</pre></div>
 </div>
+<p>It will output a file called <cite>efene</cite> in the current directory, you can put it
+in your bin folder or wherever you prefer.</p>
+<p>To see the help run <cite>efene</cite> without arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ efene
+
+Usage:
+        efene rawlex &lt;file&gt;: print raw lex tokens
+        efene lex &lt;file&gt;: print lex tokens after normalization
+        efene ast &lt;file&gt;: print efene abstract syntax tree
+        efene erlast &lt;file&gt;: print erlang abstract syntax tree (absform)
+        efene mod &lt;file&gt;: print erlang absform with module attributes
+        efene erl &lt;file&gt;: print erlang code for &lt;file&gt;
+        efene erl2ast &lt;file.erl&gt;: print erlang absform &lt;file.erl&gt;
+        efene beam &lt;file&gt; [&lt;outdir&gt;]: compile &lt;file&gt; to beam bytecode to &lt;outdir&gt;
+        efene pprint &lt;file&gt;: pretty print code from &lt;file&gt; (experimental)
+</pre></div>
 </div>
+<p>rawlex, lex, ast, erlast, mod print intermediate representations used during
+efene compilation.</p>
+<p>beam and erl are the two output alternatives.</p>
+<p>rawlex is the result of the lexing stage, lex is the result of processing the
+rawlex stage to normalize it and make it easier to parse, the next stage is ast
+which is the efene abstract syntax tree, which then is translated to erlast
+which is the erlang abstract syntax tree, it&#8217;s then enriched with module level
+attributes in the mod stage after this point it&#8217;s compiled to beam bytecode if
+the beam option is used or translated to erlang if the erl option is used.</p>
+<p>The remaining options are pprint which takes an efene file as input and does
+pretty printing on it (this option is experimental), the erl2ast option is used
+to print the erlang abstrac syntax tree for an erlang module, this is normally
+used during development to compare outputs for efene and erlang modules.</p>
 </div>
 
 
@@ -428,8 +444,10 @@ on simplicity, consistency, ease of use and programmer UX.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="philosophy.html" class="btn btn-neutral float-right" title="Efene Philisophy" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="recommended-libraries.html" class="btn btn-neutral float-right" title="Recommended Libraries" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="rebar-plugin.html" class="btn btn-neutral" title="Rebar Plugin" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

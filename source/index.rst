@@ -24,6 +24,7 @@ Documentation
    quickstart
    tradeoffs
    rebar-plugin
+   efene-cli
    recommended-libraries
    guides/index
    toolbox
