@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Efene Programming Language &mdash; Efene Programming Language 1.0 documentation</title>
+  <title>Efene Shell &mdash; Efene Programming Language 1.0 documentation</title>
   
 
   
@@ -30,8 +30,9 @@
   
 
   
-    <link rel="top" title="Efene Programming Language 1.0 documentation" href="#"/>
-        <link rel="next" title="Efene Philisophy" href="philosophy.html"/> 
+    <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Efene Command Line Interface" href="efene-cli.html"/>
+        <link rel="prev" title="Rebar Plugin" href="rebar-plugin.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +49,7 @@
         
 
         
-          <a href="#" class="icon icon-home"> Efene Programming Language
+          <a href="index.html" class="icon icon-home"> Efene Programming Language
         
 
         
@@ -70,7 +71,7 @@
         
           
           
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Efene Philisophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="community.html#mailing-list">Mailing List</a></li>
@@ -280,7 +281,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rebar-plugin.html#common-test-task">Common Test Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="efene-shell.html">Efene Shell</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Efene Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a><ul>
@@ -373,7 +374,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Efene Programming Language</a>
+        <a href="index.html">Efene Programming Language</a>
       </nav>
 
 
@@ -382,13 +383,13 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Efene Programming Language</li>
+    <li>Efene Shell</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/efene-shell.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -397,31 +398,48 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="efene-programming-language">
-<h1>Efene Programming Language<a class="headerlink" href="#efene-programming-language" title="Permalink to this headline">¶</a></h1>
-<p>Efene is an alternative syntax for the Erlang Programming Language focusing
-on simplicity, consistency, ease of use and programmer UX.</p>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Efene Philisophy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html">Efene Quick Introduction for the Busy/Lazy Programmer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-shell.html">Efene Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a></li>
-</ul>
+  <div class="section" id="efene-shell">
+<h1>Efene Shell<a class="headerlink" href="#efene-shell" title="Permalink to this headline">¶</a></h1>
+<p>Efene provides a shell (or REPL) similar to the one provided by Erlang.</p>
+<p>To get it you need to download and build efene:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/efene
+cd efene
+make
+</pre></div>
 </div>
+<p>And then run:</p>
+<div class="highlight-python"><div class="highlight"><pre>./fnshell
+</pre></div>
 </div>
+<p>You will see something like:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./fnshell
+
+Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
+
+efene shell (call q() to quit, help() for help, Ctrl+g for Job Control Mode)
+
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>As the banner says, write <cite>q()</cite> and press enter to quit, write <cite>help()</cite> and
+press enter to see other builtin functions, if you press Ctrl+g you enter
+erlang&#8217;s Job Control Mode, see &#8220;JCL Mode&#8221; section in the <a class="reference external" href="http://www.erlang.org/doc/man/shell.html">shell manual page from the erlang documentation</a> for more details of what you can do there.</p>
+<p>You can symlink fnshell from a place in your $PATH to be able to run it from
+any folder, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/bin
+cd ~/bin
+ln -s path/to/efene/fnshell
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Change path/to/fnshell to the actual path where you have the fnshell file</p>
+</div>
+<p>Add ~/bin to your $PATH if you don&#8217;t have it already:</p>
+<div class="highlight-python"><div class="highlight"><pre>export PATH=$PATH:$HOME/bin
+</pre></div>
+</div>
+<p>Add it to your shell rc file to have it permanently set (.zshrc for zsh, .bashrc for bash)</p>
 </div>
 
 
@@ -430,8 +448,10 @@ on simplicity, consistency, ease of use and programmer UX.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="philosophy.html" class="btn btn-neutral float-right" title="Efene Philisophy" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="efene-cli.html" class="btn btn-neutral float-right" title="Efene Command Line Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="rebar-plugin.html" class="btn btn-neutral" title="Rebar Plugin" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
