@@ -211,13 +211,16 @@ Logging
 
 * `Lager <https://github.com/basho/lager>`_
 * `erlang-syslog <https://github.com/Vagabond/erlang-syslog>`_: Erlang port driver for interacting with syslog via syslog(3)
-* `chronica <https://github.com/eltex-ecss/chronica>`_: Logger framework for Erlang applications 
+* `chronica <https://github.com/eltex-ecss/chronica>`_: Logger framework for Erlang applications
 
 Metrics
 .......
 
-* `Exometer <https://github.com/Feuerlabs/exometer>`_
-* `Folsom <https://github.com/basho/folsom>`_
+* `Exometer <https://github.com/Feuerlabs/exometer>`_: Basic measurement objects and probe behavior
+
+  + `exometer_json <https://github.com/helium/exometer_json>`_: exometer reporter to push JSON to a sink over HTTP
+
+* `Folsom <https://github.com/basho/folsom>`_: Expose Erlang Events and Metrics
 
 Mocking
 .......
