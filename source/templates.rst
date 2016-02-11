@@ -1,14 +1,14 @@
 Templates
 =========
 
-Providing a simple "getting started" experience is part of the efene project,
-for this we focus on documentation, support, error messages but also on
-templates so you can get started quickly using the best practices from the
-community.
+Providing a simple "getting started" experience is part of the efene
+project, for this we focus on documentation, support, error messages but
+also on templates so you can get started quickly using the best practices
+from the community.
 
-For this, efene mantains official rebar3 templates that you can use to create a
-wide variety of projects, here we will give a brief description of each, what's
-for and how to install it and use it.
+For this, efene mantains official rebar3 templates that you can use to
+create a wide variety of projects, here we will give a brief description
+of each, what they're for and how to install and use them.
 
 Initial Setup Common to All Templates
 -------------------------------------
@@ -129,4 +129,44 @@ Try
 
     Bye!
 
+OTP Release Template
+--------------------
+
+Install
+.......
+
+::
+
+    git clone https://github.com/efene/rebar3_efene_template_rel.git ~/.config/rebar3/templates/fn_rel
+
+Use
+...
+
+::
+
+    rebar3 new fn_rel name=myrel
+    cd myrel
+    make
+
+Try
+...
+
+::
+
+   $ make console
+
+    ...
+
+    Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:30] [kernel-poll:true]
+
+    22:29:17.141 [info] starting myrel
+    22:29:17.141 [info] Application lager started on node 'myrel@127.0.0.1'
+    22:29:17.141 [info] Application myrel started on node 'myrel@127.0.0.1'
+
+    ...
+
+    22:29:17.156 [info] Application sasl started on node 'myrel@127.0.0.1'
+    Eshell V7.0  (abort with ^G)
+    (myrel@127.0.0.1)1> q().
+    ok
 

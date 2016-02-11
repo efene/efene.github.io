@@ -275,6 +275,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#id5">Try</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#otp-release-template">OTP Release Template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Try</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
@@ -532,6 +538,44 @@ efene shell (call q() to quit, help() for help, Ctrl+g for Job Control Mode)
 &gt;&gt;&gt; q()
 
 Bye!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="otp-release-template">
+<h2>OTP Release Template<a class="headerlink" href="#otp-release-template" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Install<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_rel.git ~/.config/rebar3/templates/fn_rel
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Use<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_rel name=myrel
+cd myrel
+make
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Try<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>$ make console
+
+ ...
+
+ Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:30] [kernel-poll:true]
+
+ 22:29:17.141 [info] starting myrel
+ 22:29:17.141 [info] Application lager started on node &#39;myrel@127.0.0.1&#39;
+ 22:29:17.141 [info] Application myrel started on node &#39;myrel@127.0.0.1&#39;
+
+ ...
+
+ 22:29:17.156 [info] Application sasl started on node &#39;myrel@127.0.0.1&#39;
+ Eshell V7.0  (abort with ^G)
+ (myrel@127.0.0.1)1&gt; q().
+ ok
 </pre></div>
 </div>
 </div>
