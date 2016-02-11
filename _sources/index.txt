@@ -22,6 +22,7 @@ Documentation
    language-introduction
    language-reference
    quickstart
+   templates
    tradeoffs
    rebar-plugin
    efene-shell
