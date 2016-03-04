@@ -1,14 +1,14 @@
 Templates
 =========
 
-Providing a simple "getting started" experience is part of the efene project,
-for this we focus on documentation, support, error messages but also on
-templates so you can get started quickly using the best practices from the
-community.
+Providing a simple "getting started" experience is part of the efene
+project, for this we focus on documentation, support, error messages but
+also on templates so you can get started quickly using the best practices
+from the community.
 
-For this, efene mantains official rebar3 templates that you can use to create a
-wide variety of projects, here we will give a brief description of each, what's
-for and how to install it and use it.
+For this, efene mantains official rebar3 templates that you can use to
+create a wide variety of projects, here we will give a brief description
+of each, what they're for and how to install and use them.
 
 Initial Setup Common to All Templates
 -------------------------------------
@@ -169,3 +169,4 @@ Try
     Eshell V7.0  (abort with ^G)
     (myrel@127.0.0.1)1> q().
     ok
+

@@ -255,6 +255,33 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#initial-setup-common-to-all-templates">Initial Setup Common to All Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#escript-template">Escript Template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#install">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#use">Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#library-template">Library Template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id1">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id2">Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#try">Try</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#otp-application-template">OTP Application Template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id3">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id4">Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id5">Try</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#otp-release-template">OTP Release Template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id6">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id7">Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#id8">Try</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#record-pattern-matching-vs-map-pattern-matching">Record Pattern Matching vs Map Pattern Matching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tradeoffs.html#function-call-vs-function-declaration">Function Call vs Function Declaration</a></li>
@@ -344,6 +371,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#scheduling">Scheduling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#server-sent-events-clients">Server Sent Events Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sockets">Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#soap">SOAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#static-checkers">Static Checkers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#statistics">Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#security">Security</a></li>
@@ -403,91 +431,92 @@
 erlang, LFE and Elixir projects.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#access-control" id="id5">Access Control</a></li>
-<li><a class="reference internal" href="#auth" id="id6">Auth</a></li>
-<li><a class="reference internal" href="#build-tools" id="id7">Build Tools</a></li>
-<li><a class="reference internal" href="#clients" id="id8">Clients</a></li>
-<li><a class="reference internal" href="#cloud" id="id9">Cloud</a></li>
-<li><a class="reference internal" href="#command-line" id="id10">Command Line</a></li>
-<li><a class="reference internal" href="#configuration" id="id11">Configuration</a></li>
-<li><a class="reference internal" href="#cryptography" id="id12">Cryptography</a></li>
-<li><a class="reference internal" href="#database-clients" id="id13">Database Clients</a></li>
-<li><a class="reference internal" href="#databases" id="id14">Databases</a></li>
-<li><a class="reference internal" href="#data-formats" id="id15">Data Formats</a></li>
-<li><a class="reference internal" href="#data-structures" id="id16">Data Structures</a></li>
-<li><a class="reference internal" href="#data-structure-manipulation" id="id17">Data Structure Manipulation</a></li>
-<li><a class="reference internal" href="#date-and-time" id="id18">Date and Time</a></li>
-<li><a class="reference internal" href="#distributed-programming" id="id19">Distributed Programming</a></li>
-<li><a class="reference internal" href="#fault-tolerance" id="id20">Fault Tolerance</a></li>
-<li><a class="reference internal" href="#file-system" id="id21">File System</a></li>
-<li><a class="reference internal" href="#generative-testing" id="id22">Generative Testing</a></li>
-<li><a class="reference internal" href="#http-clients" id="id23">HTTP Clients</a></li>
-<li><a class="reference internal" href="#interop" id="id24">Interop</a></li>
-<li><a class="reference internal" href="#internet-of-things" id="id25">Internet of Things</a></li>
-<li><a class="reference internal" href="#javascript" id="id26">Javascript</a></li>
-<li><a class="reference internal" href="#json" id="id27">JSON</a></li>
-<li><a class="reference internal" href="#json-schema" id="id28">JSON Schema</a></li>
-<li><a class="reference internal" href="#json-web-token" id="id29">JSON Web Token</a></li>
-<li><a class="reference internal" href="#json-patch" id="id30">JSON Patch</a></li>
-<li><a class="reference internal" href="#load-generators" id="id31">Load Generators</a></li>
-<li><a class="reference internal" href="#logging" id="id32">Logging</a></li>
-<li><a class="reference internal" href="#metrics" id="id33">Metrics</a></li>
-<li><a class="reference internal" href="#mocking" id="id34">Mocking</a></li>
-<li><a class="reference internal" href="#networking" id="id35">Networking</a></li>
-<li><a class="reference internal" href="#package-manager" id="id36">Package Manager</a></li>
-<li><a class="reference internal" href="#patterns" id="id37">Patterns</a></li>
-<li><a class="reference internal" href="#parsing" id="id38">Parsing</a></li>
-<li><a class="reference internal" href="#performance-and-debugging" id="id39">Performance and Debugging</a></li>
-<li><a class="reference internal" href="#plugins" id="id40">Plugins</a></li>
-<li><a class="reference internal" href="#protocols" id="id41">Protocols</a></li>
-<li><a class="reference internal" href="#products" id="id42">Products</a></li>
-<li><a class="reference internal" href="#xmpp-servers" id="id43">XMPP Servers</a></li>
-<li><a class="reference internal" href="#xmpp-clients" id="id44">XMPP Clients</a></li>
-<li><a class="reference internal" href="#pub-sub" id="id45">Pub/Sub</a></li>
-<li><a class="reference internal" href="#rate-limiting" id="id46">Rate Limiting</a></li>
-<li><a class="reference internal" href="#release-management" id="id47">Release Management</a></li>
-<li><a class="reference internal" href="#routing" id="id48">Routing</a></li>
-<li><a class="reference internal" href="#scheduling" id="id49">Scheduling</a></li>
-<li><a class="reference internal" href="#server-sent-events-clients" id="id50">Server Sent Events Clients</a></li>
-<li><a class="reference internal" href="#sockets" id="id51">Sockets</a></li>
-<li><a class="reference internal" href="#static-checkers" id="id52">Static Checkers</a></li>
-<li><a class="reference internal" href="#statistics" id="id53">Statistics</a></li>
-<li><a class="reference internal" href="#security" id="id54">Security</a></li>
-<li><a class="reference internal" href="#templates" id="id55">Templates</a></li>
-<li><a class="reference internal" href="#testing" id="id56">Testing</a></li>
-<li><a class="reference internal" href="#tools" id="id57">Tools</a></li>
-<li><a class="reference internal" href="#utils" id="id58">Utils</a></li>
-<li><a class="reference internal" href="#web-servers" id="id59">Web Servers</a></li>
-<li><a class="reference internal" href="#web-server-utilities" id="id60">Web Server Utilities</a></li>
-<li><a class="reference internal" href="#web-frameworks" id="id61">Web Frameworks</a></li>
-<li><a class="reference internal" href="#web-sockets-servers" id="id62">Web Sockets Servers</a></li>
-<li><a class="reference internal" href="#web-sockets-clients" id="id63">Web Sockets Clients</a></li>
-<li><a class="reference internal" href="#worker-resource-pools" id="id64">Worker/Resource Pools</a></li>
-<li><a class="reference internal" href="#xml" id="id65">XML</a></li>
+<li><a class="reference internal" href="#access-control" id="id6">Access Control</a></li>
+<li><a class="reference internal" href="#auth" id="id7">Auth</a></li>
+<li><a class="reference internal" href="#build-tools" id="id8">Build Tools</a></li>
+<li><a class="reference internal" href="#clients" id="id9">Clients</a></li>
+<li><a class="reference internal" href="#cloud" id="id10">Cloud</a></li>
+<li><a class="reference internal" href="#command-line" id="id11">Command Line</a></li>
+<li><a class="reference internal" href="#configuration" id="id12">Configuration</a></li>
+<li><a class="reference internal" href="#cryptography" id="id13">Cryptography</a></li>
+<li><a class="reference internal" href="#database-clients" id="id14">Database Clients</a></li>
+<li><a class="reference internal" href="#databases" id="id15">Databases</a></li>
+<li><a class="reference internal" href="#data-formats" id="id16">Data Formats</a></li>
+<li><a class="reference internal" href="#data-structures" id="id17">Data Structures</a></li>
+<li><a class="reference internal" href="#data-structure-manipulation" id="id18">Data Structure Manipulation</a></li>
+<li><a class="reference internal" href="#date-and-time" id="id19">Date and Time</a></li>
+<li><a class="reference internal" href="#distributed-programming" id="id20">Distributed Programming</a></li>
+<li><a class="reference internal" href="#fault-tolerance" id="id21">Fault Tolerance</a></li>
+<li><a class="reference internal" href="#file-system" id="id22">File System</a></li>
+<li><a class="reference internal" href="#generative-testing" id="id23">Generative Testing</a></li>
+<li><a class="reference internal" href="#http-clients" id="id24">HTTP Clients</a></li>
+<li><a class="reference internal" href="#interop" id="id25">Interop</a></li>
+<li><a class="reference internal" href="#internet-of-things" id="id26">Internet of Things</a></li>
+<li><a class="reference internal" href="#javascript" id="id27">Javascript</a></li>
+<li><a class="reference internal" href="#json" id="id28">JSON</a></li>
+<li><a class="reference internal" href="#json-schema" id="id29">JSON Schema</a></li>
+<li><a class="reference internal" href="#json-web-token" id="id30">JSON Web Token</a></li>
+<li><a class="reference internal" href="#json-patch" id="id31">JSON Patch</a></li>
+<li><a class="reference internal" href="#load-generators" id="id32">Load Generators</a></li>
+<li><a class="reference internal" href="#logging" id="id33">Logging</a></li>
+<li><a class="reference internal" href="#metrics" id="id34">Metrics</a></li>
+<li><a class="reference internal" href="#mocking" id="id35">Mocking</a></li>
+<li><a class="reference internal" href="#networking" id="id36">Networking</a></li>
+<li><a class="reference internal" href="#package-manager" id="id37">Package Manager</a></li>
+<li><a class="reference internal" href="#patterns" id="id38">Patterns</a></li>
+<li><a class="reference internal" href="#parsing" id="id39">Parsing</a></li>
+<li><a class="reference internal" href="#performance-and-debugging" id="id40">Performance and Debugging</a></li>
+<li><a class="reference internal" href="#plugins" id="id41">Plugins</a></li>
+<li><a class="reference internal" href="#protocols" id="id42">Protocols</a></li>
+<li><a class="reference internal" href="#products" id="id43">Products</a></li>
+<li><a class="reference internal" href="#xmpp-servers" id="id44">XMPP Servers</a></li>
+<li><a class="reference internal" href="#xmpp-clients" id="id45">XMPP Clients</a></li>
+<li><a class="reference internal" href="#pub-sub" id="id46">Pub/Sub</a></li>
+<li><a class="reference internal" href="#rate-limiting" id="id47">Rate Limiting</a></li>
+<li><a class="reference internal" href="#release-management" id="id48">Release Management</a></li>
+<li><a class="reference internal" href="#routing" id="id49">Routing</a></li>
+<li><a class="reference internal" href="#scheduling" id="id50">Scheduling</a></li>
+<li><a class="reference internal" href="#server-sent-events-clients" id="id51">Server Sent Events Clients</a></li>
+<li><a class="reference internal" href="#sockets" id="id52">Sockets</a></li>
+<li><a class="reference internal" href="#soap" id="id53">SOAP</a></li>
+<li><a class="reference internal" href="#static-checkers" id="id54">Static Checkers</a></li>
+<li><a class="reference internal" href="#statistics" id="id55">Statistics</a></li>
+<li><a class="reference internal" href="#security" id="id56">Security</a></li>
+<li><a class="reference internal" href="#templates" id="id57">Templates</a></li>
+<li><a class="reference internal" href="#testing" id="id58">Testing</a></li>
+<li><a class="reference internal" href="#tools" id="id59">Tools</a></li>
+<li><a class="reference internal" href="#utils" id="id60">Utils</a></li>
+<li><a class="reference internal" href="#web-servers" id="id61">Web Servers</a></li>
+<li><a class="reference internal" href="#web-server-utilities" id="id62">Web Server Utilities</a></li>
+<li><a class="reference internal" href="#web-frameworks" id="id63">Web Frameworks</a></li>
+<li><a class="reference internal" href="#web-sockets-servers" id="id64">Web Sockets Servers</a></li>
+<li><a class="reference internal" href="#web-sockets-clients" id="id65">Web Sockets Clients</a></li>
+<li><a class="reference internal" href="#worker-resource-pools" id="id66">Worker/Resource Pools</a></li>
+<li><a class="reference internal" href="#xml" id="id67">XML</a></li>
 </ul>
 </div>
 <div class="section" id="access-control">
-<h2><a class="toc-backref" href="#id5">Access Control</a><a class="headerlink" href="#access-control" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Access Control</a><a class="headerlink" href="#access-control" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/project-fifo/snarl">snarl</a>: A Erlang based RBAC server.</li>
 <li><a class="reference external" href="https://github.com/Nekso/nkrole">nkrole</a>: a framework for managing complex relations among arbitrary objects in a riak_core cluster</li>
 </ul>
 </div>
 <div class="section" id="auth">
-<h2><a class="toc-backref" href="#id6">Auth</a><a class="headerlink" href="#auth" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Auth</a><a class="headerlink" href="#auth" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/kivra/oauth2">OAuth2</a></li>
 </ul>
 </div>
 <div class="section" id="build-tools">
-<h2><a class="toc-backref" href="#id7">Build Tools</a><a class="headerlink" href="#build-tools" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Build Tools</a><a class="headerlink" href="#build-tools" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.rebar3.org/">Rebar3</a></li>
 <li><a class="reference external" href="https://github.com/ninenines/erlang.mk">Erlang.mk</a></li>
 </ul>
 </div>
 <div class="section" id="clients">
-<h2><a class="toc-backref" href="#id8">Clients</a><a class="headerlink" href="#clients" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Clients</a><a class="headerlink" href="#clients" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/HernanRivasAcosta/kafkerl">kafkerl</a>: Apache Kafka producer/consumer for erlang</li>
 <li><a class="reference external" href="https://github.com/helpshift/ekaf">ekaf</a>: A minimal, high-performance Kafka client in Erlang</li>
@@ -498,13 +527,13 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="cloud">
-<h2><a class="toc-backref" href="#id9">Cloud</a><a class="headerlink" href="#cloud" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Cloud</a><a class="headerlink" href="#cloud" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/gleber/erlcloud">erlcloud</a></li>
 </ul>
 </div>
 <div class="section" id="command-line">
-<h2><a class="toc-backref" href="#id10">Command Line</a><a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Command Line</a><a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/jcomellas/getopt">getopt</a></li>
 <li><a class="reference external" href="https://github.com/basho/clique">clique</a></li>
@@ -514,14 +543,14 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="configuration">
-<h2><a class="toc-backref" href="#id11">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/cuttlefish">Cuttlefish</a></li>
 <li><a class="reference external" href="https://github.com/benoitc/econfig">econfig</a>: simple Erlang config handler using INI files</li>
 </ul>
 </div>
 <div class="section" id="cryptography">
-<h2><a class="toc-backref" href="#id12">Cryptography</a><a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Cryptography</a><a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/man/crypto.html">crypto</a>: Crypto functions</li>
 <li><a class="reference external" href="https://github.com/basho/erlang-pbkdf2">pbkdf2</a>: A PBKDF2 implementation for Erlang extracted from Apache CouchDB</li>
@@ -530,7 +559,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="database-clients">
-<h2><a class="toc-backref" href="#id13">Database Clients</a><a class="headerlink" href="#database-clients" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Database Clients</a><a class="headerlink" href="#database-clients" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/apps/odbc/databases.html">odbc</a></li>
 <li><a class="reference external" href="https://github.com/epgsql/epgsql">epgsql</a></li>
@@ -542,7 +571,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="databases">
-<h2><a class="toc-backref" href="#id14">Databases</a><a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Databases</a><a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/eleveldb">eleveldb</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/ets.html">ETS</a></li>
@@ -553,7 +582,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="data-formats">
-<h2><a class="toc-backref" href="#id15">Data Formats</a><a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Data Formats</a><a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/seancribbs/edn-erlang">edn-erlang</a></li>
 <li><a class="reference external" href="https://github.com/marianoguerra/erldn">erldn</a></li>
@@ -566,7 +595,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="data-structures">
-<h2><a class="toc-backref" href="#id16">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/mochi/statebox">StateBox</a></li>
 <li><a class="reference external" href="https://github.com/basho/riak_dt">riak_dt</a></li>
@@ -575,21 +604,21 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="data-structure-manipulation">
-<h2><a class="toc-backref" href="#id17">Data Structure Manipulation</a><a class="headerlink" href="#data-structure-manipulation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">Data Structure Manipulation</a><a class="headerlink" href="#data-structure-manipulation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ferd/hubble">Hubble</a></li>
 <li><a class="reference external" href="https://github.com/marianoguerra/dotto">Dotto</a></li>
 </ul>
 </div>
 <div class="section" id="date-and-time">
-<h2><a class="toc-backref" href="#id18">Date and Time</a><a class="headerlink" href="#date-and-time" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Date and Time</a><a class="headerlink" href="#date-and-time" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/daleharvey/dh_date">dh_date</a>: Date formatting / parsing library for erlang</li>
 <li><a class="reference external" href="https://github.com/gmr/strftimerl">strftimerl</a>: Erlang implementation of strftime</li>
 </ul>
 </div>
 <div class="section" id="distributed-programming">
-<h2><a class="toc-backref" href="#id19">Distributed Programming</a><a class="headerlink" href="#distributed-programming" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">Distributed Programming</a><a class="headerlink" href="#distributed-programming" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/riak_core">Riak Core</a>: distributed system framework, the core of riak_kv</li>
 <li><a class="reference external" href="https://github.com/Licenser/chash">chash</a>: consistent hashing library extracted from riak_core</li>
@@ -602,7 +631,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="fault-tolerance">
-<h2><a class="toc-backref" href="#id20">Fault Tolerance</a><a class="headerlink" href="#fault-tolerance" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">Fault Tolerance</a><a class="headerlink" href="#fault-tolerance" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/jlouis/fuse">fuse</a>: A Circuit Breaker for Erlang</li>
 <li><a class="reference external" href="https://github.com/jlouis/safetyvalve">safetyvalve</a>: A safety valve for your erlang node</li>
@@ -612,13 +641,13 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="file-system">
-<h2><a class="toc-backref" href="#id21">File System</a><a class="headerlink" href="#file-system" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">File System</a><a class="headerlink" href="#file-system" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/tonyrog/fuserl">fuserl</a>: Erlang bindings for FUSE</li>
 </ul>
 </div>
 <div class="section" id="generative-testing">
-<h2><a class="toc-backref" href="#id22">Generative Testing</a><a class="headerlink" href="#generative-testing" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">Generative Testing</a><a class="headerlink" href="#generative-testing" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://krestenkrab.github.io/triq/">Triq</a></li>
 <li><a class="reference external" href="http://www.quviq.com/products/erlang-quickcheck/">QuickCheck</a></li>
@@ -627,7 +656,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="http-clients">
-<h2><a class="toc-backref" href="#id23">HTTP Clients</a><a class="headerlink" href="#http-clients" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">HTTP Clients</a><a class="headerlink" href="#http-clients" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/shotgun">Shotgun</a></li>
 <li><a class="reference external" href="https://github.com/extend/gun/">Gun</a></li>
@@ -635,7 +664,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="interop">
-<h2><a class="toc-backref" href="#id24">Interop</a><a class="headerlink" href="#interop" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">Interop</a><a class="headerlink" href="#interop" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/apps/jinterface/index.html">jinterface</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/tutorial/nif.html">NIFs</a></li>
@@ -643,7 +672,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="internet-of-things">
-<h2><a class="toc-backref" href="#id25">Internet of Things</a><a class="headerlink" href="#internet-of-things" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">Internet of Things</a><a class="headerlink" href="#internet-of-things" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/gotthardp/gen_coap">gen_coap</a>: Generic Erlang CoAP Client/Server</li>
 <li><a class="reference external" href="https://verne.mq/">vernemq</a>: The most scalable MQTT Message Broker. Powering IoT, M2M, Mobile, and Web Applications.</li>
@@ -653,46 +682,46 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="javascript">
-<h2><a class="toc-backref" href="#id26">Javascript</a><a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">Javascript</a><a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/erlang_js">erlang_js</a></li>
 </ul>
 </div>
 <div class="section" id="json">
-<h2><a class="toc-backref" href="#id27">JSON</a><a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">JSON</a><a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/talentdeficit/jsx">jsx</a></li>
 <li><a class="reference external" href="https://github.com/davisp/jiffy">jiffy</a></li>
 </ul>
 </div>
 <div class="section" id="json-schema">
-<h2><a class="toc-backref" href="#id28">JSON Schema</a><a class="headerlink" href="#json-schema" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">JSON Schema</a><a class="headerlink" href="#json-schema" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/klarna/jesse">jesse</a></li>
 </ul>
 </div>
 <div class="section" id="json-web-token">
-<h2><a class="toc-backref" href="#id29">JSON Web Token</a><a class="headerlink" href="#json-web-token" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">JSON Web Token</a><a class="headerlink" href="#json-web-token" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/ejwt">ejwt</a></li>
 <li><a class="reference external" href="https://github.com/marianoguerra/jwt-erl">jwt-erl</a></li>
 </ul>
 </div>
 <div class="section" id="json-patch">
-<h2><a class="toc-backref" href="#id30">JSON Patch</a><a class="headerlink" href="#json-patch" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">JSON Patch</a><a class="headerlink" href="#json-patch" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/marianoguerra/json-patch.erl">json-patch</a></li>
 </ul>
 </div>
 <div class="section" id="load-generators">
-<h2><a class="toc-backref" href="#id31">Load Generators</a><a class="headerlink" href="#load-generators" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">Load Generators</a><a class="headerlink" href="#load-generators" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/klarna/ponos">Ponos</a></li>
 <li><a class="reference external" href="http://tsung.erlang-projects.org/">Tsung</a></li>
 </ul>
 </div>
 <div class="section" id="logging">
-<h2><a class="toc-backref" href="#id32">Logging</a><a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Logging</a><a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/lager">Lager</a></li>
 <li><a class="reference external" href="https://github.com/Vagabond/erlang-syslog">erlang-syslog</a>: Erlang port driver for interacting with syslog via syslog(3)</li>
@@ -700,7 +729,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="metrics">
-<h2><a class="toc-backref" href="#id33">Metrics</a><a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">Metrics</a><a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/Feuerlabs/exometer">Exometer</a>: Basic measurement objects and probe behavior<ul>
 <li><a class="reference external" href="https://github.com/helium/exometer_json">exometer_json</a>: exometer reporter to push JSON to a sink over HTTP</li>
@@ -710,32 +739,32 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="mocking">
-<h2><a class="toc-backref" href="#id34">Mocking</a><a class="headerlink" href="#mocking" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id35">Mocking</a><a class="headerlink" href="#mocking" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/eproxus/meck">Meck</a></li>
 </ul>
 </div>
 <div class="section" id="networking">
-<h2><a class="toc-backref" href="#id35">Networking</a><a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">Networking</a><a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/lostcolony/damocles">Damocles</a></li>
 </ul>
 </div>
 <div class="section" id="package-manager">
-<h2><a class="toc-backref" href="#id36">Package Manager</a><a class="headerlink" href="#package-manager" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">Package Manager</a><a class="headerlink" href="#package-manager" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://hex.pm/">Hex</a></li>
 <li><a class="reference external" href="https://github.com/hexpm/rebar3_hex">Rebar3 Hex Plugin</a>: plugin to use hex from rebar3</li>
 </ul>
 </div>
 <div class="section" id="patterns">
-<h2><a class="toc-backref" href="#id37">Patterns</a><a class="headerlink" href="#patterns" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id38">Patterns</a><a class="headerlink" href="#patterns" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlangpatterns.org/">Erlang Patterns</a>: An experimental project to apply Christopher Alexander’s pattern language method, as outlined in The Timeless Way of Building, to Erlang programming.</li>
 </ul>
 </div>
 <div class="section" id="parsing">
-<h2><a class="toc-backref" href="#id38">Parsing</a><a class="headerlink" href="#parsing" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id39">Parsing</a><a class="headerlink" href="#parsing" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/man/leex.html">Leex</a>: lexer</li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/yecc.html">Yeec</a>: LLR(1) parser generator</li>
@@ -745,7 +774,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="performance-and-debugging">
-<h2><a class="toc-backref" href="#id39">Performance and Debugging</a><a class="headerlink" href="#performance-and-debugging" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">Performance and Debugging</a><a class="headerlink" href="#performance-and-debugging" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/massemanet/eper">Eper</a></li>
 <li><a class="reference external" href="https://github.com/ferd/recon">Recon</a></li>
@@ -753,13 +782,13 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="plugins">
-<h2><a class="toc-backref" href="#id40">Plugins</a><a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">Plugins</a><a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/barrel-db/hooks">hooks</a>: generic plugin &amp; hook system for Erlang applications</li>
 </ul>
 </div>
 <div class="section" id="protocols">
-<h2><a class="toc-backref" href="#id41">Protocols</a><a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">Protocols</a><a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/archaelus/erlirc">erlirc</a>: Erlang IRC client/server framework</li>
 <li><a class="reference external" href="https://github.com/arcusfelis/mdns">mdns</a>: More generic (yet another) mDNS, Zeroconf, Avahi client/server for Erlang</li>
@@ -767,7 +796,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="products">
-<h2><a class="toc-backref" href="#id42">Products</a><a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">Products</a><a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://couchdb.org/">CouchDB</a>: Database that uses JSON for documents, JavaScrip tfoi MapReduce indexes, anod regular HTTP for its API</li>
 <li><a class="reference external" href="http://www.rabbitmq.com/">RabbitMQ</a>: Robust messaging for applications</li>
@@ -780,20 +809,20 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="xmpp-servers">
-<h2><a class="toc-backref" href="#id43">XMPP Servers</a><a class="headerlink" href="#xmpp-servers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">XMPP Servers</a><a class="headerlink" href="#xmpp-servers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.process-one.net/en/ejabberd/">Ejabberd</a>: World&#8217;s Most Popular XMPP Server</li>
 <li><a class="reference external" href="https://www.erlang-solutions.com/products/mongooseim-massively-scalable-ejabberd-platform">MongooseIM</a>:  Base platform for building high performance messaging systems leveraging XMPP</li>
 </ul>
 </div>
 <div class="section" id="xmpp-clients">
-<h2><a class="toc-backref" href="#id44">XMPP Clients</a><a class="headerlink" href="#xmpp-clients" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id45">XMPP Clients</a><a class="headerlink" href="#xmpp-clients" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/esl/escalus">escalus</a>: XMPP client library for conveniently testing XMPP servers</li>
 </ul>
 </div>
 <div class="section" id="pub-sub">
-<h2><a class="toc-backref" href="#id45">Pub/Sub</a><a class="headerlink" href="#pub-sub" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id46">Pub/Sub</a><a class="headerlink" href="#pub-sub" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://cabol.github.io/erlbus-erlang-message-bus/">ErlBus</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/gen_event.html">gen_event</a></li>
@@ -802,47 +831,53 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="rate-limiting">
-<h2><a class="toc-backref" href="#id46">Rate Limiting</a><a class="headerlink" href="#rate-limiting" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id47">Rate Limiting</a><a class="headerlink" href="#rate-limiting" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ferd/pobox">Pobox</a></li>
 <li><a class="reference external" href="https://github.com/ferd/backoff">Backoff</a></li>
 </ul>
 </div>
 <div class="section" id="release-management">
-<h2><a class="toc-backref" href="#id47">Release Management</a><a class="headerlink" href="#release-management" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id48">Release Management</a><a class="headerlink" href="#release-management" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/erlware/relx">Relx</a></li>
 </ul>
 </div>
 <div class="section" id="routing">
-<h2><a class="toc-backref" href="#id48">Routing</a><a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id49">Routing</a><a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/zotonic/router">Router</a></li>
 <li><a class="reference external" href="https://github.com/inaka/cowboy-trails">Cowboy Trails</a>: A couple of improvements over Cowboy Routes</li>
 </ul>
 </div>
 <div class="section" id="scheduling">
-<h2><a class="toc-backref" href="#id49">Scheduling</a><a class="headerlink" href="#scheduling" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id50">Scheduling</a><a class="headerlink" href="#scheduling" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/erlware/erlcron">ErlCron</a></li>
 </ul>
 </div>
 <div class="section" id="server-sent-events-clients">
-<h2><a class="toc-backref" href="#id50">Server Sent Events Clients</a><a class="headerlink" href="#server-sent-events-clients" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id51">Server Sent Events Clients</a><a class="headerlink" href="#server-sent-events-clients" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/shotgun">Shotgun</a></li>
 <li><a class="reference external" href="https://github.com/extend/gun/">Gun</a></li>
 </ul>
 </div>
 <div class="section" id="sockets">
-<h2><a class="toc-backref" href="#id51">Sockets</a><a class="headerlink" href="#sockets" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id52">Sockets</a><a class="headerlink" href="#sockets" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ninenines/ranch">Ranch</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/gen_tcp.html">gen_tcp</a></li>
 </ul>
 </div>
+<div class="section" id="soap">
+<h2><a class="toc-backref" href="#id53">SOAP</a><a class="headerlink" href="#soap" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/bet365/soap">soap</a>: Make it easy to use SOAP from Erlang</li>
+</ul>
+</div>
 <div class="section" id="static-checkers">
-<h2><a class="toc-backref" href="#id52">Static Checkers</a><a class="headerlink" href="#static-checkers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id54">Static Checkers</a><a class="headerlink" href="#static-checkers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/apps/tools/xref_chapter.html">Xref</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/dialyzer.html">Dialyzer</a></li>
@@ -850,33 +885,33 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="statistics">
-<h2><a class="toc-backref" href="#id53">Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id55">Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/basho_stats">basho_stats</a></li>
 </ul>
 </div>
 <div class="section" id="security">
-<h2><a class="toc-backref" href="#id54">Security</a><a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id56">Security</a><a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/certifi/erlang-certifi">erlang-certifi</a>: SSL Certificates for Erlang</li>
 </ul>
 </div>
 <div class="section" id="templates">
-<h2><a class="toc-backref" href="#id55">Templates</a><a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id57">Templates</a><a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/soranoba/bbmustache">Mustache</a></li>
 <li><a class="reference external" href="https://github.com/erlydtl/erlydtl">ErlyDtl</a></li>
 </ul>
 </div>
 <div class="section" id="testing">
-<h2><a class="toc-backref" href="#id56">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id58">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/apps/common_test/basics_chapter.html">Commom Test</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/apps/eunit/chapter.html">EUnit</a></li>
 </ul>
 </div>
 <div class="section" id="tools">
-<h2><a class="toc-backref" href="#id57">Tools</a><a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id59">Tools</a><a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/zhongwencool/observer_cli">observer_cli</a>:  A sharp shell tool see erlang node.</li>
 <li><a class="reference external" href="https://github.com/andytill/erlyberly">erlyberly</a>: debugger for erlang and elixir using erlang tracing. It is probably the easiest and quickest way to start debugging your erlang nodes.</li>
@@ -885,7 +920,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="utils">
-<h2><a class="toc-backref" href="#id58">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id60">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/erlang-katana">Katana</a></li>
 <li><a class="reference external" href="https://github.com/okeuday/uuid">uuid</a></li>
@@ -894,7 +929,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-servers">
-<h2><a class="toc-backref" href="#id59">Web Servers</a><a class="headerlink" href="#web-servers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id61">Web Servers</a><a class="headerlink" href="#web-servers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ninenines/cowboy">Cowboy</a></li>
 <li><a class="reference external" href="https://github.com/mochi/mochiweb/">Mochiweb</a></li>
@@ -904,7 +939,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-server-utilities">
-<h2><a class="toc-backref" href="#id60">Web Server Utilities</a><a class="headerlink" href="#web-server-utilities" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id62">Web Server Utilities</a><a class="headerlink" href="#web-server-utilities" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/cowboy-swagger">Cowboy Swagger</a>: Swagger integration for Cowboy (built on trails)</li>
 <li><a class="reference external" href="https://github.com/inaka/sumo_rest">sumo_rest</a>: Generic cowboy handlers to work with Sumo</li>
@@ -912,7 +947,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-frameworks">
-<h2><a class="toc-backref" href="#id61">Web Frameworks</a><a class="headerlink" href="#web-frameworks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id63">Web Frameworks</a><a class="headerlink" href="#web-frameworks" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/tsujigiri/axiom">Axiom</a></li>
 <li><a class="reference external" href="https://github.com/ChicagoBoss/ChicagoBoss">ChicagoBoss</a></li>
@@ -920,20 +955,20 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-sockets-servers">
-<h2><a class="toc-backref" href="#id62">Web Sockets Servers</a><a class="headerlink" href="#web-sockets-servers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id64">Web Sockets Servers</a><a class="headerlink" href="#web-sockets-servers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/extend/bullet/">Bullet</a></li>
 <li><a class="reference external" href="https://github.com/synrc/n2o">N2O</a></li>
 </ul>
 </div>
 <div class="section" id="web-sockets-clients">
-<h2><a class="toc-backref" href="#id63">Web Sockets Clients</a><a class="headerlink" href="#web-sockets-clients" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id65">Web Sockets Clients</a><a class="headerlink" href="#web-sockets-clients" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/extend/gun/">Gun</a></li>
 </ul>
 </div>
 <div class="section" id="worker-resource-pools">
-<h2><a class="toc-backref" href="#id64">Worker/Resource Pools</a><a class="headerlink" href="#worker-resource-pools" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id66">Worker/Resource Pools</a><a class="headerlink" href="#worker-resource-pools" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/sidejob">Sidejob</a></li>
 <li><a class="reference external" href="https://github.com/devinus/poolboy">Poolboy</a></li>
@@ -944,7 +979,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="xml">
-<h2><a class="toc-backref" href="#id65">XML</a><a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id67">XML</a><a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/man/xmerl.html">Xmerl</a></li>
 <li><a class="reference external" href="https://github.com/paulgray/exml">exml</a></li>

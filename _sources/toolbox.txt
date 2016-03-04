@@ -337,6 +337,11 @@ Sockets
 * `Ranch <https://github.com/ninenines/ranch>`_
 * `gen_tcp <http://www.erlang.org/doc/man/gen_tcp.html>`_
 
+SOAP
+....
+
+* `soap <https://github.com/bet365/soap>`_: Make it easy to use SOAP from Erlang
+
 Static Checkers
 ...............
 

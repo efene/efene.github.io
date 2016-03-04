@@ -372,6 +372,7 @@
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#scheduling">Scheduling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#server-sent-events-clients">Server Sent Events Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#sockets">Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html#soap">SOAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#static-checkers">Static Checkers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#statistics">Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toolbox.html#security">Security</a></li>
@@ -427,20 +428,20 @@
             
   <div class="section" id="templates">
 <h1>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h1>
-<p>Providing a simple &#8220;getting started&#8221; experience is part of the efene project,
-for this we focus on documentation, support, error messages but also on
-templates so you can get started quickly using the best practices from the
-community.</p>
-<p>For this, efene mantains official rebar3 templates that you can use to create a
-wide variety of projects, here we will give a brief description of each, what&#8217;s
-for and how to install it and use it.</p>
+<p>Providing a simple &#8220;getting started&#8221; experience is part of the efene
+project, for this we focus on documentation, support, error messages but
+also on templates so you can get started quickly using the best practices
+from the community.</p>
+<p>For this, efene mantains official rebar3 templates that you can use to
+create a wide variety of projects, here we will give a brief description
+of each, what they&#8217;re for and how to install and use them.</p>
 <div class="section" id="initial-setup-common-to-all-templates">
 <h2>Initial Setup Common to All Templates<a class="headerlink" href="#initial-setup-common-to-all-templates" title="Permalink to this headline">¶</a></h2>
 <p>First of all you need a recent version of rebar3 installed in your $PATH, for
 instruction on how to install rebar3 please read <a class="reference external" href="http://www.rebar3.org/docs/getting-started">rebar3&#8217;s getting started page</a>.</p>
 <p>Then you need the root template folder available to install the templates, to
 do this run:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.config/rebar3/templates
+<div class="highlight-python"><div class="highlight"><pre><span></span>mkdir -p ~/.config/rebar3/templates
 </pre></div>
 </div>
 </div>
@@ -451,19 +452,19 @@ do this run:</p>
 them you need erlang installed in your system.</p>
 <div class="section" id="install">
 <h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_escript.git ~/.config/rebar3/templates/fn_escript
+<div class="highlight-python"><div class="highlight"><pre><span></span>git clone https://github.com/efene/rebar3_efene_template_escript.git ~/.config/rebar3/templates/fn_escript
 </pre></div>
 </div>
 </div>
 <div class="section" id="use">
 <h3>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_escript name=myscript
+<div class="highlight-python"><div class="highlight"><pre><span></span>rebar3 new fn_escript name=myscript
 cd myscript
 rebar3 escriptize
 </pre></div>
 </div>
 <p>Now you have your script at <cite>_build/default/bin/myscript</cite>, you can put it on your path to use it, let&#8217;s test it:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./_build/default/bin/myscript
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./_build/default/bin/myscript
 Args: []
 
 $ ./_build/default/bin/myscript foo bar
@@ -476,13 +477,13 @@ Args: [&quot;foo&quot;,&quot;bar&quot;]
 <h2>Library Template<a class="headerlink" href="#library-template" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Install<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/marianoguerra/rebar3_efene_template_lib.git ~/.config/rebar3/templates/fn_lib
+<div class="highlight-python"><div class="highlight"><pre><span></span>git clone https://github.com/marianoguerra/rebar3_efene_template_lib.git ~/.config/rebar3/templates/fn_lib
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
 <h3>Use<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_lib name=mylib
+<div class="highlight-python"><div class="highlight"><pre><span></span>rebar3 new fn_lib name=mylib
 cd mylib
 rebar3 compile
 rebar3 ct
@@ -491,7 +492,7 @@ rebar3 ct
 </div>
 <div class="section" id="try">
 <h3>Try<a class="headerlink" href="#try" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ make shell
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ make shell
 
 Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -511,13 +512,13 @@ Bye!
 <h2>OTP Application Template<a class="headerlink" href="#otp-application-template" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
 <h3>Install<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_app.git ~/.config/rebar3/templates/fn_app
+<div class="highlight-python"><div class="highlight"><pre><span></span>git clone https://github.com/efene/rebar3_efene_template_app.git ~/.config/rebar3/templates/fn_app
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
 <h3>Use<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_app name=myapp
+<div class="highlight-python"><div class="highlight"><pre><span></span>rebar3 new fn_app name=myapp
 cd myapp
 rebar compile
 rebar ct
@@ -526,7 +527,7 @@ rebar ct
 </div>
 <div class="section" id="id5">
 <h3>Try<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ make shell
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ make shell
 /home/mariano/tmp/myapp/_build/default/plugins/efene/fnshell -pz /home/mariano/tmp/myapp/_build/default/lib/*/ebin/
 Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -546,13 +547,13 @@ Bye!
 <h2>OTP Release Template<a class="headerlink" href="#otp-release-template" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id6">
 <h3>Install<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_rel.git ~/.config/rebar3/templates/fn_rel
+<div class="highlight-python"><div class="highlight"><pre><span></span>git clone https://github.com/efene/rebar3_efene_template_rel.git ~/.config/rebar3/templates/fn_rel
 </pre></div>
 </div>
 </div>
 <div class="section" id="id7">
 <h3>Use<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_rel name=myrel
+<div class="highlight-python"><div class="highlight"><pre><span></span>rebar3 new fn_rel name=myrel
 cd myrel
 make
 </pre></div>
@@ -560,7 +561,7 @@ make
 </div>
 <div class="section" id="id8">
 <h3>Try<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ make console
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ make console
 
  ...
 
