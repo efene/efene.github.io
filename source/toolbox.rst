@@ -25,6 +25,11 @@ Build Tools
 * `Rebar3 <http://www.rebar3.org/>`_
 * `Erlang.mk <https://github.com/ninenines/erlang.mk>`_
 
+Cache
+.....
+
+* `Fling <https://github.com/basho-labs/fling>`_:  Cache library that promotes keys and values into mochiglobal objects 
+
 Clients
 .......
 
@@ -83,6 +88,7 @@ Databases
 * `Mnesia <http://www.erlang.org/doc/man/mnesia.html>`_
 * `Bitcask <https://github.com/basho/bitcask>`_
 * `sumo_db <https://github.com/inaka/sumo_db>`_
+* `erocksdb <https://github.com/leo-project/erocksdb>`_:  Erlang bindings to RocksDB datastore
 
 Data Formats
 ............
@@ -221,6 +227,7 @@ Metrics
   + `exometer_json <https://github.com/helium/exometer_json>`_: exometer reporter to push JSON to a sink over HTTP
 
 * `Folsom <https://github.com/basho/folsom>`_: Expose Erlang Events and Metrics
+* `MzMetrics <https://github.com/machinezone/mzmetrics>`_:  High performance Erlang metrics library
 
 Mocking
 .......
@@ -259,6 +266,7 @@ Performance and Debugging
 * `Eper <https://github.com/massemanet/eper>`_
 * `Recon <https://github.com/ferd/recon>`_
 * `eflame <https://github.com/proger/eflame>`_
+* `eep <https://github.com/virtan/eep>`_: Erlang Easy Profiling (eep) application provides a way to analyze application performance and call hierarchy
 
 Plugins
 .......
@@ -302,6 +310,7 @@ Pub/Sub
 * `gen_event <http://www.erlang.org/doc/man/gen_event.html>`_
 * `West <https://github.com/cabol/west>`_
 * `TinyMQ <https://github.com/ChicagoBoss/tinymq>`_
+* `Syn <https://github.com/ostinelli/syn>`_:  A global Process Registry and Process Group manager for Erlang
 
 Rate Limiting
 .............
@@ -336,6 +345,7 @@ Sockets
 
 * `Ranch <https://github.com/ninenines/ranch>`_
 * `gen_tcp <http://www.erlang.org/doc/man/gen_tcp.html>`_
+* `Shackle <https://github.com/lpgauth/shackle>`_:  High Performance Erlang Network Client Framework
 
 SOAP
 ....
