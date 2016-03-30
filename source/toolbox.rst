@@ -28,7 +28,10 @@ Build Tools
 Cache
 .....
 
-* `Fling <https://github.com/basho-labs/fling>`_:  Cache library that promotes keys and values into mochiglobal objects 
+* `Fling <https://github.com/basho-labs/fling>`_:  Cache library that promotes keys and values into mochiglobal objects
+* `e2qc <https://github.com/arekinath/e2qc>`_: Erlang 2Q NIF cache
+* `cherly <https://github.com/leo-project/cherly>`_: Cherly (sher-lee) is an in-VM caching library for Erlang
+* `leo_mcerl <https://github.com/leo-project/leo_mcerl>`_: leo_mcerl is a memory cache lib for Erlang
 
 Clients
 .......
@@ -53,6 +56,11 @@ Command Line
 * `escript <http://www.erlang.org/doc/man/escript.html>`_
 * `cf <https://github.com/project-fifo/cf>`_: Colored output for io and io_lib 
 * `etermcap <https://github.com/project-fifo/etermcap>`_: Pure erlang termcap library
+
+Compression
+...........
+
+* `erlang-lz4 <https://github.com/szktty/erlang-lz4>`_: LZ4 bindings for Erlang
 
 Configuration
 ..............
@@ -101,6 +109,7 @@ Data Formats
 * `thrift <https://thrift.apache.org/lib/erl>`_
 * `eavro <https://github.com/SIfoxDevTeam/eavro>`_
 * `benc <https://github.com/jlouis/benc>`_: Erlang BEncode parser/unparser
+* `leo_csv <https://github.com/leo-project/leo_csv>`_: CSV Parser for Erlang
 
 Data Structures
 ...............
@@ -311,6 +320,7 @@ Pub/Sub
 * `West <https://github.com/cabol/west>`_
 * `TinyMQ <https://github.com/ChicagoBoss/tinymq>`_
 * `Syn <https://github.com/ostinelli/syn>`_:  A global Process Registry and Process Group manager for Erlang
+* `leo_mq <https://github.com/leo-project/leo_mq>`_: leo_mq is a local message-queueing library
 
 Rate Limiting
 .............
@@ -363,6 +373,7 @@ Statistics
 ..........
 
 * `basho_stats <https://github.com/basho/basho_stats>`_
+* `bear <https://github.com/boundary/bear>`_: a set of statistics functions for erlang
 
 Security
 ........
@@ -440,6 +451,7 @@ Worker/Resource Pools
 * `episcina <https://github.com/erlware/episcina>`_
 * `gascheduler <https://github.com/GameAnalytics/gascheduler>`_
 * `dispcount <https://github.com/ferd/dispcount>`_: Erlang task dispatcher based on ETS counters
+* `leo_pod <https://github.com/leo-project/leo_pod>_`: A Fast Erlang worker pool manager
 
 XML
 ...
