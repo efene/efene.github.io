@@ -18,6 +18,7 @@ Auth
 ....
 
 * `OAuth2 <https://github.com/kivra/oauth2>`_
+* `social <https://github.com/dvv/social>`_: Cowboy handler for social login via OAuth2 providers
 
 Build Tools
 ...........
