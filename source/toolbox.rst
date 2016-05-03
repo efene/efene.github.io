@@ -400,6 +400,7 @@ Tools
 * `erlyberly <https://github.com/andytill/erlyberly>`_: debugger for erlang and elixir using erlang tracing. It is probably the easiest and quickest way to start debugging your erlang nodes.
 * `visualixir <https://github.com/koudelka/visualixir>`_: toy process visualizer for remote BEAM nodes, written in Phoenix/Elixir/d3.
 * `edump <https://github.com/archaelus/edump>`_: Erlang Crashdump Analysis Suite
+* `kerl <https://github.com/kerl/kerl>`_: Easy building and installing of Erlang/OTP instances
 
 Utils
 .....
