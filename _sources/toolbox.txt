@@ -290,6 +290,11 @@ Protocols
 * `mdns <https://github.com/arcusfelis/mdns>`_: More generic (yet another) mDNS, Zeroconf, Avahi client/server for Erlang
 * `esmtp <https://github.com/archaelus/esmtp>`_: Erlang SMTP library
 
+Probabilistic Data Structures
+.............................
+
+* `hyper <https://github.com/gameanalytics/hyper>`_: Erlang implementation of HyperLogLog
+
 Products
 ........
 
