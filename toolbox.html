@@ -152,6 +152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#security">Security</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-series">Time Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#web-servers">Web Servers</a></li>
@@ -269,15 +270,16 @@ erlang, LFE and Elixir projects.</p>
 <li><a class="reference internal" href="#security" id="id60">Security</a></li>
 <li><a class="reference internal" href="#templates" id="id61">Templates</a></li>
 <li><a class="reference internal" href="#testing" id="id62">Testing</a></li>
-<li><a class="reference internal" href="#tools" id="id63">Tools</a></li>
-<li><a class="reference internal" href="#utils" id="id64">Utils</a></li>
-<li><a class="reference internal" href="#web-servers" id="id65">Web Servers</a></li>
-<li><a class="reference internal" href="#web-server-utilities" id="id66">Web Server Utilities</a></li>
-<li><a class="reference internal" href="#web-frameworks" id="id67">Web Frameworks</a></li>
-<li><a class="reference internal" href="#web-sockets-servers" id="id68">Web Sockets Servers</a></li>
-<li><a class="reference internal" href="#web-sockets-clients" id="id69">Web Sockets Clients</a></li>
-<li><a class="reference internal" href="#worker-resource-pools" id="id70">Worker/Resource Pools</a></li>
-<li><a class="reference internal" href="#xml" id="id71">XML</a></li>
+<li><a class="reference internal" href="#time-series" id="id63">Time Series</a></li>
+<li><a class="reference internal" href="#tools" id="id64">Tools</a></li>
+<li><a class="reference internal" href="#utils" id="id65">Utils</a></li>
+<li><a class="reference internal" href="#web-servers" id="id66">Web Servers</a></li>
+<li><a class="reference internal" href="#web-server-utilities" id="id67">Web Server Utilities</a></li>
+<li><a class="reference internal" href="#web-frameworks" id="id68">Web Frameworks</a></li>
+<li><a class="reference internal" href="#web-sockets-servers" id="id69">Web Sockets Servers</a></li>
+<li><a class="reference internal" href="#web-sockets-clients" id="id70">Web Sockets Clients</a></li>
+<li><a class="reference internal" href="#worker-resource-pools" id="id71">Worker/Resource Pools</a></li>
+<li><a class="reference internal" href="#xml" id="id72">XML</a></li>
 </ul>
 </div>
 <div class="section" id="access-control">
@@ -682,6 +684,7 @@ erlang, LFE and Elixir projects.</p>
 <li><a class="reference external" href="https://github.com/ninenines/ranch">Ranch</a></li>
 <li><a class="reference external" href="http://www.erlang.org/doc/man/gen_tcp.html">gen_tcp</a></li>
 <li><a class="reference external" href="https://github.com/lpgauth/shackle">Shackle</a>:  High Performance Erlang Network Client Framework</li>
+<li><a class="reference external" href="https://github.com/bisphone/Tecipe">Tecipe</a>: Lightweight and Flexible TCP Socket Acceptor Pool for Erlang</li>
 </ul>
 </div>
 <div class="section" id="soap">
@@ -725,8 +728,16 @@ erlang, LFE and Elixir projects.</p>
 <li><a class="reference external" href="http://www.erlang.org/doc/apps/eunit/chapter.html">EUnit</a></li>
 </ul>
 </div>
+<div class="section" id="time-series">
+<h2><a class="toc-backref" href="#id63">Time Series</a><a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/bisphone/Tnesia">Tnesia</a>:  Time-series Data Storage</li>
+<li><a class="reference external" href="https://dalmatiner.io/">DalmatinerDB</a>: A fast, distributed metric store</li>
+<li><a class="reference external" href="https://github.com/basho/riak_kv/tree/riak_ts-1.4.0">RiakTS</a>: NOTE: as of this writing, Riak TS is a branch inside Riak KV, the link may be outdated</li>
+</ul>
+</div>
 <div class="section" id="tools">
-<h2><a class="toc-backref" href="#id63">Tools</a><a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id64">Tools</a><a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/zhongwencool/observer_cli">observer_cli</a>:  A sharp shell tool see erlang node.</li>
 <li><a class="reference external" href="https://github.com/andytill/erlyberly">erlyberly</a>: debugger for erlang and elixir using erlang tracing. It is probably the easiest and quickest way to start debugging your erlang nodes.</li>
@@ -736,7 +747,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="utils">
-<h2><a class="toc-backref" href="#id64">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id65">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/erlang-katana">Katana</a></li>
 <li><a class="reference external" href="https://github.com/okeuday/uuid">uuid</a></li>
@@ -745,7 +756,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-servers">
-<h2><a class="toc-backref" href="#id65">Web Servers</a><a class="headerlink" href="#web-servers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id66">Web Servers</a><a class="headerlink" href="#web-servers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ninenines/cowboy">Cowboy</a></li>
 <li><a class="reference external" href="https://github.com/mochi/mochiweb/">Mochiweb</a></li>
@@ -755,7 +766,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-server-utilities">
-<h2><a class="toc-backref" href="#id66">Web Server Utilities</a><a class="headerlink" href="#web-server-utilities" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id67">Web Server Utilities</a><a class="headerlink" href="#web-server-utilities" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/inaka/cowboy-swagger">Cowboy Swagger</a>: Swagger integration for Cowboy (built on trails)</li>
 <li><a class="reference external" href="https://github.com/inaka/sumo_rest">sumo_rest</a>: Generic cowboy handlers to work with Sumo</li>
@@ -763,7 +774,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-frameworks">
-<h2><a class="toc-backref" href="#id67">Web Frameworks</a><a class="headerlink" href="#web-frameworks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id68">Web Frameworks</a><a class="headerlink" href="#web-frameworks" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/tsujigiri/axiom">Axiom</a></li>
 <li><a class="reference external" href="https://github.com/ChicagoBoss/ChicagoBoss">ChicagoBoss</a></li>
@@ -771,20 +782,20 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="web-sockets-servers">
-<h2><a class="toc-backref" href="#id68">Web Sockets Servers</a><a class="headerlink" href="#web-sockets-servers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id69">Web Sockets Servers</a><a class="headerlink" href="#web-sockets-servers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/extend/bullet/">Bullet</a></li>
 <li><a class="reference external" href="https://github.com/synrc/n2o">N2O</a></li>
 </ul>
 </div>
 <div class="section" id="web-sockets-clients">
-<h2><a class="toc-backref" href="#id69">Web Sockets Clients</a><a class="headerlink" href="#web-sockets-clients" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id70">Web Sockets Clients</a><a class="headerlink" href="#web-sockets-clients" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/extend/gun/">Gun</a></li>
 </ul>
 </div>
 <div class="section" id="worker-resource-pools">
-<h2><a class="toc-backref" href="#id70">Worker/Resource Pools</a><a class="headerlink" href="#worker-resource-pools" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id71">Worker/Resource Pools</a><a class="headerlink" href="#worker-resource-pools" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/basho/sidejob">Sidejob</a></li>
 <li><a class="reference external" href="https://github.com/devinus/poolboy">Poolboy</a></li>
@@ -796,7 +807,7 @@ erlang, LFE and Elixir projects.</p>
 </ul>
 </div>
 <div class="section" id="xml">
-<h2><a class="toc-backref" href="#id71">XML</a><a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id72">XML</a><a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.erlang.org/doc/man/xmerl.html">Xmerl</a></li>
 <li><a class="reference external" href="https://github.com/paulgray/exml">exml</a></li>

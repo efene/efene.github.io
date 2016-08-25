@@ -218,10 +218,10 @@ cd ../../..
 </pre></div>
 </div>
 <p>For this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Dispatch</span> <span class="o">=</span> <span class="n">cowboy_router</span><span class="o">.</span><span class="n">compile</span><span class="p">([(</span><span class="sb">`_`</span><span class="p">,</span>
-                                   <span class="p">[(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">myrestapp_handler</span><span class="p">,</span> <span class="p">[]),</span>
-                                    <span class="p">(</span><span class="s2">&quot;/user&quot;</span><span class="p">,</span> <span class="n">user_rest_handler</span><span class="p">,</span> <span class="p">[])])</span>
-                                 <span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre>Dispatch = cowboy_router.compile([(`_`,
+                                   [(&quot;/&quot;, myrestapp_handler, []),
+                                    (&quot;/user&quot;, user_rest_handler, [])])
+                                 ])
 </pre></div>
 </div>
 <p>Stop the shell if you are running it (call &#8220;q().&#8221;), build and start it again:</p>

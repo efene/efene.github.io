@@ -362,6 +362,7 @@ Sockets
 * `Ranch <https://github.com/ninenines/ranch>`_
 * `gen_tcp <http://www.erlang.org/doc/man/gen_tcp.html>`_
 * `Shackle <https://github.com/lpgauth/shackle>`_:  High Performance Erlang Network Client Framework
+* `Tecipe <https://github.com/bisphone/Tecipe>`_: Lightweight and Flexible TCP Socket Acceptor Pool for Erlang
 
 SOAP
 ....
@@ -397,6 +398,13 @@ Testing
 
 * `Commom Test <http://www.erlang.org/doc/apps/common_test/basics_chapter.html>`_
 * `EUnit <http://www.erlang.org/doc/apps/eunit/chapter.html>`_
+
+Time Series
+...........
+
+* `Tnesia <https://github.com/bisphone/Tnesia>`_:  Time-series Data Storage
+* `DalmatinerDB <https://dalmatiner.io/>`_: A fast, distributed metric store
+* `RiakTS <https://github.com/basho/riak_kv/tree/riak_ts-1.4.0>`_: NOTE: as of this writing, Riak TS is a branch inside Riak KV, the link may be outdated
 
 Tools
 .....
