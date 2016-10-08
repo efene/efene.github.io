@@ -43,6 +43,7 @@ Clients
 * `etorrent <https://github.com/jlouis/etorrent>`_: Erlang Bittorrent Client
 * `amqp_client <https://github.com/jbrisbin/amqp_client>`_: Rebar-friendly fork of rabbitmq-erlang-client
 * `zeta <https://github.com/tel/zeta>`_: An Erlang client for Riemann
+* `chumak <https://github.com/chovencorp/chumak>`_: Pure Erlang implementation of ZeroMQ Message Transport Protocol
 
 Cloud
 .....
@@ -221,6 +222,7 @@ Load Generators
 
 * `Ponos <https://github.com/klarna/ponos>`_
 * `Tsung <http://tsung.erlang-projects.org/>`_
+* `Typhoon <https://github.com/zalando/typhoon>`_
 
 Logging
 .......
@@ -269,6 +271,12 @@ Parsing
 * `Neotoma <https://github.com/seancribbs/neotoma>`_: packrat parser-generator for parsing expression grammars
 
 * `Aleppo <https://github.com/ErlyORM/aleppo>`_: Alternative Erlang Pre-Processor
+
+Parse Transforms & Erlang AST manipulation
+..........................................
+
+* `ast_walk <https://github.com/marianoguerra/ast_walk>`_: Walk the Erlang AST with the ability to mutate it and keep state during transversal
+* `erl_id_trans <http://erlang.org/doc/man/erl_id_trans.html>`_: Erlang identity AST transoform
 
 Performance and Debugging
 .........................
