@@ -132,6 +132,7 @@ Date and Time
 
 * `dh_date <https://github.com/daleharvey/dh_date>`_: Date formatting / parsing library for erlang
 * `strftimerl <https://github.com/gmr/strftimerl>`_: Erlang implementation of strftime
+* `erlang_iso8601 <https://github.com/inaka/erlang_iso8601>`_: Erlang ISO 8601 date formatter/parser
 
 Distributed Programming
 .......................
