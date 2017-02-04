@@ -12,18 +12,12 @@ needs to be done once::
     mkdir -p ~/.config/rebar3/templates
     git clone https://github.com/efene/rebar3_efene_template_app.git ~/.config/rebar3/templates/fn_app
 
-You can install other templates to use later running the following commands::
-
-    git clone https://github.com/efene/rebar3_efene_template_gen_server.git ~/.config/rebar3/templates/fn_gen_server
-    git clone https://github.com/efene/rebar3_efene_template_gen_fsm.git ~/.config/rebar3/templates/fn_gen_fsm
-    git clone https://github.com/efene/rebar3_efene_template_supervisor.git ~/.config/rebar3/templates/fn_supervisor
-
-Now let's create a project called myfnapp using the fn_app template::
+Let's create a project called myfnapp using the fn_app template::
 
     rebar3 new fn_app name=myfnapp
     cd myfnapp
 
-Now we can compile our app::
+Let's compile our app::
 
     rebar3 compile
 
