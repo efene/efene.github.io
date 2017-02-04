@@ -143,44 +143,34 @@
             
   <div class="section" id="quick-start">
 <span id="id1"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
-<p>Here is a screencast of this procedure:</p>
-<script type="text/javascript" src="https://asciinema.org/a/18378.js" id="asciicast-18378" async></script><p>We will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a> to make our lifes easier.</p>
-<p>first we need to install the efene app template to use it later, this only
+<p>We will use <a class="reference external" href="http://www.rebar3.org/">rebar3</a> to make our lifes easier,
+please install it in a place in $PATH.</p>
+<p>First we need to install the efene app template to use it later, this only
 needs to be done once:</p>
 <div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.config/rebar3/templates
 git clone https://github.com/efene/rebar3_efene_template_app.git ~/.config/rebar3/templates/fn_app
 </pre></div>
 </div>
-<p>you can install other templates to use later running the following commands:</p>
+<p>You can install other templates to use later running the following commands:</p>
 <div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_gen_server.git ~/.config/rebar3/templates/fn_gen_server
 git clone https://github.com/efene/rebar3_efene_template_gen_fsm.git ~/.config/rebar3/templates/fn_gen_fsm
 git clone https://github.com/efene/rebar3_efene_template_supervisor.git ~/.config/rebar3/templates/fn_supervisor
 </pre></div>
 </div>
-<p>now let&#8217;s create a project called myfnapp by creating the directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir myfnapp
+<p>Now let&#8217;s create a project called myfnapp using the fn_app template:</p>
+<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_app name=myfnapp
+cd myfnapp
 </pre></div>
 </div>
-<p>then we download the latest version of rebar3 inside our app folder and make it
-executable:</p>
-<div class="highlight-python"><div class="highlight"><pre>cd myfnapp
-wget https://s3.amazonaws.com/rebar3/rebar3
-chmod u+x rebar3
+<p>Now we can compile our app:</p>
+<div class="highlight-python"><div class="highlight"><pre>rebar3 compile
 </pre></div>
 </div>
-<p>and we create a new app called myfnapp using the fn_app template:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 new fn_app name=myfnapp
+<p>Try it in the erlang shell (sorry, no stable efene shell yet):</p>
+<div class="highlight-python"><div class="highlight"><pre>rebar3 shell
 </pre></div>
 </div>
-<p>now we can compile our app:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 compile
-</pre></div>
-</div>
-<p>and try it in the erlang shell (sorry, no stable efene shell yet):</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
-</pre></div>
-</div>
-<p>and try it:</p>
+<p>Try it:</p>
 <div class="highlight-python"><div class="highlight"><pre>1&gt; myfnapp:hello(&quot;mariano&quot;).
 Hello mariano!
 ok
@@ -189,17 +179,17 @@ ok
 5
 </pre></div>
 </div>
-<p>you can quit the shell by calling the q function like this:</p>
+<p>You can quit the shell by calling the q function like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>3&gt; q().
 ok
 </pre></div>
 </div>
-<p>we can also try the logging version of the hello function, which uses the
+<p>We can also try the logging version of the hello function, which uses the
 <a class="reference external" href="https://github.com/basho/lager/">lager logging library</a>, for that we need to
 start the lager application before running the function, this needs to be done
 manually on the shell but will be done automatically by the virtual machine
 when running an application:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 shell
+<div class="highlight-python"><div class="highlight"><pre>rebar3 shell
 
 1&gt; application:ensure_all_started(myfnapp).
 {ok,[syntax_tools,compiler,goldrush,lager,myfnapp]}
@@ -214,19 +204,19 @@ ok
 ok
 </pre></div>
 </div>
-<p>given that we are good software citizens we test our code, that&#8217;s why we want
+<p>Given that we are good software citizens we test our code, that&#8217;s why we want
 to run some unit tests to be sure that this works:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 ct
+<div class="highlight-python"><div class="highlight"><pre>rebar3 ct
 </pre></div>
 </div>
-<p>this will compile the tests and run them for you.</p>
-<p>in the template one test should fail, open test/{{name}}_SUITE.fn
+<p>This will compile the tests and run them for you.</p>
+<p>In the template one test should fail, open test/{{name}}_SUITE.fn
 (test/myfnapp_SUITE if you didn&#8217;t change the app name) and fix it,
 then run the test task again:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 ct
+<div class="highlight-python"><div class="highlight"><pre>rebar3 ct
 </pre></div>
 </div>
-<p>that&#8217;s it, now you can make changes, run <em>./rebar3 ct</em> again and
+<p>That&#8217;s it, now you can make changes, run <em>rebar3 ct</em> again and
 keep going.</p>
 </div>
 
