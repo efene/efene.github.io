@@ -25,8 +25,5 @@ Documentation
    templates
    tradeoffs
    rebar-plugin
-   efene-shell
-   efene-cli
    recommended-libraries
-   guides/index
    toolbox

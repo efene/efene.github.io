@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Efene Shell" href="efene-shell.html"/>
+        <link rel="next" title="Recommended Libraries" href="recommended-libraries.html"/>
         <link rel="prev" title="Language Tradeoffs" href="tradeoffs.html"/> 
 
   
@@ -102,12 +102,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#common-test-task">Common Test Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-task">Shell Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="efene-shell.html">Efene Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a></li>
 </ul>
 
@@ -160,7 +158,7 @@ that is already available in efene rebar templates.</p>
 <div class="section" id="compile-task">
 <h2>Compile Task<a class="headerlink" href="#compile-task" title="Permalink to this headline">¶</a></h2>
 <p>Efene compile task can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene compile
+<div class="highlight-python"><div class="highlight"><pre>rebar3 efene compile
 </pre></div>
 </div>
 <div class="section" id="options">
@@ -193,13 +191,13 @@ that is already available in efene rebar templates.</p>
 <p>This section uses the project described in the <a class="reference internal" href="quickstart.html#quick-start"><span>Quick Start</span></a> section.</p>
 <div class="section" id="compile-all-files">
 <h4>Compile All Files<a class="headerlink" href="#compile-all-files" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>./rebar efene compile
+<div class="highlight-python"><div class="highlight"><pre>rebar3 efene compile
 </pre></div>
 </div>
 </div>
 <div class="section" id="compile-one-file-to-erlang">
 <h4>Compile One File to Erlang<a class="headerlink" href="#compile-one-file-to-erlang" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene compile --format erl --file src/myfnapp.fn
+<div class="highlight-python"><div class="highlight"><pre>rebar3 efene compile --format erl --file src/myfnapp.fn
 </pre></div>
 </div>
 </div>
@@ -209,7 +207,14 @@ that is already available in efene rebar templates.</p>
 <h2>Common Test Task<a class="headerlink" href="#common-test-task" title="Permalink to this headline">¶</a></h2>
 <p>Efene <a class="reference external" href="http://www.erlang.org/doc/man/common_test.html">commmon test</a> task
 can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>./rebar3 efene ct
+<div class="highlight-python"><div class="highlight"><pre>rebar3 efene ct
+</pre></div>
+</div>
+</div>
+<div class="section" id="shell-task">
+<h2>Shell Task<a class="headerlink" href="#shell-task" title="Permalink to this headline">¶</a></h2>
+<p>Efene shell task can be used as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>rebar3 efene shell
 </pre></div>
 </div>
 </div>
@@ -222,7 +227,7 @@ can be used as follows:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="efene-shell.html" class="btn btn-neutral float-right" title="Efene Shell" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="recommended-libraries.html" class="btn btn-neutral float-right" title="Recommended Libraries" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="tradeoffs.html" class="btn btn-neutral" title="Language Tradeoffs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
