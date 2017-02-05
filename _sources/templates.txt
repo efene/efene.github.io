@@ -78,7 +78,7 @@ Try
 
 ::
 
-    $ make shell
+    $ rebar3 efene shell
 
     Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -108,15 +108,15 @@ Use
 
     rebar3 new fn_app name=myapp
     cd myapp
-    rebar compile
-    rebar ct
+    rebar3 compile
+    rebar3 ct
 
 Try
 ...
 
 ::
 
-    $ make shell
+    $ rebar3 efene shell
     /home/mariano/tmp/myapp/_build/default/plugins/efene/fnshell -pz /home/mariano/tmp/myapp/_build/default/lib/*/ebin/
     Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -146,7 +146,7 @@ Use
 
     rebar3 new fn_rel name=myrel
     cd myrel
-    make
+    rebar3 release
 
 Try
 ...

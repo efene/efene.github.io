@@ -233,7 +233,7 @@ rebar3 ct
 </div>
 <div class="section" id="try">
 <h3>Try<a class="headerlink" href="#try" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ make shell
+<div class="highlight-python"><div class="highlight"><pre>$ rebar3 efene shell
 
 Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -261,14 +261,14 @@ Bye!
 <h3>Use<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_app name=myapp
 cd myapp
-rebar compile
-rebar ct
+rebar3 compile
+rebar3 ct
 </pre></div>
 </div>
 </div>
 <div class="section" id="id5">
 <h3>Try<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ make shell
+<div class="highlight-python"><div class="highlight"><pre>$ rebar3 efene shell
 /home/mariano/tmp/myapp/_build/default/plugins/efene/fnshell -pz /home/mariano/tmp/myapp/_build/default/lib/*/ebin/
 Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -296,7 +296,7 @@ Bye!
 <h3>Use<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_rel name=myrel
 cd myrel
-make
+rebar3 release
 </pre></div>
 </div>
 </div>
