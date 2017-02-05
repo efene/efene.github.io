@@ -27,11 +27,11 @@ Try it in the shell::
 
 Try it::
 
-    >>> myfnapp.hello("mariano")
+    >>> myfnapp_util.hello("mariano")
     Hello mariano!
     ok
 
-    >>> myfnapp.add(2, 3)
+    >>> myfnapp_util.add(2, 3)
     5
 
 You can quit the shell by calling the q function like this::
@@ -53,7 +53,7 @@ when running an application::
     20:21:49.127 [info] Application lager started on node nonode@nohost
     20:21:49.127 [info] Application myfnapp started on node nonode@nohost
 
-    >>> myfnapp.log_hello("bob")
+    >>> myfnapp_util.log_hello("bob")
     20:22:11.517 [info] Hello bob!
     ok
 

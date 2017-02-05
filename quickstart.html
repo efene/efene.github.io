@@ -92,10 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-shell.html">Efene Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a></li>
 </ul>
 
@@ -165,11 +162,11 @@ cd myfnapp
 </pre></div>
 </div>
 <p>Try it:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;mariano&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp_util</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;mariano&quot;</span><span class="p">)</span>
 <span class="go">Hello mariano!</span>
 <span class="go">ok</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp_util</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="go">5</span>
 </pre></div>
 </div>
@@ -191,7 +188,7 @@ when running an application:</p>
 20:21:49.127 [info] Application lager started on node nonode@nohost
 20:21:49.127 [info] Application myfnapp started on node nonode@nohost
 
-&gt;&gt;&gt; myfnapp.log_hello(&quot;bob&quot;)
+&gt;&gt;&gt; myfnapp_util.log_hello(&quot;bob&quot;)
 20:22:11.517 [info] Hello bob!
 ok
 

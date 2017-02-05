@@ -122,7 +122,7 @@ Try
 
     efene shell (call q() to quit, help() for help, Ctrl+g for Job Control Mode)
 
-    >>> myapp.add(2, 3)
+    >>> myapp_util.add(2, 3)
     5
 
     >>> q()
