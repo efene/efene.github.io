@@ -90,7 +90,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#erlang-knowledge-required">Erlang Knowledge Required</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#improve-rebar3-plugins">Improve rebar3 plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#improve-the-pretty-printer">Improve the Pretty Printer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#efene-repl">Efene REPL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#erlang-compatibility-tests">Erlang Compatibility Tests</a></li>
 </ul>
 </li>
@@ -213,13 +212,6 @@ specific to existing projects at <a class="reference external" href="https://git
 <h3>Improve the Pretty Printer<a class="headerlink" href="#improve-the-pretty-printer" title="Permalink to this headline">¶</a></h3>
 <p>Efene pretty printer (fn_pp.erl) has some corner cases where indentation is
 broken, take it to go fmt level.</p>
-</div>
-<div class="section" id="efene-repl">
-<h3>Efene REPL<a class="headerlink" href="#efene-repl" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference external" href="http://www.rebar3.org/">rebar3</a> plugin to run an efene repl/shell.</p>
-<p>Ideally make the backend a socket based protocol so we can reuse it in other
-places, investigate if some existing protocol like swank of nrepl fits our
-needs to avoid reinventing the flat tire.</p>
 </div>
 <div class="section" id="erlang-compatibility-tests">
 <h3>Erlang Compatibility Tests<a class="headerlink" href="#erlang-compatibility-tests" title="Permalink to this headline">¶</a></h3>
