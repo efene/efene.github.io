@@ -21,23 +21,24 @@ Let's compile our app::
 
     rebar3 compile
 
-Try it in the erlang shell (sorry, no stable efene shell yet)::
+Try it in the shell::
 
-    rebar3 shell
+    rebar3 efene shell
 
 Try it::
 
-    1> myfnapp:hello("mariano").
+    >>> myfnapp.hello("mariano")
     Hello mariano!
     ok
 
-    2> myfnapp:add(2, 3).
+    >>> myfnapp.add(2, 3)
     5
 
 You can quit the shell by calling the q function like this::
 
-    3> q().
-    ok
+    >>> q()
+
+    Bye!
 
 We can also try the logging version of the hello function, which uses the
 `lager logging library <https://github.com/basho/lager/>`_, for that we need to
@@ -45,19 +46,20 @@ start the lager application before running the function, this needs to be done
 manually on the shell but will be done automatically by the virtual machine
 when running an application::
 
-    rebar3 shell
+    rebar3 efene shell
 
-    1> application:ensure_all_started(myfnapp).
-    {ok,[syntax_tools,compiler,goldrush,lager,myfnapp]}
+    >>> application.ensure_all_started(myfnapp)
+    (ok, [syntax_tools, compiler, goldrush, lager, myfnapp])
     20:21:49.127 [info] Application lager started on node nonode@nohost
     20:21:49.127 [info] Application myfnapp started on node nonode@nohost
 
-    2> myfnapp:log_hello("bob").
+    >>> myfnapp.log_hello("bob")
     20:22:11.517 [info] Hello bob!
     ok
 
-    3> q().
-    ok
+    >>> q()
+
+    Bye!
 
 Given that we are good software citizens we test our code, that's why we want
 to run some unit tests to be sure that this works::
