@@ -9,7 +9,7 @@ Compile Task
 
 Efene compile task can be used as follows::
 
-    ./rebar3 efene compile
+    rebar3 efene compile
 
 Options
 .......
@@ -38,14 +38,14 @@ Compile All Files
 
 ::
 
-    ./rebar efene compile
+    rebar3 efene compile
 
 Compile One File to Erlang
 ::::::::::::::::::::::::::
 
 ::
 
-    ./rebar3 efene compile --format erl --file src/myfnapp.fn
+    rebar3 efene compile --format erl --file src/myfnapp.fn
 
 Common Test Task
 ----------------
@@ -53,4 +53,11 @@ Common Test Task
 Efene `commmon test <http://www.erlang.org/doc/man/common_test.html>`_ task
 can be used as follows::
 
-    ./rebar3 efene ct
+    rebar3 efene ct
+
+Shell Task
+----------
+
+Efene shell task can be used as follows::
+
+    rebar3 efene shell
