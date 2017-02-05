@@ -61,15 +61,6 @@ Improve the Pretty Printer
 Efene pretty printer (fn_pp.erl) has some corner cases where indentation is
 broken, take it to go fmt level.
 
-Efene REPL
-..........
-
-A `rebar3 <http://www.rebar3.org/>`_ plugin to run an efene repl/shell.
-
-Ideally make the backend a socket based protocol so we can reuse it in other
-places, investigate if some existing protocol like swank of nrepl fits our
-needs to avoid reinventing the flat tire.
-
 Erlang Compatibility Tests
 ..........................
 
