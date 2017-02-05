@@ -160,22 +160,23 @@ cd myfnapp
 <div class="highlight-python"><div class="highlight"><pre>rebar3 compile
 </pre></div>
 </div>
-<p>Try it in the erlang shell (sorry, no stable efene shell yet):</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 shell
+<p>Try it in the shell:</p>
+<div class="highlight-python"><div class="highlight"><pre>rebar3 efene shell
 </pre></div>
 </div>
 <p>Try it:</p>
-<div class="highlight-python"><div class="highlight"><pre>1&gt; myfnapp:hello(&quot;mariano&quot;).
-Hello mariano!
-ok
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;mariano&quot;</span><span class="p">)</span>
+<span class="go">Hello mariano!</span>
+<span class="go">ok</span>
 
-2&gt; myfnapp:add(2, 3).
-5
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">5</span>
 </pre></div>
 </div>
 <p>You can quit the shell by calling the q function like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>3&gt; q().
-ok
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="p">()</span>
+
+<span class="go">Bye!</span>
 </pre></div>
 </div>
 <p>We can also try the logging version of the hello function, which uses the
@@ -183,19 +184,20 @@ ok
 start the lager application before running the function, this needs to be done
 manually on the shell but will be done automatically by the virtual machine
 when running an application:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 shell
+<div class="highlight-python"><div class="highlight"><pre>rebar3 efene shell
 
-1&gt; application:ensure_all_started(myfnapp).
-{ok,[syntax_tools,compiler,goldrush,lager,myfnapp]}
+&gt;&gt;&gt; application.ensure_all_started(myfnapp)
+(ok, [syntax_tools, compiler, goldrush, lager, myfnapp])
 20:21:49.127 [info] Application lager started on node nonode@nohost
 20:21:49.127 [info] Application myfnapp started on node nonode@nohost
 
-2&gt; myfnapp:log_hello(&quot;bob&quot;).
+&gt;&gt;&gt; myfnapp.log_hello(&quot;bob&quot;)
 20:22:11.517 [info] Hello bob!
 ok
 
-3&gt; q().
-ok
+&gt;&gt;&gt; q()
+
+Bye!
 </pre></div>
 </div>
 <p>Given that we are good software citizens we test our code, that&#8217;s why we want
