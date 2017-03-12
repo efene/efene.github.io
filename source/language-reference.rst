@@ -543,13 +543,25 @@ Compile Time Information
 
 Using tagged values we can get some information at compile time.
 
-This gets the current line::
+Current line::
 
     Line = #i line
 
-This gets the current module name as an atom::
+Current module name as an atom::
 
     Module = #i module
+
+Current module name as a string::
+
+    Module = #i module_string
+
+Current function name::
+
+    FnName = #i function_name
+
+Current function arity::
+
+    FnArity = #i function_arity
 
 Operations
 ----------
