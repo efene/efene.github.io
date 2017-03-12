@@ -120,10 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-shell.html">Efene Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a></li>
 </ul>
 
@@ -668,6 +665,9 @@ end
 #_ &quot;Compile time information&quot;
 CurrentLine = #i line
 CurrentModule = #i module
+CurrentModuleStr = #i module_string
+CurrentFunction = #i function_name
+CurrentFunctionArity = #i function_arity
 
 #_ &quot;Erlang macro expansion (yes we support erlang macros, defined in erlang modules :)&quot;
 #m Author
