@@ -119,10 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-shell.html">Efene Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a></li>
 </ul>
 
@@ -1060,7 +1057,7 @@ wouldn&#8217;t match if the list has more than one item.</p>
 <div class="section" id="more-about-tagging">
 <h2>More about Tagging<a class="headerlink" href="#more-about-tagging" title="Permalink to this headline">¶</a></h2>
 <p>In the section about records we saw that there&#8217;s a way to tag values to tell
-the compiler to treat them a differently, here we will see other uses of tagged
+the compiler to treat them differently, here we will see other uses of tagged
 values:</p>
 <div class="highlight-javascript"><div class="highlight"><pre>fn tagged_values
     case:
@@ -1073,7 +1070,7 @@ values:</p>
         print(&quot;this three strings are equivalent ~p ~p ~p&quot;, [Hello1, Hello2, Hello3])
 
         print(&quot;this two atoms are equivalent ~p ~p&quot;, [#atom &quot;an atom&quot;, `an atom`])
-        print(&quot;this print is at line ~p in module ~p&quot;, [#i line, #i module])
+        print(&quot;this print is at line ~p in module ~p in function ~p/~p&quot;, [#i line, #i module, #i function_name, #i function_arity])
 end
 </pre></div>
 </div>
@@ -1104,7 +1101,7 @@ there you have the answer.</p>
 atom or you can use back ticks if you prefer a more &#8220;native&#8221; syntax.</p>
 <p>And lastly, something that may be useful to help you print diagnostic messages
 and find problems easier:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>print(&quot;this print is at line ~p in module ~p&quot;, [#i line, #i module])
+<div class="highlight-javascript"><div class="highlight"><pre>print(&quot;this print is at line ~p in module ~p in function ~p/~p&quot;, [#i line, #i module, #i function_name, #i function_arity])
 </pre></div>
 </div>
 <p>if you tag the atoms line and module with the #i tag they will be converted at

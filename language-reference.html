@@ -197,10 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-shell.html">Efene Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="efene-cli.html">Efene Command Line Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recommended-libraries.html">Recommended Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="toolbox.html">BEAM Toolbox</a></li>
 </ul>
 
@@ -781,12 +778,24 @@ endianness and unit.</p>
 <div class="section" id="compile-time-information">
 <h3><a class="toc-backref" href="#id34">Compile Time Information</a><a class="headerlink" href="#compile-time-information" title="Permalink to this headline">¶</a></h3>
 <p>Using tagged values we can get some information at compile time.</p>
-<p>This gets the current line:</p>
+<p>Current line:</p>
 <div class="highlight-python"><div class="highlight"><pre>Line = #i line
 </pre></div>
 </div>
-<p>This gets the current module name as an atom:</p>
+<p>Current module name as an atom:</p>
 <div class="highlight-python"><div class="highlight"><pre>Module = #i module
+</pre></div>
+</div>
+<p>Current module name as a string:</p>
+<div class="highlight-python"><div class="highlight"><pre>Module = #i module_string
+</pre></div>
+</div>
+<p>Current function name:</p>
+<div class="highlight-python"><div class="highlight"><pre>FnName = #i function_name
+</pre></div>
+</div>
+<p>Current function arity:</p>
+<div class="highlight-python"><div class="highlight"><pre>FnArity = #i function_arity
 </pre></div>
 </div>
 </div>

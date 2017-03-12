@@ -1118,7 +1118,7 @@ More about Tagging
 ------------------
 
 In the section about records we saw that there's a way to tag values to tell
-the compiler to treat them a differently, here we will see other uses of tagged
+the compiler to treat them differently, here we will see other uses of tagged
 values:
 
 .. code-block:: javascript
@@ -1134,7 +1134,7 @@ values:
             print("this three strings are equivalent ~p ~p ~p", [Hello1, Hello2, Hello3])
 
             print("this two atoms are equivalent ~p ~p", [#atom "an atom", `an atom`])
-            print("this print is at line ~p in module ~p", [#i line, #i module])
+            print("this print is at line ~p in module ~p in function ~p/~p", [#i line, #i module, #i function_name, #i function_arity])
     end
 
 Let's see them line by line:
@@ -1176,7 +1176,7 @@ and find problems easier:
 
 .. code-block:: javascript
 
-            print("this print is at line ~p in module ~p", [#i line, #i module])
+            print("this print is at line ~p in module ~p in function ~p/~p", [#i line, #i module, #i function_name, #i function_arity])
 
 if you tag the atoms line and module with the #i tag they will be converted at
 compile time to the current line as a number and to the module name as an atom
