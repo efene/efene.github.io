@@ -587,6 +587,9 @@ efene compiler (but you can run efene without them if you wish):
     #_ "Compile time information"
     CurrentLine = #i line
     CurrentModule = #i module
+    CurrentModuleStr = #i module_string
+    CurrentFunction = #i function_name
+    CurrentFunctionArity = #i function_arity
 
     #_ "Erlang macro expansion (yes we support erlang macros, defined in erlang modules :)"
     #m Author
