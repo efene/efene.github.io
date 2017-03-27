@@ -129,17 +129,17 @@ Cons Lists
 
 You can create a list like [1,2,3] with an alternative syntax:
 
-* [1 :: [2 :: [3]]]
+* 1 :: 2 :: [3]
 
 It's useful to extract the head and keep the tail:
 
-* [H :: T] = [1,2,3]
+* H :: T = [1,2,3]
 
 Now *H* is 1, and *T* is [2, 3]
 
 You can do the reverse and create a new list by "consing" a new head to an existing list:
 
-* L = [1 :: [2, 3]]
+* L = 1 :: [2, 3]
 
 Now *L* is [1,2,3]
 
@@ -227,7 +227,7 @@ assignment, a variable can only be bound once.
 The anonymous variable is denoted by underscore (_) and can be used when a
 variable is required but its value can be ignored. Example::
 
-    [H :: _] = [1,2,3]
+    H :: _ = [1,2,3]
 
 Variables starting with underscore (_), for example _Height, are normal
 variables, not anonymous. They are however ignored by the compiler in the sense

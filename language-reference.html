@@ -405,16 +405,16 @@ square brackets ([ and  ]), examples of lists:</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Cons">Cons List Type in Wikipedia</a></p>
 <p>You can create a list like [1,2,3] with an alternative syntax:</p>
 <ul class="simple">
-<li>[1 :: [2 :: [3]]]</li>
+<li>1 :: 2 :: [3]</li>
 </ul>
 <p>It&#8217;s useful to extract the head and keep the tail:</p>
 <ul class="simple">
-<li>[H :: T] = [1,2,3]</li>
+<li>H :: T = [1,2,3]</li>
 </ul>
 <p>Now <em>H</em> is 1, and <em>T</em> is [2, 3]</p>
 <p>You can do the reverse and create a new list by &#8220;consing&#8221; a new head to an existing list:</p>
 <ul class="simple">
-<li>L = [1 :: [2, 3]]</li>
+<li>L = 1 :: [2, 3]</li>
 </ul>
 <p>Now <em>L</em> is [1,2,3]</p>
 </div>
@@ -496,7 +496,7 @@ alphanumeric characters and underscores. Examples:</p>
 assignment, a variable can only be bound once.</p>
 <p>The anonymous variable is denoted by underscore (_) and can be used when a
 variable is required but its value can be ignored. Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>[H :: _] = [1,2,3]
+<div class="highlight-python"><div class="highlight"><pre>H :: _ = [1,2,3]
 </pre></div>
 </div>
 <p>Variables starting with underscore (_), for example _Height, are normal

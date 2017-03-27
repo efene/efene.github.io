@@ -1013,10 +1013,10 @@ nothing else and that&#8217;s the end of the list.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;items on the list are: ~p ~p ~p ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">])</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;the list is ~p&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<span class="nx">print</span><span class="p">(</span><span class="s2">&quot;the list is ~p&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">::</span> <span class="p">[</span><span class="mi">2</span> <span class="o">::</span> <span class="p">[</span><span class="mi">3</span> <span class="o">::</span> <span class="p">[]]]]])</span>
+<span class="nx">print</span><span class="p">(</span><span class="s2">&quot;the list is ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="o">::</span> <span class="mi">2</span> <span class="o">::</span> <span class="mi">3</span> <span class="o">::</span> <span class="p">[]])</span>
 
-<span class="p">[</span><span class="nx">Head1</span> <span class="o">::</span> <span class="nx">Tail1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="p">[</span><span class="nx">Head2</span> <span class="o">::</span> <span class="nx">Tail2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">Head1</span> <span class="o">::</span> <span class="nx">Tail1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nx">Head2</span> <span class="o">::</span> <span class="nx">Tail2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;head ~p, tail ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Head1</span><span class="p">,</span> <span class="nx">Tail1</span><span class="p">])</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;head ~p, tail ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Head2</span><span class="p">,</span> <span class="nx">Tail2</span><span class="p">])</span>
 </pre></div>
@@ -1029,7 +1029,7 @@ nothing else and that&#8217;s the end of the list.</p>
 don&#8217;t know exactly how many elements it has?</p>
 <p>Here&#8217;s where the list structure comes handy, we can match against the head and
 the rest:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">[</span><span class="nx">Head1</span> <span class="o">::</span> <span class="nx">Tail1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Head1</span> <span class="o">::</span> <span class="nx">Tail1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;head ~p, tail ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Head1</span><span class="p">,</span> <span class="nx">Tail1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1042,7 +1042,7 @@ Tail1 variable, notice that we use a special operator <strong>::</strong> to exp
 we are not matching a list of two items like we would if we wrote [Head1, Tail1]
 but that we want to extract the head and tail of the list.</p>
 <p>But what if the list has just one item?, let&#8217;s see:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">[</span><span class="nx">Head2</span> <span class="o">::</span> <span class="nx">Tail2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Head2</span> <span class="o">::</span> <span class="nx">Tail2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;head ~p, tail ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Head2</span><span class="p">,</span> <span class="nx">Tail2</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1065,7 +1065,7 @@ values:</p>
 
         Hello1 = &quot;hello&quot;
         Hello2 = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
-        Hello3 = [#c &quot;h&quot; :: [#c &quot;e&quot; :: [#c &quot;l&quot; :: [#c &quot;l&quot; :: [#c &quot;o&quot; :: []]]]]]
+        Hello3 = [#c &quot;h&quot; :: #c &quot;e&quot; :: #c &quot;l&quot; :: #c &quot;l&quot; :: #c &quot;o&quot; :: []]
 
         print(&quot;this three strings are equivalent ~p ~p ~p&quot;, [Hello1, Hello2, Hello3])
 
@@ -1084,7 +1084,7 @@ lists of characters, and we also said that lists are simple nested pairs,
 let&#8217;s reinforce that with the following example:</p>
 <div class="highlight-javascript"><div class="highlight"><pre>Hello1 = &quot;hello&quot;
 Hello2 = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
-Hello3 = [#c &quot;h&quot; :: [#c &quot;e&quot; :: [#c &quot;l&quot; :: [#c &quot;l&quot; :: [#c &quot;o&quot; :: []]]]]]
+Hello3 = [#c &quot;h&quot; :: #c &quot;e&quot; :: #c &quot;l&quot; :: #c &quot;l&quot; :: #c &quot;o&quot; :: []]
 
 print(&quot;this three strings are equivalent ~p ~p ~p&quot;, [Hello1, Hello2, Hello3])
 </pre></div>

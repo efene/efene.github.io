@@ -1066,10 +1066,10 @@ Let's see an example:
         [One, Two, Three, Four] = [1, 2, 3, 4]
         print("items on the list are: ~p ~p ~p ~p", [One, Two, Three, Four])
         print("the list is ~p", [[1, 2, 3, 4]])
-        print("the list is ~p", [[1 :: [2 :: [3 :: []]]]])
+        print("the list is ~p", [1 :: 2 :: 3 :: []])
 
-        [Head1 :: Tail1] = [1, 2, 3, 4]
-        [Head2 :: Tail2] = [1]
+        Head1 :: Tail1 = [1, 2, 3, 4]
+        Head2 :: Tail2 = [1]
         print("head ~p, tail ~p", [Head1, Tail1])
         print("head ~p, tail ~p", [Head2, Tail2])
 
@@ -1087,7 +1087,7 @@ the rest:
 
 .. code-block:: javascript
 
-        [Head1 :: Tail1] = [1, 2, 3, 4]
+        Head1 :: Tail1 = [1, 2, 3, 4]
         print("head ~p, tail ~p", [Head1, Tail1])
 
 This will print::
@@ -1103,7 +1103,7 @@ But what if the list has just one item?, let's see:
 
 .. code-block:: javascript
 
-        [Head2 :: Tail2] = [1]
+        Head2 :: Tail2 = [1]
         print("head ~p, tail ~p", [Head2, Tail2])
 
 This will print::
@@ -1129,7 +1129,7 @@ values:
 
             Hello1 = "hello"
             Hello2 = [#c "h", #c "e", #c "l", #c "l", #c "o"]
-            Hello3 = [#c "h" :: [#c "e" :: [#c "l" :: [#c "l" :: [#c "o" :: []]]]]]
+            Hello3 = [#c "h" :: #c "e" :: #c "l" :: #c "l" :: #c "o" :: []]
 
             print("this three strings are equivalent ~p ~p ~p", [Hello1, Hello2, Hello3])
 
@@ -1152,7 +1152,7 @@ let's reinforce that with the following example:
 
             Hello1 = "hello"
             Hello2 = [#c "h", #c "e", #c "l", #c "l", #c "o"]
-            Hello3 = [#c "h" :: [#c "e" :: [#c "l" :: [#c "l" :: [#c "o" :: []]]]]]
+            Hello3 = [#c "h" :: #c "e" :: #c "l" :: #c "l" :: #c "o" :: []]
 
             print("this three strings are equivalent ~p ~p ~p", [Hello1, Hello2, Hello3])
 
