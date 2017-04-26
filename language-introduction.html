@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
         <link rel="next" title="Language Reference" href="language-reference.html"/>
         <link rel="prev" title="Efene Quick Introduction for the Busy/Lazy Programmer" href="quick-efene-introduction-busy-programmer.html"/> 
@@ -86,7 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html">Efene Quick Introduction for the Busy/Lazy Programmer</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Efene Introduction</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Efene Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#a-simple-function">A Simple Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#variables-on-function-arguments">Variables on Function Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a-function-with-two-cases">A Function with Two Cases</a></li>
@@ -155,7 +158,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/language-introduction.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/language-introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,7 +171,7 @@
   <div class="section" id="efene-introduction">
 <span id="introduction"></span><h1>Efene Introduction<a class="headerlink" href="#efene-introduction" title="Permalink to this headline">¶</a></h1>
 <p>This section describes the language through simple working examples, for a
-complete reference see <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
+complete reference see <a class="reference internal" href="language-reference.html#language-reference"><span class="std std-ref">Language Reference</span></a>.</p>
 <p>We will introduce the data types as we need them, but for a quick introduction
 let&#8217;s say that if you know what JSON is, which data types it support and how to
 read it then you know 80% of efene&#8217;s data types and syntax.</p>
@@ -176,7 +179,7 @@ read it then you know 80% of efene&#8217;s data types and syntax.</p>
 <h2>A Simple Function<a class="headerlink" href="#a-simple-function" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s start defining the simplest function ever, a function
 that receives no arguments and returns a number:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">return_one</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">return_one</span>
     <span class="k">case</span><span class="o">:</span> <span class="mi">1</span>
 <span class="nx">end</span>
 </pre></div>
@@ -203,7 +206,7 @@ worry, as we go along we will assume understanding on things explained before.</
 <h2>Variables on Function Arguments<a class="headerlink" href="#variables-on-function-arguments" title="Permalink to this headline">¶</a></h2>
 <p>Not let&#8217;s write a function that takes some arguments and does something,
 let&#8217;s make a function that adds two numbers:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">add_two</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">add_two</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="o">:</span> <span class="nx">A</span> <span class="o">+</span> <span class="nx">B</span>
 <span class="nx">end</span>
 </pre></div>
@@ -225,7 +228,7 @@ expression of a block is the returned value.</p>
 that is executed depends on the value of the arguments and optionally on conditions
 of those arguments.</p>
 <p>Let&#8217;s try our first function with two cases then:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">bool_to_text</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">bool_to_text</span>
     <span class="k">case</span> <span class="kc">true</span><span class="o">:</span> <span class="s1">&#39;true&#39;</span>
     <span class="k">case</span> <span class="kc">false</span><span class="o">:</span> <span class="s1">&#39;false&#39;</span>
     <span class="k">else</span><span class="o">:</span> <span class="s1">&#39;not a boolean&#39;</span>
@@ -244,7 +247,7 @@ body <strong>if</strong> the values match the patterns.</p>
 arguments but where we don&#8217;t care about those values, it&#8217;s kind of a catch all,
 clause. We use it to return when the argument is not a boolean.</p>
 <p>Here is an alternative way of writing that function:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">bool_to_text</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">bool_to_text</span>
     <span class="k">case</span> <span class="kc">true</span><span class="o">:</span> <span class="s1">&#39;true&#39;</span>
     <span class="k">case</span> <span class="kc">false</span><span class="o">:</span> <span class="s1">&#39;false&#39;</span>
     <span class="k">case</span> <span class="nx">_</span><span class="o">:</span> <span class="s1">&#39;not a boolean&#39;</span>
@@ -271,7 +274,7 @@ both values will mean it will check if they are equal.</p>
 <p>This allows for a really nice trick which is to check if two arguments have the
 same value, let&#8217;s try it creating a function that returns true if both
 parameters are equal:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">two_are_the_same</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">two_are_the_same</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">A</span><span class="o">:</span> <span class="kc">true</span>
     <span class="k">case</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span><span class="o">:</span> <span class="kc">false</span>
 <span class="nx">end</span>
@@ -286,7 +289,7 @@ all the other cases.</p>
 <p>As before we can use the else clause instead of matching with <strong>__</strong>, notice
 that efene is smart enough to match all the arguments in the function, this
 means the else is &#8220;expanded&#8221; to &#8220;case _, _:&#8221; so you don&#8217;t have to.</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">two_are_the_same_1</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">two_are_the_same_1</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">A</span><span class="o">:</span> <span class="kc">true</span>
     <span class="k">else</span><span class="o">:</span> <span class="kc">false</span>
 <span class="nx">end</span>
@@ -296,7 +299,7 @@ means the else is &#8220;expanded&#8221; to &#8220;case _, _:&#8221; so you don&
 number of arguments or you will get a compiler error.</p>
 <p>There&#8217;s still a third way to write this function which may surprise you, let&#8217;s
 see it first and later discus it:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">two_are_the_same_2</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">two_are_the_same_2</span>
     <span class="k">case</span> <span class="nx">_A</span><span class="p">,</span> <span class="nx">_A</span><span class="o">:</span> <span class="kc">true</span>
     <span class="k">else</span><span class="o">:</span> <span class="kc">false</span>
 <span class="nx">end</span>
@@ -319,7 +322,7 @@ normal variables the compiler treats them a little different, if a variable
 starts with an underscore the compiler understands that you aren&#8217;t going to use
 it so it won&#8217;t raise a warning if the variable isn&#8217;t used.</p>
 <p>But there&#8217;s still another way of writing this function:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">two_are_the_same_3</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">two_are_the_same_3</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span> <span class="nx">when</span> <span class="nx">A</span> <span class="o">==</span> <span class="nx">B</span><span class="o">:</span> <span class="kc">true</span>
     <span class="k">else</span><span class="o">:</span> <span class="kc">false</span>
 <span class="nx">end</span>
@@ -334,7 +337,7 @@ more complex.</p>
 <p>One more thing..., those guards look a lot like if statements on other languages,
 can we use them standalone too?</p>
 <p>well, yes we can, let&#8217;s rewrite the previous function one more time:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">two_are_the_same_3</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">two_are_the_same_3</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="o">:</span>
         <span class="nx">when</span> <span class="nx">A</span> <span class="o">==</span> <span class="nx">B</span><span class="o">:</span>
             <span class="kc">true</span>
@@ -362,7 +365,7 @@ versions of efene may introduce if expressions, but not before 1.0.</p>
 <p>Let&#8217;s put all the things we learned about function definitions together in a
 simple example.</p>
 <p>Let&#8217;s write a function that divides two numbers:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">divide_two_unsafe</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">divide_two_unsafe</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="o">:</span> <span class="nx">A</span> <span class="o">/</span> <span class="nx">B</span>
 <span class="nx">end</span>
 </pre></div>
@@ -371,7 +374,7 @@ simple example.</p>
 has a little problem, what happens if B is 0? well, in the erlang virtual machine
 this will raise an exception.</p>
 <p>Let&#8217;s rewrite it to avoid raising an exception:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">divide_two</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">divide_two</span>
     <span class="k">case</span> <span class="nx">_A</span><span class="p">,</span> <span class="mi">0</span><span class="o">:</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">division_by_zero</span><span class="p">)</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="o">:</span> <span class="p">(</span><span class="nx">ok</span><span class="p">,</span> <span class="nx">A</span> <span class="o">/</span> <span class="nx">B</span><span class="p">)</span>
 <span class="nx">end</span>
@@ -404,7 +407,7 @@ with the .fn extension.</p>
 <p>There&#8217;s a module that you will use frequently and it&#8217;s the <a class="reference external" href="http://erlang.org/doc/man/io.html">io module</a></p>
 <p>the most useful function it has is the <a class="reference external" href="http://erlang.org/doc/man/io.html#format-1">io.format function</a></p>
 <p>Let&#8217;s create a simple function that wraps the io.format function:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">print</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">print</span>
    <span class="k">case</span> <span class="nx">Text</span><span class="o">:</span>
         <span class="nx">io</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">Text</span> <span class="o">++</span> <span class="s2">&quot;~n&quot;</span><span class="p">)</span>
 <span class="nx">end</span>
@@ -414,7 +417,7 @@ with the .fn extension.</p>
 io.format(Text ++ &#8220;~n&#8221;).</p>
 <p>There are some new things to describe here.</p>
 <p>First, function calls are done similarly to all algol-like languages:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">function_name</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">function_name</span><span class="p">()</span>
 <span class="n">function_name</span><span class="p">(</span><span class="n">argument1</span><span class="p">)</span>
 <span class="n">function_name</span><span class="p">(</span><span class="n">argument1</span><span class="p">,</span> <span class="n">argument2</span><span class="p">)</span>
 </pre></div>
@@ -423,7 +426,7 @@ io.format(Text ++ &#8220;~n&#8221;).</p>
 <p>Second, calling a function in another module is done also in a similar way
 than algol-like languages, by specifying the module and the function joined by
 a dot:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">module_name</span><span class="o">.</span><span class="n">function_name</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">module_name</span><span class="o">.</span><span class="n">function_name</span><span class="p">()</span>
 <span class="n">module_name</span><span class="o">.</span><span class="n">function_name</span><span class="p">(</span><span class="n">argument1</span><span class="p">)</span>
 <span class="n">module_name</span><span class="o">.</span><span class="n">function_name</span><span class="p">(</span><span class="n">argument1</span><span class="p">,</span> <span class="n">argument2</span><span class="p">)</span>
 </pre></div>
@@ -435,7 +438,7 @@ double quotes and in an example before we used single quotes.</p>
 <p>In some other languages like python and javascript this doesn&#8217;t make a
 difference since both single quoted and double quoted strings are treated the
 same, but in efene they are different, I will leave the details for the
-<a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a> but I will say that single quote strings are binary
+<a class="reference internal" href="language-reference.html#language-reference"><span class="std std-ref">Language Reference</span></a> but I will say that single quote strings are binary
 strings and double quote strings are list strings.</p>
 <p>For now I will just say that most functions in the standard library expect list
 strings and will fail if binary strings are used.</p>
@@ -449,7 +452,7 @@ on list strings with operations and functions that expect lists, the bad part
 is that it&#8217;s almost impossible to distinguish a list string from a list of
 numbers, that&#8217;s why sometimes we use binary strings.</p>
 <p>It took a lot of text to describe what:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Text</span> <span class="o">++</span> <span class="s2">&quot;~n&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Text</span> <span class="o">++</span> <span class="s2">&quot;~n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>does, but now that we clarified everything we can sum it up with:</p>
@@ -467,7 +470,7 @@ function).</p>
 number of arguments and they will be different functions.</p>
 <p>To try this let&#8217;s define a new function with the same name as the one we defined
 above but with a different <em>arity</em>:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">print</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">print</span>
     <span class="k">case</span> <span class="nx">Format</span><span class="p">,</span> <span class="nx">Args</span><span class="o">:</span>
         <span class="nx">io</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">Format</span> <span class="o">++</span> <span class="s2">&quot;~n&quot;</span><span class="p">,</span> <span class="nx">Args</span><span class="p">)</span>
 <span class="nx">end</span>
@@ -489,11 +492,11 @@ it on the left section on the linked documentation.</p>
 <p>The one you should learn right now other than ~n is ~p, which means &#8220;replace
 this control sequence for the value provided in the Args list in this position&#8221;.</p>
 <p>For example, calling</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;first argument is ~p second argument is ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">false</span><span class="p">])</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;first argument is ~p second argument is ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">false</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>will print:</p>
-<div class="highlight-python"><div class="highlight"><pre>first argument is 1 second argument is false
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="n">argument</span> <span class="ow">is</span> <span class="mi">1</span> <span class="n">second</span> <span class="n">argument</span> <span class="ow">is</span> <span class="n">false</span>
 </pre></div>
 </div>
 </div>
@@ -503,7 +506,7 @@ this control sequence for the value provided in the Args list in this position&#
 case where you write the name and arguments and optionally the module name.</p>
 <p>Say you want to call a function dynamically, that is, some part is defined in
 a variable, how would you do that? let&#8217;s see:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>fn dynamic_call
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>fn dynamic_call
     @doc(&quot;this function shows all the ways you can call a function&quot;)
     case:
         Mod = lists
@@ -546,19 +549,19 @@ the module, types and any other use you may think of, in this case we attach
 the docs for the function.</p>
 <p>the function dynamic_call receives no arguments and calls the function <a class="reference external" href="http://www.erlang.org/doc/man/lists.html#seq-2">lists.seq:2</a> in any way it can.</p>
 <p>first the usual way:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>then using the Fun variable to provide the function name:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">Fun</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">Fun</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>then using the Mod variable to provide the module name</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="nx">Mod</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="nx">Mod</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>then using both Mod and Fun</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="nx">Mod</span><span class="p">.</span><span class="nx">Fun</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="nx">Mod</span><span class="p">.</span><span class="nx">Fun</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Notice that all function calls <strong>match</strong> the result against the same variable
@@ -570,7 +573,7 @@ calls return the same value.</p>
 we hold a reference to the function in a variable which we can pass around.</p>
 <p>Again there are many ways to get a function reference, in all of them we need
 to specify the module (optionally), the function name and the arity:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">F1</span> <span class="o">=</span> <span class="nx">fn</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="o">:</span><span class="mi">2</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">F1</span> <span class="o">=</span> <span class="nx">fn</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="o">:</span><span class="mi">2</span>
 <span class="nx">F2</span> <span class="o">=</span> <span class="nx">fn</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">Fun</span><span class="o">:</span><span class="mi">2</span>
 <span class="nx">F3</span> <span class="o">=</span> <span class="nx">fn</span> <span class="nx">Mod</span><span class="p">.</span><span class="nx">seq</span><span class="o">:</span><span class="mi">2</span>
 <span class="nx">F4</span> <span class="o">=</span> <span class="nx">fn</span> <span class="nx">Mod</span><span class="p">.</span><span class="nx">Fun</span><span class="o">:</span><span class="mi">2</span>
@@ -578,7 +581,7 @@ to specify the module (optionally), the function name and the arity:</p>
 </div>
 <p>Like before we can use variables which hold the name of the module, function
 or both, now we can call the function with our function references:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="nx">F1</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="nx">F1</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
 <span class="nx">R</span> <span class="o">=</span> <span class="nx">F2</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
 <span class="nx">R</span> <span class="o">=</span> <span class="nx">F3</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
 <span class="nx">R</span> <span class="o">=</span> <span class="nx">F4</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span>
@@ -586,13 +589,13 @@ or both, now we can call the function with our function references:</p>
 </div>
 <p>We can also <em>wrap</em> the function in an anonymous function and assign that
 anonymous function to a variable, then call it:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Fn</span> <span class="o">=</span> <span class="nx">fn</span> <span class="k">case</span><span class="o">:</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span> <span class="nx">end</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Fn</span> <span class="o">=</span> <span class="nx">fn</span> <span class="k">case</span><span class="o">:</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">)</span> <span class="nx">end</span>
 <span class="nx">R</span> <span class="o">=</span> <span class="nx">Fn</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>If we had the arguments to the function in a list we can also call the function
 dynamically using <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#apply-3">erlang.apply:3</a></p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="nx">apply</span><span class="p">(</span><span class="nx">lists</span><span class="p">,</span> <span class="nx">seq</span><span class="p">,</span> <span class="p">[</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">])</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="nx">apply</span><span class="p">(</span><span class="nx">lists</span><span class="p">,</span> <span class="nx">seq</span><span class="p">,</span> <span class="p">[</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">])</span>
 <span class="nx">R</span> <span class="o">=</span> <span class="nx">apply</span><span class="p">(</span><span class="nx">lists</span><span class="p">,</span> <span class="nx">Fun</span><span class="p">,</span> <span class="p">[</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">])</span>
 <span class="nx">R</span> <span class="o">=</span> <span class="nx">apply</span><span class="p">(</span><span class="nx">Mod</span><span class="p">,</span> <span class="nx">seq</span><span class="p">,</span> <span class="p">[</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">])</span>
 <span class="nx">R</span> <span class="o">=</span> <span class="nx">apply</span><span class="p">(</span><span class="nx">Mod</span><span class="p">,</span> <span class="nx">Fun</span><span class="p">,</span> <span class="p">[</span><span class="nx">From</span><span class="p">,</span> <span class="nx">To</span><span class="p">])</span>
@@ -603,14 +606,14 @@ dynamically using <a class="reference external" href="http://www.erlang.org/doc/
 <div class="section" id="some-more-pattern-matching">
 <h2>Some more Pattern Matching<a class="headerlink" href="#some-more-pattern-matching" title="Permalink to this headline">¶</a></h2>
 <p>If now we want to print the result of calling divide_two we can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s2">&quot;result is: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">divide_two</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;result is: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">divide_two</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
 </pre></div>
 </div>
 <p>Which will work but it will print the tuple directly, what we want to do
 is to pattern match against the result and print a different message depending
 if the result was successful or not.</p>
 <p>For that we can define the following function:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">print_div_result</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">print_div_result</span>
     <span class="k">case</span> <span class="p">(</span><span class="nx">ok</span><span class="p">,</span> <span class="nx">Result</span><span class="p">)</span><span class="o">:</span>
         <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;result is: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Result</span><span class="p">])</span>
     <span class="k">case</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">Reason</span><span class="p">)</span><span class="o">:</span>
@@ -630,7 +633,7 @@ to create a function to do the pattern match?</p>
 <p>luckily the answer is no, there&#8217;s a way to do pattern matching with multiple
 cases inside the body of a function, let&#8217;s see how by defining the same
 functionality as above but with a function with a single case clause:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">print_div_result_1</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">print_div_result_1</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="o">:</span>
          <span class="nx">match</span> <span class="nx">divide_two</span><span class="p">(</span><span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="p">)</span><span class="o">:</span>
             <span class="k">case</span> <span class="p">(</span><span class="nx">ok</span><span class="p">,</span> <span class="nx">Result</span><span class="p">)</span><span class="o">:</span>
@@ -651,7 +654,7 @@ the content of the print_div_result function.</p>
 a convenient syntax that will &#8220;unroll&#8221; the tuple for you in the case clauses
 without having to write the parenthesis yourself, let&#8217;s see a version that uses
 this feature:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">print_div_result_2</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">print_div_result_2</span>
     <span class="k">case</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="o">:</span>
          <span class="nx">match</span> <span class="nx">divide_two</span><span class="p">(</span><span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="p">)</span><span class="o">:</span>
             <span class="k">case</span> <span class="nx">ok</span><span class="p">,</span> <span class="nx">Result</span><span class="o">:</span>
@@ -669,7 +672,7 @@ the expression in match can be only one).</p>
 this one justifies its existence).</p>
 <p>if you want to match a tuple of one item in a match expression you need to write
 it explicitly, a small example to see why:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Value</span> <span class="o">=</span> <span class="p">(</span><span class="mi">42</span><span class="p">,)</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Value</span> <span class="o">=</span> <span class="p">(</span><span class="mi">42</span><span class="p">,)</span>
 
 <span class="nx">match</span> <span class="nx">Value</span><span class="o">:</span>
     <span class="k">case</span> <span class="p">(</span><span class="mi">42</span><span class="p">,)</span><span class="o">:</span> <span class="nx">ok</span>
@@ -697,7 +700,7 @@ for comprehension, which is similar to a list comprehension (or a map operation
 if you come from more functional background).</p>
 <p>The for comprehension will assign each item of the list to a variable and
 execute the block of code with it:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nx">I</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">:</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I</span><span class="p">])</span>
 <span class="nx">end</span>
 </pre></div>
@@ -713,7 +716,7 @@ a huge list for nothing. If you want to avoid this, you can write a simple value
 like <strong>nil</strong> as the last expression in the for body.</p>
 <p>Like everything else in efene you can write guards to restrict the values generated
 from the collection you are iteration over, for example, let&#8217;s skip the odd values:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I1</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nx">I1</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I1: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I1</span><span class="p">])</span>
 <span class="nx">end</span>
 </pre></div>
@@ -721,14 +724,14 @@ from the collection you are iteration over, for example, let&#8217;s skip the od
 <p>In a for comprehension you can have one or more generators and filters separated
 by semicolons, here we can have more than one filter, let&#8217;s skip odd values and
 the number 8:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I2</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">when</span> <span class="nx">I2</span> <span class="o">!=</span> <span class="mi">8</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nx">I2</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">when</span> <span class="nx">I2</span> <span class="o">!=</span> <span class="mi">8</span><span class="o">:</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I2: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I2</span><span class="p">])</span>
 <span class="nx">end</span>
 </pre></div>
 </div>
 <p>We can also have more than one generator, here we will generate two values and
 will print them only if thy are not equal:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="nx">I3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">J3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I3</span> <span class="o">!=</span> <span class="nx">J3</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nx">I3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">J3</span> <span class="k">in</span> <span class="nx">lists</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="nx">when</span> <span class="nx">I3</span> <span class="o">!=</span> <span class="nx">J3</span><span class="o">:</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;I3, J3: ~p, ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">I3</span><span class="p">,</span> <span class="nx">J3</span><span class="p">])</span>
 <span class="nx">end</span>
 </pre></div>
@@ -740,7 +743,7 @@ will print them only if thy are not equal:</p>
 second argument being 0 an exception would occur, how do we handle that exception?</p>
 <p>As is common in languages with exceptions there&#8217;s a way to catch them, let&#8217;s
 see how it works in efene:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="k">try</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">try</span>
     <span class="nx">divide_two_unsafe</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">catch</span>
     <span class="k">case</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">E</span><span class="o">:</span>
@@ -785,18 +788,18 @@ print what the error was.</p>
 <h2>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
 <p>If you come from a mainstream programming language the arithmetic operations
 won&#8217;t be a surprise for you, here is a simple operation to illustrate them:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;add ops ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">+</span> <span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;add ops ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">+</span> <span class="o">-</span><span class="mi">4</span><span class="p">])</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;mul ops ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">%</span> <span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>For more details on operations described in this and the following sections see
-the <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
+the <a class="reference internal" href="language-reference.html#language-reference"><span class="std std-ref">Language Reference</span></a>.</p>
 </div>
 <div class="section" id="comparison-operations">
 <h2>Comparison Operations<a class="headerlink" href="#comparison-operations" title="Permalink to this headline">¶</a></h2>
 <p>Like before, comparison operations are really similar to mainstream programming
 languages with a little difference:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">4</span> <span class="nx">is</span> <span class="mi">5</span> <span class="o">!=</span> <span class="mi">6</span> <span class="nx">isnt</span> <span class="mi">7</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="o">&gt;</span> <span class="mi">9</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">4</span> <span class="nx">is</span> <span class="mi">5</span> <span class="o">!=</span> <span class="mi">6</span> <span class="nx">isnt</span> <span class="mi">7</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="o">&gt;</span> <span class="mi">9</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;comp ops ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">R</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -805,7 +808,7 @@ languages with a little difference:</p>
 <div class="section" id="boolean-operations">
 <h2>Boolean Operations<a class="headerlink" href="#boolean-operations" title="Permalink to this headline">¶</a></h2>
 <p>Without further ado, here are the boolean operations:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="kc">true</span> <span class="nx">and</span> <span class="kc">false</span> <span class="nx">or</span> <span class="kc">true</span> <span class="nx">xor</span> <span class="kc">false</span> <span class="nx">andd</span> <span class="nx">not</span> <span class="kc">true</span> <span class="nx">orr</span> <span class="nx">not</span> <span class="kc">false</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="kc">true</span> <span class="nx">and</span> <span class="kc">false</span> <span class="nx">or</span> <span class="kc">true</span> <span class="nx">xor</span> <span class="kc">false</span> <span class="nx">andd</span> <span class="nx">not</span> <span class="kc">true</span> <span class="nx">orr</span> <span class="nx">not</span> <span class="kc">false</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;bool ops ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">R</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -825,13 +828,13 @@ erlang compatibility.</p>
 <div class="section" id="binary-operations">
 <h2>Binary Operations<a class="headerlink" href="#binary-operations" title="Permalink to this headline">¶</a></h2>
 <p>Here are the binary operations:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">R</span> <span class="o">=</span> <span class="o">~</span><span class="mi">1</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">^</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">4</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span> <span class="o">=</span> <span class="o">~</span><span class="mi">1</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">^</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">4</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;bin ops ~p&quot;</span><span class="p">,</span> <span class="p">[])</span>
 </pre></div>
 </div>
 <p>If you need them, then the syntax should be what you would expect, if you don&#8217;t
 know what they are for you can come back later when you need them or check the
-<a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a></p>
+<a class="reference internal" href="language-reference.html#language-reference"><span class="std std-ref">Language Reference</span></a></p>
 </div>
 <div class="section" id="data-types-overview">
 <h2>Data Types Overview<a class="headerlink" href="#data-types-overview" title="Permalink to this headline">¶</a></h2>
@@ -861,7 +864,7 @@ libraries and code.</p>
 <p>Maps are really similar to what you are used in other languages, you can put
 a key of any type and a value of any type and then get them by key, let&#8217;s see
 an example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>fn use_maps
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>fn use_maps
     case:
         Account1 = {username: &#39;bob&#39;, password: &#39;secret&#39;, email: &#39;bob@gmail.com&#39;}
 
@@ -888,12 +891,12 @@ except that you can have any type as keys, not only strings.</p>
 <p>To get a value from its key you can do it two ways, calling a function or
 with pattern matching.</p>
 <p>In the example above we use both ways, first we use the function <a class="reference external" href="http://www.erlang.org/doc/man/maps.html#get-2">maps.get:2</a>:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;account1 username ~p email ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">maps</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">Account1</span><span class="p">),</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;account1 username ~p email ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">maps</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">Account1</span><span class="p">),</span>
                                         <span class="nx">maps</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">Account1</span><span class="p">)])</span>
 </pre></div>
 </div>
 <p>Then we do pattern matching on the map to extract the same fields:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span><span class="nx">username</span> <span class="o">=</span> <span class="nx">Username</span><span class="p">,</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">Email</span><span class="p">}</span> <span class="o">=</span> <span class="nx">Account1</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nx">username</span> <span class="o">=</span> <span class="nx">Username</span><span class="p">,</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">Email</span><span class="p">}</span> <span class="o">=</span> <span class="nx">Account1</span>
 </pre></div>
 </div>
 <p>Like we saw before the <strong>=</strong> sign in efene means &#8220;match&#8221; not &#8220;assign&#8221;, this
@@ -905,7 +908,7 @@ are assigning them, this is to make it explicit when we are matching and when
 we are assigning.</p>
 <p>Finally to update a map by changing the content of one or more fields on a previous
 map we can do:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>Account2 = Account1#{email: &#39;bob@nickelodeon.com&#39;}
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>Account2 = Account1#{email: &#39;bob@nickelodeon.com&#39;}
 </pre></div>
 </div>
 <p>On the right side we write the name of the variable that contains the map we
@@ -918,7 +921,7 @@ want to add or update.</p>
 <p>Maps are a relative new feature in the Erlang world, before them the only
 way to have something similar to objects/dicts/maps from other languages were
 records, let&#8217;s see the same example as before but with record:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>@record(account) -&gt; (username, password, email)
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>@record(account) -&gt; (username, password, email)
 @record(post) -&gt; (title is string(), content = &quot;&quot; is string(), author = &quot;anonymous&quot;)
 
 fn use_records
@@ -949,11 +952,11 @@ end
 <p>First we need to declare the record, since it&#8217;s a &#8220;compile time trick&#8221; that
 the erlang compiler does, it needs to know the fields before hand to check
 and transform records to its underlying representation.</p>
-<div class="highlight-javascript"><div class="highlight"><pre>@record(account) -&gt; (username, password, email)
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>@record(account) -&gt; (username, password, email)
 </pre></div>
 </div>
 <p>Now that we declared our record we can create an instance of it:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>Account1 = #r.account {username: &#39;bob&#39;, password: &#39;secret&#39;}
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>Account1 = #r.account {username: &#39;bob&#39;, password: &#39;secret&#39;}
 </pre></div>
 </div>
 <p>It looks really similar to the map example except that the map is &#8220;tagged&#8221; with
@@ -962,13 +965,13 @@ the record name.</p>
 transformed at compile time and all information about them is lost at run time.</p>
 <p>This means for example that you can&#8217;t list the fields of a record at run time.</p>
 <p>Here is how you access to a field in a record:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>print(&quot;account1 username ~p email ~p&quot;, [#r.account.username Account1,
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>print(&quot;account1 username ~p email ~p&quot;, [#r.account.username Account1,
                                         #r.account.email Account1])
 </pre></div>
 </div>
 <p>Like before you &#8220;tag&#8221; a variable with the name of the record and the name of the field.</p>
 <p>To extract more than one field at a time you can use pattern matching:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>#r.account {username: Username, email: Email} = Account1
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>#r.account {username: Username, email: Email} = Account1
 </pre></div>
 </div>
 <p>Notice that in this case we also use <strong>:</strong> on the left side, this is because
@@ -976,13 +979,13 @@ that&#8217;s how erlang handles it (it doesn&#8217;t make a distinction between 
 and matching for records as it does for maps).</p>
 <p>To update a record again is similar to how you would do it with a map, you
 just &#8220;tag&#8221; the map update with the name of the record:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>Account2 = #r.account Account1#{email: &#39;bob@nickelodeon.com&#39;}
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>Account2 = #r.account Account1#{email: &#39;bob@nickelodeon.com&#39;}
 </pre></div>
 </div>
 <p>You may have noticed that the record declaration for the type <strong>post</strong> is a
 little bit different.</p>
 <p>This is because in record declarations you can provide defaults and also annotate the types of the fields:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>@record(post) -&gt; (title is string(), content = &quot;&quot; is string(), author = &quot;anonymous&quot;)
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>@record(post) -&gt; (title is string(), content = &quot;&quot; is string(), author = &quot;anonymous&quot;)
 </pre></div>
 </div>
 <p>We will see more about types later, now about the defaults, if you don&#8217;t assign
@@ -1010,7 +1013,7 @@ and the rest in the tail</p>
 <p>And so on recursively until the last item is an empty list to signal that there&#8217;s
 nothing else and that&#8217;s the end of the list.</p>
 <p>Let&#8217;s see an example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;items on the list are: ~p ~p ~p ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">])</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;the list is ~p&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;the list is ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="o">::</span> <span class="mi">2</span> <span class="o">::</span> <span class="mi">3</span> <span class="o">::</span> <span class="p">[]])</span>
@@ -1022,19 +1025,19 @@ nothing else and that&#8217;s the end of the list.</p>
 </pre></div>
 </div>
 <p>First we pattern match against a list of four items:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nx">One</span><span class="p">,</span> <span class="nx">Two</span><span class="p">,</span> <span class="nx">Three</span><span class="p">,</span> <span class="nx">Four</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>That&#8217;s simple and easy, but what happens if the list has 100 elements or we
 don&#8217;t know exactly how many elements it has?</p>
 <p>Here&#8217;s where the list structure comes handy, we can match against the head and
 the rest:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Head1</span> <span class="o">::</span> <span class="nx">Tail1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Head1</span> <span class="o">::</span> <span class="nx">Tail1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;head ~p, tail ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Head1</span><span class="p">,</span> <span class="nx">Tail1</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>This will print:</p>
-<div class="highlight-python"><div class="highlight"><pre>head 1, tail [2,3,4]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tail</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>We get the first value in the Head1 variable and the rest of the list in the
@@ -1042,12 +1045,12 @@ Tail1 variable, notice that we use a special operator <strong>::</strong> to exp
 we are not matching a list of two items like we would if we wrote [Head1, Tail1]
 but that we want to extract the head and tail of the list.</p>
 <p>But what if the list has just one item?, let&#8217;s see:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Head2</span> <span class="o">::</span> <span class="nx">Tail2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Head2</span> <span class="o">::</span> <span class="nx">Tail2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;head ~p, tail ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Head2</span><span class="p">,</span> <span class="nx">Tail2</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>This will print:</p>
-<div class="highlight-python"><div class="highlight"><pre>head 1, tail []
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tail</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>As I said above, the &#8220;marker&#8221; for the end of the list is an empty list, we
@@ -1059,7 +1062,7 @@ wouldn&#8217;t match if the list has more than one item.</p>
 <p>In the section about records we saw that there&#8217;s a way to tag values to tell
 the compiler to treat them differently, here we will see other uses of tagged
 values:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>fn tagged_values
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>fn tagged_values
     case:
         print(&quot;the code for character C is ~p&quot;, [#c &quot;C&quot;])
 
@@ -1075,14 +1078,14 @@ end
 </pre></div>
 </div>
 <p>Let&#8217;s see them line by line:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>print(&quot;the code for character C is ~p&quot;, [#c &quot;C&quot;])
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>print(&quot;the code for character C is ~p&quot;, [#c &quot;C&quot;])
 </pre></div>
 </div>
 <p>The #c tag is used to convert a string of one character into the integer
 representing that character, as we said before list strings in efene are simply
 lists of characters, and we also said that lists are simple nested pairs,
 let&#8217;s reinforce that with the following example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>Hello1 = &quot;hello&quot;
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>Hello1 = &quot;hello&quot;
 Hello2 = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
 Hello3 = [#c &quot;h&quot; :: #c &quot;e&quot; :: #c &quot;l&quot; :: #c &quot;l&quot; :: #c &quot;o&quot; :: []]
 
@@ -1092,7 +1095,7 @@ print(&quot;this three strings are equivalent ~p ~p ~p&quot;, [Hello1, Hello2, H
 <p>As you can see the string syntax and the list syntax are just a convenience
 to write nested pairs, the three are the same from the language perspective.</p>
 <p>Let&#8217;s continue with the following line:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>print(&quot;this two atoms are equivalent ~p ~p&quot;, [#atom &quot;an atom&quot;, `an atom`])
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>print(&quot;this two atoms are equivalent ~p ~p&quot;, [#atom &quot;an atom&quot;, `an atom`])
 </pre></div>
 </div>
 <p>If you wanted to know how to express an atom with spaces or with weird symbols,
@@ -1101,17 +1104,17 @@ there you have the answer.</p>
 atom or you can use back ticks if you prefer a more &#8220;native&#8221; syntax.</p>
 <p>And lastly, something that may be useful to help you print diagnostic messages
 and find problems easier:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>print(&quot;this print is at line ~p in module ~p in function ~p/~p&quot;, [#i line, #i module, #i function_name, #i function_arity])
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>print(&quot;this print is at line ~p in module ~p in function ~p/~p&quot;, [#i line, #i module, #i function_name, #i function_arity])
 </pre></div>
 </div>
 <p>if you tag the atoms line and module with the #i tag they will be converted at
 compile time to the current line as a number and to the module name as an atom
 respectively.</p>
 <p>Finally, the code above will print something like the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>the code for character C is 67
-this three strings are equivalent &quot;hello&quot; &quot;hello&quot; &quot;hello&quot;
-this two atoms are equivalent &#39;an atom&#39; &#39;an atom&#39;
-this print is at line 307 in module reference
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">the</span> <span class="n">code</span> <span class="k">for</span> <span class="n">character</span> <span class="n">C</span> <span class="ow">is</span> <span class="mi">67</span>
+<span class="n">this</span> <span class="n">three</span> <span class="n">strings</span> <span class="n">are</span> <span class="n">equivalent</span> <span class="s2">&quot;hello&quot;</span> <span class="s2">&quot;hello&quot;</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">this</span> <span class="n">two</span> <span class="n">atoms</span> <span class="n">are</span> <span class="n">equivalent</span> <span class="s1">&#39;an atom&#39;</span> <span class="s1">&#39;an atom&#39;</span>
+<span class="n">this</span> <span class="nb">print</span> <span class="ow">is</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">307</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">reference</span>
 </pre></div>
 </div>
 <p>of course the line and module will change depending on where they were in your
@@ -1127,7 +1130,7 @@ transformed into something else.</p>
 <p>If for some reason we need to have more than one line of code in a place where
 only a value is expected we can use a little known feature of erlang which of
 course as its efene counterpart, the begin ... end block:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">io</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;block result: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">begin</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">io</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;block result: ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">begin</span>
                      <span class="nx">A</span> <span class="o">=</span> <span class="mi">8</span>
                      <span class="nx">B</span> <span class="o">=</span> <span class="mi">0</span>
                      <span class="nx">divide_two</span><span class="p">(</span><span class="nx">A</span><span class="p">,</span> <span class="nx">B</span><span class="p">)</span>
@@ -1144,7 +1147,7 @@ block.</p>
 <p>If you came to efene it may be because you heard that the erlang VM supports
 cheap processes and message passing, here we will cover them, let&#8217;s see an
 example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">receive_and_print</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">receive_and_print</span>
     <span class="k">case</span><span class="o">:</span>
         <span class="nx">Pid</span> <span class="o">=</span> <span class="nx">self</span><span class="p">()</span>
         <span class="nx">receive</span>
@@ -1177,11 +1180,11 @@ something depending on what it got and spawn_receive, which will spawn a new
 process that will interact with the current process we are running.</p>
 <p>Let&#8217;s see it line by line, first we get the process id (pid) of the current process
 by calling the builtin function <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#self-0">erlang.self:0</a>:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">OuterPid</span> <span class="o">=</span> <span class="nx">self</span><span class="p">()</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">OuterPid</span> <span class="o">=</span> <span class="nx">self</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Then we spawn a new process by calling the builtin function <a class="reference external" href="http://www.erlang.org/doc/man/erlang.html#spawn-1">erlang.spawn:1</a>:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">spawn</span><span class="p">(</span><span class="nx">fn</span> <span class="k">case</span><span class="o">:</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">spawn</span><span class="p">(</span><span class="nx">fn</span> <span class="k">case</span><span class="o">:</span>
       <span class="nx">SpawnPid</span> <span class="o">=</span> <span class="nx">self</span><span class="p">()</span>
       <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Process ~p sending to ~p&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">SpawnPid</span><span class="p">,</span> <span class="nx">OuterPid</span><span class="p">])</span>
       <span class="nx">OuterPid</span> <span class="o">!</span> <span class="nx">ping</span>
@@ -1192,26 +1195,26 @@ by calling the builtin function <a class="reference external" href="http://www.e
 arguments, in it&#8217;s body it gets its process id, then prints a message and
 finally it sends the ping atom as a message to the process identified by the
 process id stored in the variable OuterPid by using the <strong>!</strong> operator.</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">receive_and_print</span><span class="p">()</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">receive_and_print</span><span class="p">()</span>
 
 <span class="nx">receive_and_print</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Then we call receive_and_print twice, the output of running this code will be
 something like:</p>
-<div class="highlight-python"><div class="highlight"><pre>Process &lt;0.81.0&gt; sending to &lt;0.44.0&gt;
-&lt;0.44.0&gt; received ping
-Nothing received after 1000ms
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Process</span> <span class="o">&lt;</span><span class="mf">0.81</span><span class="o">.</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">sending</span> <span class="n">to</span> <span class="o">&lt;</span><span class="mf">0.44</span><span class="o">.</span><span class="mi">0</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="mf">0.44</span><span class="o">.</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">received</span> <span class="n">ping</span>
+<span class="n">Nothing</span> <span class="n">received</span> <span class="n">after</span> <span class="mi">1000</span><span class="n">ms</span>
 </pre></div>
 </div>
 <p>The printed process ids will probably differ on your machine.</p>
 <p>Now let&#8217;s analyze the receive_and_print function, first we get the pid of the
 current process:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Pid</span> <span class="o">=</span> <span class="nx">self</span><span class="p">()</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Pid</span> <span class="o">=</span> <span class="nx">self</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Then we use the receive expression to receive messages:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">receive</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">receive</span>
     <span class="k">case</span> <span class="nx">ping</span><span class="o">:</span>
          <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;~p received ping&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Pid</span><span class="p">])</span>
     <span class="k">case</span> <span class="nx">Other</span><span class="o">:</span>
@@ -1235,7 +1238,7 @@ time it will timeout and print the timeout message.</p>
 <p>If you read carefully you will notice I said &#8220;with zero or more case clauses&#8221;,
 when I described the receive expression, it wasn&#8217;t an error, you can have
 zero case clauses, here is a useful example of that:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">fn</span> <span class="nx">sleep</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">fn</span> <span class="nx">sleep</span>
     <span class="k">case</span> <span class="nx">TimeMs</span><span class="o">:</span>
          <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;sleeping ~pms&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">TimeMs</span><span class="p">])</span>
 
@@ -1257,7 +1260,7 @@ evaluated on the case clause it matches or in the after section.</p>
 purposes or to help tools like <a class="reference external" href="http://www.erlang.org/doc/man/dialyzer.html">dialyzer</a>
 spot bugs for you, efene as usual provides the same features as erlang to add
 types to your code, let&#8217;s see an example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>@type(result(E, V)) -&gt; (error, E) or (ok, V)
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>@type(result(E, V)) -&gt; (error, E) or (ok, V)
 @type(division_error()) -&gt; result(division_by_zero, number())
 
 fn divide_two_typed
@@ -1283,7 +1286,7 @@ type can be any number.</p>
 annotation <em>&#64;spec</em> that is used to provide a type specification for the function,
 there we define that the function receives two arguments of type number and
 returns a value that satisfies the division_error type.</p>
-<p>For more details on the syntax see the <a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a>.</p>
+<p>For more details on the syntax see the <a class="reference internal" href="language-reference.html#language-reference"><span class="std std-ref">Language Reference</span></a>.</p>
 <p>For more details on types see <a class="reference external" href="http://www.erlang.org/doc/reference_manual/typespec.html">Erlang&#8217;s Types and Function Specifications</a> documentation about it.</p>
 </div>
 </div>
@@ -1332,7 +1335,8 @@ returns a value that satisfies the division_error type.</p>
             VERSION:'1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

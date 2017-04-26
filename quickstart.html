@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
         <link rel="next" title="Templates" href="templates.html"/>
         <link rel="prev" title="Language Reference" href="language-reference.html"/> 
@@ -88,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html">Efene Quick Introduction for the Busy/Lazy Programmer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebar-plugin.html">Rebar Plugin</a></li>
@@ -128,7 +131,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/quickstart.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -144,25 +147,25 @@
 please install it in a place in $PATH.</p>
 <p>First we need to install the efene app template to use it later, this only
 needs to be done once:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.config/rebar3/templates
-git clone https://github.com/efene/rebar3_efene_template_app.git ~/.config/rebar3/templates/fn_app
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">rebar3</span><span class="o">/</span><span class="n">templates</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">efene</span><span class="o">/</span><span class="n">rebar3_efene_template_app</span><span class="o">.</span><span class="n">git</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">rebar3</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">fn_app</span>
 </pre></div>
 </div>
 <p>Let&#8217;s create a project called myfnapp using the fn_app template:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_app name=myfnapp
-cd myfnapp
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">new</span> <span class="n">fn_app</span> <span class="n">name</span><span class="o">=</span><span class="n">myfnapp</span>
+<span class="n">cd</span> <span class="n">myfnapp</span>
 </pre></div>
 </div>
 <p>Let&#8217;s compile our app:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 compile
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="nb">compile</span>
 </pre></div>
 </div>
 <p>Try it in the shell:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 efene shell
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">efene</span> <span class="n">shell</span>
 </pre></div>
 </div>
 <p>Try it:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp_util</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;mariano&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myfnapp_util</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;mariano&quot;</span><span class="p">)</span>
 <span class="go">Hello mariano!</span>
 <span class="go">ok</span>
 
@@ -171,7 +174,7 @@ cd myfnapp
 </pre></div>
 </div>
 <p>You can quit the shell by calling the q function like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="p">()</span>
 
 <span class="go">Bye!</span>
 </pre></div>
@@ -181,7 +184,7 @@ cd myfnapp
 start the lager application before running the function, this needs to be done
 manually on the shell but will be done automatically by the virtual machine
 when running an application:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 efene shell
+<div class="highlight-default"><div class="highlight"><pre><span></span>rebar3 efene shell
 
 &gt;&gt;&gt; application.ensure_all_started(myfnapp)
 (ok, [syntax_tools, compiler, goldrush, lager, myfnapp])
@@ -199,14 +202,14 @@ Bye!
 </div>
 <p>Given that we are good software citizens we test our code, that&#8217;s why we want
 to run some unit tests to be sure that this works:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 ct
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">ct</span>
 </pre></div>
 </div>
 <p>This will compile the tests and run them for you.</p>
 <p>In the template one test should fail, open test/{{name}}_SUITE.fn
 (test/myfnapp_SUITE if you didn&#8217;t change the app name) and fix it,
 then run the test task again:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 ct
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">ct</span>
 </pre></div>
 </div>
 <p>That&#8217;s it, now you can make changes, run <em>rebar3 ct</em> again and
@@ -257,7 +260,8 @@ keep going.</p>
             VERSION:'1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

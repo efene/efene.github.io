@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
         <link rel="next" title="Recommended Libraries" href="recommended-libraries.html"/>
         <link rel="prev" title="Language Tradeoffs" href="tradeoffs.html"/> 
@@ -91,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tradeoffs.html">Language Tradeoffs</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Rebar Plugin</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rebar Plugin</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#compile-task">Compile Task</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example-usage">Example Usage</a><ul>
@@ -141,7 +144,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/rebar-plugin.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/rebar-plugin.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,7 +161,7 @@ that is already available in efene rebar templates.</p>
 <div class="section" id="compile-task">
 <h2>Compile Task<a class="headerlink" href="#compile-task" title="Permalink to this headline">¶</a></h2>
 <p>Efene compile task can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 efene compile
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">efene</span> <span class="nb">compile</span>
 </pre></div>
 </div>
 <div class="section" id="options">
@@ -188,16 +191,16 @@ that is already available in efene rebar templates.</p>
 </div>
 <div class="section" id="example-usage">
 <h3>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
-<p>This section uses the project described in the <a class="reference internal" href="quickstart.html#quick-start"><span>Quick Start</span></a> section.</p>
+<p>This section uses the project described in the <a class="reference internal" href="quickstart.html#quick-start"><span class="std std-ref">Quick Start</span></a> section.</p>
 <div class="section" id="compile-all-files">
 <h4>Compile All Files<a class="headerlink" href="#compile-all-files" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 efene compile
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">efene</span> <span class="nb">compile</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="compile-one-file-to-erlang">
 <h4>Compile One File to Erlang<a class="headerlink" href="#compile-one-file-to-erlang" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 efene compile --format erl --file src/myfnapp.fn
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">efene</span> <span class="nb">compile</span> <span class="o">--</span><span class="nb">format</span> <span class="n">erl</span> <span class="o">--</span><span class="n">file</span> <span class="n">src</span><span class="o">/</span><span class="n">myfnapp</span><span class="o">.</span><span class="n">fn</span>
 </pre></div>
 </div>
 </div>
@@ -207,14 +210,14 @@ that is already available in efene rebar templates.</p>
 <h2>Common Test Task<a class="headerlink" href="#common-test-task" title="Permalink to this headline">¶</a></h2>
 <p>Efene <a class="reference external" href="http://www.erlang.org/doc/man/common_test.html">commmon test</a> task
 can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 efene ct
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">efene</span> <span class="n">ct</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="shell-task">
 <h2>Shell Task<a class="headerlink" href="#shell-task" title="Permalink to this headline">¶</a></h2>
 <p>Efene shell task can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 efene shell
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">efene</span> <span class="n">shell</span>
 </pre></div>
 </div>
 </div>
@@ -264,7 +267,8 @@ can be used as follows:</p>
             VERSION:'1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

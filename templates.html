@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
         <link rel="next" title="Language Tradeoffs" href="tradeoffs.html"/>
         <link rel="prev" title="Quick Start" href="quickstart.html"/> 
@@ -89,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-reference.html">Language Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Templates</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Templates</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#initial-setup-common-to-all-templates">Initial Setup Common to All Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#escript-template">Escript Template</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
@@ -154,7 +157,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/templates.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/templates.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -179,7 +182,7 @@ of each, what they&#8217;re for and how to install and use them.</p>
 instruction on how to install rebar3 please read <a class="reference external" href="http://www.rebar3.org/docs/getting-started">rebar3&#8217;s getting started page</a>.</p>
 <p>Then you need the root template folder available to install the templates, to
 do this run:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/.config/rebar3/templates
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">rebar3</span><span class="o">/</span><span class="n">templates</span>
 </pre></div>
 </div>
 </div>
@@ -190,19 +193,19 @@ do this run:</p>
 them you need erlang installed in your system.</p>
 <div class="section" id="install">
 <h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_escript.git ~/.config/rebar3/templates/fn_escript
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">efene</span><span class="o">/</span><span class="n">rebar3_efene_template_escript</span><span class="o">.</span><span class="n">git</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">rebar3</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">fn_escript</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="use">
 <h3>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_escript name=myscript
-cd myscript
-rebar3 escriptize
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">new</span> <span class="n">fn_escript</span> <span class="n">name</span><span class="o">=</span><span class="n">myscript</span>
+<span class="n">cd</span> <span class="n">myscript</span>
+<span class="n">rebar3</span> <span class="n">escriptize</span>
 </pre></div>
 </div>
 <p>Now you have your script at <cite>_build/default/bin/myscript</cite>, you can put it on your path to use it, let&#8217;s test it:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./_build/default/bin/myscript
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./_build/default/bin/myscript
 Args: []
 
 $ ./_build/default/bin/myscript foo bar
@@ -215,22 +218,22 @@ Args: [&quot;foo&quot;,&quot;bar&quot;]
 <h2>Library Template<a class="headerlink" href="#library-template" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Install<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/marianoguerra/rebar3_efene_template_lib.git ~/.config/rebar3/templates/fn_lib
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">marianoguerra</span><span class="o">/</span><span class="n">rebar3_efene_template_lib</span><span class="o">.</span><span class="n">git</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">rebar3</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">fn_lib</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
 <h3>Use<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_lib name=mylib
-cd mylib
-rebar3 compile
-rebar3 ct
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">new</span> <span class="n">fn_lib</span> <span class="n">name</span><span class="o">=</span><span class="n">mylib</span>
+<span class="n">cd</span> <span class="n">mylib</span>
+<span class="n">rebar3</span> <span class="nb">compile</span>
+<span class="n">rebar3</span> <span class="n">ct</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="try">
 <h3>Try<a class="headerlink" href="#try" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ rebar3 efene shell
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ rebar3 efene shell
 
 Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -250,22 +253,22 @@ Bye!
 <h2>OTP Application Template<a class="headerlink" href="#otp-application-template" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
 <h3>Install<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_app.git ~/.config/rebar3/templates/fn_app
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">efene</span><span class="o">/</span><span class="n">rebar3_efene_template_app</span><span class="o">.</span><span class="n">git</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">rebar3</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">fn_app</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
 <h3>Use<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_app name=myapp
-cd myapp
-rebar3 compile
-rebar3 ct
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">new</span> <span class="n">fn_app</span> <span class="n">name</span><span class="o">=</span><span class="n">myapp</span>
+<span class="n">cd</span> <span class="n">myapp</span>
+<span class="n">rebar3</span> <span class="nb">compile</span>
+<span class="n">rebar3</span> <span class="n">ct</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id5">
 <h3>Try<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ rebar3 efene shell
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ rebar3 efene shell
 /home/mariano/tmp/myapp/_build/default/plugins/efene/fnshell -pz /home/mariano/tmp/myapp/_build/default/lib/*/ebin/
 Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
 
@@ -285,21 +288,21 @@ Bye!
 <h2>OTP Release Template<a class="headerlink" href="#otp-release-template" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id6">
 <h3>Install<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/efene/rebar3_efene_template_rel.git ~/.config/rebar3/templates/fn_rel
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">efene</span><span class="o">/</span><span class="n">rebar3_efene_template_rel</span><span class="o">.</span><span class="n">git</span> <span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">rebar3</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">fn_rel</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id7">
 <h3>Use<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>rebar3 new fn_rel name=myrel
-cd myrel
-rebar3 release
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rebar3</span> <span class="n">new</span> <span class="n">fn_rel</span> <span class="n">name</span><span class="o">=</span><span class="n">myrel</span>
+<span class="n">cd</span> <span class="n">myrel</span>
+<span class="n">rebar3</span> <span class="n">release</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id8">
 <h3>Try<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ make console
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make console
 
  ...
 
@@ -365,7 +368,8 @@ rebar3 release
             VERSION:'1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

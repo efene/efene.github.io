@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
         <link rel="next" title="Efene Introduction" href="language-introduction.html"/>
         <link rel="prev" title="Help Needed" href="help-needed.html"/> 
@@ -85,7 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Efene Philisophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Efene Quick Introduction for the Busy/Lazy Programmer</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Efene Quick Introduction for the Busy/Lazy Programmer</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#strings-vs-binary-strings-the-short-version">Strings vs Binary Strings, the Short Version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#expressions">Expressions</a></li>
@@ -156,7 +159,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/quick-efene-introduction-busy-programmer.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/quick-efene-introduction-busy-programmer.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -178,7 +181,7 @@ short read and maybe use it as a reference in the future.</p>
 <p>Yes: great! you know almost all of the data types and their syntax</p>
 <p>No: you should click on the above link then...</p>
 <p>Let&#8217;s see a quick example:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre><span class="p">{</span>
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;object?&quot;</span><span class="p">:</span> <span class="s2">&quot;it&#39;s the thing wrapping this fields, we call it a map&quot;</span><span class="p">,</span>
     <span class="s2">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;I&#39;m a string!&quot;</span><span class="p">,</span>
     <span class="s2">&quot;integer&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
@@ -192,18 +195,18 @@ short read and maybe use it as a reference in the future.</p>
 </pre></div>
 </div>
 <p>But wait, there is more!</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>{
-    what: &#39;&lt;- that&#39;s an atom, like clojure :atom and a ruby :symbol&#39;,
-    &#39;wait!&#39;: &#39;yes, strings in single quotes are a different type of strings&#39;;
-    &#39;how?&#39;: (binary, strings, are, just, another, type, of, strings),
-    &#39;and that?&#39;: &#39;those are tuples, like python tuples&#39;
-    &#39;tuple examples&#39;: {
-        empty: (),
-        one_item: (1,),
-        two: (1, 2),
-        three: (1, 2, 3)
-    }
-}
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">what</span><span class="p">:</span> <span class="s1">&#39;&lt;- that&#39;</span><span class="n">s</span> <span class="n">an</span> <span class="n">atom</span><span class="p">,</span> <span class="n">like</span> <span class="n">clojure</span> <span class="p">:</span><span class="n">atom</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">ruby</span> <span class="p">:</span><span class="n">symbol</span><span class="s1">&#39;,</span>
+    <span class="s1">&#39;wait!&#39;</span><span class="p">:</span> <span class="s1">&#39;yes, strings in single quotes are a different type of strings&#39;</span><span class="p">;</span>
+    <span class="s1">&#39;how?&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">strings</span><span class="p">,</span> <span class="n">are</span><span class="p">,</span> <span class="n">just</span><span class="p">,</span> <span class="n">another</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">of</span><span class="p">,</span> <span class="n">strings</span><span class="p">),</span>
+    <span class="s1">&#39;and that?&#39;</span><span class="p">:</span> <span class="s1">&#39;those are tuples, like python tuples&#39;</span>
+    <span class="s1">&#39;tuple examples&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">empty</span><span class="p">:</span> <span class="p">(),</span>
+        <span class="n">one_item</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
+        <span class="n">two</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">three</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>lets recap, efene data types are:</p>
@@ -244,18 +247,18 @@ the conditions should evaluate fast and be free of side effects, this means
 the subset of functions you can call in a guard condition is very restricted,
 you shouldn&#8217;t use guards as if, use the match expression instead.</p>
 <p>But let&#8217;s see some examples:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>R1 = when true: ok end
-IsInteger = when is_integer(R1): true else: false end
-IsInteger1 = when is_integer(R1):
-    true
-else:
-    false
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">=</span> <span class="n">when</span> <span class="n">true</span><span class="p">:</span> <span class="n">ok</span> <span class="n">end</span>
+<span class="n">IsInteger</span> <span class="o">=</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">R1</span><span class="p">):</span> <span class="n">true</span> <span class="k">else</span><span class="p">:</span> <span class="n">false</span> <span class="n">end</span>
+<span class="n">IsInteger1</span> <span class="o">=</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">R1</span><span class="p">):</span>
+    <span class="n">true</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">false</span>
+<span class="n">end</span>
 
-IsNumber = when is_integer(A): true
-    else is_float(A): true
-    else: false
-end
+<span class="n">IsNumber</span> <span class="o">=</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="n">true</span>
+    <span class="k">else</span> <span class="n">is_float</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="n">true</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">false</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>As you can see guards are defined starting with the when keyword followed by
@@ -271,10 +274,10 @@ evaluated to true.</p>
 <p>As we said, guards are pretty restrictive in what you can put in the condition,
 that&#8217;s why normally we use the match expression or pattern matching, pattern
 matching is at the core of efene and is used extensively, let&#8217;s see some examples:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>Result = match some_function(A, B):
-    case 42: the_answer
-    else: something_else
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">Result</span> <span class="o">=</span> <span class="n">match</span> <span class="n">some_function</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">case</span> <span class="mi">42</span><span class="p">:</span> <span class="n">the_answer</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">something_else</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>A simple match expression starts with the match keyword followed by an
@@ -285,14 +288,14 @@ the match expression.</p>
 <p>you can add an else clause at the end to act as a catch all (as in the when
 expression)</p>
 <p>another example:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>B = 43
-Result = match some_function(true, 14):
-    case 42: the_answer
-    case 41: almost_there
-    case B: missed_it
-    case A when is_integer(A): (at_least_an_integer, A)
-    case _: something_else
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="mi">43</span>
+<span class="n">Result</span> <span class="o">=</span> <span class="n">match</span> <span class="n">some_function</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="mi">14</span><span class="p">):</span>
+    <span class="n">case</span> <span class="mi">42</span><span class="p">:</span> <span class="n">the_answer</span>
+    <span class="n">case</span> <span class="mi">41</span><span class="p">:</span> <span class="n">almost_there</span>
+    <span class="n">case</span> <span class="n">B</span><span class="p">:</span> <span class="n">missed_it</span>
+    <span class="n">case</span> <span class="n">A</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="p">(</span><span class="n">at_least_an_integer</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+    <span class="n">case</span> <span class="n">_</span><span class="p">:</span> <span class="n">something_else</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>This one is a little more complex, we match against a literal value in the
@@ -313,37 +316,37 @@ will match against anything, even if used more than once in the same scope.</p>
 value, if they are matched against something else they will throw a bad match error,
 but the <strong>_</strong> variable will happily match against anything you throw at it, let&#8217;s
 see an example:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>fn my_xor case V1, V2:
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">my_xor</span> <span class="n">case</span> <span class="n">V1</span><span class="p">,</span> <span class="n">V2</span><span class="p">:</span>
 
-  R1 = match (V1, V2):
-    case A, A: false
-    case _, _: true
-  end
+  <span class="n">R1</span> <span class="o">=</span> <span class="n">match</span> <span class="p">(</span><span class="n">V1</span><span class="p">,</span> <span class="n">V2</span><span class="p">):</span>
+    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">false</span>
+    <span class="n">case</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">end</span>
 
-  R2 = match V1, V2:
-    case B, B: false
-    case _, _: true
-  end
+  <span class="n">R2</span> <span class="o">=</span> <span class="n">match</span> <span class="n">V1</span><span class="p">,</span> <span class="n">V2</span><span class="p">:</span>
+    <span class="n">case</span> <span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">false</span>
+    <span class="n">case</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">end</span>
 
-  T = (V1, V2)
+  <span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="n">V1</span><span class="p">,</span> <span class="n">V2</span><span class="p">)</span>
 
-  R3 = match T:
-    case C, C: false
-    case _, _: true
-  end
+  <span class="n">R3</span> <span class="o">=</span> <span class="n">match</span> <span class="n">T</span><span class="p">:</span>
+    <span class="n">case</span> <span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">false</span>
+    <span class="n">case</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">end</span>
 
-  R4 = match T:
-    case D, D: false
-    else: true
-  end
+  <span class="n">R4</span> <span class="o">=</span> <span class="n">match</span> <span class="n">T</span><span class="p">:</span>
+    <span class="n">case</span> <span class="n">D</span><span class="p">,</span> <span class="n">D</span><span class="p">:</span> <span class="n">false</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">end</span>
 
-  R5 = match T:
-    case (E, E): false
-    case _: true
-  end
+  <span class="n">R5</span> <span class="o">=</span> <span class="n">match</span> <span class="n">T</span><span class="p">:</span>
+    <span class="n">case</span> <span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">E</span><span class="p">):</span> <span class="n">false</span>
+    <span class="n">case</span> <span class="n">_</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">end</span>
 
-  (R1, R2, R3, R4, R5)
-end
+  <span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">,</span> <span class="n">R3</span><span class="p">,</span> <span class="n">R4</span><span class="p">,</span> <span class="n">R5</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Here we define a function (new stuff!) that has only one case clause that
@@ -374,23 +377,23 @@ in parenthesis (E, E).</p>
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>Yes, I wrote a function there without introducing it, I also said &#8220;only one case clause&#8221;, let&#8217;s
 rewrite the previous code as a function:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>fn first_example
-  case 42: the_answer
-  else: something_else
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">first_example</span>
+  <span class="n">case</span> <span class="mi">42</span><span class="p">:</span> <span class="n">the_answer</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">something_else</span>
+<span class="n">end</span>
 
-fn second_example
-  case 42: the_answer
-  case 41: almost_there
-  case B: missed_it
-  case A when is_integer(A): (at_least_an_integer, A)
-  case _: something_else
-end
+<span class="n">fn</span> <span class="n">second_example</span>
+  <span class="n">case</span> <span class="mi">42</span><span class="p">:</span> <span class="n">the_answer</span>
+  <span class="n">case</span> <span class="mi">41</span><span class="p">:</span> <span class="n">almost_there</span>
+  <span class="n">case</span> <span class="n">B</span><span class="p">:</span> <span class="n">missed_it</span>
+  <span class="n">case</span> <span class="n">A</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="p">(</span><span class="n">at_least_an_integer</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">_</span><span class="p">:</span> <span class="n">something_else</span>
+<span class="n">end</span>
 
-fn my_xor case
-  case A, A: false
-  case _, _: true
-end
+<span class="n">fn</span> <span class="n">my_xor</span> <span class="n">case</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">false</span>
+  <span class="n">case</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>That should require little explanation, we define a top level function starting
@@ -400,7 +403,7 @@ have the same number of arguments and that defines what we call the <strong>arit
 of the function, in human words, the number of arguments it expects, we can
 have two or more functions with the same name but different arity.</p>
 <p>to call the functions:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre><span class="n">first_example</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">first_example</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">second_example</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
 
 <span class="n">my_xor</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>
@@ -415,27 +418,27 @@ noticing this recurring pattern in the following sections.</p>
 <h2>Anonymous Functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
 <p>The previous section covered top level (module level) functions, but what if
 we want to create a temporary function inside a function?</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>fn build_functions case:
-    FirstExample = fn
-      case 42: the_answer
-      else: something_else
-    end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">build_functions</span> <span class="n">case</span><span class="p">:</span>
+    <span class="n">FirstExample</span> <span class="o">=</span> <span class="n">fn</span>
+      <span class="n">case</span> <span class="mi">42</span><span class="p">:</span> <span class="n">the_answer</span>
+      <span class="k">else</span><span class="p">:</span> <span class="n">something_else</span>
+    <span class="n">end</span>
 
-    SecondExample = fn
-      case 42: the_answer
-      case 41: almost_there
-      case B: missed_it
-      case A when is_integer(A): (at_least_an_integer, A)
-      case _: something_else
-    end
+    <span class="n">SecondExample</span> <span class="o">=</span> <span class="n">fn</span>
+      <span class="n">case</span> <span class="mi">42</span><span class="p">:</span> <span class="n">the_answer</span>
+      <span class="n">case</span> <span class="mi">41</span><span class="p">:</span> <span class="n">almost_there</span>
+      <span class="n">case</span> <span class="n">B</span><span class="p">:</span> <span class="n">missed_it</span>
+      <span class="n">case</span> <span class="n">A</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="p">(</span><span class="n">at_least_an_integer</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+      <span class="n">case</span> <span class="n">_</span><span class="p">:</span> <span class="n">something_else</span>
+    <span class="n">end</span>
 
-    MyXor = fn
-      case A, A: false
-      case _, _: true
-    end
+    <span class="n">MyXor</span> <span class="o">=</span> <span class="n">fn</span>
+      <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">false</span>
+      <span class="n">case</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">end</span>
 
-    (FirstExample, SecondExample, MyXor)
-end
+    <span class="p">(</span><span class="n">FirstExample</span><span class="p">,</span> <span class="n">SecondExample</span><span class="p">,</span> <span class="n">MyXor</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Here we define a top level function called build_functions with arity 0 that
@@ -444,7 +447,7 @@ to the ones defined in the previous section, the only difference is that
 anonymous functions (as their name implies) don&#8217;t carry a name after the fn
 keyword, other than that they are the same as top level functions.</p>
 <p>let&#8217;s now use them</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">Example1</span><span class="p">,</span> <span class="n">Example2</span><span class="p">,</span> <span class="n">Xor</span><span class="p">)</span> <span class="o">=</span> <span class="n">build_functions</span><span class="p">()</span>
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Example1</span><span class="p">,</span> <span class="n">Example2</span><span class="p">,</span> <span class="n">Xor</span><span class="p">)</span> <span class="o">=</span> <span class="n">build_functions</span><span class="p">()</span>
 
 <span class="n">Example1</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">Example2</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
@@ -462,10 +465,10 @@ introduction :)</p>
 clauses to do recursion, but what happens if you want to do the same with an
 anonymous function?</p>
 <p>Well you do something like this:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>Factorial = fn Fact
-    case 0: 1
-    case N: N * Fact(N - 1)
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">Factorial</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">Fact</span>
+    <span class="n">case</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="n">case</span> <span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="o">*</span> <span class="n">Fact</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>The name Fact is only visible inside the function&#8217;s case clauses and is only
@@ -478,11 +481,11 @@ we want to do the same for a top level function or a function in another module?
 <p>We just write the fn keyword followed by the name of the function and
 optionally the module if it&#8217;s in another module followed by a colon and the
 function&#8217;s arity.</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>CR1 = fn a:0
-CR3 = fn a.b:2
-CR4 = fn a.B:3
-CR5 = fn A.b:4
-CR6 = fn A.B:5
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">CR1</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">a</span><span class="p">:</span><span class="mi">0</span>
+<span class="n">CR3</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">CR4</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">a</span><span class="o">.</span><span class="n">B</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">CR5</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">A</span><span class="o">.</span><span class="n">b</span><span class="p">:</span><span class="mi">4</span>
+<span class="n">CR6</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">A</span><span class="o">.</span><span class="n">B</span><span class="p">:</span><span class="mi">5</span>
 </pre></div>
 </div>
 <p>Now you have a reference to the function, this is also useful to pass a top
@@ -492,36 +495,36 @@ level function to a higher order function.</p>
 <h2>Handling Exceptions<a class="headerlink" href="#handling-exceptions" title="Permalink to this headline">¶</a></h2>
 <p>Yes, efene supports exceptions and has the familiar try/catch/after expression
 to handle them, let&#8217;s jump straight to it:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>R1 = try
-  1/0
-after
-  ok
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">=</span> <span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">after</span>
+  <span class="n">ok</span>
+<span class="n">end</span>
 
-R2 = try
-  1/0
-catch
-  case error, badarith: ok
-end
+<span class="n">R2</span> <span class="o">=</span> <span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">catch</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
+<span class="n">end</span>
 
-R3 = try
-  1/0
-catch
-  case error, badarith: ok
-after
-  ok
-end
+<span class="n">R3</span> <span class="o">=</span> <span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">catch</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
+<span class="n">after</span>
+  <span class="n">ok</span>
+<span class="n">end</span>
 
-R4 = try
-  1/0
-catch
-  case throw, T1: T1
-  case Throw: Throw
-  case error, E1: E1
-  case exit, X1: X1
-  case A, C: C
-  else: iselse
-end
+<span class="n">R4</span> <span class="o">=</span> <span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">catch</span>
+  <span class="n">case</span> <span class="n">throw</span><span class="p">,</span> <span class="n">T1</span><span class="p">:</span> <span class="n">T1</span>
+  <span class="n">case</span> <span class="n">Throw</span><span class="p">:</span> <span class="n">Throw</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">E1</span><span class="p">:</span> <span class="n">E1</span>
+  <span class="n">case</span> <span class="n">exit</span><span class="p">,</span> <span class="n">X1</span><span class="p">:</span> <span class="n">X1</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">C</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">iselse</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>As I said earlier and like all other expressions, try/catch/after expression
@@ -553,18 +556,18 @@ can have guard expressions.</p>
 <p>Efene thanks to it&#8217;s runtime provided by the Erlang VM supports message passing,
 to send messages we use the &#8220;bang&#8221; operator <strong>!</strong> where the left side is where
 we want to send the message (a process id or an atom) and the right side is the message we want to send, let&#8217;s see some examples:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>some_registered_process ! 42
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span>some_registered_process ! 42
 Pid ! ok
 </pre></div>
 </div>
 <p>On the other side we want to receive that message, we do it with the receive expression:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>receive
-  case 42: the_answer
-  case 41: almost_there
-  case B: missed_it
-  case A when is_integer(A): (at_least_an_integer, A)
-  case _: something_else
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">receive</span>
+  <span class="n">case</span> <span class="mi">42</span><span class="p">:</span> <span class="n">the_answer</span>
+  <span class="n">case</span> <span class="mi">41</span><span class="p">:</span> <span class="n">almost_there</span>
+  <span class="n">case</span> <span class="n">B</span><span class="p">:</span> <span class="n">missed_it</span>
+  <span class="n">case</span> <span class="n">A</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="p">(</span><span class="n">at_least_an_integer</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">_</span><span class="p">:</span> <span class="n">something_else</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>That set of case clauses should be familiar to you, this expression will block
@@ -574,12 +577,12 @@ its body will be returned (yes, it&#8217;s an expression, and yes, case clauses 
 like everywhere else).</p>
 <p>But what happens if no message is sent? well the code above will block forever,
 we can solve this by adding an after section:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>receive
-  case A, A: false
-  case _, _: true
-after 1000:
-    timeout
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">receive</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">false</span>
+  <span class="n">case</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">after</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="n">timeout</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>The after section starts with the after keyword and is followed by an expression
@@ -592,21 +595,21 @@ is in the process&#8217; inbox.</p>
 <div class="section" id="for-list-comprehension-expression">
 <h2>For/List Comprehension Expression<a class="headerlink" href="#for-list-comprehension-expression" title="Permalink to this headline">¶</a></h2>
 <p>For with one generator:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
   <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">end</span>
 </pre></div>
 </div>
 <p>For with one generator and one filter:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10); when X % 2 is 0:
-  X + 1
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="n">when</span> <span class="n">X</span> <span class="o">%</span> <span class="mi">2</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>For with two generators:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10); Y in lists.seq(10, 20):
-  (X, Y)
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="n">Y</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+  <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>The for expression in efene works similarly to a list comprehension in other
@@ -623,10 +626,10 @@ returned.</p>
 <h2>Begin/End Expression<a class="headerlink" href="#begin-end-expression" title="Permalink to this headline">¶</a></h2>
 <p>You need to put more than one expression in a place where only one expression
 is expected? then begin/end is for you:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>Value = begin
-    io.format(&quot;returning 42&quot;)
-    42
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">Value</span> <span class="o">=</span> <span class="n">begin</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;returning 42&quot;</span><span class="p">)</span>
+    <span class="mi">42</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>The result of evaluating the last expression will be returned as the result
@@ -638,56 +641,56 @@ of the begin/end expression</p>
 to efene the language, tags are handled by compiler plugins to give them meaning,
 let&#8217;s explore the &#8220;official&#8221; tags, which are the ones shipped with the standard
 efene compiler (but you can run efene without them if you wish):</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>#atom &quot;I&#39;m an atom&quot;
-#_ &quot;I&#39;m ignored, useful for comments, yes, we don&#39;t have comment syntax&quot;
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="c1">#atom &quot;I&#39;m an atom&quot;</span>
+<span class="c1">#_ &quot;I&#39;m ignored, useful for comments, yes, we don&#39;t have comment syntax&quot;</span>
 
-#_ &quot;The following line evaluated to the integer that represents the character &#39;A&#39;&quot;
-#c &quot;A&quot;
+<span class="c1">#_ &quot;The following line evaluated to the integer that represents the character &#39;A&#39;&quot;</span>
+<span class="c1">#c &quot;A&quot;</span>
 
-^_ begin
-    &quot;this begin/end expression is ignored, useful to comment a whole expression&quot;
-    42
-end
+<span class="o">^</span><span class="n">_</span> <span class="n">begin</span>
+    <span class="s2">&quot;this begin/end expression is ignored, useful to comment a whole expression&quot;</span>
+    <span class="mi">42</span>
+<span class="n">end</span>
 
-#_ &quot;The following is a binary pattern&quot;
-#b {_: _,
-    A: _,
-    JustSize: 8,
-    JustType: binary,
-    E: {},
-    _: {size: 8},
-    _: {type: float},
-    _: {sign: unsigned},
-    _: {endianness: big},
-    _: {unit: 8},
-    B: {size: 8, type: float, sign: signed, endianness: little, unit: 16}}
+<span class="c1">#_ &quot;The following is a binary pattern&quot;</span>
+<span class="c1">#b {_: _,</span>
+    <span class="n">A</span><span class="p">:</span> <span class="n">_</span><span class="p">,</span>
+    <span class="n">JustSize</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="n">JustType</span><span class="p">:</span> <span class="n">binary</span><span class="p">,</span>
+    <span class="n">E</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">size</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="nb">type</span><span class="p">:</span> <span class="nb">float</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">sign</span><span class="p">:</span> <span class="n">unsigned</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">endianness</span><span class="p">:</span> <span class="n">big</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">unit</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+    <span class="n">B</span><span class="p">:</span> <span class="p">{</span><span class="n">size</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sign</span><span class="p">:</span> <span class="n">signed</span><span class="p">,</span> <span class="n">endianness</span><span class="p">:</span> <span class="n">little</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="mi">16</span><span class="p">}}</span>
 
-#_ &quot;Compile time information&quot;
-CurrentLine = #i line
-CurrentModule = #i module
-CurrentModuleStr = #i module_string
-CurrentFunction = #i function_name
-CurrentFunctionArity = #i function_arity
+<span class="c1">#_ &quot;Compile time information&quot;</span>
+<span class="n">CurrentLine</span> <span class="o">=</span> <span class="c1">#i line</span>
+<span class="n">CurrentModule</span> <span class="o">=</span> <span class="c1">#i module</span>
+<span class="n">CurrentModuleStr</span> <span class="o">=</span> <span class="c1">#i module_string</span>
+<span class="n">CurrentFunction</span> <span class="o">=</span> <span class="c1">#i function_name</span>
+<span class="n">CurrentFunctionArity</span> <span class="o">=</span> <span class="c1">#i function_arity</span>
 
-#_ &quot;Erlang macro expansion (yes we support erlang macros, defined in erlang modules :)&quot;
-#m Author
-#m LINE
-#m PI
+<span class="c1">#_ &quot;Erlang macro expansion (yes we support erlang macros, defined in erlang modules :)&quot;</span>
+<span class="c1">#m Author</span>
+<span class="c1">#m LINE</span>
+<span class="c1">#m PI</span>
 
-#m AUTHOR(bob)
-#m Text(1 * 2 + 3)
-#m AddPlusOne(2, 3)
+<span class="c1">#m AUTHOR(bob)</span>
+<span class="c1">#m Text(1 * 2 + 3)</span>
+<span class="c1">#m AddPlusOne(2, 3)</span>
 
-#_ &quot;Erlang record support defined using tagged values&quot;
-P = #r.person {name: &quot;bob&quot;, lastname: &quot;sponge&quot;, age:29}
-P1 = #r.person P#{age:28}
-#r.person {age: Age} = P1
-Counter = #r.state.counter State
+<span class="c1">#_ &quot;Erlang record support defined using tagged values&quot;</span>
+<span class="n">P</span> <span class="o">=</span> <span class="c1">#r.person {name: &quot;bob&quot;, lastname: &quot;sponge&quot;, age:29}</span>
+<span class="n">P1</span> <span class="o">=</span> <span class="c1">#r.person P#{age:28}</span>
+<span class="c1">#r.person {age: Age} = P1</span>
+<span class="n">Counter</span> <span class="o">=</span> <span class="c1">#r.state.counter State</span>
 
-#_ &quot;Binary Comprehension as an extension too&quot;
-^b for A in foo(10):
-  A + 1
-end
+<span class="c1">#_ &quot;Binary Comprehension as an extension too&quot;</span>
+<span class="o">^</span><span class="n">b</span> <span class="k">for</span> <span class="n">A</span> <span class="ow">in</span> <span class="n">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -697,15 +700,15 @@ end
 may return functions as result, common higher order functions are map, filter and reduce.</p>
 <p>Passing functions around is so common in efene that we provide a nicer syntax
 for it which also enables some really lightweight dsl construction:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>#_ &quot;lists.map:2 takes a function as first argument&quot;
-lists.map(List) &lt;&lt;- case X:
-  X + 1
-end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="c1">#_ &quot;lists.map:2 takes a function as first argument&quot;</span>
+<span class="n">lists</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">&lt;&lt;-</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 
-#_ &quot;mymap takes a function as last argument&quot;
-mymap(List) &lt;- case X:
-  X + 1
-end
+<span class="c1">#_ &quot;mymap takes a function as last argument&quot;</span>
+<span class="n">mymap</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>The &lt;- operator inserts the anonymous function as the last argument in the
@@ -719,13 +722,13 @@ function (imagine that &lt;&lt;- sends the value to the other side).</p>
 pointing in one way surely we should have arrows pointing in the opposite way
 and doing something similar, right?</p>
 <p>Well, we actually do:</p>
-<div class="code ruby highlight-python"><div class="highlight"><pre>IsOdd     = fn case X: X % 2 is 0 end
-Increment = fn case X: X + 1 end
-MyMap     = fn case List, Fun: lists.map(Fun, List) end
+<div class="code ruby highlight-default"><div class="highlight"><pre><span></span><span class="n">IsOdd</span>     <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span> <span class="n">X</span> <span class="o">%</span> <span class="mi">2</span> <span class="ow">is</span> <span class="mi">0</span> <span class="n">end</span>
+<span class="n">Increment</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">end</span>
+<span class="n">MyMap</span>     <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">List</span><span class="p">,</span> <span class="n">Fun</span><span class="p">:</span> <span class="n">lists</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Fun</span><span class="p">,</span> <span class="n">List</span><span class="p">)</span> <span class="n">end</span>
 
-lists.seq(1, 10) -&gt;&gt;
-    lists.filter(IsOdd) -&gt;
-    MyMap(Increment)
+<span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;&gt;</span>
+    <span class="n">lists</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">IsOdd</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="n">MyMap</span><span class="p">(</span><span class="n">Increment</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(I define MyMap to reverse the order of the arguments of lists.map so I can
@@ -849,7 +852,7 @@ shouldn&#8217;t be used.</p>
 </tbody>
 </table>
 <p>The arguments may be of different data types. The following order is defined:</p>
-<div class="highlight-python"><div class="highlight"><pre>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">&lt;</span> <span class="n">atom</span> <span class="o">&lt;</span> <span class="n">reference</span> <span class="o">&lt;</span> <span class="n">fun</span> <span class="o">&lt;</span> <span class="n">port</span> <span class="o">&lt;</span> <span class="n">pid</span> <span class="o">&lt;</span> <span class="nb">tuple</span> <span class="o">&lt;</span> <span class="nb">list</span> <span class="o">&lt;</span> <span class="n">bit</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Lists are compared element by element.</p>
@@ -1037,9 +1040,9 @@ that it will be very slow if both A and B are long lists.</p>
 <p>This is a quick introduction of a lot of topics, if you want to learn more you
 should check the following resources:</p>
 <ul class="simple">
-<li><a class="reference internal" href="language-reference.html#language-reference"><span>Language Reference</span></a></li>
-<li><a class="reference internal" href="language-introduction.html#introduction"><span>Efene Introduction</span></a></li>
-<li><a class="reference internal" href="quickstart.html#quick-start"><span>Quick Start</span></a></li>
+<li><a class="reference internal" href="language-reference.html#language-reference"><span class="std std-ref">Language Reference</span></a></li>
+<li><a class="reference internal" href="language-introduction.html#introduction"><span class="std std-ref">Efene Introduction</span></a></li>
+<li><a class="reference internal" href="quickstart.html#quick-start"><span class="std std-ref">Quick Start</span></a></li>
 </ul>
 </div>
 </div>
@@ -1088,7 +1091,8 @@ should check the following resources:</p>
             VERSION:'1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

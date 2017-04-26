@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Efene Programming Language 1.0 documentation" href="index.html"/>
         <link rel="next" title="Quick Start" href="quickstart.html"/>
         <link rel="prev" title="Efene Introduction" href="language-introduction.html"/> 
@@ -87,7 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="help-needed.html">Help Needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick-efene-introduction-busy-programmer.html">Efene Quick Introduction for the Busy/Lazy Programmer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-introduction.html">Efene Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Language Reference</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Language Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#values">Values</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#boolean">Boolean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#numbers">Numbers</a><ul>
@@ -233,7 +236,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/language-reference.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/language-reference.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -376,8 +379,8 @@ values and backticks, see below.</p>
 <div class="section" id="chars">
 <h4>Chars<a class="headerlink" href="#chars" title="Permalink to this headline">¶</a></h4>
 <p>A character is a number representing a character in a string:</p>
-<div class="highlight-python"><div class="highlight"><pre>A = #c &quot;A&quot;
-Hello = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="c1">#c &quot;A&quot;</span>
+<span class="n">Hello</span> <span class="o">=</span> <span class="p">[</span><span class="c1">#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]</span>
 </pre></div>
 </div>
 </div>
@@ -484,7 +487,7 @@ item tuples to distinguish from an expression in parenthesis:</p>
 variables are only allowed in patterns.</p>
 <p>Variables start with an uppercase letter or underscore (_) and may contain
 alphanumeric characters and underscores. Examples:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">X</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">X</span>
 <span class="n">Name1</span>
 <span class="n">PhoneNumber</span>
 <span class="n">Phone_number</span>
@@ -496,18 +499,18 @@ alphanumeric characters and underscores. Examples:</p>
 assignment, a variable can only be bound once.</p>
 <p>The anonymous variable is denoted by underscore (_) and can be used when a
 variable is required but its value can be ignored. Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>H :: _ = [1,2,3]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="p">::</span> <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Variables starting with underscore (_), for example _Height, are normal
 variables, not anonymous. They are however ignored by the compiler in the sense
 that they will not generate any warnings for unused variables.</p>
 <p>Note that since variables starting with an underscore are not anonymous, this will match:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>But this will fail:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">_N</span><span class="p">,</span><span class="n">_N</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">_N</span><span class="p">,</span><span class="n">_N</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -528,34 +531,34 @@ calling make_ref/0.</p>
 <h4>Anonymouse Functions<a class="headerlink" href="#anonymouse-functions" title="Permalink to this headline">¶</a></h4>
 <p>Functions can be created and assigned to variables inside other functions, the
 syntax is:</p>
-<div class="highlight-python"><div class="highlight"><pre>fn [case &lt;parameter&gt;*: &lt;body&gt;]+ [else: &lt;body&gt;] end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="p">[</span><span class="n">case</span> <span class="o">&lt;</span><span class="n">parameter</span><span class="o">&gt;*</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="p">]</span><span class="o">+</span> <span class="p">[</span><span class="k">else</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="p">]</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>Simples function:</p>
-<div class="highlight-python"><div class="highlight"><pre>One = fn one case: 1 end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">One</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">one</span> <span class="n">case</span><span class="p">:</span> <span class="mi">1</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>Receiving arguments:</p>
-<div class="highlight-python"><div class="highlight"><pre>Identity = fn case Val: Val end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Identity</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">Val</span><span class="p">:</span> <span class="n">Val</span> <span class="n">end</span>
 
-AddTwo = fn case A, B: A + V end
+<span class="n">AddTwo</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">A</span> <span class="o">+</span> <span class="n">V</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>Multiple case clauses:</p>
-<div class="highlight-python"><div class="highlight"><pre>Division = fn
-    case A, 0:
-        (error, division_by_zero)
-    case A, B:
-        A / B
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Division</span> <span class="o">=</span> <span class="n">fn</span>
+    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">division_by_zero</span><span class="p">)</span>
+    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span>
+        <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Cases with else:</p>
-<div class="highlight-python"><div class="highlight"><pre>MyXor = fn
-    case true, false: true
-    case false, true: true
-    else: false
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MyXor</span> <span class="o">=</span> <span class="n">fn</span>
+    <span class="n">case</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">case</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">:</span> <span class="n">true</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">false</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -565,10 +568,10 @@ end
 would do with a toplevel function.</p>
 <p>The syntax is the same as an anonymous function but with a variable as it&#8217;s name,
 for example:</p>
-<div class="highlight-python"><div class="highlight"><pre>F3 = fn Fact
-    case 0: 1
-    case N: N * Fact(N - 1)
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F3</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">Fact</span>
+    <span class="n">case</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="n">case</span> <span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="o">*</span> <span class="n">Fact</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Notice that the resulting function is stored in F3 and you must use that name
@@ -583,15 +586,15 @@ variable we can use the function reference syntax.</p>
 <p>It&#8217;s composed of the keyword <strong>fn</strong>, the function name, including module if
 needed and it&#8217;s arity, that is, the number of parameters it receives.</p>
 <p>Examples:</p>
-<div class="highlight-python"><div class="highlight"><pre>CR1 = fn a:0
-CR3 = fn a.b:2
-CR4 = fn a.B:3
-CR5 = fn A.b:4
-CR6 = fn A.B:5
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CR1</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">a</span><span class="p">:</span><span class="mi">0</span>
+<span class="n">CR3</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">CR4</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">a</span><span class="o">.</span><span class="n">B</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">CR5</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">A</span><span class="o">.</span><span class="n">b</span><span class="p">:</span><span class="mi">4</span>
+<span class="n">CR6</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">A</span><span class="o">.</span><span class="n">B</span><span class="p">:</span><span class="mi">5</span>
 </pre></div>
 </div>
 <p>Notice you can&#8217;t make a function reference to a function stored on a variable like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>CR2 = fn A:1
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CR2</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">A</span><span class="p">:</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>since it&#8217;s already a function reference on itself, this will result in an error.</p>
@@ -604,52 +607,52 @@ we have a reference to it in a variable.</p>
 <p>The simples way to call a local function (or an automatically imported function) is
 just giving the name and passing the parameters.</p>
 <p>Local call:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">One</span> <span class="o">=</span> <span class="n">identity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">One</span> <span class="o">=</span> <span class="n">identity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Call to a function in another module:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">R</span> <span class="o">=</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Dynamic local call:</p>
-<div class="highlight-python"><div class="highlight"><pre>I = fn identity:1
-One = I(1)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">identity</span><span class="p">:</span><span class="mi">1</span>
+<span class="n">One</span> <span class="o">=</span> <span class="n">I</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Dynamic call to a function in another module:</p>
-<div class="highlight-python"><div class="highlight"><pre>L = lists
-S = seq
-R = L.S(1, 10)
-R = lists.S(1, 10)
-R = L.seq(1, 10)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">lists</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">seq</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">lists</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-L1 = fn lists.seq:2
-L2 = fn lists.S:2
-L3 = fn L.seq:2
-L4 = fn L.S:2
+<span class="n">L1</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">lists</span><span class="o">.</span><span class="n">S</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">L3</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">L</span><span class="o">.</span><span class="n">seq</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">L4</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">L</span><span class="o">.</span><span class="n">S</span><span class="p">:</span><span class="mi">2</span>
 
-R = L1(1, 10)
-R = L2(1, 10)
-R = L3(1, 10)
-R = L4(1, 10)
+<span class="n">R</span> <span class="o">=</span> <span class="n">L1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">L2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">L3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">L4</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Threading function calls:</p>
-<div class="highlight-python"><div class="highlight"><pre>IsOdd = fn case X:
-  X % 2 is 0
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">IsOdd</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">%</span> <span class="mi">2</span> <span class="ow">is</span> <span class="mi">0</span>
+<span class="n">end</span>
 
-Increment = fn case X:
-  X + 1
-end
+<span class="n">Increment</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 
-MyMap = fn case List, Fun:
-  lists.map(Fun, List)
-end
+<span class="n">MyMap</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">List</span><span class="p">,</span> <span class="n">Fun</span><span class="p">:</span>
+  <span class="n">lists</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Fun</span><span class="p">,</span> <span class="n">List</span><span class="p">)</span>
+<span class="n">end</span>
 
-lists.seq(1, 10) -&gt;&gt;
-    lists.filter(IsOdd) -&gt;
-    MyMap(Increment)
+<span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;&gt;</span>
+    <span class="n">lists</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">IsOdd</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="n">MyMap</span><span class="p">(</span><span class="n">Increment</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(I define MyMap to reverse the order of the arguments of lists.map so I can
@@ -659,19 +662,19 @@ function on the right (imagine that -&gt;&gt; sends the value to the other side)
 <p>the -&gt; operator inserts the value from the left as the first argument in the
 function on the right (imagine that -&gt; sends the value to the closest side)</p>
 <p>Higher order function calls:</p>
-<div class="highlight-python"><div class="highlight"><pre>MapR = fn case List, Fun:
-  lists.map(Fun, List)
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MapR</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">List</span><span class="p">,</span> <span class="n">Fun</span><span class="p">:</span>
+  <span class="n">lists</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Fun</span><span class="p">,</span> <span class="n">List</span><span class="p">)</span>
+<span class="n">end</span>
 
-R = lists.seq(1, 10)
+<span class="n">R</span> <span class="o">=</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-lists.map(R) &lt;&lt;- case X:
-  X + 1
-end
+<span class="n">lists</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="o">&lt;&lt;-</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 
-MapR(R) &lt;- case X:
-  X + 1
-end
+<span class="n">MapR</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">case</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>The &lt;- operator inserts the anonymous function as the last argument in the
@@ -688,7 +691,7 @@ function (imagine that &lt;&lt;- sends the value to the other side).</p>
 value or expression by tagging it.</p>
 <p>a tagged value is comprised of the # sign followed by a path, that is a
 sequence of atoms or variables joined with dots, examples of tagged values:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c1">#atom &quot;I&#39;m an atom&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#atom &quot;I&#39;m an atom&quot;</span>
 <span class="c1">#c &quot;A&quot;</span>
 </pre></div>
 </div>
@@ -698,7 +701,7 @@ effect as the single quotes in erlang.</p>
 the same effect as the dolar sign in erlang.</p>
 <p>a tagged expression works the same as a tagged value but applies to expressions,
 the syntax is the same except that the ^ symbol is used instead of #:</p>
-<div class="highlight-python"><div class="highlight"><pre>^_ begin &quot;this is ignored&quot; end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">^</span><span class="n">_</span> <span class="n">begin</span> <span class="s2">&quot;this is ignored&quot;</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>It just &#8220;ignores&#8221; the expression or value that follows.</p>
@@ -716,25 +719,25 @@ run time with the name of the record in it, it&#8217;s kind of a named tuple whe
 at run time field names are translated into tuple indexes.</p>
 <p>To declare a record you have to add a record declaration at the top level of
 your modules, for example:</p>
-<div class="highlight-python"><div class="highlight"><pre>@record(person) -&gt; (name, lastname, sex=female, age)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@record</span><span class="p">(</span><span class="n">person</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lastname</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="n">female</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The person part is the name of the record, the items after the arrow in
 parenthesis are the record fields, you can provide default values for fields.</p>
 <p>To instantiate a record:</p>
-<div class="highlight-python"><div class="highlight"><pre>P = #r.person {name: &quot;bob&quot;, lastname: &quot;sponge&quot;, age:29}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="c1">#r.person {name: &quot;bob&quot;, lastname: &quot;sponge&quot;, age:29}</span>
 </pre></div>
 </div>
 <p>To update a record:</p>
-<div class="highlight-python"><div class="highlight"><pre>P1 = #r.person P#{age:28}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">P1</span> <span class="o">=</span> <span class="c1">#r.person P#{age:28}</span>
 </pre></div>
 </div>
 <p>To pattern match against a record:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c1">#r.person {age: Age} = P1</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#r.person {age: Age} = P1</span>
 </pre></div>
 </div>
 <p>To get the value of a field:</p>
-<div class="highlight-python"><div class="highlight"><pre>Counter = #r.state.counter State
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Counter</span> <span class="o">=</span> <span class="c1">#r.state.counter State</span>
 </pre></div>
 </div>
 <p>To get the tuple index of a field:</p>
@@ -746,17 +749,17 @@ the format of a binary, you can read more at <a class="reference external" href=
 <p>In efene binaries are implemented using a tagged map that contains a sequence
 of key/value pair for each field describing format of that field, here is an
 example covering all the alternatives:</p>
-<div class="highlight-python"><div class="highlight"><pre>#b {_: _,
-    A: _,
-    JustSize: 8,
-    JustType: binary,
-    E: {},
-    _: {size: 8},
-    _: {type: float},
-    _: {sign: unsigned},
-    _: {endianness: big},
-    _: {unit: 8},
-    B: {size: 8, type: float, sign: signed, endianness: little, unit: 16}}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#b {_: _,</span>
+    <span class="n">A</span><span class="p">:</span> <span class="n">_</span><span class="p">,</span>
+    <span class="n">JustSize</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="n">JustType</span><span class="p">:</span> <span class="n">binary</span><span class="p">,</span>
+    <span class="n">E</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">size</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="nb">type</span><span class="p">:</span> <span class="nb">float</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">sign</span><span class="p">:</span> <span class="n">unsigned</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">endianness</span><span class="p">:</span> <span class="n">big</span><span class="p">},</span>
+    <span class="n">_</span><span class="p">:</span> <span class="p">{</span><span class="n">unit</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+    <span class="n">B</span><span class="p">:</span> <span class="p">{</span><span class="n">size</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sign</span><span class="p">:</span> <span class="n">signed</span><span class="p">,</span> <span class="n">endianness</span><span class="p">:</span> <span class="n">little</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="mi">16</span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>You can use <cite>_</cite> on the key to ignore that field and on the value to provide
@@ -764,10 +767,10 @@ defaults, on the value you can also provide <cite>{}</cite> to specify defaults.
 <p>If the value is an int it&#8217;s assumed to be the size property, if it&#8217;s an atom
 it&#8217;s assumed to be the type attribute.</p>
 <p>Here is an example pattern matching an IPv4 packet:</p>
-<div class="highlight-python"><div class="highlight"><pre>#b {Version:4, IHL:4, TypeOfService:8, TotalLength:16,  Identification:16,
-    FlagX:1, FlagD:1, FlagM:1,  FragmentOffset:13, TTL:8, Protocol:8,
-    HeaderCheckSum:16, SourceAddress:32, DestinationAddress:32,
-    Rest: binary} = Packet
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#b {Version:4, IHL:4, TypeOfService:8, TotalLength:16,  Identification:16,</span>
+    <span class="n">FlagX</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">FlagD</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">FlagM</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>  <span class="n">FragmentOffset</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span> <span class="n">TTL</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="n">Protocol</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">HeaderCheckSum</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span> <span class="n">SourceAddress</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span> <span class="n">DestinationAddress</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">Rest</span><span class="p">:</span> <span class="n">binary</span><span class="p">}</span> <span class="o">=</span> <span class="n">Packet</span>
 </pre></div>
 </div>
 <p>On a field you can specify the variable to match to, the size, type, sign,
@@ -779,23 +782,23 @@ endianness and unit.</p>
 <h3><a class="toc-backref" href="#id34">Compile Time Information</a><a class="headerlink" href="#compile-time-information" title="Permalink to this headline">¶</a></h3>
 <p>Using tagged values we can get some information at compile time.</p>
 <p>Current line:</p>
-<div class="highlight-python"><div class="highlight"><pre>Line = #i line
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Line</span> <span class="o">=</span> <span class="c1">#i line</span>
 </pre></div>
 </div>
 <p>Current module name as an atom:</p>
-<div class="highlight-python"><div class="highlight"><pre>Module = #i module
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Module</span> <span class="o">=</span> <span class="c1">#i module</span>
 </pre></div>
 </div>
 <p>Current module name as a string:</p>
-<div class="highlight-python"><div class="highlight"><pre>Module = #i module_string
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Module</span> <span class="o">=</span> <span class="c1">#i module_string</span>
 </pre></div>
 </div>
 <p>Current function name:</p>
-<div class="highlight-python"><div class="highlight"><pre>FnName = #i function_name
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">FnName</span> <span class="o">=</span> <span class="c1">#i function_name</span>
 </pre></div>
 </div>
 <p>Current function arity:</p>
-<div class="highlight-python"><div class="highlight"><pre>FnArity = #i function_arity
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">FnArity</span> <span class="o">=</span> <span class="c1">#i function_arity</span>
 </pre></div>
 </div>
 </div>
@@ -890,7 +893,7 @@ endianness and unit.</p>
 </tbody>
 </table>
 <p>The arguments may be of different data types. The following order is defined:</p>
-<div class="highlight-python"><div class="highlight"><pre>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">&lt;</span> <span class="n">atom</span> <span class="o">&lt;</span> <span class="n">reference</span> <span class="o">&lt;</span> <span class="n">fun</span> <span class="o">&lt;</span> <span class="n">port</span> <span class="o">&lt;</span> <span class="n">pid</span> <span class="o">&lt;</span> <span class="nb">tuple</span> <span class="o">&lt;</span> <span class="nb">list</span> <span class="o">&lt;</span> <span class="n">bit</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Lists are compared element by element.</p>
@@ -1056,45 +1059,45 @@ that it will be very slow if both A and B are long lists.</p>
 <div class="section" id="abstract-syntax">
 <h4>Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permalink to this headline">¶</a></h4>
 <p>Simple:</p>
-<div class="highlight-python"><div class="highlight"><pre>when GuardSeq1:
-    Body1
-else:
-    ElseBody
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">:</span>
+    <span class="n">Body1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ElseBody</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Complete:</p>
-<div class="highlight-python"><div class="highlight"><pre>when GuardSeq1:
-    Body1
-else GuardSeq2:
-    Body2
-...
-else GuardSeqN:
-    BodyN
-else:
-    ElseBody
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">:</span>
+    <span class="n">Body1</span>
+<span class="k">else</span> <span class="n">GuardSeq2</span><span class="p">:</span>
+    <span class="n">Body2</span>
+<span class="o">...</span>
+<span class="k">else</span> <span class="n">GuardSeqN</span><span class="p">:</span>
+    <span class="n">BodyN</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ElseBody</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="examples">
 <h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>when true:
-    io.format(&quot;guard evaluated to true&quot;)
-else:
-    io.format(&quot;no guard evaluated to true&quot;)
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">true</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;guard evaluated to true&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;no guard evaluated to true&quot;</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>when A &lt; 10:
-    io.format(&quot;A &lt; 10&quot;)
-else A &lt; 20:
-    io.format(&quot;A &lt; 20 and &gt;= 10&quot;)
-else A &lt; 30:
-    io.format(&quot;A &lt; 30 and &gt;= 20&quot;)
-else:
-    io.format(&quot;A &gt; 30&quot;)
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 10&quot;</span><span class="p">)</span>
+<span class="k">else</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 20 and &gt;= 10&quot;</span><span class="p">)</span>
+<span class="k">else</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 30 and &gt;= 20&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &gt; 30&quot;</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1152,22 +1155,22 @@ sequence (that is, the guard following the next semicolon) will be evaluated.</p
 <p>A guard sequence is a sequence of guards, separated by semicolon (;).
 The guard sequence is true if at least one of the guards is true.
 (The remaining guards, if any, will not be evaluated.):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Guard1</span><span class="p">;</span><span class="o">...</span><span class="p">;</span><span class="n">GuardK</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Guard1</span><span class="p">;</span><span class="o">...</span><span class="p">;</span><span class="n">GuardK</span>
 </pre></div>
 </div>
 <p>A guard is a sequence of guard expressions, separated by comma (,).
 The guard is true if all guard expressions evaluate to true:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GuardExpr1</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="n">GuardExprN</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GuardExpr1</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="n">GuardExprN</span>
 </pre></div>
 </div>
 <p>example:</p>
-<div class="highlight-python"><div class="highlight"><pre>when Cond1, Cond2; Cond3:
-    1
-else Cond4; Cond5, Cond6, Cond7:
-    2
-else:
-    3
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">Cond1</span><span class="p">,</span> <span class="n">Cond2</span><span class="p">;</span> <span class="n">Cond3</span><span class="p">:</span>
+    <span class="mi">1</span>
+<span class="k">else</span> <span class="n">Cond4</span><span class="p">;</span> <span class="n">Cond5</span><span class="p">,</span> <span class="n">Cond6</span><span class="p">,</span> <span class="n">Cond7</span><span class="p">:</span>
+    <span class="mi">2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="mi">3</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1176,45 +1179,45 @@ end
 <h3><a class="toc-backref" href="#id44">Match</a><a class="headerlink" href="#match" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id3">
 <h4>Abstract Syntax<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>match Expr:
-    case Pattern1 [when GuardSeq1]:
-        Body1
-    ...
-    [case PatternN [when GuardSeqN]:
-        BodyN]
-    [else:
-        BodyElse]
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">match</span> <span class="n">Expr</span><span class="p">:</span>
+    <span class="n">case</span> <span class="n">Pattern1</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">]:</span>
+        <span class="n">Body1</span>
+    <span class="o">...</span>
+    <span class="p">[</span><span class="n">case</span> <span class="n">PatternN</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeqN</span><span class="p">]:</span>
+        <span class="n">BodyN</span><span class="p">]</span>
+    <span class="p">[</span><span class="k">else</span><span class="p">:</span>
+        <span class="n">BodyElse</span><span class="p">]</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
 <h4>Examples<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <p>Simple:</p>
-<div class="highlight-python"><div class="highlight"><pre>match Result:
-    case ok, Value:
-        io.format(&quot;everything ok ~p~n&quot;, [Value])
-        do_something(Value)
-    case error, Reason:
-        io.format(&quot;error: ~p~n&quot;, [Reason])
-        fail(Reason)
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">match</span> <span class="n">Result</span><span class="p">:</span>
+    <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span><span class="p">:</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
+        <span class="n">do_something</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">Reason</span><span class="p">:</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;error: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Reason</span><span class="p">])</span>
+        <span class="n">fail</span><span class="p">(</span><span class="n">Reason</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>When and Else:</p>
-<div class="highlight-python"><div class="highlight"><pre>match Result:
-    case ok, Value when is_integer(Value), Value &lt; 10:
-        io.format(&quot;everything ok, value is &lt; 10: ~p~n&quot;, [Value])
-        do_something(Value)
-    case ok, Value when is_atom(Value):
-        io.format(&quot;everything ok, value is atom~p~n&quot;, [Value])
-        do_something_atom(Value)
-    case error, Reason:
-        io.format(&quot;error: ~p~n&quot;, [Reason])
-        fail(Reason)
-    else:
-        io.format(&quot;Value doesn&#39;t match any case&quot;)
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">match</span> <span class="n">Result</span><span class="p">:</span>
+    <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">Value</span><span class="p">),</span> <span class="n">Value</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok, value is &lt; 10: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
+        <span class="n">do_something</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+    <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span> <span class="n">when</span> <span class="n">is_atom</span><span class="p">(</span><span class="n">Value</span><span class="p">):</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok, value is atom~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
+        <span class="n">do_something_atom</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">Reason</span><span class="p">:</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;error: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Reason</span><span class="p">])</span>
+        <span class="n">fail</span><span class="p">(</span><span class="n">Reason</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Value doesn&#39;t match any case&quot;</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1233,9 +1236,9 @@ run-time error will occur.</p>
 <h3><a class="toc-backref" href="#id45">For</a><a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id6">
 <h4>Abstract Syntax<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>for (&lt;generator&gt;;&lt;filter&gt;)+:
-    &lt;body&gt;
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">generator</span><span class="o">&gt;</span><span class="p">;</span><span class="o">&lt;</span><span class="nb">filter</span><span class="o">&gt;</span><span class="p">)</span><span class="o">+</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>The for expression starts with the <strong>for</strong> reserved keywords followed with at
@@ -1251,13 +1254,13 @@ logging, then you should take care to avoid having a big value being generated
 as the last expression in the body, since this will be acumulated in a list
 and returned when the for finishes.</p>
 <p>A generator is an expression like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span> <span class="ow">in</span> <span class="n">B</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="ow">in</span> <span class="n">B</span>
 </pre></div>
 </div>
 <p>Where B should be evaluated to a sequence and each element of that sequence
 will be assigned to A and be available in the for body.</p>
 <p>A filter is an expresion like:</p>
-<div class="highlight-python"><div class="highlight"><pre>when &lt;condition&gt;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>where condition should be an expression that evaluates to true of false, if
@@ -1266,21 +1269,21 @@ a filter returns false then the body wont be generated for that value.</p>
 <div class="section" id="id7">
 <h4>Examples<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>For with one generator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
   <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">end</span>
 </pre></div>
 </div>
 <p>For with one generator and one filter:</p>
-<div class="highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10); when X % 2 is 0:
-  X + 1
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="n">when</span> <span class="n">X</span> <span class="o">%</span> <span class="mi">2</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>For with two generators:</p>
-<div class="highlight-python"><div class="highlight"><pre>for X in lists.seq(1, 10); Y in lists.seq(10, 20):
-  (X, Y)
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="n">Y</span> <span class="ow">in</span> <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+  <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1289,11 +1292,11 @@ end
 <h3><a class="toc-backref" href="#id46">Try/Catch/After</a><a class="headerlink" href="#try-catch-after" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id8">
 <h4>Abstract Syntax<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>try
-    &lt;body&gt;
-[catch &lt;case&gt;+ [&lt;else&gt;]]
-[after &lt;body&gt;]
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="p">[</span><span class="n">catch</span> <span class="o">&lt;</span><span class="n">case</span><span class="o">&gt;+</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">else</span><span class="o">&gt;</span><span class="p">]]</span>
+<span class="p">[</span><span class="n">after</span> <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>A try expression is an expression used to handle one or more expressions that
@@ -1325,42 +1328,42 @@ be used to get the details of the exception.</p>
 <div class="section" id="id9">
 <h4>Examples<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <p>No catch:</p>
-<div class="highlight-python"><div class="highlight"><pre>try
-  1/0
-after
-  ok
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">after</span>
+  <span class="n">ok</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Catch type and reason:</p>
-<div class="highlight-python"><div class="highlight"><pre>try
-  1/0
-catch
-    case error, badarith: ok
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">catch</span>
+    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Catch and after:</p>
-<div class="highlight-python"><div class="highlight"><pre>try
-  1/0
-catch
-    case error, badarith: ok
-after
-  ok
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">catch</span>
+    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
+<span class="n">after</span>
+  <span class="n">ok</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>All possible catchs:</p>
-<div class="highlight-python"><div class="highlight"><pre>try
-  1/0
-catch
-     case throw, T1: T1
-     case Throw: Throw
-     case error, E1: E1
-     case exit, X1: X1
-     case A, C: C
-     else: iselse
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
+  <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">catch</span>
+     <span class="n">case</span> <span class="n">throw</span><span class="p">,</span> <span class="n">T1</span><span class="p">:</span> <span class="n">T1</span>
+     <span class="n">case</span> <span class="n">Throw</span><span class="p">:</span> <span class="n">Throw</span>
+     <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">E1</span><span class="p">:</span> <span class="n">E1</span>
+     <span class="n">case</span> <span class="n">exit</span><span class="p">,</span> <span class="n">X1</span><span class="p">:</span> <span class="n">X1</span>
+     <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">C</span>
+     <span class="k">else</span><span class="p">:</span> <span class="n">iselse</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1369,31 +1372,31 @@ end
 <h3><a class="toc-backref" href="#id47">Receive/After</a><a class="headerlink" href="#receive-after" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id10">
 <h4>Abstract Syntax<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>receive
-    case Pattern1 [when GuardSeq1]:
-        Body1
-    ...
-    [case PatternN [when GuardSeqN]:
-        BodyN]
-    [else:
-        BodyElse]
-after ExprT:
-    BodyAfter
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">receive</span>
+    <span class="n">case</span> <span class="n">Pattern1</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">]:</span>
+        <span class="n">Body1</span>
+    <span class="o">...</span>
+    <span class="p">[</span><span class="n">case</span> <span class="n">PatternN</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeqN</span><span class="p">]:</span>
+        <span class="n">BodyN</span><span class="p">]</span>
+    <span class="p">[</span><span class="k">else</span><span class="p">:</span>
+        <span class="n">BodyElse</span><span class="p">]</span>
+<span class="n">after</span> <span class="n">ExprT</span><span class="p">:</span>
+    <span class="n">BodyAfter</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id11">
 <h4>Examples<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>receive
-     case throw, T1: T1
-     case error, E1: E1
-     case exit, X1: X1
-     case A, C: C
-     else: iselse
-after 1000:
-     ok
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">receive</span>
+     <span class="n">case</span> <span class="n">throw</span><span class="p">,</span> <span class="n">T1</span><span class="p">:</span> <span class="n">T1</span>
+     <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">E1</span><span class="p">:</span> <span class="n">E1</span>
+     <span class="n">case</span> <span class="n">exit</span><span class="p">,</span> <span class="n">X1</span><span class="p">:</span> <span class="n">X1</span>
+     <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">C</span>
+     <span class="k">else</span><span class="p">:</span> <span class="n">iselse</span>
+<span class="n">after</span> <span class="mi">1000</span><span class="p">:</span>
+     <span class="n">ok</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1429,20 +1432,20 @@ receive..after expression.</p>
 <h3><a class="toc-backref" href="#id48">Begin</a><a class="headerlink" href="#begin" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id13">
 <h4>Abstract Syntax<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>begin
-    Expr1
-    ...
-    ExprN
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">begin</span>
+    <span class="n">Expr1</span>
+    <span class="o">...</span>
+    <span class="n">ExprN</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id14">
 <h4>Examples<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>Value = begin
-    io.format(&quot;returning 42&quot;)
-    42
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Value</span> <span class="o">=</span> <span class="n">begin</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;returning 42&quot;</span><span class="p">)</span>
+    <span class="mi">42</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1464,7 +1467,7 @@ module in your efene module and then use them.</p>
 an expression, it can be used to name constants or to expand an expression in
 multiple places, to expand a macro constant you have to write the name of
 the macro constant tagged with the #m tag:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c1">#m Author</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#m Author</span>
 <span class="c1">#m LINE</span>
 <span class="c1">#m PI</span>
 </pre></div>
@@ -1475,7 +1478,7 @@ the macro constant tagged with the #m tag:</p>
 <p>Macro Functions are macros that receive arguments and use them to expand
 its definition using those arguments, to expand a macro call you have to write
 the macro as a function call tagged with the #m tag:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c1">#m AUTHOR(bob)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#m AUTHOR(bob)</span>
 <span class="c1">#m Text(1 * 2 + 3)</span>
 <span class="c1">#m AddPlusOne(2, 3)</span>
 </pre></div>
@@ -1488,7 +1491,7 @@ the macro as a function call tagged with the #m tag:</p>
 <h3><a class="toc-backref" href="#id53">Top Level Function</a><a class="headerlink" href="#top-level-function" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id16">
 <h4>Abstract Syntax<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>fn &lt;name&gt; [attribues] [cases] end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">attribues</span><span class="p">]</span> <span class="p">[</span><span class="n">cases</span><span class="p">]</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>A top level function is defining by starting with the reserved keyword <strong>fn</strong>
@@ -1499,40 +1502,40 @@ the <strong>end</strong> keyword.</p>
 <div class="section" id="id17">
 <h4>Examples<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
 <p>Simples function:</p>
-<div class="highlight-python"><div class="highlight"><pre>fn one case: 1 end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">one</span> <span class="n">case</span><span class="p">:</span> <span class="mi">1</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>Simple with attributes:</p>
-<div class="highlight-python"><div class="highlight"><pre>fn one @public case: 1 end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">one</span> <span class="nd">@public</span> <span class="n">case</span><span class="p">:</span> <span class="mi">1</span> <span class="n">end</span>
 
-fn two @public
-    @doc(&quot;returns the number two&quot;)
-    case:
-        2
-end
+<span class="n">fn</span> <span class="n">two</span> <span class="nd">@public</span>
+    <span class="nd">@doc</span><span class="p">(</span><span class="s2">&quot;returns the number two&quot;</span><span class="p">)</span>
+    <span class="n">case</span><span class="p">:</span>
+        <span class="mi">2</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Receiving arguments:</p>
-<div class="highlight-python"><div class="highlight"><pre>fn identity case Val: Val end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">identity</span> <span class="n">case</span> <span class="n">Val</span><span class="p">:</span> <span class="n">Val</span> <span class="n">end</span>
 
-fn add_two case A, B: A + V end
+<span class="n">fn</span> <span class="n">add_two</span> <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">A</span> <span class="o">+</span> <span class="n">V</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>Multiple case clauses:</p>
-<div class="highlight-python"><div class="highlight"><pre>fn division
-    case A, 0:
-        (error, division_by_zero)
-    case A, B:
-        A / B
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">division</span>
+    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">division_by_zero</span><span class="p">)</span>
+    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span>
+        <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 <p>Cases with else:</p>
-<div class="highlight-python"><div class="highlight"><pre>fn my_xor_
-    case true, false: true
-    case false, true: true
-    else: false
-end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">my_xor_</span>
+    <span class="n">case</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">case</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">:</span> <span class="n">true</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">false</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
@@ -1554,7 +1557,7 @@ end
 <h4>Well Known Attributes<a class="headerlink" href="#well-known-attributes" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="export">
 <h5>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@export(hello/0, plus/2)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@export</span><span class="p">(</span><span class="n">hello</span><span class="o">/</span><span class="mi">0</span><span class="p">,</span> <span class="n">plus</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Has the same behavior as adding the &#64;public attribute to a function, exports
@@ -1562,14 +1565,14 @@ the function to be used from other modules.</p>
 </div>
 <div class="section" id="export-type">
 <h5>Export Type<a class="headerlink" href="#export-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@export_type(tint/0, c2/1)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@export_type</span><span class="p">(</span><span class="n">tint</span><span class="o">/</span><span class="mi">0</span><span class="p">,</span> <span class="n">c2</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Exports the types to be used from other modules.</p>
 </div>
 <div class="section" id="record-definition">
 <h5>Record Definition<a class="headerlink" href="#record-definition" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@record(foo) -&gt; (a, b = 12, c = true, d = 12)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@record</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">true</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Defined a record by providing a name and a tuple with field names as atoms
@@ -1578,7 +1581,7 @@ and optionally a default value in case a value is not providing on construction.
 </div>
 <div class="section" id="record-definition-with-types">
 <h5>Record Definition with Types<a class="headerlink" href="#record-definition-with-types" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@record(person) -&gt; (first = &quot;&quot; is string(), last is list(char()), age is integer())
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@record</span><span class="p">(</span><span class="n">person</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">first</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="ow">is</span> <span class="n">string</span><span class="p">(),</span> <span class="n">last</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">(</span><span class="n">char</span><span class="p">()),</span> <span class="n">age</span> <span class="ow">is</span> <span class="n">integer</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Record fields can contain a type definition to help tools like <a class="reference external" href="http://www.erlang.org/doc/man/dialyzer.html">Dialyzer</a></p>
@@ -1588,68 +1591,68 @@ and optionally a default value in case a value is not providing on construction.
 <h4>Type Attributes<a class="headerlink" href="#type-attributes" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="literal-type">
 <h5>Literal Type<a class="headerlink" href="#literal-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@type(tint) -&gt; 42
-@type(tatom) -&gt; asd
-@type(tbool) -&gt; false
-@type(lempty) -&gt; []
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@type</span><span class="p">(</span><span class="n">tint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">42</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">tatom</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">asd</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">tbool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">false</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">lempty</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="list-type">
 <h5>List Type<a class="headerlink" href="#list-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@type(lone) -&gt; [42]
-@type(l3) -&gt; [tatom()]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@type</span><span class="p">(</span><span class="n">lone</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">l3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">tatom</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="range-type">
 <h5>Range Type<a class="headerlink" href="#range-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@type(trange) -&gt; range(1, 10)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@type</span><span class="p">(</span><span class="n">trange</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="union-type">
 <h5>Union Type<a class="headerlink" href="#union-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@type(tres) -&gt; (ok, integer()) or (error, term()) or (stop, normal)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@type</span><span class="p">(</span><span class="n">tres</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">integer</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">term</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">stop</span><span class="p">,</span> <span class="n">normal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="binary-type">
 <h5>Binary Type<a class="headerlink" href="#binary-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@type(bsempty) -&gt; binary(0, 0)
-@type(bsone) -&gt; binary(4, 0)
-@type(bsonemul) -&gt; binary(0, 5)
-@type(bstwo) -&gt; binary(4, 5)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@type</span><span class="p">(</span><span class="n">bsempty</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">binary</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">bsone</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">binary</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">bsonemul</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">binary</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">bstwo</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">binary</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="parameterized-type">
 <h5>Parameterized Type<a class="headerlink" href="#parameterized-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@type(p1(X)) -&gt; (ok, X, X)
-@type(p2(X, Y)) -&gt; (ok, X, Y)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@type</span><span class="p">(</span><span class="n">p1</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">p2</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="function-type">
 <h5>Function Type<a class="headerlink" href="#function-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@type(f1) -&gt; fun()
-@type(f2) -&gt; fun(any, integer())
-@type(f3) -&gt; fun([boolean(), term()], integer())
-@type(f4) -&gt; fun([], integer())
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@type</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fun</span><span class="p">()</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">f2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fun</span><span class="p">(</span><span class="nb">any</span><span class="p">,</span> <span class="n">integer</span><span class="p">())</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">f3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fun</span><span class="p">([</span><span class="n">boolean</span><span class="p">(),</span> <span class="n">term</span><span class="p">()],</span> <span class="n">integer</span><span class="p">())</span>
+<span class="nd">@type</span><span class="p">(</span><span class="n">f4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fun</span><span class="p">([],</span> <span class="n">integer</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="opaque-type-and-record-type">
 <h5>Opaque Type and Record Type<a class="headerlink" href="#opaque-type-and-record-type" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre>@opaque(tperson) -&gt; #r person
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@opaque</span><span class="p">(</span><span class="n">tperson</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="c1">#r person</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="version-attribute-vsn">
 <h4>Version Attribute (vsn)<a class="headerlink" href="#version-attribute-vsn" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@vsn(&quot;1.2.0&quot;)
-@vsn((1, 2, 0))
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@vsn</span><span class="p">(</span><span class="s2">&quot;1.2.0&quot;</span><span class="p">)</span>
+<span class="nd">@vsn</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Module version. The parameter is any literal term and can be retrieved using
@@ -1659,7 +1662,7 @@ the module.</p>
 </div>
 <div class="section" id="on-load-attribute-on-load">
 <h4>On Load Attribute (on_load)<a class="headerlink" href="#on-load-attribute-on-load" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@on_load(fname/0)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@on_load</span><span class="p">(</span><span class="n">fname</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This attribute names a function that is to be run automatically when a module
@@ -1668,7 +1671,7 @@ Loaded</a>.</p>
 </div>
 <div class="section" id="import-attribute-import">
 <h4>Import Attribute (import)<a class="headerlink" href="#import-attribute-import" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@import(erlang, [phash2/1])
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@import</span><span class="p">(</span><span class="n">erlang</span><span class="p">,</span> <span class="p">[</span><span class="n">phash2</span><span class="o">/</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Imported functions. Can be called the same way as local functions, that is,
@@ -1678,7 +1681,7 @@ a list similar as for export.</p>
 </div>
 <div class="section" id="include-attribute-include">
 <h4>Include Attribute (include)<a class="headerlink" href="#include-attribute-include" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><div class="highlight"><pre>@include(&quot;path/to/file.hrl&quot;)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@include</span><span class="p">(</span><span class="s2">&quot;path/to/file.hrl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Include an erlang file in the current module, code is included in the current
@@ -1734,7 +1737,8 @@ here is the included file <a class="reference external" href="https://github.com
             VERSION:'1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
