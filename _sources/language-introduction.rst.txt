@@ -1129,7 +1129,7 @@ values:
 
             Hello1 = "hello"
             Hello2 = [#c "h", #c "e", #c "l", #c "l", #c "o"]
-            Hello3 = [#c "h" :: #c "e" :: #c "l" :: #c "l" :: #c "o" :: []]
+            Hello3 = #c "h" :: #c "e" :: #c "l" :: #c "l" :: #c "o" :: []
 
             print("this three strings are equivalent ~p ~p ~p", [Hello1, Hello2, Hello3])
 
@@ -1152,7 +1152,7 @@ let's reinforce that with the following example:
 
             Hello1 = "hello"
             Hello2 = [#c "h", #c "e", #c "l", #c "l", #c "o"]
-            Hello3 = [#c "h" :: #c "e" :: #c "l" :: #c "l" :: #c "o" :: []]
+            Hello3 = #c "h" :: #c "e" :: #c "l" :: #c "l" :: #c "o" :: []
 
             print("this three strings are equivalent ~p ~p ~p", [Hello1, Hello2, Hello3])
 

@@ -1068,7 +1068,7 @@ values:</p>
 
         Hello1 = &quot;hello&quot;
         Hello2 = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
-        Hello3 = [#c &quot;h&quot; :: #c &quot;e&quot; :: #c &quot;l&quot; :: #c &quot;l&quot; :: #c &quot;o&quot; :: []]
+        Hello3 = #c &quot;h&quot; :: #c &quot;e&quot; :: #c &quot;l&quot; :: #c &quot;l&quot; :: #c &quot;o&quot; :: []
 
         print(&quot;this three strings are equivalent ~p ~p ~p&quot;, [Hello1, Hello2, Hello3])
 
@@ -1087,7 +1087,7 @@ lists of characters, and we also said that lists are simple nested pairs,
 let&#8217;s reinforce that with the following example:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span>Hello1 = &quot;hello&quot;
 Hello2 = [#c &quot;h&quot;, #c &quot;e&quot;, #c &quot;l&quot;, #c &quot;l&quot;, #c &quot;o&quot;]
-Hello3 = [#c &quot;h&quot; :: #c &quot;e&quot; :: #c &quot;l&quot; :: #c &quot;l&quot; :: #c &quot;o&quot; :: []]
+Hello3 = #c &quot;h&quot; :: #c &quot;e&quot; :: #c &quot;l&quot; :: #c &quot;l&quot; :: #c &quot;o&quot; :: []
 
 print(&quot;this three strings are equivalent ~p ~p ~p&quot;, [Hello1, Hello2, Hello3])
 </pre></div>
