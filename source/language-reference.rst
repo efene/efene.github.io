@@ -76,7 +76,7 @@ List Strings are enclosed in double quotes ("), examples of List Strings::
 
     T1 = ""
     T2 = "a"
-    T3 = hi there"
+    T3 = "hi there"
     T4 = "this \"is\" also a string"
 
 Binary Strings
@@ -201,7 +201,7 @@ An atom is a literal, a constant with name, examples of atoms::
 
 If you want to have spaces or symbols in an atom you can wrap it in "`"::
 
-    A4 = \`hello world!\`
+    A4 = `hello world!`
 
 Variables
 .........
