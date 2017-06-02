@@ -72,23 +72,23 @@ List Strings
 A List String is simply a list of characters represented as numbers, it's
 actually not a data type on itself "hello" is shorthand for the list [104,101,108,108,111].
 
-List Strings are enclosed in double quotes ("), examples of List Strings:
+List Strings are enclosed in double quotes ("), examples of List Strings::
 
-* ""
-* "a"
-* "hi there"
-* "this \"is\" also a string"
+    T1 = ""
+    T2 = "a"
+    T3 = hi there"
+    T4 = "this \"is\" also a string"
 
 Binary Strings
 ::::::::::::::
 
 A Binary String is a binary representation of text, Binary Strings are enclosed
-in single quotes ('), examples of Binary Strings:
+in single quotes ('), examples of Binary Strings::
 
-* ''
-* 'a'
-* 'hi there'
-* 'this \'is\' also a string'
+    B1 = ''
+    B2 = 'a'
+    B3 = 'hi there'
+    B4 = 'this \'is\' also a string'
 
 .. note::
 
@@ -110,36 +110,36 @@ Lists
 
 A List is a variable sequence of elements, it's represented by a comma separated sequence
 of other data types (including nested lists) enclosed in opening and closing
-square brackets ([ and  ]), examples of lists:
+square brackets ([ and  ]), examples of lists::
 
-* []
-* [1]
-* [1, 2]
-* [[[]]]
+    L1 = []
+    L2 = [1]
+    L3 = [1, 2]
+    L4 = [[[]]]
 
-the last element of a list can have a trailing comma:
+the last element of a list can have a trailing comma::
 
-* [1,]
-* [1, 2,]
+    L2 = [1,]
+    L3 = [1, 2,]
 
 Cons Lists
 ..........
 
 `Cons List Type in Wikipedia <https://en.wikipedia.org/wiki/Cons>`_
 
-You can create a list like [1,2,3] with an alternative syntax:
+You can create a list like [1,2,3] with an alternative syntax::
 
-* 1 :: 2 :: [3]
+    1 :: 2 :: [3]
 
-It's useful to extract the head and keep the tail:
+It's useful to extract the head and keep the tail::
 
-* H :: T = [1,2,3]
+    H :: T = [1,2,3]
 
 Now *H* is 1, and *T* is [2, 3]
 
-You can do the reverse and create a new list by "consing" a new head to an existing list:
+You can do the reverse and create a new list by "consing" a new head to an existing list::
 
-* L = 1 :: [2, 3]
+    L = 1 :: [2, 3]
 
 Now *L* is [1,2,3]
 
@@ -150,60 +150,58 @@ Maps
 `Map Data Type in Wikipedia <https://en.wikipedia.org/wiki/Associative_array>`_
 
 A Map is a sequence of elements associating keys to values, it's represented by a comma separated sequence of association pairs enclosed in opening and closing
-curly brackets ({ and }), examples of maps:
+curly brackets ({ and }), examples of maps::
 
-* {}
-* {one: 1}
-* {one: 1, 1: one}
+    M1 = {}
+    M2 = {one: 1}
+    M3 = {one: 1, 1: one}
 
-The last element of a map can have a trailing comma:
+The last element of a map can have a trailing comma::
 
-* {one: 1,}
-* {one: 1, 1: one,}
+    M2 = {one: 1,}
+    M3 = {one: 1, 1: one,}
 
-You can extract fields from a map by using pattern match replacing : for =
+You can extract fields from a map by using pattern match replacing *:* for *=*
 
-* M = {one: 1, two: 2}
-* {one = One, two = Two} = M
+::
 
-You can update an existing map:
+    M = {one: 1, two: 2}
+    {one = One, two = Two} = M
 
-* M1 = M#{three: 3}
+You can update an existing map with the *merge* operator *#*::
+
+    M1 = M#{three: 3}
 
 Tuples
 ......
 
 A Tuple is a fixed sequence of elements, it's represented by a comma separated sequence
 of other data types (including nested tuples) enclosed in opening and closing
-parenthesis ( and ), examples of tuples:
+parenthesis ( and ), examples of tuples::
 
-* ()
-* (1,)
-* (1, 2)
-* (((),),)
+    T1 = ()
+    T2 = (1,)
+    T3 = (1, 2)
+    T4 = (((),),)
 
-the last element of a list can have a trailing comma, it's obligatory in one
-item tuples to distinguish from an expression in parenthesis:
+The last element of a list can have a trailing comma, it's obligatory in one
+item tuples to distinguish from an expression in parenthesis::
 
-* (1,)
-* (1, 2,)
+    T2 = (1,)
+    T3 = (1, 2,)
 
 Atoms
 .....
 
-An atom is a literal, a constant with name, examples of atoms:
+An atom is a literal, a constant with name, examples of atoms::
 
-* ok
-* error
-* hi_there
+    A1 = ok
+    A2 = error
+    A3 = hi_there
 
-If you want to have spaces or symbols in an atom you can wrap it in "`":
+If you want to have spaces or symbols in an atom you can wrap it in "`"::
 
-* \`hello world!\`
-
-or use a tagged string:
-
-* #atom "hello world!"
+    A4 = \`hello world!\`
 
 Variables
 .........
@@ -274,23 +272,23 @@ Receiving arguments::
 
     Identity = fn case Val: Val end
 
-    AddTwo = fn case A, B: A + V end
+    AddTwo = fn case A, B: A + B end
 
 Multiple case clauses::
 
     Division = fn
-        case A, 0:
-            (error, division_by_zero)
-        case A, B:
-            A / B
+      case A, 0:
+        (error, division_by_zero)
+      case A, B:
+        A / B
     end
 
 Cases with else::
 
     MyXor = fn
-        case true, false: true
-        case false, true: true
-        else: false
+      case true, false: true
+      case false, true: true
+      else: false
     end
 
 Named Functions
@@ -303,8 +301,8 @@ The syntax is the same as an anonymous function but with a variable as it's name
 for example::
 
         F3 = fn Fact
-            case 0: 1
-            case N: N * Fact(N - 1)
+          case 0: 1
+          case N: N * Fact(N - 1)
         end
 
 Notice that the resulting function is stored in F3 and you must use that name
@@ -394,8 +392,8 @@ Threading function calls:
     end
 
     lists.seq(1, 10) ->>
-        lists.filter(IsOdd) ->
-        MyMap(Increment)
+      lists.filter(IsOdd) ->
+      MyMap(Increment)
 
 (I define MyMap to reverse the order of the arguments of lists.map so I can
 use -> in the example)
@@ -449,7 +447,7 @@ effect as the single quotes in erlang.
 The second case transforms a string of length 1 into a character type, it has
 the same effect as the dolar sign in erlang.
 
-a tagged expression works the same as a tagged value but applies to expressions,
+A tagged expression works the same as a tagged value but applies to expressions,
 the syntax is the same except that the ^ symbol is used instead of #::
 
     ^_ begin "this is ignored" end
@@ -685,22 +683,22 @@ Abstract Syntax
 Simple::
 
     when GuardSeq1:
-        Body1
+      Body1
     else:
-        ElseBody
+      ElseBody
     end
 
 Complete::
 
     when GuardSeq1:
-        Body1
+      Body1
     else GuardSeq2:
-        Body2
+      Body2
     ...
     else GuardSeqN:
-        BodyN
+      BodyN
     else:
-        ElseBody
+      ElseBody
     end
 
 Examples
@@ -709,21 +707,21 @@ Examples
 ::
 
     when true:
-        io.format("guard evaluated to true")
+      io.format("guard evaluated to true")
     else:
-        io.format("no guard evaluated to true")
+      io.format("no guard evaluated to true")
     end
 
 ::
 
     when A < 10:
-        io.format("A < 10")
+      io.format("A < 10")
     else A < 20:
-        io.format("A < 20 and >= 10")
+      io.format("A < 20 and >= 10")
     else A < 30:
-        io.format("A < 30 and >= 20")
+      io.format("A < 30 and >= 20")
     else:
-        io.format("A > 30")
+      io.format("A > 30")
     end
 
 Description
@@ -785,11 +783,11 @@ The guard is true if all guard expressions evaluate to true::
 example::
 
     when Cond1, Cond2; Cond3:
-        1
+      1
     else Cond4; Cond5, Cond6, Cond7:
-        2
+      2
     else:
-        3
+      3
     end
 
 Match
@@ -801,13 +799,13 @@ Abstract Syntax
 ::
 
     match Expr:
-        case Pattern1 [when GuardSeq1]:
-            Body1
-        ...
-        [case PatternN [when GuardSeqN]:
-            BodyN]
-        [else:
-            BodyElse]
+      case Pattern1 [when GuardSeq1]:
+        Body1
+      ...
+      [case PatternN [when GuardSeqN]:
+        BodyN]
+      [else:
+        BodyElse]
     end
 
 Examples
@@ -816,28 +814,28 @@ Examples
 Simple::
 
     match Result:
-        case ok, Value:
-            io.format("everything ok ~p~n", [Value])
-            do_something(Value)
-        case error, Reason:
-            io.format("error: ~p~n", [Reason])
-            fail(Reason)
+      case ok, Value:
+        io.format("everything ok ~p~n", [Value])
+        do_something(Value)
+      case error, Reason:
+        io.format("error: ~p~n", [Reason])
+        fail(Reason)
     end
 
 When and Else::
 
     match Result:
-        case ok, Value when is_integer(Value), Value < 10:
-            io.format("everything ok, value is < 10: ~p~n", [Value])
-            do_something(Value)
-        case ok, Value when is_atom(Value):
-            io.format("everything ok, value is atom~p~n", [Value])
-            do_something_atom(Value)
-        case error, Reason:
-            io.format("error: ~p~n", [Reason])
-            fail(Reason)
-        else:
-            io.format("Value doesn't match any case")
+      case ok, Value when is_integer(Value), Value < 10:
+        io.format("everything ok, value is < 10: ~p~n", [Value])
+        do_something(Value)
+      case ok, Value when is_atom(Value):
+        io.format("everything ok, value is atom~p~n", [Value])
+        do_something_atom(Value)
+      case error, Reason:
+        io.format("error: ~p~n", [Reason])
+        fail(Reason)
+      else:
+        io.format("Value doesn't match any case")
     end
 
 Description
@@ -863,7 +861,7 @@ Abstract Syntax
 ::
 
     for (<generator>;<filter>)+:
-        <body>
+      <body>
     end
 
 The for expression starts with the **for** reserved keywords followed with at
@@ -925,7 +923,7 @@ Abstract Syntax
 ::
 
     try
-        <body>
+      <body>
     [catch <case>+ [<else>]]
     [after <body>]
     end
@@ -976,7 +974,7 @@ Catch type and reason::
        try
          1/0
        catch
-           case error, badarith: ok
+         case error, badarith: ok
        end
 
 Catch and after::
@@ -984,7 +982,7 @@ Catch and after::
        try
          1/0
        catch
-           case error, badarith: ok
+         case error, badarith: ok
        after
          ok
        end
@@ -994,12 +992,12 @@ All possible catchs::
        try
          1/0
        catch
-            case throw, T1: T1
-            case Throw: Throw
-            case error, E1: E1
-            case exit, X1: X1
-            case A, C: C
-            else: iselse
+         case throw, T1: T1
+         case Throw: Throw
+         case error, E1: E1
+         case exit, X1: X1
+         case A, C: C
+         else: iselse
        end
 
 Receive/After
@@ -1011,15 +1009,15 @@ Abstract Syntax
 ::
 
     receive
-        case Pattern1 [when GuardSeq1]:
-            Body1
-        ...
-        [case PatternN [when GuardSeqN]:
-            BodyN]
-        [else:
-            BodyElse]
+      case Pattern1 [when GuardSeq1]:
+        Body1
+      ...
+      [case PatternN [when GuardSeqN]:
+        BodyN]
+      [else:
+        BodyElse]
     after ExprT:
-        BodyAfter
+      BodyAfter
     end
 
 Examples
@@ -1028,13 +1026,13 @@ Examples
 ::
 
        receive
-            case throw, T1: T1
-            case error, E1: E1
-            case exit, X1: X1
-            case A, C: C
-            else: iselse
+         case throw, T1: T1
+         case error, E1: E1
+         case exit, X1: X1
+         case A, C: C
+         else: iselse
        after 1000:
-            ok
+         ok
        end
 
 Description
@@ -1080,9 +1078,9 @@ Abstract Syntax
 ::
 
     begin
-        Expr1
-        ...
-        ExprN
+      Expr1
+      ...
+      ExprN
     end
 
 Examples
@@ -1091,8 +1089,8 @@ Examples
 ::
 
     Value = begin
-        io.format("returning 42")
-        42
+      io.format("returning 42")
+      42
     end
 
 Description
@@ -1162,9 +1160,8 @@ Simple with attributes::
     fn one @public case: 1 end
 
     fn two @public
-        @doc("returns the number two")
-        case:
-            2
+      @doc("returns the number two")
+      case: 2
     end
 
 Receiving arguments::
@@ -1176,18 +1173,18 @@ Receiving arguments::
 Multiple case clauses::
 
     fn division
-        case A, 0:
-            (error, division_by_zero)
-        case A, B:
-            A / B
+      case A, 0:
+        (error, division_by_zero)
+      case A, B:
+        A / B
     end
 
 Cases with else::
 
     fn my_xor_
-        case true, false: true
-        case false, true: true
-        else: false
+      case true, false: true
+      case false, true: true
+      else: false
     end
 
 Well Known Function Attributes

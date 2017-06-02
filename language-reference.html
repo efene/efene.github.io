@@ -353,23 +353,23 @@ pros and cons, we won&#8217;t cover them here.</p>
 <p>A List String is simply a list of characters represented as numbers, it&#8217;s
 actually not a data type on itself &#8220;hello&#8221; is shorthand for the list [104,101,108,108,111].</p>
 <p>List Strings are enclosed in double quotes (&#8221;), examples of List Strings:</p>
-<ul class="simple">
-<li>&#8220;&#8221;</li>
-<li>&#8220;a&#8221;</li>
-<li>&#8220;hi there&#8221;</li>
-<li>&#8220;this &#8220;is&#8221; also a string&#8221;</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+<span class="n">T3</span> <span class="o">=</span> <span class="n">hi</span> <span class="n">there</span><span class="s2">&quot;</span>
+<span class="n">T4</span> <span class="o">=</span> <span class="s2">&quot;this </span><span class="se">\&quot;</span><span class="s2">is</span><span class="se">\&quot;</span><span class="s2"> also a string&quot;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="binary-strings">
 <h4>Binary Strings<a class="headerlink" href="#binary-strings" title="Permalink to this headline">¶</a></h4>
 <p>A Binary String is a binary representation of text, Binary Strings are enclosed
 in single quotes (&#8216;), examples of Binary Strings:</p>
-<ul class="simple">
-<li>&#8216;&#8217;</li>
-<li>&#8216;a&#8217;</li>
-<li>&#8216;hi there&#8217;</li>
-<li>&#8216;this &#8216;is&#8217; also a string&#8217;</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">B1</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">B2</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+<span class="n">B3</span> <span class="o">=</span> <span class="s1">&#39;hi there&#39;</span>
+<span class="n">B4</span> <span class="o">=</span> <span class="s1">&#39;this </span><span class="se">\&#39;</span><span class="s1">is</span><span class="se">\&#39;</span><span class="s1"> also a string&#39;</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The Erlang atom syntax with single quotes is supported in efene with tagged
@@ -391,34 +391,34 @@ values and backticks, see below.</p>
 <p>A List is a variable sequence of elements, it&#8217;s represented by a comma separated sequence
 of other data types (including nested lists) enclosed in opening and closing
 square brackets ([ and  ]), examples of lists:</p>
-<ul class="simple">
-<li>[]</li>
-<li>[1]</li>
-<li>[1, 2]</li>
-<li>[[[]]]</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">L3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">L4</span> <span class="o">=</span> <span class="p">[[[]]]</span>
+</pre></div>
+</div>
 <p>the last element of a list can have a trailing comma:</p>
-<ul class="simple">
-<li>[1,]</li>
-<li>[1, 2,]</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,]</span>
+<span class="n">L3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="cons-lists">
 <h3><a class="toc-backref" href="#id23">Cons Lists</a><a class="headerlink" href="#cons-lists" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Cons">Cons List Type in Wikipedia</a></p>
 <p>You can create a list like [1,2,3] with an alternative syntax:</p>
-<ul class="simple">
-<li>1 :: 2 :: [3]</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="p">::</span> <span class="mi">2</span> <span class="p">::</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>It&#8217;s useful to extract the head and keep the tail:</p>
-<ul class="simple">
-<li>H :: T = [1,2,3]</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="p">::</span> <span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Now <em>H</em> is 1, and <em>T</em> is [2, 3]</p>
 <p>You can do the reverse and create a new list by &#8220;consing&#8221; a new head to an existing list:</p>
-<ul class="simple">
-<li>L = 1 :: [2, 3]</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">::</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Now <em>L</em> is [1,2,3]</p>
 </div>
 <div class="section" id="maps">
@@ -426,60 +426,56 @@ square brackets ([ and  ]), examples of lists:</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Associative_array">Map Data Type in Wikipedia</a></p>
 <p>A Map is a sequence of elements associating keys to values, it&#8217;s represented by a comma separated sequence of association pairs enclosed in opening and closing
 curly brackets ({ and }), examples of maps:</p>
-<ul class="simple">
-<li>{}</li>
-<li>{one: 1}</li>
-<li>{one: 1, 1: one}</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">M1</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">M2</span> <span class="o">=</span> <span class="p">{</span><span class="n">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">M3</span> <span class="o">=</span> <span class="p">{</span><span class="n">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="n">one</span><span class="p">}</span>
+</pre></div>
+</div>
 <p>The last element of a map can have a trailing comma:</p>
-<ul class="simple">
-<li>{one: 1,}</li>
-<li>{one: 1, 1: one,}</li>
-</ul>
-<p>You can extract fields from a map by using pattern match replacing : for =</p>
-<ul class="simple">
-<li>M = {one: 1, two: 2}</li>
-<li>{one = One, two = Two} = M</li>
-</ul>
-<p>You can update an existing map:</p>
-<ul class="simple">
-<li>M1 = M#{three: 3}</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">M2</span> <span class="o">=</span> <span class="p">{</span><span class="n">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,}</span>
+<span class="n">M3</span> <span class="o">=</span> <span class="p">{</span><span class="n">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="n">one</span><span class="p">,}</span>
+</pre></div>
+</div>
+<p>You can extract fields from a map by using pattern match replacing <em>:</em> for <em>=</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="p">{</span><span class="n">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">two</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">{</span><span class="n">one</span> <span class="o">=</span> <span class="n">One</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">Two</span><span class="p">}</span> <span class="o">=</span> <span class="n">M</span>
+</pre></div>
+</div>
+<p>You can update an existing map with the <em>merge</em> operator <em>#</em>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">M1</span> <span class="o">=</span> <span class="n">M</span><span class="c1">#{three: 3}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="tuples">
 <h3><a class="toc-backref" href="#id25">Tuples</a><a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
 <p>A Tuple is a fixed sequence of elements, it&#8217;s represented by a comma separated sequence
 of other data types (including nested tuples) enclosed in opening and closing
 parenthesis ( and ), examples of tuples:</p>
-<ul class="simple">
-<li>()</li>
-<li>(1,)</li>
-<li>(1, 2)</li>
-<li>(((),),)</li>
-</ul>
-<p>the last element of a list can have a trailing comma, it&#8217;s obligatory in one
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="p">()</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<span class="n">T3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">T4</span> <span class="o">=</span> <span class="p">(((),),)</span>
+</pre></div>
+</div>
+<p>The last element of a list can have a trailing comma, it&#8217;s obligatory in one
 item tuples to distinguish from an expression in parenthesis:</p>
-<ul class="simple">
-<li>(1,)</li>
-<li>(1, 2,)</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">T2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<span class="n">T3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="atoms">
 <h3><a class="toc-backref" href="#id26">Atoms</a><a class="headerlink" href="#atoms" title="Permalink to this headline">¶</a></h3>
 <p>An atom is a literal, a constant with name, examples of atoms:</p>
-<ul class="simple">
-<li>ok</li>
-<li>error</li>
-<li>hi_there</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="n">ok</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="n">error</span>
+<span class="n">A3</span> <span class="o">=</span> <span class="n">hi_there</span>
+</pre></div>
+</div>
 <p>If you want to have spaces or symbols in an atom you can wrap it in &#8220;`&#8221;:</p>
-<ul class="simple">
-<li>`hello world!`</li>
-</ul>
-<p>or use a tagged string:</p>
-<ul class="simple">
-<li>#atom &#8220;hello world!&#8221;</li>
-</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span>A4 = \`hello world!\`
+</pre></div>
+</div>
 </div>
 <div class="section" id="variables">
 <h3><a class="toc-backref" href="#id27">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
@@ -541,23 +537,23 @@ syntax is:</p>
 <p>Receiving arguments:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Identity</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">Val</span><span class="p">:</span> <span class="n">Val</span> <span class="n">end</span>
 
-<span class="n">AddTwo</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">A</span> <span class="o">+</span> <span class="n">V</span> <span class="n">end</span>
+<span class="n">AddTwo</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>Multiple case clauses:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Division</span> <span class="o">=</span> <span class="n">fn</span>
-    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">division_by_zero</span><span class="p">)</span>
-    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span>
-        <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">division_by_zero</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span>
+    <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
 <span class="n">end</span>
 </pre></div>
 </div>
 <p>Cases with else:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MyXor</span> <span class="o">=</span> <span class="n">fn</span>
-    <span class="n">case</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">:</span> <span class="n">true</span>
-    <span class="n">case</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">:</span> <span class="n">true</span>
-    <span class="k">else</span><span class="p">:</span> <span class="n">false</span>
+  <span class="n">case</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">case</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">:</span> <span class="n">true</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">false</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -569,8 +565,8 @@ would do with a toplevel function.</p>
 <p>The syntax is the same as an anonymous function but with a variable as it&#8217;s name,
 for example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F3</span> <span class="o">=</span> <span class="n">fn</span> <span class="n">Fact</span>
-    <span class="n">case</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">1</span>
-    <span class="n">case</span> <span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="o">*</span> <span class="n">Fact</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">case</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="n">case</span> <span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="o">*</span> <span class="n">Fact</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -651,8 +647,8 @@ just giving the name and passing the parameters.</p>
 <span class="n">end</span>
 
 <span class="n">lists</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;&gt;</span>
-    <span class="n">lists</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">IsOdd</span><span class="p">)</span> <span class="o">-&gt;</span>
-    <span class="n">MyMap</span><span class="p">(</span><span class="n">Increment</span><span class="p">)</span>
+  <span class="n">lists</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">IsOdd</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="n">MyMap</span><span class="p">(</span><span class="n">Increment</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(I define MyMap to reverse the order of the arguments of lists.map so I can
@@ -699,7 +695,7 @@ sequence of atoms or variables joined with dots, examples of tagged values:</p>
 effect as the single quotes in erlang.</p>
 <p>The second case transforms a string of length 1 into a character type, it has
 the same effect as the dolar sign in erlang.</p>
-<p>a tagged expression works the same as a tagged value but applies to expressions,
+<p>A tagged expression works the same as a tagged value but applies to expressions,
 the syntax is the same except that the ^ symbol is used instead of #:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">^</span><span class="n">_</span> <span class="n">begin</span> <span class="s2">&quot;this is ignored&quot;</span> <span class="n">end</span>
 </pre></div>
@@ -1060,22 +1056,22 @@ that it will be very slow if both A and B are long lists.</p>
 <h4>Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permalink to this headline">¶</a></h4>
 <p>Simple:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">:</span>
-    <span class="n">Body1</span>
+  <span class="n">Body1</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">ElseBody</span>
+  <span class="n">ElseBody</span>
 <span class="n">end</span>
 </pre></div>
 </div>
 <p>Complete:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">:</span>
-    <span class="n">Body1</span>
+  <span class="n">Body1</span>
 <span class="k">else</span> <span class="n">GuardSeq2</span><span class="p">:</span>
-    <span class="n">Body2</span>
+  <span class="n">Body2</span>
 <span class="o">...</span>
 <span class="k">else</span> <span class="n">GuardSeqN</span><span class="p">:</span>
-    <span class="n">BodyN</span>
+  <span class="n">BodyN</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">ElseBody</span>
+  <span class="n">ElseBody</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1083,20 +1079,20 @@ that it will be very slow if both A and B are long lists.</p>
 <div class="section" id="examples">
 <h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">true</span><span class="p">:</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;guard evaluated to true&quot;</span><span class="p">)</span>
+  <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;guard evaluated to true&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;no guard evaluated to true&quot;</span><span class="p">)</span>
+  <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;no guard evaluated to true&quot;</span><span class="p">)</span>
 <span class="n">end</span>
 </pre></div>
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 10&quot;</span><span class="p">)</span>
+  <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 10&quot;</span><span class="p">)</span>
 <span class="k">else</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 20 and &gt;= 10&quot;</span><span class="p">)</span>
+  <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 20 and &gt;= 10&quot;</span><span class="p">)</span>
 <span class="k">else</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 30 and &gt;= 20&quot;</span><span class="p">)</span>
+  <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &lt; 30 and &gt;= 20&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &gt; 30&quot;</span><span class="p">)</span>
+  <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;A &gt; 30&quot;</span><span class="p">)</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1165,11 +1161,11 @@ The guard is true if all guard expressions evaluate to true:</p>
 </div>
 <p>example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="n">Cond1</span><span class="p">,</span> <span class="n">Cond2</span><span class="p">;</span> <span class="n">Cond3</span><span class="p">:</span>
-    <span class="mi">1</span>
+  <span class="mi">1</span>
 <span class="k">else</span> <span class="n">Cond4</span><span class="p">;</span> <span class="n">Cond5</span><span class="p">,</span> <span class="n">Cond6</span><span class="p">,</span> <span class="n">Cond7</span><span class="p">:</span>
-    <span class="mi">2</span>
+  <span class="mi">2</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="mi">3</span>
+  <span class="mi">3</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1180,13 +1176,13 @@ The guard is true if all guard expressions evaluate to true:</p>
 <div class="section" id="id3">
 <h4>Abstract Syntax<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">match</span> <span class="n">Expr</span><span class="p">:</span>
-    <span class="n">case</span> <span class="n">Pattern1</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">]:</span>
-        <span class="n">Body1</span>
-    <span class="o">...</span>
-    <span class="p">[</span><span class="n">case</span> <span class="n">PatternN</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeqN</span><span class="p">]:</span>
-        <span class="n">BodyN</span><span class="p">]</span>
-    <span class="p">[</span><span class="k">else</span><span class="p">:</span>
-        <span class="n">BodyElse</span><span class="p">]</span>
+  <span class="n">case</span> <span class="n">Pattern1</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">]:</span>
+    <span class="n">Body1</span>
+  <span class="o">...</span>
+  <span class="p">[</span><span class="n">case</span> <span class="n">PatternN</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeqN</span><span class="p">]:</span>
+    <span class="n">BodyN</span><span class="p">]</span>
+  <span class="p">[</span><span class="k">else</span><span class="p">:</span>
+    <span class="n">BodyElse</span><span class="p">]</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1195,28 +1191,28 @@ The guard is true if all guard expressions evaluate to true:</p>
 <h4>Examples<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <p>Simple:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">match</span> <span class="n">Result</span><span class="p">:</span>
-    <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span><span class="p">:</span>
-        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
-        <span class="n">do_something</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
-    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">Reason</span><span class="p">:</span>
-        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;error: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Reason</span><span class="p">])</span>
-        <span class="n">fail</span><span class="p">(</span><span class="n">Reason</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
+    <span class="n">do_something</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">Reason</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;error: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Reason</span><span class="p">])</span>
+    <span class="n">fail</span><span class="p">(</span><span class="n">Reason</span><span class="p">)</span>
 <span class="n">end</span>
 </pre></div>
 </div>
 <p>When and Else:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">match</span> <span class="n">Result</span><span class="p">:</span>
-    <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">Value</span><span class="p">),</span> <span class="n">Value</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok, value is &lt; 10: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
-        <span class="n">do_something</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
-    <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span> <span class="n">when</span> <span class="n">is_atom</span><span class="p">(</span><span class="n">Value</span><span class="p">):</span>
-        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok, value is atom~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
-        <span class="n">do_something_atom</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
-    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">Reason</span><span class="p">:</span>
-        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;error: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Reason</span><span class="p">])</span>
-        <span class="n">fail</span><span class="p">(</span><span class="n">Reason</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Value doesn&#39;t match any case&quot;</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span> <span class="n">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">Value</span><span class="p">),</span> <span class="n">Value</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok, value is &lt; 10: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
+    <span class="n">do_something</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Value</span> <span class="n">when</span> <span class="n">is_atom</span><span class="p">(</span><span class="n">Value</span><span class="p">):</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;everything ok, value is atom~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Value</span><span class="p">])</span>
+    <span class="n">do_something_atom</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">Reason</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;error: ~p~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Reason</span><span class="p">])</span>
+    <span class="n">fail</span><span class="p">(</span><span class="n">Reason</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Value doesn&#39;t match any case&quot;</span><span class="p">)</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1237,7 +1233,7 @@ run-time error will occur.</p>
 <div class="section" id="id6">
 <h4>Abstract Syntax<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">generator</span><span class="o">&gt;</span><span class="p">;</span><span class="o">&lt;</span><span class="nb">filter</span><span class="o">&gt;</span><span class="p">)</span><span class="o">+</span><span class="p">:</span>
-    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1293,7 +1289,7 @@ a filter returns false then the body wont be generated for that value.</p>
 <div class="section" id="id8">
 <h4>Abstract Syntax<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
-    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 <span class="p">[</span><span class="n">catch</span> <span class="o">&lt;</span><span class="n">case</span><span class="o">&gt;+</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">else</span><span class="o">&gt;</span><span class="p">]]</span>
 <span class="p">[</span><span class="n">after</span> <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="p">]</span>
 <span class="n">end</span>
@@ -1339,7 +1335,7 @@ be used to get the details of the exception.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
   <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 <span class="n">catch</span>
-    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1347,7 +1343,7 @@ be used to get the details of the exception.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
   <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 <span class="n">catch</span>
-    <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">badarith</span><span class="p">:</span> <span class="n">ok</span>
 <span class="n">after</span>
   <span class="n">ok</span>
 <span class="n">end</span>
@@ -1357,12 +1353,12 @@ be used to get the details of the exception.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span>
   <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 <span class="n">catch</span>
-     <span class="n">case</span> <span class="n">throw</span><span class="p">,</span> <span class="n">T1</span><span class="p">:</span> <span class="n">T1</span>
-     <span class="n">case</span> <span class="n">Throw</span><span class="p">:</span> <span class="n">Throw</span>
-     <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">E1</span><span class="p">:</span> <span class="n">E1</span>
-     <span class="n">case</span> <span class="n">exit</span><span class="p">,</span> <span class="n">X1</span><span class="p">:</span> <span class="n">X1</span>
-     <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">C</span>
-     <span class="k">else</span><span class="p">:</span> <span class="n">iselse</span>
+  <span class="n">case</span> <span class="n">throw</span><span class="p">,</span> <span class="n">T1</span><span class="p">:</span> <span class="n">T1</span>
+  <span class="n">case</span> <span class="n">Throw</span><span class="p">:</span> <span class="n">Throw</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">E1</span><span class="p">:</span> <span class="n">E1</span>
+  <span class="n">case</span> <span class="n">exit</span><span class="p">,</span> <span class="n">X1</span><span class="p">:</span> <span class="n">X1</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">C</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">iselse</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1373,15 +1369,15 @@ be used to get the details of the exception.</p>
 <div class="section" id="id10">
 <h4>Abstract Syntax<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">receive</span>
-    <span class="n">case</span> <span class="n">Pattern1</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">]:</span>
-        <span class="n">Body1</span>
-    <span class="o">...</span>
-    <span class="p">[</span><span class="n">case</span> <span class="n">PatternN</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeqN</span><span class="p">]:</span>
-        <span class="n">BodyN</span><span class="p">]</span>
-    <span class="p">[</span><span class="k">else</span><span class="p">:</span>
-        <span class="n">BodyElse</span><span class="p">]</span>
+  <span class="n">case</span> <span class="n">Pattern1</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeq1</span><span class="p">]:</span>
+    <span class="n">Body1</span>
+  <span class="o">...</span>
+  <span class="p">[</span><span class="n">case</span> <span class="n">PatternN</span> <span class="p">[</span><span class="n">when</span> <span class="n">GuardSeqN</span><span class="p">]:</span>
+    <span class="n">BodyN</span><span class="p">]</span>
+  <span class="p">[</span><span class="k">else</span><span class="p">:</span>
+    <span class="n">BodyElse</span><span class="p">]</span>
 <span class="n">after</span> <span class="n">ExprT</span><span class="p">:</span>
-    <span class="n">BodyAfter</span>
+  <span class="n">BodyAfter</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1389,13 +1385,13 @@ be used to get the details of the exception.</p>
 <div class="section" id="id11">
 <h4>Examples<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">receive</span>
-     <span class="n">case</span> <span class="n">throw</span><span class="p">,</span> <span class="n">T1</span><span class="p">:</span> <span class="n">T1</span>
-     <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">E1</span><span class="p">:</span> <span class="n">E1</span>
-     <span class="n">case</span> <span class="n">exit</span><span class="p">,</span> <span class="n">X1</span><span class="p">:</span> <span class="n">X1</span>
-     <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">C</span>
-     <span class="k">else</span><span class="p">:</span> <span class="n">iselse</span>
+  <span class="n">case</span> <span class="n">throw</span><span class="p">,</span> <span class="n">T1</span><span class="p">:</span> <span class="n">T1</span>
+  <span class="n">case</span> <span class="n">error</span><span class="p">,</span> <span class="n">E1</span><span class="p">:</span> <span class="n">E1</span>
+  <span class="n">case</span> <span class="n">exit</span><span class="p">,</span> <span class="n">X1</span><span class="p">:</span> <span class="n">X1</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">C</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">iselse</span>
 <span class="n">after</span> <span class="mi">1000</span><span class="p">:</span>
-     <span class="n">ok</span>
+  <span class="n">ok</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1433,9 +1429,9 @@ receive..after expression.</p>
 <div class="section" id="id13">
 <h4>Abstract Syntax<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">begin</span>
-    <span class="n">Expr1</span>
-    <span class="o">...</span>
-    <span class="n">ExprN</span>
+  <span class="n">Expr1</span>
+  <span class="o">...</span>
+  <span class="n">ExprN</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1443,8 +1439,8 @@ receive..after expression.</p>
 <div class="section" id="id14">
 <h4>Examples<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Value</span> <span class="o">=</span> <span class="n">begin</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;returning 42&quot;</span><span class="p">)</span>
-    <span class="mi">42</span>
+  <span class="n">io</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;returning 42&quot;</span><span class="p">)</span>
+  <span class="mi">42</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1509,9 +1505,8 @@ the <strong>end</strong> keyword.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">one</span> <span class="nd">@public</span> <span class="n">case</span><span class="p">:</span> <span class="mi">1</span> <span class="n">end</span>
 
 <span class="n">fn</span> <span class="n">two</span> <span class="nd">@public</span>
-    <span class="nd">@doc</span><span class="p">(</span><span class="s2">&quot;returns the number two&quot;</span><span class="p">)</span>
-    <span class="n">case</span><span class="p">:</span>
-        <span class="mi">2</span>
+  <span class="nd">@doc</span><span class="p">(</span><span class="s2">&quot;returns the number two&quot;</span><span class="p">)</span>
+  <span class="n">case</span><span class="p">:</span> <span class="mi">2</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1523,18 +1518,18 @@ the <strong>end</strong> keyword.</p>
 </div>
 <p>Multiple case clauses:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">division</span>
-    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">division_by_zero</span><span class="p">)</span>
-    <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span>
-        <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">division_by_zero</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span>
+    <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
 <span class="n">end</span>
 </pre></div>
 </div>
 <p>Cases with else:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="n">my_xor_</span>
-    <span class="n">case</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">:</span> <span class="n">true</span>
-    <span class="n">case</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">:</span> <span class="n">true</span>
-    <span class="k">else</span><span class="p">:</span> <span class="n">false</span>
+  <span class="n">case</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">case</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">:</span> <span class="n">true</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">false</span>
 <span class="n">end</span>
 </pre></div>
 </div>
