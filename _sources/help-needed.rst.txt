@@ -30,9 +30,9 @@ Wants to Play with Efene
 No Erlang Knowledge Required
 ----------------------------
 
-* `LightTable <http://lighttable.com/>`_ syntax highlighting support
+* `Visual Studio <https://code.visualstudio.com/>`_ syntax highlighting support
 
-  + `Issue 8 <https://github.com/efene/community/issues/8>`_
+  + `Issue 10 <https://github.com/efene/community/issues/10>`_
 
 * Vim syntax highlighting support
 
